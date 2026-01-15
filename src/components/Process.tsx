@@ -25,7 +25,7 @@ const steps = [
 
 const Process = () => {
     return (
-        <section className="py-24 md:py-32 bg-black relative border-t border-white/5 overflow-hidden">
+        <section className="py-20 md:py-32 bg-black relative border-t border-white/5 overflow-hidden">
             {/* Centered Vertical Line (Desktop only) */}
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent -translate-x-1/2 hidden md:block" />
 

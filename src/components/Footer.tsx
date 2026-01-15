@@ -29,7 +29,7 @@ const Footer = () => {
     };
 
     return (
-        <footer id="contact" className="py-24 md:py-32 bg-black border-t border-white/5">
+        <footer id="contact" className="py-20 md:py-32 bg-black border-t border-white/5">
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
                 {/* Contact Info */}
                 <div>

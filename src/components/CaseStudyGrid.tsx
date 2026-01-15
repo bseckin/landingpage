@@ -68,7 +68,7 @@ export default function CaseStudyGrid() {
     const canScrollNext = currentIndex < studies.length - itemsPerPage;
 
     return (
-        <section id="case-studies" className="py-24 md:py-32 bg-black border-b border-white/5 overflow-hidden">
+        <section id="case-studies" className="py-20 md:py-32 bg-black border-b border-white/5 overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">Erfolgsgeschichten</h2>

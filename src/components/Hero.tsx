@@ -18,7 +18,7 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm text-xs font-semibold text-primary mb-12 tracking-wide font-sans"
+                    className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm text-xs font-semibold text-primary mb-8 md:mb-12 tracking-wide font-sans"
                 >
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,255,163,0.8)]" />
                     VERFÜGBAR FÜR NEUE PROJEKTE
@@ -38,7 +38,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 font-sans font-light leading-relaxed"
+                    className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-8 md:mb-12 font-sans font-light leading-relaxed"
                 >
                     Während Sie schlafen, arbeiten meine Systeme. <br className="hidden md:block" />
                     Skalierbarkeit ohne Kopfschmerzen.
