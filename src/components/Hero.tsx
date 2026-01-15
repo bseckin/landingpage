@@ -50,11 +50,11 @@ const Hero = () => {
                     transition={{ delay: 0.3 }}
                     className="flex flex-col md:flex-row items-center justify-center gap-6"
                 >
-                    <button className="w-full md:w-auto px-8 py-4 bg-primary text-black font-bold text-lg hover:bg-primary/90 transition-all duration-200 rounded-full font-sans shadow-[0_0_20px_rgba(0,255,163,0.3)] hover:shadow-[0_0_30px_rgba(0,255,163,0.5)] transform hover:scale-105">
+                    <a href="#contact" className="w-full md:w-auto px-8 py-4 bg-primary text-black font-bold text-lg hover:bg-primary/90 transition-all duration-200 rounded-full font-sans shadow-[0_0_20px_rgba(0,255,163,0.3)] hover:shadow-[0_0_30px_rgba(0,255,163,0.5)] transform hover:scale-105 text-center flex items-center justify-center gap-3">
                         <span className="flex items-center justify-center gap-3">
                             Kostenloses Potenzial-Gespräch <ArrowRight className="w-5 h-5" />
                         </span>
-                    </button>
+                    </a>
 
                     <a href="#case-studies" className="w-full md:w-auto px-8 py-4 text-text-secondary hover:text-white transition-all font-sans font-medium text-sm tracking-wide border-b border-transparent hover:border-white/20 text-center">
                         Fallstudien ansehen

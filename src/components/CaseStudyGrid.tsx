@@ -84,6 +84,7 @@ export default function CaseStudyGrid() {
                             <button
                                 onClick={prevSlide}
                                 disabled={!canScrollPrev}
+                                aria-label="Vorherige Fallstudie"
                                 className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 p-3 rounded-full bg-surface border border-white/10 text-white transition-all ${!canScrollPrev ? 'opacity-0 pointer-events-none' : 'hover:bg-white/10'}`}
                             >
                                 <ChevronLeft className="w-6 h-6" />
@@ -91,6 +92,7 @@ export default function CaseStudyGrid() {
                             <button
                                 onClick={nextSlide}
                                 disabled={!canScrollNext}
+                                aria-label="Nächste Fallstudie"
                                 className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 p-3 rounded-full bg-surface border border-white/10 text-white transition-all ${!canScrollNext ? 'opacity-0 pointer-events-none' : 'hover:bg-white/10'}`}
                             >
                                 <ChevronRight className="w-6 h-6" />

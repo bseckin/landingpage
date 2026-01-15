@@ -29,7 +29,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="py-24 md:py-32 bg-black border-t border-white/5">
+        <footer id="contact" className="py-24 md:py-32 bg-black border-t border-white/5">
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
                 {/* Contact Info */}
                 <div>
@@ -65,8 +65,9 @@ const Footer = () => {
                     ) : (
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <label className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihr Name</label>
+                                <label htmlFor="name" className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihr Name</label>
                                 <input
+                                    id="name"
                                     type="text"
                                     required
                                     value={formData.name}
@@ -75,8 +76,9 @@ const Footer = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihre Email</label>
+                                <label htmlFor="email" className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihre Email</label>
                                 <input
+                                    id="email"
                                     type="email"
                                     required
                                     value={formData.email}
@@ -85,8 +87,9 @@ const Footer = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihre Nachricht</label>
+                                <label htmlFor="message" className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihre Nachricht</label>
                                 <textarea
+                                    id="message"
                                     required
                                     rows={4}
                                     value={formData.message}
