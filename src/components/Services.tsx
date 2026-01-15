@@ -1,7 +1,11 @@
 import { useLanguage } from '../context/LanguageContext';
+import { Link, Bot, ShieldCheck, type LucideIcon } from 'lucide-react';
 
 const Services = () => {
     const { t } = useLanguage();
+
+    const icons = [Link, Bot, ShieldCheck];
+
     return (
         <section className="py-20 md:py-32 bg-[#080808] relative border-t border-white/5">
             <div className="container mx-auto px-6">
@@ -21,6 +25,7 @@ const Services = () => {
                             tag={card.tag}
                             title={card.title}
                             desc={card.desc}
+                            Icon={icons[index]}
                         />
                     ))}
                 </div>
@@ -29,13 +34,20 @@ const Services = () => {
     );
 };
 
-const ServiceCard = ({ tag, title, desc }: { tag: string, title: string, desc: string }) => (
-    <div className="group p-8 md:p-10 bg-surface/20 border border-white/5 hover:border-primary/30 hover:bg-surface/30 transition-all duration-300 rounded-2xl">
-        <div className="text-xs font-bold font-sans text-secondary/80 mb-8 block tracking-wider">{tag}</div>
-        <h3 className="text-2xl font-bold text-white mb-4 font-sans">{title}</h3>
-        <p className="text-text-secondary leading-relaxed font-sans text-base">
-            {desc}
-        </p>
+const ServiceCard = ({ tag, title, desc, Icon }: { tag: string, title: string, desc: string, Icon: LucideIcon }) => (
+    <div className="group relative p-10 md:p-12 bg-surface/30 border border-white/5 hover:border-primary/30 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(0,255,163,0.1)]">
+        <div className="relative z-10 flex flex-col items-center text-center">
+            {/* Icon - Anchor of Stability (Top Center) */}
+            <div className="mb-6 p-4 bg-white/5 rounded-full text-primary/20 group-hover:text-primary transition-colors duration-500">
+                <Icon className="w-8 h-8" strokeWidth={1.5} />
+            </div>
+
+            <div className="text-xs font-bold font-sans text-secondary/80 mb-4 block tracking-wider">{tag}</div>
+            <h3 className="text-2xl font-bold text-white mb-4 font-sans">{title}</h3>
+            <p className="text-text-secondary leading-relaxed font-sans text-base max-w-sm mx-auto">
+                {desc}
+            </p>
+        </div>
     </div>
 );
 
