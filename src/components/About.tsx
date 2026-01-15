@@ -6,7 +6,7 @@ const About = () => {
                 <div className="order-2 lg:order-1">
                     <div className="flex items-center gap-4 mb-8">
                         <span className="text-primary text-5xl font-mono font-light">{'//'}</span>
-                        <h2 className="text-3xl md:text-4xl font-mono font-bold text-primary tracking-widest uppercase">WHO_AM_I</h2>
+                        <h2 className="text-3xl md:text-5xl font-mono font-bold text-primary tracking-widest uppercase">WHO_AM_I</h2>
                     </div>
 
                     <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-sans mb-12 max-w-lg">
