@@ -124,7 +124,15 @@ export default function CaseStudyGrid() {
                                             {/* Image */}
                                             <div className="h-48 overflow-hidden shrink-0 relative">
                                                 {study.image ? (
-                                                    <img src={study.image} alt={study.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                                    <img
+                                                        src={study.image}
+                                                        alt={study.title}
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                        width="400"
+                                                        height="300"
+                                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                    />
                                                 ) : (
                                                     <div className="w-full h-full bg-white/5 flex items-center justify-center text-gray-600">Kein Bild</div>
                                                 )}
