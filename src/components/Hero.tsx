@@ -30,8 +30,8 @@ const Hero = () => {
                     transition={{ delay: 0.1 }}
                     className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8 font-sans text-white"
                 >
-                    Ihr Business auf Autopilot.<br />
-                    <span className="text-secondary">Endlich wieder Zeit für das Wesentliche.</span>
+                    Ein System, das Sie<br />
+                    <span className="text-secondary">nicht ständig braucht.</span>
                 </motion.h1>
 
                 <motion.p
@@ -40,8 +40,8 @@ const Hero = () => {
                     transition={{ delay: 0.2 }}
                     className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-8 md:mb-12 font-sans font-light leading-relaxed"
                 >
-                    Während Sie schlafen, arbeiten meine Systeme. <br className="hidden md:block" />
-                    Skalierbarkeit ohne Kopfschmerzen.
+                    Ich befreie Ihr Unternehmen von manueller Arbeit. <br className="hidden md:block" />
+                    Für stabile Abläufe, weniger Fehler und echtes Wachstum.
                 </motion.p>
 
                 <motion.div
@@ -52,7 +52,7 @@ const Hero = () => {
                 >
                     <a href="#contact" className="w-full md:w-auto px-8 py-4 bg-primary text-black font-bold text-lg hover:bg-primary/90 transition-all duration-200 rounded-full font-sans shadow-[0_0_20px_rgba(0,255,163,0.3)] hover:shadow-[0_0_30px_rgba(0,255,163,0.5)] transform hover:scale-105 text-center flex items-center justify-center gap-3">
                         <span className="flex items-center justify-center gap-3">
-                            Kostenloses Potenzial-Gespräch <ArrowRight className="w-5 h-5" />
+                            Potenzial-Gespräch vereinbaren <ArrowRight className="w-5 h-5" />
                         </span>
                     </a>
 

@@ -10,7 +10,7 @@ const About = () => {
                     </div>
 
                     <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-sans mb-12 max-w-lg">
-                        I am a Solo-Founder & Automation Architect based in Chiang Mai. I don't just write code; I build the "Fundament" for businesses to scale without breaking.
+                        Die Brücke zwischen Betriebswirtschaft und IT. Ich verstehe nicht nur Code, sondern Ihre Zahlen. Ich baue keine technischen Spielereien, sondern nützliche Lösungen für Ihr Wachstum.
                     </p>
 
                     <div className="flex flex-wrap gap-4">

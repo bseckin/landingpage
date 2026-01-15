@@ -3,23 +3,23 @@ import { Search, FileJson, Hammer, Rocket } from 'lucide-react';
 const steps = [
     {
         icon: Search,
-        title: 'Klarheit schaffen',
-        desc: 'Wir analysieren Ihr Business und identifizieren die Hebel mit dem größten ROI.',
+        title: 'Die Analyse',
+        desc: 'Wir finden heraus, wo Sie Zeit und Geld verlieren. Schwarz auf weiß sehen Sie, was Sie Ihre aktuellen Abläufe kosten.',
     },
     {
         icon: FileJson,
-        title: 'Maßarbeit',
-        desc: 'Ich entwickle eine Strategie, die genau auf Ihre Ziele einzahlt. Kein "Schema F".',
+        title: 'Der Bauplan',
+        desc: 'Ein technisches Konzept statt theoretischer Beratung. Dieser Plan gehört Ihnen, unabhängig von der Umsetzung.',
     },
     {
         icon: Hammer,
-        title: 'Umsetzung',
-        desc: 'Ich baue die Systeme, während Sie sich um Ihr Geschäft kümmern.',
+        title: 'Die Umsetzung',
+        desc: 'Ich baue stabile Lösungen, die ab Tag 1 funktionieren. Keine Experimente, sondern bewährte Standards.',
     },
     {
         icon: Rocket,
-        title: 'Die Befreiung',
-        desc: 'Ihr Business läuft auf Autopilot. Sie gewinnen 10-20 Stunden pro Woche zurück.',
+        title: 'Sichere Übergabe',
+        desc: 'Sie erhalten alle Zugänge. Ihr Business läuft automatisch – und Sie behalten die volle Kontrolle.',
     },
 ];
 
@@ -32,10 +32,10 @@ const Process = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-24">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans tracking-tight">
-                        Der Weg zur Freiheit
+                        Vom Chaos zum System
                     </h2>
                     <p className="text-text-secondary max-w-xl mx-auto font-sans text-lg">
-                        Von der Analyse bis zum Autopiloten in vier Schritten.
+                        Von der Analyse bis zur digitalen Freiheit in vier Schritten.
                     </p>
                 </div>
 

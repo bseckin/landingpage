@@ -4,28 +4,28 @@ const Services = () => {
             <div className="container mx-auto px-6">
                 <div className="mb-16 md:mb-24 text-center md:text-left">
                     <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 font-sans">
-                        Ihre Unsichtbare Armee
+                        Ergebnisse vor Technik
                     </h2>
                     <p className="text-text-secondary max-w-xl font-sans text-lg leading-relaxed">
-                        Ich verkaufe Ihnen keine Software. Ich installiere Systeme, die Ihnen den Rücken freihalten.
+                        Unternehmen sollen besser arbeiten, bevor sie schneller arbeiten. Ich installiere Systeme, die Ihnen den Rücken freihalten.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                     <ServiceCard
                         tag="VERNETZUNG"
-                        title="Intelligente Systeme"
-                        desc="Tools, die miteinander sprechen, statt aneinander vorbei. Daten fließen automatisch dorthin, wo sie gebraucht werden."
+                        title="Nahtlose Verbindung"
+                        desc="Ihre Software-Tools arbeiten zusammen statt gegeneinander. Daten landen automatisch dort, wo sie gebraucht werden."
                     />
                     <ServiceCard
                         tag="24/7 BETRIEB"
-                        title="Ihr Digitaler Mitarbeiter"
-                        desc="KI-Agenten, die wie Ihr bester Mitarbeiter denken – nur rund um die Uhr. Support, Analyse und Reporting auf Autopilot."
+                        title="Digitale Assistenten"
+                        desc="Intelligente Systeme, die Support und Verwaltung übernehmen. Zuverlässig, fehlerfrei und rund um die Uhr."
                     />
                     <ServiceCard
-                        tag="SICHERHEIT"
-                        title="Sorgenfreier Betrieb"
-                        desc="Ich kümmere mich um die Technik. Sie kümmern sich um den Umsatz. Proaktives Monitoring verhindert Probleme, bevor sie entstehen."
+                        tag="EIGENTUM"
+                        title="Volle Kontrolle"
+                        desc="Sie erhalten keine Black-Box, sondern besitzen die Technik selbst. Alle Zugänge und Rechte liegen zu 100% bei Ihnen."
                     />
                 </div>
             </div>

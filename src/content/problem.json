@@ -1,21 +1,21 @@
 {
-    "headline": "Fühlt sich Ihr Wachstum anstrengend an?",
-    "description": "Wenn Erfolg mehr Arbeit statt mehr Freiheit bedeutet, stimmt etwas im System nicht.",
+    "headline": "Es funktioniert. Aber nur, solange Sie zusehen.",
+    "description": "Ihr Geschäft läuft, aber es hängt zu sehr von Ihrer persönlichen Anwesenheit ab. Wachstum fühlt sich deshalb stressig an.",
     "cards": [
         {
-            "tag": "DAS HAMSTERRAD",
+            "tag": "DER FLASCHENHALS",
             "title": "Gefangen im Tagesgeschäft",
-            "description": "Sie arbeiten im Unternehmen statt am Unternehmen. Copy-Paste Aufgaben töten Ihre Kreativität."
+            "description": "Sie arbeiten im System statt am System. Wiederkehrende Aufgaben fressen Ihre Zeit und blockieren wichtigere Dinge."
         },
         {
             "tag": "RISIKO",
-            "title": "Die stille Angst vor Fehlern",
-            "description": "Ein vergessenes Lead, eine falsche Rechnung. Menschliche Fehler kosten nicht nur Geld, sondern Ihren Ruf."
+            "title": "Die stille Selbstsabotage",
+            "description": "Eine vergessene Anfrage, eine falsche Rechnung. Jeder manuelle Schritt ist eine Fehlerquelle, die Ihren Ruf gefährdet."
         },
         {
             "tag": "WACHSTUMSSCHMERZEN",
             "title": "Die gläserne Decke",
-            "description": "Mehr Kunden bedeuten aktuell nur eins: Mehr Stress. Ihr Business skaliert nicht, Ihr Stresspegel schon."
+            "description": "Mehr Kunden bedeuten aktuell nur eins: Mehr Chaos. Ihr Business wächst, aber Ihr Stresspegel wächst schneller."
         }
     ]
 }
