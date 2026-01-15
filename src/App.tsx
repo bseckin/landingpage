@@ -12,27 +12,23 @@ import { LanguageProvider } from './context/LanguageContext';
 import LanguageToggle from './components/LanguageToggle';
 
 
-function LandingPage() {
-  return (
-    <div className="min-h-screen bg-black text-white selection:bg-primary selection:text-black">
-      <Hero />
-      <ProblemGrid />
-      <Services />
-      <CaseStudyGrid />
-      <About />
-      <Process />
-      <Footer />
-    </div>
-  );
-}
-
 function App() {
   return (
     <LanguageProvider>
-      <LanguageToggle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={
+            <div className="min-h-screen bg-black text-white selection:bg-primary selection:text-black">
+              <LanguageToggle />
+              <Hero />
+              <ProblemGrid />
+              <Services />
+              <CaseStudyGrid />
+              <About />
+              <Process />
+              <Footer />
+            </div>
+          } />
           <Route path="/admin" element={<Admin />} />
           <Route path="/case-study/:id" element={<CaseStudy />} />
         </Routes>

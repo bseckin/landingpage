@@ -65,7 +65,7 @@ const CaseStudyGrid = () => {
     const centerClass = caseStudies.length < 3 ? 'md:justify-center' : '';
 
     return (
-        <section className="py-20 md:py-32 bg-black relative border-t border-white/5" id="case-studies">
+        <section className="py-20 md:py-32 bg-[#050505] relative border-t border-white/5" id="case-studies">
             <div className="container mx-auto px-6 mb-12 flex justify-between items-end">
                 <div>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans tracking-tight">
