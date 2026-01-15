@@ -213,7 +213,7 @@ export default function Admin() {
                     </div>
                 );
             }
-            const isLongText = String(val).length > 60;
+            const isLongText = String(val).length > 60 || key === 'headline' || key === 'description' || key === 'subHeadline';
             return (
                 <div key={key} className="mb-6">
                     <label className="block text-sm font-medium text-gray-400 mb-2 capitalize">{key}</label>

@@ -1,22 +1,22 @@
 {
-    "headline": "Der Weg zur Freiheit",
-    "description": "Von der Analyse bis zum Autopiloten in vier Schritten.",
-    "steps": [
-        {
-            "title": "Klarheit schaffen",
-            "description": "Wir analysieren Ihr Business und identifizieren die Hebel mit dem größten ROI."
-        },
-        {
-            "title": "Maßarbeit",
-            "description": "Ich entwickle eine Strategie, die genau auf Ihre Ziele einzahlt. Kein \"Schema F\"."
-        },
-        {
-            "title": "Umsetzung",
-            "description": "Ich baue die Systeme, während Sie sich um Ihr Geschäft kümmern."
-        },
-        {
-            "title": "Die Befreiung",
-            "description": "Ihr Business läuft auf Autopilot. Sie gewinnen 10-20 Stunden pro Woche zurück."
-        }
-    ]
+  "headline": "Vom Chaos zum System",
+  "description": "Von der Analyse bis zur digitalen Freiheit in vier Schritten.",
+  "steps": [
+    {
+      "title": "Die Analyse",
+      "description": "Wir finden heraus, wo Sie Zeit und Geld verlieren. Schwarz auf weiß sehen Sie, was Sie Ihre aktuellen Abläufe kosten."
+    },
+    {
+      "title": "Der Bauplan",
+      "description": "Ein technisches Konzept statt theoretischer Beratung. Dieser Plan gehört Ihnen, unabhängig von der Umsetzung."
+    },
+    {
+      "title": "Die Umsetzung",
+      "description": "Ich baue stabile Lösungen, die ab Tag 1 funktionieren. Keine Experimente, sondern bewährte Standards."
+    },
+    {
+      "title": "Sichere Übergabe",
+      "description": "Sie erhalten alle Zugänge. Ihr Business läuft automatisch – und Sie behalten die volle Kontrolle."
+    }
+  ]
 }

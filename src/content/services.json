@@ -1,21 +1,21 @@
 {
-    "headline": "Ihre Unsichtbare Armee",
-    "description": "Ich verkaufe Ihnen keine Software. Ich installiere Systeme, die Ihnen den Rücken freihalten.",
-    "cards": [
-        {
-            "tag": "VERNETZUNG",
-            "title": "Intelligente Systeme",
-            "description": "Tools, die miteinander sprechen, statt aneinander vorbei. Daten fließen automatisch dorthin, wo sie gebraucht werden."
-        },
-        {
-            "tag": "24/7 BETRIEB",
-            "title": "Ihr Digitaler Mitarbeiter",
-            "description": "KI-Agenten, die wie Ihr bester Mitarbeiter denken – nur rund um die Uhr. Support, Analyse und Reporting auf Autopilot."
-        },
-        {
-            "tag": "SICHERHEIT",
-            "title": "Sorgenfreier Betrieb",
-            "description": "Ich kümmere mich um die Technik. Sie kümmern sich um den Umsatz. Proaktives Monitoring verhindert Probleme, bevor sie entstehen."
-        }
-    ]
+  "headline": "Ergebnisse vor Technik",
+  "description": "Unternehmen sollen besser arbeiten, bevor sie schneller arbeiten. Ich installiere Systeme, die Ihnen den Rücken freihalten.",
+  "cards": [
+    {
+      "tag": "VERNETZUNG",
+      "title": "Nahtlose Verbindung",
+      "description": "Ihre Software-Tools arbeiten zusammen statt gegeneinander. Daten landen automatisch dort, wo sie gebraucht werden."
+    },
+    {
+      "tag": "24/7 BETRIEB",
+      "title": "Ihr Digitaler Mitarbeiter",
+      "description": "KI-Agenten, die wie Ihr bester Mitarbeiter denken – nur rund um die Uhr. Support, Analyse und Reporting auf Autopilot."
+    },
+    {
+      "tag": "EIGENTUM",
+      "title": "Volle Kontrolle",
+      "description": "Sie erhalten keine Black-Box, sondern besitzen die Technik selbst. Alle Zugänge und Rechte liegen zu 100% bei Ihnen."
+    }
+  ]
 }
