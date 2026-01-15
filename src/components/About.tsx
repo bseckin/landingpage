@@ -1,4 +1,7 @@
+import { useLanguage } from '../context/LanguageContext';
+
 const About = () => {
+    const { t } = useLanguage();
     return (
         <section className="py-20 md:py-32 bg-black border-t border-white/5">
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -6,16 +9,16 @@ const About = () => {
                 <div className="order-2 lg:order-1">
                     <div className="flex items-center gap-4 mb-8">
                         <span className="text-primary text-5xl font-mono font-light">{'//'}</span>
-                        <h2 className="text-3xl md:text-5xl font-mono font-bold text-primary tracking-widest uppercase">WHO_AM_I</h2>
+                        <h2 className="text-3xl md:text-5xl font-mono font-bold text-primary tracking-widest uppercase">{t.about.whoAmI}</h2>
                     </div>
 
                     <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-sans mb-12 max-w-lg">
-                        Die Brücke zwischen Betriebswirtschaft und IT. Ich verstehe nicht nur Code, sondern Ihre Zahlen. Ich baue keine technischen Spielereien, sondern nützliche Lösungen für Ihr Wachstum.
+                        {t.about.description}
                     </p>
 
                     <div className="flex flex-wrap gap-4">
-                        <Badge label="CODE" sub="Full Stack" />
-                        <Badge label="TERM" sub="n8n Expert" />
+                        <Badge label={t.about.badges.code.label} sub={t.about.badges.code.sub} />
+                        <Badge label={t.about.badges.term.label} sub={t.about.badges.term.sub} />
                     </div>
                 </div>
 
@@ -30,7 +33,7 @@ const About = () => {
 
                         <div className="absolute bottom-6 right-6 px-4 py-2 bg-black border border-primary rounded-full flex items-center gap-3 shadow-[0_0_15px_rgba(0,255,163,0.15)]">
                             <span className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_5px_#00ffa3]" />
-                            <span className="text-primary text-xs font-mono tracking-widest uppercase">STATUS: DEPLOYING</span>
+                            <span className="text-primary text-xs font-mono tracking-widest uppercase">{t.about.status}</span>
                         </div>
                     </div>
                 </div>

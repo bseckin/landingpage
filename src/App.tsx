@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import CaseStudyGrid from './components/CaseStudyGrid';
 import Admin from './routes/Admin';
 import CaseStudy from './routes/CaseStudy';
+import { LanguageProvider } from './context/LanguageContext';
+import LanguageToggle from './components/LanguageToggle';
 
 
 function LandingPage() {
@@ -26,15 +28,16 @@ function LandingPage() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/case-study/:id" element={<CaseStudy />} />
-      </Routes>
-    </BrowserRouter>
+    <LanguageProvider>
+      <LanguageToggle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/case-study/:id" element={<CaseStudy />} />
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 

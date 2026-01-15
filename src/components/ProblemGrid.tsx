@@ -1,20 +1,21 @@
-import problemContent from '../content/problem.json';
+import { useLanguage } from '../context/LanguageContext';
 
 const ProblemGrid = () => {
+    const { t } = useLanguage();
     return (
         <section className="py-20 md:py-32 bg-black relative border-t border-white/5">
             <div className="container mx-auto px-6">
                 <div className="mb-16 md:mb-24 text-center md:text-left">
                     <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 font-sans">
-                        {problemContent.headline}
+                        {t.problem.headline}
                     </h2>
                     <p className="text-text-secondary max-w-2xl font-sans text-lg leading-relaxed">
-                        {problemContent.description}
+                        {t.problem.description}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
-                    {problemContent.cards.map((card, index) => (
+                    {t.problem.cards.map((card, index) => (
                         <ErrorCard
                             key={index}
                             tag={card.tag}

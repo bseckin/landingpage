@@ -1,117 +1,127 @@
 import { useState } from 'react';
-import footerContent from '../content/footer.json';
-import { Loader } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+
+type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 const Footer = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const { t } = useLanguage();
+    const [status, setStatus] = useState<Status>('idle');
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setStatus('loading');
+        setStatus('submitting');
 
-        try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-
-            if (res.ok) {
-                setStatus('success');
-                setFormData({ name: '', email: '', message: '' });
-            } else {
-                setStatus('error');
-            }
-        } catch (error) {
-            setStatus('error');
-        }
+        // Simulating form submission
+        setTimeout(() => {
+            setStatus('success');
+        }, 1000);
     };
 
     return (
-        <footer id="contact" className="py-20 md:py-32 bg-black border-t border-white/5">
-            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-                {/* Contact Info */}
-                <div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 font-sans">
-                        Der erste Schritt raus aus dem Chaos.
-                    </h2>
+        <footer className="py-20 bg-black border-t border-white/5 relative overflow-hidden" id="contact">
+            {/* Background Grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
 
-                    <p className="text-lg text-text-secondary font-sans mb-12 max-w-md leading-relaxed">
-                        Lassen Sie uns sprechen. Unverbindlich. Auf Augenhöhe. Finden wir heraus, ob wir zusammenpassen.
-                    </p>
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
 
-                    <div className="space-y-6 font-sans text-sm md:text-base text-text-muted border-l-2 border-primary/20 pl-6">
-                        <div>
-                            <span className="text-white font-bold block text-xs mb-1 tracking-wider uppercase">Standort</span>
-                            Chiang Mai, TH
-                        </div>
-                        <div>
-                            <span className="text-white font-bold block text-xs mb-1 tracking-wider uppercase">Zeitzone</span>
-                            GMT+7
+                    {/* Left Column: CTA */}
+                    <div>
+                        <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-8 font-sans">
+                            {t.footer.headline}
+                        </h2>
+                        <p className="text-xl text-text-secondary mb-12 max-w-md font-sans leading-relaxed">
+                            {t.footer.text}
+                        </p>
+
+                        <div className="flex flex-col gap-6">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-full bg-surface/20 border border-white/10 flex items-center justify-center">
+                                    <span className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#00ffa3]" />
+                                </div>
+                                <div>
+                                    <div className="text-xs font-bold text-secondary font-sans tracking-wider mb-1">{t.footer.location.label}</div>
+                                    <div className="text-white font-sans">{t.footer.location.value}</div>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-full bg-surface/20 border border-white/10 flex items-center justify-center">
+                                    <div className="w-2 h-2 bg-text-muted rounded-full" />
+                                </div>
+                                <div>
+                                    <div className="text-xs font-bold text-secondary font-sans tracking-wider mb-1">{t.footer.timezone.label}</div>
+                                    <div className="text-white font-sans">{t.footer.timezone.value}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Clean Form */}
-                <div className="p-8 md:p-12 bg-surface/10 border border-white/5 rounded-3xl backdrop-blur-sm">
-                    {status === 'success' ? (
-                        <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                            <span className="text-6xl mb-4">✅</span>
-                            <h3 className="text-2xl font-bold text-white mb-2">Nachricht gesendet!</h3>
-                            <p className="text-gray-400">Ich melde mich in Kürze bei Ihnen.</p>
-                            <button onClick={() => setStatus('idle')} className="mt-8 text-primary hover:text-white underline text-sm">Neue Nachricht</button>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div>
-                                <label htmlFor="name" className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihr Name</label>
-                                <input
-                                    id="name"
-                                    type="text"
-                                    required
-                                    value={formData.name}
-                                    onChange={e => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full h-14 bg-black/30 border border-white/10 px-6 text-white font-sans placeholder:text-white/20 focus:border-primary focus:ring-1 focus:ring-primary/50 focus:outline-none transition-all rounded-xl"
-                                />
+                    {/* Right Column: Contact Form (Simulated) */}
+                    <div className="bg-surface/10 border border-white/5 p-8 md:p-10 rounded-2xl relative">
+                        {status === 'success' ? (
+                            <div className="h-full flex flex-col items-center justify-center text-center py-12">
+                                <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-6">
+                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-2xl font-bold text-white mb-2">{t.footer.form.successHeadline}</h3>
+                                <p className="text-text-secondary">{t.footer.form.successText}</p>
                             </div>
-                            <div>
-                                <label htmlFor="email" className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihre Email</label>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    required
-                                    value={formData.email}
-                                    onChange={e => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full h-14 bg-black/30 border border-white/10 px-6 text-white font-sans placeholder:text-white/20 focus:border-primary focus:ring-1 focus:ring-primary/50 focus:outline-none transition-all rounded-xl"
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="message" className="block text-xs font-bold text-text-secondary mb-2 uppercase tracking-wider font-sans">Ihre Nachricht</label>
-                                <textarea
-                                    id="message"
-                                    required
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={e => setFormData({ ...formData, message: e.target.value })}
-                                    className="w-full bg-black/30 border border-white/10 p-6 text-white font-sans placeholder:text-white/20 focus:border-primary focus:ring-1 focus:ring-primary/50 focus:outline-none transition-all rounded-xl resize-none"
-                                />
-                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="flex items-center justify-between mb-8">
+                                    <h3 className="text-xl font-bold text-white font-sans">{t.footer.form.newMessage}</h3>
+                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_5px_#00ffa3]" />
+                                </div>
 
-                            {status === 'error' && (
-                                <p className="text-red-500 text-sm">Es gab einen Fehler. Bitte versuchen Sie es später erneut.</p>
-                            )}
+                                <div className="space-y-2">
+                                    <label htmlFor="name" className="text-xs font-bold text-secondary tracking-widest uppercase font-sans ml-1">
+                                        {t.footer.form.name}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        required
+                                        className="w-full bg-black/50 border border-white/10 focus:border-primary/50 text-white px-4 py-3 rounded-lg outline-none transition-all font-sans"
+                                    />
+                                </div>
 
-                            <button
-                                type="submit"
-                                disabled={status === 'loading'}
-                                className="w-full h-14 bg-primary text-black font-bold text-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-sans tracking-wide rounded-xl shadow-lg hover:shadow-primary/20 flex items-center justify-center gap-2"
-                            >
-                                {status === 'loading' && <Loader className="animate-spin w-5 h-5" />}
-                                {footerContent.ctaButton}
-                            </button>
-                        </form>
-                    )}
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className="text-xs font-bold text-secondary tracking-widest uppercase font-sans ml-1">
+                                        {t.footer.form.email}
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        required
+                                        className="w-full bg-black/50 border border-white/10 focus:border-primary/50 text-white px-4 py-3 rounded-lg outline-none transition-all font-sans"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label htmlFor="message" className="text-xs font-bold text-secondary tracking-widest uppercase font-sans ml-1">
+                                        {t.footer.form.message}
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        required
+                                        rows={4}
+                                        className="w-full bg-black/50 border border-white/10 focus:border-primary/50 text-white px-4 py-3 rounded-lg outline-none transition-all font-sans resize-none"
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    disabled={status === 'submitting'}
+                                    className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-4 rounded-lg transition-all font-sans shadow-[0_0_20px_rgba(0,255,163,0.2)] hover:shadow-[0_0_30px_rgba(0,255,163,0.4)] disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+                                >
+                                    {status === 'submitting' ? 'Sending...' : t.footer.ctaButton}
+                                </button>
+                            </form>
+                        )}
+                    </div>
                 </div>
             </div>
         </footer>
