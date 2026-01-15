@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface CaseStudyPreview {
     slug: string;
@@ -55,7 +55,6 @@ export default function CaseStudyGrid() {
     };
 
     // Swipe Logic
-    const x = useMotionValue(0);
     const handleDragEnd = (_: any, info: any) => {
         if (info.offset.x < -50) nextSlide();
         else if (info.offset.x > 50) prevSlide();
@@ -103,8 +102,8 @@ export default function CaseStudyGrid() {
                     <div className="overflow-hidden px-1">
                         <motion.div
                             className={`grid gap-8 ${itemsPerPage === 1 ? 'grid-cols-1' :
-                                    itemsPerPage === 2 ? 'grid-cols-2' :
-                                        'grid-cols-3'
+                                itemsPerPage === 2 ? 'grid-cols-2' :
+                                    'grid-cols-3'
                                 } ${isCentered ? 'justify-center' : ''}`}
                             drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
