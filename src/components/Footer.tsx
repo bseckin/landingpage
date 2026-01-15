@@ -11,10 +11,31 @@ const Footer = () => {
         e.preventDefault();
         setStatus('submitting');
 
-        // Simulating form submission
-        setTimeout(() => {
-            setStatus('success');
-        }, 1000);
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+            } else {
+                const errorData = await response.json().catch(() => ({}));
+                console.error('Submission failed details:', errorData);
+                throw new Error(errorData.error || 'Failed to send');
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus('error');
+            // Reset to idle after error so user can try again
+            setTimeout(() => setStatus('idle'), 3000);
+        }
     };
 
     return (
@@ -83,6 +104,7 @@ const Footer = () => {
                                     <input
                                         type="text"
                                         id="name"
+                                        name="name"
                                         required
                                         className="w-full bg-black/50 border border-white/10 focus:border-primary/50 text-white px-4 py-3 rounded-lg outline-none transition-all font-sans"
                                     />
@@ -95,6 +117,7 @@ const Footer = () => {
                                     <input
                                         type="email"
                                         id="email"
+                                        name="email"
                                         required
                                         className="w-full bg-black/50 border border-white/10 focus:border-primary/50 text-white px-4 py-3 rounded-lg outline-none transition-all font-sans"
                                     />
@@ -106,6 +129,7 @@ const Footer = () => {
                                     </label>
                                     <textarea
                                         id="message"
+                                        name="message"
                                         required
                                         rows={4}
                                         className="w-full bg-black/50 border border-white/10 focus:border-primary/50 text-white px-4 py-3 rounded-lg outline-none transition-all font-sans resize-none"
