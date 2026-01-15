@@ -1,0 +1,22 @@
+{
+    "headline": "Der Weg zur Freiheit",
+    "description": "Von der Analyse bis zum Autopiloten in vier Schritten.",
+    "steps": [
+        {
+            "title": "Klarheit schaffen",
+            "description": "Wir analysieren Ihr Business und identifizieren die Hebel mit dem größten ROI."
+        },
+        {
+            "title": "Maßarbeit",
+            "description": "Ich entwickle eine Strategie, die genau auf Ihre Ziele einzahlt. Kein \"Schema F\"."
+        },
+        {
+            "title": "Umsetzung",
+            "description": "Ich baue die Systeme, während Sie sich um Ihr Geschäft kümmern."
+        },
+        {
+            "title": "Die Befreiung",
+            "description": "Ihr Business läuft auf Autopilot. Sie gewinnen 10-20 Stunden pro Woche zurück."
+        }
+    ]
+}

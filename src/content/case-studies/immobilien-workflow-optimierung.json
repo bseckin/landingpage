@@ -1,0 +1,31 @@
+{
+    "title": "immobilien-workflow-optimierung",
+    "client": "ImmoScout Partner München",
+    "summary": "Automatisierung der Lead-Qualifizierung für einen Immobilienmakler. 80% Zeitersparnis bei der Exposé-Versendung.",
+    "content": [
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Das Problem: Mein Kunde verbrachte 4 Stunden täglich damit, Anfragen von ImmoScout zu beantworten und Exposés manuell zu versenden."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Die Lösung: Ein n8n-Workflow, der Leads automatisch qualifiziert, in HubSpot speichert und personalisierte WhatsApp-Nachrichten versendet."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Das Ergebnis: 20 Stunden Zeitersparnis pro Woche und eine 3x schnellere Reaktionszeit auf neue Anfragen."
+                }
+            ]
+        }
+    ]
+}

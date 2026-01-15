@@ -1,0 +1,21 @@
+{
+    "headline": "Fühlt sich Ihr Wachstum anstrengend an?",
+    "description": "Wenn Erfolg mehr Arbeit statt mehr Freiheit bedeutet, stimmt etwas im System nicht.",
+    "cards": [
+        {
+            "tag": "DAS HAMSTERRAD",
+            "title": "Gefangen im Tagesgeschäft",
+            "description": "Sie arbeiten im Unternehmen statt am Unternehmen. Copy-Paste Aufgaben töten Ihre Kreativität."
+        },
+        {
+            "tag": "RISIKO",
+            "title": "Die stille Angst vor Fehlern",
+            "description": "Ein vergessenes Lead, eine falsche Rechnung. Menschliche Fehler kosten nicht nur Geld, sondern Ihren Ruf."
+        },
+        {
+            "tag": "WACHSTUMSSCHMERZEN",
+            "title": "Die gläserne Decke",
+            "description": "Mehr Kunden bedeuten aktuell nur eins: Mehr Stress. Ihr Business skaliert nicht, Ihr Stresspegel schon."
+        }
+    ]
+}

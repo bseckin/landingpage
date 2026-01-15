@@ -1,0 +1,64 @@
+backend:
+  name: git-gateway
+  repo: berkayseckin/automation-landing # Placeholder not used in local mode
+  branch: main
+
+local_backend: true # This connects to the local proxy server
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Seiten"
+    files:
+      - name: "hero"
+        label: "Startseite: Hero Section"
+        file: "src/content/hero.json"
+        format: "json"
+        fields:
+          - { label: "Überschrift", name: "headline", widget: "string" }
+          - { label: "Subtext", name: "subtext", widget: "text" }
+          - { label: "Primary Button", name: "ctaPrimary", widget: "string" }
+          - { label: "Secondary Button", name: "ctaSecondary", widget: "string" }
+      
+      - name: "services"
+        label: "Services"
+        file: "src/content/services.json"
+        format: "json"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Beschreibung", name: "description", widget: "text" }
+      
+      - name: "about"
+        label: "Über Mich"
+        file: "src/content/about.json"
+        format: "json"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "markdown" }
+          - { label: "Status Badge", name: "badge", widget: "string" }
+
+      - name: "footer"
+        label: "Footer"
+        file: "src/content/footer.json"
+        format: "json"
+        fields:
+          - { label: "Überschrift", name: "headline", widget: "string" }
+          - { label: "Text", name: "text", widget: "text" }
+          - { label: "Button", name: "ctaButton", widget: "string" }
+          - { label: "Standort", name: "location", widget: "string" }
+          - { label: "Zeitzone", name: "timezone", widget: "string" }
+
+  - name: "case-studies"
+    label: "Fallstudien"
+    folder: "src/content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Kunde", name: "client", widget: "string" }
+      - { label: "Zusammenfassung", name: "summary", widget: "text" }
+      - { label: "Ergebnis", name: "result", widget: "markdown" }
