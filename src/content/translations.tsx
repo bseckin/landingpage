@@ -30,6 +30,9 @@ export const translations = {
                 }
             ]
         },
+        bridge: {
+            headline: <>Die meisten Unternehmen arbeiten nicht falsch.<br />Sie arbeiten <span className="text-secondary">ohne System.</span></>
+        },
         services: {
             headline: "Ergebnisse vor Technik",
             sub: "Unternehmen sollen besser arbeiten, bevor sie schneller arbeiten. Ich installiere Systeme, die Ihnen den Rücken freihalten.",
@@ -144,6 +147,9 @@ export const translations = {
                     description: "More clients currently mean only one thing: More chaos. Your business grows, but your stress level grows faster."
                 }
             ]
+        },
+        bridge: {
+            headline: <>Most companies don't work incorrectly.<br />They work <span className="text-secondary">without a system.</span></>
         },
         services: {
             headline: "Results before Technology",

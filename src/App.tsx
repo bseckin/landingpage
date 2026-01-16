@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
 import ProblemGrid from './components/ProblemGrid';
+import BridgeSection from './components/BridgeSection';
 import Services from './components/Services';
 import About from './components/About';
 import Process from './components/Process';
@@ -23,6 +24,7 @@ function App() {
               <LanguageToggle />
               <Hero />
               <ProblemGrid />
+              <BridgeSection />
               <Services />
               <CaseStudyGrid />
               <About />
