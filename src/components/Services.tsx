@@ -9,13 +9,27 @@ const Services = () => {
     return (
         <section className="py-20 md:py-32 bg-[#080808] relative border-t border-white/5">
             <div className="container mx-auto px-6">
-                <div className="mb-16 md:mb-24 text-center md:text-left">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 font-sans">
-                        {t.services.headline}
-                    </h2>
-                    <p className="text-text-secondary max-w-xl font-sans text-lg leading-relaxed">
-                        {t.services.sub}
-                    </p>
+                <div className="mb-20">
+                    <div className="max-w-3xl">
+                        {/* Principle / Credo */}
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 font-sans">
+                            {t.services.headline}
+                        </h2>
+
+                        {/* Principle / Credo */}
+                        <div className="mb-8">
+                            <span className="text-secondary/90 font-mono text-sm tracking-wider uppercase mb-3 block">
+                                Prinzip
+                            </span>
+                            <p className="text-xl md:text-2xl font-medium text-white/90 leading-relaxed max-w-2xl border-l-2 border-secondary/30 pl-6">
+                                "{t.services.principle}"
+                            </p>
+                        </div>
+
+                        <p className="text-text-secondary text-lg leading-relaxed max-w-2xl font-sans">
+                            {t.services.sub}
+                        </p>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">

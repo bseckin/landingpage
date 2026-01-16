@@ -34,23 +34,24 @@ export const translations = {
             headline: <>Die meisten Unternehmen arbeiten nicht falsch.<br />Sie arbeiten <span className="text-secondary">ohne System.</span></>
         },
         services: {
+            principle: "Erst Ordnung. Dann Geschwindigkeit.",
             headline: "Ergebnisse vor Technik",
-            sub: "Unternehmen sollen besser arbeiten, bevor sie schneller arbeiten. Ich installiere Systeme, die Ihnen den Rücken freihalten.",
+            sub: "Ich analysiere Ihre Abläufe und schaffe klare Strukturen, die verlässlich funktionieren.",
             cards: [
                 {
-                    tag: "VERNETZUNG",
-                    title: "Nahtlose Verbindung",
-                    desc: "Ihre Software-Tools arbeiten zusammen statt gegeneinander. Daten landen automatisch dort, wo sie gebraucht werden."
+                    tag: "INTEGRATION",
+                    title: "Verbundene Systeme",
+                    desc: "Isolierte Tools werden verknüpft. Daten fließen automatisch und fehlerfrei zwischen Ihren Anwendungen."
                 },
                 {
-                    tag: "24/7 BETRIEB",
-                    title: "Digitale Assistenten",
-                    desc: "Intelligente Systeme, die Support und Verwaltung übernehmen. Zuverlässig, fehlerfrei und rund um die Uhr."
+                    tag: "STABILITÄT",
+                    title: "Verlässliche Routinen",
+                    desc: "Wiederkehrende Aufgaben werden fest definiert und automatisiert. Der Betrieb läuft unabhängig von Tagesform und Anwesenheit."
                 },
                 {
-                    tag: "EIGENTUM",
+                    tag: "TRANSPARENZ",
                     title: "Volle Kontrolle",
-                    desc: "Sie erhalten keine Black-Box, sondern besitzen die Technik selbst. Alle Zugänge und Rechte liegen zu 100% bei Ihnen."
+                    desc: "Keine Black-Box. Sie erhalten dokumentierte, nachvollziehbare Logik und behalten die Hoheit über Ihre Systeme."
                 }
             ]
         },
@@ -152,23 +153,24 @@ export const translations = {
             headline: <>Most companies don't work incorrectly.<br />They work <span className="text-secondary">without a system.</span></>
         },
         services: {
+            principle: "First Order. Then Speed.",
             headline: "Results before Technology",
-            sub: "Businesses should work better before they work faster. I install systems that keep your back free.",
+            sub: "I analyze your workflows and create clear structures that function reliably.",
             cards: [
                 {
-                    tag: "CONNECTION",
-                    title: "Seamless Connection",
-                    desc: "Your software tools work together instead of against each other. Data automatically lands where it is needed."
+                    tag: "INTEGRATION",
+                    title: "Connected Systems",
+                    desc: "Isolated tools are linked. Data flows automatically and without errors between your applications."
                 },
                 {
-                    tag: "24/7 OPERATION",
-                    title: "Digital Assistants",
-                    desc: "Intelligent systems that take over support and administration. Reliable, error-free, and around the clock."
+                    tag: "STABILITY",
+                    title: "Reliable Routines",
+                    desc: "Recurring tasks are strictly defined and automated. Operations run independently of daily performance or presence."
                 },
                 {
-                    tag: "OWNERSHIP",
+                    tag: "TRANSPARENCY",
                     title: "Full Control",
-                    desc: "You don't receive a black box, but own the technology yourself. All access and rights belong 100% to you."
+                    desc: "No black box. You receive documented, traceable logic and retain sovereignty over your systems."
                 }
             ]
         },
