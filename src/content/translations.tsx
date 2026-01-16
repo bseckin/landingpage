@@ -71,7 +71,11 @@ export const translations = {
                     title: 'Sichere Übergabe',
                     desc: 'Sie erhalten alle Zugänge. Ihr Business läuft automatisch – und Sie behalten die volle Kontrolle.',
                 }
-            ]
+            ],
+            conclusion: {
+                headline: "Alles läuft. Auch ohne Sie.",
+                description: "Manuelle Arbeit ist ersetzt – Ihr Geschäft funktioniert, auch wenn Sie gerade nicht hinschauen."
+            }
         },
         about: {
             whoAmI: "WHO_AM_I",
@@ -174,7 +178,11 @@ export const translations = {
                     title: 'Secure Handover',
                     desc: 'You receive all access. Your business runs automatically – and you keep full control.',
                 }
-            ]
+            ],
+            conclusion: {
+                headline: "Everything runs. Even without you.",
+                description: "Manual work is replaced – your business works, even when you're not looking."
+            }
         },
         about: {
             whoAmI: "WHO_AM_I",
