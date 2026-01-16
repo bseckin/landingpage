@@ -10,6 +10,7 @@ import Admin from './routes/Admin';
 import CaseStudy from './routes/CaseStudy';
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageToggle from './components/LanguageToggle';
+import LegalPage from './pages/LegalPage';
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
           } />
           <Route path="/admin" element={<Admin />} />
           <Route path="/case-study/:id" element={<CaseStudy />} />
+          <Route path="/impressum" element={<LegalPage type="impressum" />} />
+          <Route path="/datenschutz" element={<LegalPage type="datenschutz" />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

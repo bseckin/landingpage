@@ -148,8 +148,17 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Legal Footer */}
+            <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-text-secondary font-sans uppercase tracking-wider">
+                <div className="flex gap-8">
+                    <a href="/impressum" className="hover:text-white transition-colors">Impressum</a>
+                    <a href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</a>
+                </div>
+            </div>
         </footer>
     );
 };
 
 export default Footer;
+

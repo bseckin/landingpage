@@ -106,6 +106,14 @@ export const translations = {
             viewButton: "Fallstudie ansehen",
             backButton: "Zurück zur Übersicht",
             recentWork: "Ausgewählte Arbeiten"
+        },
+        impressum: {
+            headline: "Impressum",
+            content: "Inhalt wird geladen..."
+        },
+        datenschutz: {
+            headline: "Datenschutzerklärung",
+            content: "Inhalt wird geladen..."
         }
     },
     en: {
@@ -213,6 +221,14 @@ export const translations = {
             viewButton: "View Case Study",
             backButton: "Back to Overview",
             recentWork: "Selected Work"
+        },
+        impressum: {
+            headline: "Legal Notice",
+            content: "Loading content..."
+        },
+        datenschutz: {
+            headline: "Privacy Policy",
+            content: "Loading content..."
         }
     }
 };

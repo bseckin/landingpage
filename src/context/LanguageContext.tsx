@@ -8,6 +8,8 @@ import servicesData from '../content/services.json';
 import processData from '../content/process.json';
 import aboutData from '../content/about.json';
 import footerData from '../content/footer.json';
+import impressumData from '../content/impressum.json';
+import datenschutzData from '../content/datenschutz.json';
 
 interface LanguageContextType {
     language: Language;
@@ -119,6 +121,22 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
                         ctaButton: footer.ctaButton || next.de.footer.ctaButton,
                         location: footer.location ? { ...next.de.footer.location, value: footer.location } : next.de.footer.location,
                         timezone: footer.timezone ? { ...next.de.footer.timezone, value: footer.timezone } : next.de.footer.timezone
+                    };
+                }
+
+                if (impressumData) {
+                    next.de.impressum = {
+                        ...next.de.impressum,
+                        headline: impressumData.headline || next.de.impressum.headline,
+                        content: impressumData.content || next.de.impressum.content
+                    };
+                }
+
+                if (datenschutzData) {
+                    next.de.datenschutz = {
+                        ...next.de.datenschutz,
+                        headline: datenschutzData.headline || next.de.datenschutz.headline,
+                        content: datenschutzData.content || next.de.datenschutz.content
                     };
                 }
 
