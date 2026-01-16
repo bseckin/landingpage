@@ -8,7 +8,9 @@ const SECTIONS = [
     { id: 'services.json', label: 'Services' },
     { id: 'about.json', label: 'Über Mich' },
     { id: 'process.json', label: 'Prozess' },
-    { id: 'footer.json', label: 'Footer' }
+    { id: 'footer.json', label: 'Footer' },
+    { id: 'impressum.json', label: 'Impressum' },
+    { id: 'datenschutz.json', label: 'Datenschutzerklärung' }
 ];
 
 const MODES = {
