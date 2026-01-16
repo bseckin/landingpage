@@ -99,46 +99,55 @@ const CaseStudyGrid = () => {
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 {caseStudies.map((study) => (
-                    <div
+                    <CaseStudyCard
                         key={study.id}
-                        onClick={() => navigate(`/case-study/${study.id}`)}
-                        className="min-w-[85vw] md:min-w-[400px] bg-surface/10 border border-white/5 rounded-2xl overflow-hidden group hover:border-primary/50 transition-all cursor-pointer snap-center"
-                    >
-                        {/* Image Container */}
-                        <div className="aspect-video relative overflow-hidden bg-surface/20">
-                            {study.imageUrl ? (
-                                <img
-                                    src={study.imageUrl}
-                                    alt={study.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                            ) : (
-                                <div className="w-full h-full flex items-center justify-center text-white/20">
-                                    <span className="font-mono text-sm">NO IMAGE</span>
-                                </div>
-                            )}
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-                        </div>
-
-                        {/* Content */}
-                        <div className="p-8">
-                            <div className="text-secondary font-mono text-xs mb-3 tracking-wider">{study.client}</div>
-                            <h3 className="text-xl font-bold text-white mb-4 line-clamp-1">{study.title}</h3>
-                            <p className="text-text-secondary text-sm leading-relaxed mb-8 line-clamp-3">
-                                {study.summary}
-                            </p>
-
-                            <div className="flex items-center text-white text-sm font-bold group-hover:text-primary transition-colors gap-2">
-                                {t.caseStudies.viewButton} <ArrowUpRight className="w-4 h-4" />
-                            </div>
-                        </div>
-                    </div>
+                        study={study}
+                        navigate={navigate}
+                        t={t}
+                    />
                 ))}
             </div>
         </section>
     );
 };
+
+// Extracted for maintainability: separating visual card logic from grid/scroll logic
+const CaseStudyCard = ({ study, navigate, t }: { study: CaseStudy, navigate: any, t: any }) => (
+    <div
+        onClick={() => navigate(`/case-study/${study.id}`)}
+        className="min-w-[85vw] md:min-w-[400px] bg-surface/10 border border-white/5 rounded-2xl overflow-hidden group hover:border-primary/50 transition-all cursor-pointer snap-center"
+    >
+        {/* Image Container */}
+        <div className="aspect-video relative overflow-hidden bg-surface/20">
+            {study.imageUrl ? (
+                <img
+                    src={study.imageUrl}
+                    alt={study.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                />
+            ) : (
+                <div className="w-full h-full flex items-center justify-center text-white/20">
+                    <span className="font-mono text-sm">NO IMAGE</span>
+                </div>
+            )}
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+        </div>
+
+        {/* Content */}
+        <div className="p-8">
+            <div className="text-secondary font-mono text-xs mb-3 tracking-wider">{study.client}</div>
+            <h3 className="text-xl font-bold text-white mb-4 line-clamp-1">{study.title}</h3>
+            <p className="text-text-secondary text-sm leading-relaxed mb-8 line-clamp-3">
+                {study.summary}
+            </p>
+
+            <div className="flex items-center text-white text-sm font-bold group-hover:text-primary transition-colors gap-2">
+                {t.caseStudies.viewButton} <ArrowUpRight className="w-4 h-4" />
+            </div>
+        </div>
+    </div>
+);
 
 export default CaseStudyGrid;

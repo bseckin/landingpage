@@ -7,14 +7,7 @@ const Hero = () => {
     const { t } = useLanguage();
     return (
         <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/5 bg-black">
-            {/* Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-
-            {/* Curved Lines Decoration */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-100 400 C 200 400, 400 200, 600 400 S 1000 600, 1540 400" stroke="#00ffa3" strokeWidth="1" strokeOpacity="0.15" fill="none" />
-                <path d="M-100 600 C 200 600, 400 400, 600 600 S 1000 800, 1540 600" stroke="#00F0FF" strokeWidth="1" strokeOpacity="0.15" fill="none" />
-            </svg>
+            <HeroBackground />
 
             {/* Content */}
             <div className="container mx-auto px-6 relative z-10 text-center">
@@ -61,9 +54,24 @@ const Hero = () => {
                         {t.hero.ctaSecondary}
                     </a>
                 </motion.div>
+
             </div>
-        </section>
+        </section >
     );
 };
+
+// Extracted for maintainability: separating heavy visual noise from content
+const HeroBackground = () => (
+    <>
+        {/* Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+
+        {/* Curved Lines Decoration */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-100 400 C 200 400, 400 200, 600 400 S 1000 600, 1540 400" stroke="#00ffa3" strokeWidth="1" strokeOpacity="0.15" fill="none" />
+            <path d="M-100 600 C 200 600, 400 400, 600 600 S 1000 800, 1540 600" stroke="#00F0FF" strokeWidth="1" strokeOpacity="0.15" fill="none" />
+        </svg>
+    </>
+);
 
 export default Hero;
