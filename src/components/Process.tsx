@@ -9,8 +9,8 @@ const Process = () => {
 
     return (
         <section className="py-20 md:py-32 bg-[#050505] relative border-t border-white/5 overflow-hidden">
-            {/* Centered Vertical Line (Desktop only) */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent -translate-x-1/2 hidden md:block" />
+            {/* Centered Vertical Line (Mobile & Desktop) */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent -translate-x-1/2 block z-0" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-24">
@@ -29,9 +29,9 @@ const Process = () => {
                             <div key={index} className={`flex flex-col md:flex-row items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
 
                                 {/* Text Content */}
-                                <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'md:pl-24 text-left' : 'md:pr-24 text-center md:text-right'} mb-8 md:mb-0 relative`}>
+                                <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'text-center md:pl-24 md:text-left' : 'text-center md:pr-24 md:text-right'} mb-8 md:mb-0 relative z-10`}>
                                     {/* Mobile Icon (visible only on mobile) */}
-                                    <div className="md:hidden w-12 h-12 mx-auto mb-4 rounded-full bg-surface/20 border border-primary/50 text-primary flex items-center justify-center">
+                                    <div className="md:hidden w-12 h-12 mx-auto mb-4 rounded-full bg-surface/20 border border-primary/50 text-primary flex items-center justify-center relative z-10 backdrop-blur-sm bg-black/40">
                                         <Icon className="w-5 h-5" />
                                     </div>
 
@@ -55,7 +55,7 @@ const Process = () => {
                     {/* Step 5: The Conclusion (Success State) */}
                     <div className="flex flex-col items-center justify-center pt-24 md:pt-40 relative z-10">
                         {/* Connecting Line (fading out into success) */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 md:h-40 w-px bg-gradient-to-b from-primary/20 to-transparent hidden md:block" />
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 md:h-40 w-px bg-gradient-to-b from-primary/20 to-transparent block" />
 
                         {/* The Success Symbol - Clear, Stable, Glowing */}
                         <motion.div
