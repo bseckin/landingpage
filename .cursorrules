@@ -1,0 +1,6 @@
+# FRONTEND AESTHETICS & DESIGN (STRIKT BEFOLGEN)
+1. ANTI-KI-SLOP: Nutze NIEMALS generische KI-Ästhetik. Keine vorhersehbaren Layouts, keine lila Gradients auf Weiß. Kein Cookie-Cutter-Design.
+2. TYPOGRAFIE: Vermeide Inter, Roboto, Arial, Space Grotesk und System-Fonts. Wähle charakterstarke Fonts (kombiniere eine markante Display-Font mit einer sauberen Body-Font) und lade sie via Next.js next/font.
+3. LAYOUT & SPATIAL: Brich das Standard-Grid. Nutze Asymmetrie, Überlappungen (Overlap), diagonale Flüsse und kreatives Framing. Arbeite extrem bewusst mit negativem Weißraum ODER kontrollierter Dichte.
+4. FARBEN & HINTERGRUND: Nutze CSS-Variablen. Dominante Farben mit scharfen Akzenten schlagen immer schüchterne Paletten. Nutze Texturen (Noise/Grain), geometrische Muster oder dramatische Schatten, um Atmosphäre zu schaffen, statt nur einfarbiger Hintergründe.
+5. MOTION: Baue High-Impact-Momente ein, wie z.B. einen perfekt orchestrierten Page-Load mit gestaffelten Reveals (animation-delay). Nutze Scroll-Triggering und überraschende Hover-States. Bevorzuge reine CSS-Lösungen oder Framer Motion in React.
