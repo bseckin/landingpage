@@ -2,15 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Force light shell (avoids any flash or blend quirks leaving a dark viewport) */
+html {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
 @layer base {
   body {
-    @apply bg-background text-text-primary antialiased font-sans selection:bg-primary selection:text-black;
-    /* Subtle curved grid lines from screenshot inspiration */
-    background-image:
-      radial-gradient(circle at 50% 0%, rgba(0, 255, 163, 0.05) 0%, transparent 40%),
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 50px 50px, 50px 50px;
+    @apply bg-slate-50 text-slate-900 antialiased font-sans selection:bg-primary selection:text-white;
+    background-image: theme('backgroundImage.mesh-page');
+    background-attachment: fixed;
+    background-color: #f8fafc;
   }
 
   h1,
@@ -19,12 +29,12 @@
   h4,
   h5,
   h6 {
-    @apply font-mono font-bold tracking-tight;
+    @apply font-mono font-bold tracking-tight text-slate-900;
   }
 }
 
 @layer utilities {
   .glass-card {
-    @apply bg-surface/50 backdrop-blur-sm border border-white/5;
+    @apply bg-white border border-slate-200/60 shadow-card rounded-xl;
   }
 }

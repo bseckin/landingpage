@@ -15,21 +15,21 @@ const LegalPage = ({ type }: LegalPageProps) => {
     if (!data) return null;
 
     return (
-        <div className="min-h-screen bg-black text-white px-6 py-24 md:py-32">
+        <div className="min-h-screen bg-slate-50 text-slate-900 px-6 py-24 md:py-32">
             <div className="container mx-auto max-w-4xl">
                 <button
                     onClick={() => navigate('/')}
-                    className="group flex items-center gap-2 text-text-secondary hover:text-white transition-colors mb-12 font-sans text-sm"
+                    className="group flex items-center gap-2 text-text-secondary hover:text-slate-900 transition-colors mb-12 font-sans text-sm"
                 >
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                     {t.caseStudies.backButton}
                 </button>
 
-                <h1 className="text-4xl md:text-5xl font-bold font-sans mb-12 text-white">
+                <h1 className="text-4xl md:text-5xl font-bold font-sans mb-12 text-slate-900">
                     {data.headline}
                 </h1>
 
-                <div className="prose prose-invert prose-lg max-w-none font-sans text-text-secondary">
+                <div className="prose prose-slate prose-lg max-w-none font-sans text-text-secondary">
                     {data.content.split('\n').map((line, index) => (
                         line === '' ? <br key={index} /> : <p key={index}>{line}</p>
                     ))}

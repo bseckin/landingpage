@@ -61,30 +61,28 @@ const CaseStudyGrid = () => {
 
     if (loading || caseStudies.length === 0) return null;
 
-    // Center alignment class if fewer than 3 items
     const centerClass = caseStudies.length < 3 ? 'md:justify-center' : '';
 
     return (
-        <section className="py-20 md:py-32 bg-[#050505] relative border-t border-white/5" id="case-studies">
+        <section className="py-20 md:py-32 relative border-t border-slate-200/80" id="case-studies">
             <div className="container mx-auto px-6 mb-12 flex justify-between items-end">
                 <div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-sans tracking-tight">
                         {t.caseStudies.recentWork}
                     </h2>
                 </div>
 
-                {/* Desktop Navigation Arrows */}
                 <div className="hidden md:flex gap-4">
                     <button
                         onClick={() => scroll('left')}
-                        className="p-3 rounded-full border border-white/10 hover:bg-white/10 text-white transition-all disabled:opacity-30"
+                        className="p-3 rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 text-slate-700 shadow-sm transition-all disabled:opacity-30"
                         aria-label="Previous slide"
                     >
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                     <button
                         onClick={() => scroll('right')}
-                        className="p-3 rounded-full border border-white/10 hover:bg-white/10 text-white transition-all disabled:opacity-30"
+                        className="p-3 rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 text-slate-700 shadow-sm transition-all disabled:opacity-30"
                         aria-label="Next slide"
                     >
                         <ArrowRight className="w-5 h-5" />
@@ -92,7 +90,6 @@ const CaseStudyGrid = () => {
                 </div>
             </div>
 
-            {/* Carousel Container */}
             <div
                 ref={scrollContainerRef}
                 className={`flex overflow-x-auto gap-6 px-6 pb-8 snap-x snap-mandatory scrollbar-hide ${centerClass}`}
@@ -111,14 +108,12 @@ const CaseStudyGrid = () => {
     );
 };
 
-// Extracted for maintainability: separating visual card logic from grid/scroll logic
 const CaseStudyCard = ({ study, navigate, t }: { study: CaseStudy, navigate: any, t: any }) => (
     <div
         onClick={() => navigate(`/case-study/${study.id}`)}
-        className="min-w-[85vw] md:min-w-[400px] bg-surface/10 border border-white/5 rounded-2xl overflow-hidden group hover:border-primary/50 transition-all cursor-pointer snap-center"
+        className="min-w-[85vw] md:min-w-[400px] bg-white border border-slate-200/60 rounded-xl overflow-hidden group hover:border-primary/40 shadow-card hover:shadow-glow transition-all cursor-pointer snap-center"
     >
-        {/* Image Container */}
-        <div className="aspect-video relative overflow-hidden bg-surface/20">
+        <div className="aspect-video relative overflow-hidden bg-slate-100">
             {study.imageUrl ? (
                 <img
                     src={study.imageUrl}
@@ -128,22 +123,21 @@ const CaseStudyCard = ({ study, navigate, t }: { study: CaseStudy, navigate: any
                     decoding="async"
                 />
             ) : (
-                <div className="w-full h-full flex items-center justify-center text-white/20">
+                <div className="w-full h-full flex items-center justify-center text-slate-300">
                     <span className="font-mono text-sm">NO IMAGE</span>
                 </div>
             )}
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+            <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors" />
         </div>
 
-        {/* Content */}
         <div className="p-8">
             <div className="text-secondary font-mono text-xs mb-3 tracking-wider">{study.client}</div>
-            <h3 className="text-xl font-bold text-white mb-4 line-clamp-1">{study.title}</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-4 line-clamp-1">{study.title}</h3>
             <p className="text-text-secondary text-sm leading-relaxed mb-8 line-clamp-3">
                 {study.summary}
             </p>
 
-            <div className="flex items-center text-white text-sm font-bold group-hover:text-primary transition-colors gap-2">
+            <div className="flex items-center text-slate-800 text-sm font-bold group-hover:text-primary transition-colors gap-2">
                 {t.caseStudies.viewButton} <ArrowUpRight className="w-4 h-4" />
             </div>
         </div>

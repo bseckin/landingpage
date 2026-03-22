@@ -3,12 +3,11 @@ import { useLanguage } from '../context/LanguageContext';
 const About = () => {
     const { t } = useLanguage();
     return (
-        <section className="py-20 md:py-32 bg-black border-t border-white/5">
+        <section className="py-20 md:py-32 border-t border-slate-200/80">
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                {/* Text Content */}
                 <div className="order-2 lg:order-1">
                     <div className="flex items-center gap-4 mb-8">
-                        <span className="text-primary text-5xl font-mono font-light">{'//'}</span>
+                        <span className="text-secondary text-5xl font-mono font-light">{'//'}</span>
                         <h2 className="text-3xl md:text-5xl font-mono font-bold text-primary tracking-widest uppercase">{t.about.whoAmI}</h2>
                     </div>
 
@@ -22,18 +21,16 @@ const About = () => {
                     </div>
                 </div>
 
-                {/* Profile Visual */}
                 <div className="relative order-1 lg:order-2">
-                    <div className="aspect-square w-full max-w-[500px] mx-auto bg-surface/5 border border-white/5 relative flex items-center justify-center">
-                        {/* Corner Accents */}
-                        <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-primary" />
-                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-primary" />
+                    <div className="aspect-square w-full max-w-[500px] mx-auto bg-white border border-slate-200/60 rounded-xl shadow-card relative flex items-center justify-center">
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-primary rounded-tr-xl" />
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-primary rounded-bl-xl" />
 
-                        <div className="text-6xl font-bold font-mono text-white/5 select-none hover:text-white/10 transition-colors">ME</div>
+                        <div className="text-6xl font-bold font-mono text-slate-200 select-none hover:text-slate-300 transition-colors">ME</div>
 
-                        <div className="absolute bottom-6 right-6 px-4 py-2 bg-black border border-primary rounded-full flex items-center gap-3 shadow-[0_0_15px_rgba(0,255,163,0.15)]">
-                            <span className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_5px_#00ffa3]" />
-                            <span className="text-primary text-xs font-mono tracking-widest uppercase">{t.about.status}</span>
+                        <div className="absolute bottom-6 right-6 px-4 py-2 bg-white border border-slate-200/80 rounded-full flex items-center gap-3 shadow-card">
+                            <span className="w-2 h-2 bg-secondary rounded-full animate-pulse shadow-[0_0_6px_rgba(20,184,166,0.6)]" />
+                            <span className="text-secondary text-xs font-mono tracking-widest uppercase">{t.about.status}</span>
                         </div>
                     </div>
                 </div>
@@ -43,7 +40,7 @@ const About = () => {
 };
 
 const Badge = ({ label, sub }: { label: string, sub: string }) => (
-    <div className="p-5 bg-surface/5 border border-white/5 min-w-[140px] hover:border-primary/30 transition-colors">
+    <div className="p-5 bg-white border border-slate-200/60 rounded-xl shadow-card min-w-[140px] hover:border-primary/25 transition-colors">
         <div className="text-xs font-bold text-secondary mb-2 font-mono tracking-wider">{label}</div>
         <div className="text-sm text-text-muted font-mono">{sub}</div>
     </div>

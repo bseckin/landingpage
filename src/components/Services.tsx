@@ -7,21 +7,19 @@ const Services = () => {
     const icons = [Link, Bot, ShieldCheck];
 
     return (
-        <section className="py-20 md:py-32 bg-[#080808] relative border-t border-white/5">
+        <section className="py-20 md:py-32 relative border-t border-slate-200/80">
             <div className="container mx-auto px-6">
                 <div className="mb-20">
                     <div className="max-w-3xl">
-                        {/* Principle / Credo */}
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 font-sans">
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-12 font-sans">
                             {t.services.headline}
                         </h2>
 
-                        {/* Principle / Credo */}
                         <div className="mb-8">
                             <span className="text-secondary/90 font-mono text-sm tracking-wider uppercase mb-3 block">
                                 Prinzip
                             </span>
-                            <p className="text-xl md:text-2xl font-medium text-white/90 leading-relaxed max-w-2xl border-l-2 border-secondary/30 pl-6">
+                            <p className="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed max-w-2xl border-l-2 border-secondary/35 pl-6">
                                 "{t.services.principle}"
                             </p>
                         </div>
@@ -49,15 +47,14 @@ const Services = () => {
 };
 
 const ServiceCard = ({ tag, title, desc, Icon }: { tag: string, title: string, desc: string, Icon: LucideIcon }) => (
-    <div className="group relative p-10 md:p-12 bg-white/[0.01] backdrop-blur-lg border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] hover:bg-white/[0.03] rounded-3xl overflow-hidden transition-all duration-500">
+    <div className="group relative p-10 md:p-12 bg-white border border-slate-200/60 rounded-xl shadow-card overflow-hidden transition-all duration-300 hover:border-slate-300/90 hover:shadow-glow">
         <div className="relative z-10 flex flex-col items-center text-center">
-            {/* Icon - Anchor of Stability (Top Center) */}
-            <div className="mb-6 p-4 bg-white/5 rounded-full text-primary/40 group-hover:text-primary transition-colors duration-500">
+            <div className="mb-6 p-4 bg-teal-50 rounded-full text-secondary/70 group-hover:text-secondary transition-colors duration-300">
                 <Icon className="w-8 h-8" strokeWidth={1.5} />
             </div>
 
-            <div className="text-xs font-bold font-sans text-secondary/80 mb-4 block tracking-wider">{tag}</div>
-            <h3 className="text-2xl font-bold text-white mb-4 font-sans">{title}</h3>
+            <div className="text-xs font-bold font-sans text-indigo-600/90 mb-4 block tracking-wider">{tag}</div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-4 font-sans">{title}</h3>
             <p className="text-text-secondary leading-relaxed font-sans text-base max-w-sm mx-auto">
                 {desc}
             </p>

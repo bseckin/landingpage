@@ -32,7 +32,7 @@ const RichTextEditor = ({ value, onChange, placeholder, label }: RichTextEditorP
                     {label}
                 </label>
             )}
-            <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden focus-within:border-primary/50 transition-colors">
+            <div className="bg-white border border-slate-200/80 rounded-lg overflow-hidden focus-within:border-primary/50 transition-colors shadow-sm">
                 <ReactQuill
                     theme="snow"
                     value={value}
@@ -41,14 +41,14 @@ const RichTextEditor = ({ value, onChange, placeholder, label }: RichTextEditorP
                     formats={formats}
                     // @ts-expect-error: Placeholder is valid but missing in type definition
                     placeholder={placeholder}
-                    className="text-white"
+                    className="text-slate-900"
                 />
             </div>
             <style>{`
                 .ql-toolbar.ql-snow {
                     border: none;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                    background: rgba(255, 255, 255, 0.02);
+                    border-bottom: 1px solid #e2e8f0;
+                    background: #f8fafc;
                 }
                 .ql-container.ql-snow {
                     border: none;
@@ -57,42 +57,42 @@ const RichTextEditor = ({ value, onChange, placeholder, label }: RichTextEditorP
                 }
                 .ql-editor {
                     min-height: 200px;
-                    color: white;
+                    color: #0f172a;
                 }
                 .ql-editor.ql-blank::before {
-                    color: rgba(255, 255, 255, 0.3);
+                    color: #94a3b8;
                     font-style: normal;
                 }
                 .ql-snow .ql-stroke {
-                    stroke: rgba(255, 255, 255, 0.6);
+                    stroke: #64748b;
                 }
                 .ql-snow .ql-fill {
-                    fill: rgba(255, 255, 255, 0.6);
+                    fill: #64748b;
                 }
                 .ql-snow .ql-picker {
-                    color: rgba(255, 255, 255, 0.6);
+                    color: #64748b;
                 }
                 .ql-snow .ql-picker-options {
-                    background-color: #1a1a1a;
-                    border-color: rgba(255, 255, 255, 0.1);
+                    background-color: #ffffff;
+                    border-color: #e2e8f0;
                 }
                 .ql-snow .ql-picker-item:hover {
-                    color: #00ffa3;
+                    color: #4f46e5;
                 }
                 .ql-snow .ql-picker-label:hover {
-                    color: #00ffa3;
+                    color: #4f46e5;
                 }
                 .ql-snow .ql-picker-label:hover .ql-stroke {
-                    stroke: #00ffa3;
+                    stroke: #4f46e5;
                 }
                 .ql-snow .ql-active .ql-stroke {
-                    stroke: #00ffa3;
+                    stroke: #4f46e5;
                 }
                 .ql-snow .ql-active {
-                    color: #00ffa3;
+                    color: #4f46e5;
                 }
                 .ql-snow a {
-                    color: #00ffa3;
+                    color: #4f46e5;
                 }
             `}</style>
         </div>

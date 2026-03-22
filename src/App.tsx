@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={
-            <div className="min-h-screen bg-black text-white selection:bg-primary selection:text-black">
+            <div className="min-h-screen min-h-dvh bg-slate-50 text-slate-900 selection:bg-primary selection:text-white">
               <LanguageToggle />
               <Hero />
               <ProblemGrid />

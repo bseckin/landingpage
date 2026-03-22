@@ -20,11 +20,10 @@ const MODES = {
 
 export default function Admin() {
     const [mode, setMode] = useState(MODES.SECTIONS);
-    const [activeFile, setActiveFile] = useState(SECTIONS[0].id); // For Sections Mode
+    const [activeFile, setActiveFile] = useState(SECTIONS[0].id);
 
-    // Case Study State
     const [caseStudies, setCaseStudies] = useState<string[]>([]);
-    const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null); // path or filename
+    const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null);
     const [isNewCaseStudy, setIsNewCaseStudy] = useState(false);
 
     const [data, setData] = useState<any>(null);
@@ -42,7 +41,6 @@ export default function Admin() {
         }
     }, [mode, activeFile]);
 
-    // Fetch Content (Generic)
     const fetchFile = async (filename: string) => {
         setLoading(true);
         setStatus({ type: null, msg: '' });
@@ -59,7 +57,6 @@ export default function Admin() {
         }
     };
 
-    // Case Study Specifics
     const fetchCaseStudiesList = async () => {
         try {
             const res = await fetch('http://localhost:3001/api/list/case-studies');
@@ -114,7 +111,6 @@ export default function Admin() {
             if (mode === MODES.CASE_STUDIES) {
                 if (!activeCaseStudy) return;
 
-                // If new, generate filename from title
                 if (isNewCaseStudy) {
                     const slug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                     filename = `case-studies/${slug}`;
@@ -137,7 +133,6 @@ export default function Admin() {
                 fetchCaseStudiesList();
                 if (isNewCaseStudy) {
                     setIsNewCaseStudy(false);
-                    // Update active ID logic if needed, but simple re-list works for now
                     const slug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                     setActiveCaseStudy(slug);
                 }
@@ -155,36 +150,34 @@ export default function Admin() {
         setData((prev: any) => ({ ...prev, [key]: value }));
     };
 
-    // Render Fields Logic
     const renderFields = (obj: any) => {
         if (!obj) return null;
 
-        // Special Layout for Case Studies
         if (mode === MODES.CASE_STUDIES) {
             return (
                 <div className="space-y-6">
                     <div className="grid grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">Titel</label>
-                            <input type="text" className="w-full bg-surface border border-white/10 rounded-lg p-3 text-white focus:border-primary outline-none"
+                            <label className="block text-sm font-medium text-slate-500 mb-2">Titel</label>
+                            <input type="text" className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none shadow-sm"
                                 value={obj.title || ''} onChange={e => updateField('title', e.target.value)} />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">Kunde</label>
-                            <input type="text" className="w-full bg-surface border border-white/10 rounded-lg p-3 text-white focus:border-primary outline-none"
+                            <label className="block text-sm font-medium text-slate-500 mb-2">Kunde</label>
+                            <input type="text" className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none shadow-sm"
                                 value={obj.client || ''} onChange={e => updateField('client', e.target.value)} />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Titelbild URL</label>
-                        <input type="text" className="w-full bg-surface border border-white/10 rounded-lg p-3 text-white focus:border-primary outline-none"
+                        <label className="block text-sm font-medium text-slate-500 mb-2">Titelbild URL</label>
+                        <input type="text" className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none shadow-sm"
                             value={obj.image || ''} onChange={e => updateField('image', e.target.value)} />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Kurzfassung</label>
-                        <textarea className="w-full bg-surface border border-white/10 rounded-lg p-3 text-white focus:border-primary outline-none h-24"
+                        <label className="block text-sm font-medium text-slate-500 mb-2">Kurzfassung</label>
+                        <textarea className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none h-24 shadow-sm"
                             value={obj.summary || ''} onChange={e => updateField('summary', e.target.value)} />
                     </div>
 
@@ -196,15 +189,14 @@ export default function Admin() {
             )
         }
 
-        // Default Sections Render Logic
         return Object.keys(obj).map(key => {
             const val = obj[key];
             if (Array.isArray(val) || (typeof val === 'object' && val !== null)) {
                 return (
                     <div key={key} className="mb-6">
-                        <label className="block text-sm font-medium text-gray-400 mb-2 capitalize">{key} (JSON / Liste)</label>
+                        <label className="block text-sm font-medium text-slate-500 mb-2 capitalize">{key} (JSON / Liste)</label>
                         <textarea
-                            className="w-full bg-surface border border-white/10 rounded-lg p-3 text-white font-mono text-sm h-48 focus:border-primary outline-none"
+                            className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 font-mono text-sm h-48 focus:border-primary outline-none shadow-sm"
                             value={JSON.stringify(val, null, 2)}
                             onChange={(e) => {
                                 try {
@@ -218,12 +210,12 @@ export default function Admin() {
             const isLongText = String(val).length > 60 || key === 'headline' || key === 'description' || key === 'subHeadline';
             return (
                 <div key={key} className="mb-6">
-                    <label className="block text-sm font-medium text-gray-400 mb-2 capitalize">{key}</label>
+                    <label className="block text-sm font-medium text-slate-500 mb-2 capitalize">{key}</label>
                     {isLongText ? (
-                        <textarea className="w-full bg-surface border border-white/10 rounded-lg p-3 text-white focus:border-primary outline-none min-h-[100px]"
+                        <textarea className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none min-h-[100px] shadow-sm"
                             value={val} onChange={(e) => updateField(key, e.target.value)} />
                     ) : (
-                        <input type="text" className="w-full bg-surface border border-white/10 rounded-lg p-3 text-white focus:border-primary outline-none"
+                        <input type="text" className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none shadow-sm"
                             value={val} onChange={(e) => updateField(key, e.target.value)} />
                     )}
                 </div>
@@ -232,24 +224,21 @@ export default function Admin() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white flex">
-            {/* Sidebar */}
-            <div className="w-64 border-r border-white/10 bg-surface/50 p-6 flex flex-col overflow-y-auto h-screen sticky top-0">
+        <div className="min-h-screen bg-slate-50 text-slate-900 flex">
+            <div className="w-64 border-r border-slate-200/80 bg-white p-6 flex flex-col overflow-y-auto h-screen sticky top-0 shadow-sm">
                 <h2 className="text-xl font-bold mb-8 text-primary">Content Manager</h2>
 
-                {/* Mode Switcher */}
-                <div className="flex gap-2 mb-6 p-1 bg-white/5 rounded-lg">
+                <div className="flex gap-2 mb-6 p-1 bg-slate-100 rounded-lg border border-slate-200/60">
                     <button onClick={() => setMode(MODES.SECTIONS)}
-                        className={`flex-1 py-1 px-2 text-sm rounded ${mode === MODES.SECTIONS ? 'bg-primary text-black font-bold' : 'text-gray-400 hover:text-white'}`}>
+                        className={`flex-1 py-1 px-2 text-sm rounded ${mode === MODES.SECTIONS ? 'bg-primary text-white font-bold shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>
                         Seiten
                     </button>
                     <button onClick={() => setMode(MODES.CASE_STUDIES)}
-                        className={`flex-1 py-1 px-2 text-sm rounded ${mode === MODES.CASE_STUDIES ? 'bg-primary text-black font-bold' : 'text-gray-400 hover:text-white'}`}>
+                        className={`flex-1 py-1 px-2 text-sm rounded ${mode === MODES.CASE_STUDIES ? 'bg-primary text-white font-bold shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}>
                         Fallstudien
                     </button>
                 </div>
 
-                {/* Sections List */}
                 {mode === MODES.SECTIONS && (
                     <div className="space-y-2">
                         {SECTIONS.map(file => (
@@ -257,8 +246,8 @@ export default function Admin() {
                                 key={file.id}
                                 onClick={() => setActiveFile(file.id)}
                                 className={`w-full text-left px-4 py-3 rounded-lg transition-all ${activeFile === file.id
-                                    ? 'bg-primary/20 text-primary border border-primary/20'
-                                    : 'hover:bg-white/5 text-gray-400'
+                                    ? 'bg-indigo-50 text-primary border border-primary/20'
+                                    : 'hover:bg-slate-50 text-slate-600'
                                     }`}
                             >
                                 {file.label}
@@ -267,28 +256,27 @@ export default function Admin() {
                     </div>
                 )}
 
-                {/* Case Studies List */}
                 {mode === MODES.CASE_STUDIES && (
                     <div className="space-y-2">
-                        <button onClick={createNewCaseStudy} className="w-full flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white py-2 rounded-lg mb-4 transition-all">
+                        <button onClick={createNewCaseStudy} className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/80 text-slate-800 py-2 rounded-lg mb-4 transition-all shadow-sm">
                             <Plus className="w-4 h-4" /> Neu
                         </button>
 
-                        {caseStudies.length === 0 && <p className="text-gray-500 text-sm text-center">Keine Fallstudien</p>}
+                        {caseStudies.length === 0 && <p className="text-slate-500 text-sm text-center">Keine Fallstudien</p>}
 
                         {caseStudies.map(slug => (
                             <div key={slug} className="group relative">
                                 <button
                                     onClick={() => loadCaseStudy(slug)}
                                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${activeCaseStudy === slug
-                                        ? 'bg-primary/20 text-primary border border-primary/20'
-                                        : 'hover:bg-white/5 text-gray-400'
+                                        ? 'bg-indigo-50 text-primary border border-primary/20'
+                                        : 'hover:bg-slate-50 text-slate-600'
                                         }`}
                                 >
                                     <span className="truncate block w-4/5">{slug}</span>
                                 </button>
                                 <button onClick={(e) => handleDeleteCaseStudy(slug, e)}
-                                    className="absolute right-2 top-3 text-gray-600 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all">
+                                    className="absolute right-2 top-3 text-slate-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all">
                                     <Trash2 className="w-4 h-4" />
                                 </button>
                             </div>
@@ -296,32 +284,30 @@ export default function Admin() {
                     </div>
                 )}
 
-                <div className="mt-auto pt-6 border-t border-white/10">
-                    <p className="text-xs text-gray-500">
-                        Local Server: <span className="text-green-500">Required (Port 3001)</span>
+                <div className="mt-auto pt-6 border-t border-slate-200/80">
+                    <p className="text-xs text-slate-500">
+                        Local Server: <span className="text-secondary font-medium">Required (Port 3001)</span>
                     </p>
                 </div>
             </div>
 
-            {/* Main Content */}
-            <div className="flex-1 p-10 overflow-auto">
+            <div className="flex-1 p-10 overflow-auto bg-[#f8fafc]">
                 <div className="max-w-4xl mx-auto pb-20">
 
-                    {/* Header */}
                     <div className="flex items-center justify-between mb-10">
                         <div>
                             {mode === MODES.CASE_STUDIES && activeCaseStudy && (
-                                <button onClick={() => { setActiveCaseStudy(null); setData(null); }} className="text-gray-500 hover:text-white flex items-center gap-2 mb-2 text-sm">
+                                <button onClick={() => { setActiveCaseStudy(null); setData(null); }} className="text-slate-500 hover:text-slate-900 flex items-center gap-2 mb-2 text-sm">
                                     <ArrowLeft className="w-4 h-4" /> Zurück zur Liste
                                 </button>
                             )}
-                            <h1 className="text-3xl font-bold mb-2">
+                            <h1 className="text-3xl font-bold mb-2 text-slate-900">
                                 {mode === MODES.SECTIONS
                                     ? SECTIONS.find(f => f.id === activeFile)?.label
                                     : (isNewCaseStudy ? 'Neue Fallstudie erstellen' : (data?.title || activeCaseStudy || 'Wähle eine Fallstudie'))
                                 }
                             </h1>
-                            <p className="text-gray-400 text-sm font-mono">
+                            <p className="text-slate-500 text-sm font-mono">
                                 {mode === MODES.SECTIONS ? `src/content/${activeFile}` : (activeCaseStudy ? `src/content/case-studies/${activeCaseStudy}.json` : 'Liste')}
                             </p>
                         </div>
@@ -330,7 +316,7 @@ export default function Admin() {
                             <button
                                 onClick={handleSave}
                                 disabled={saving || loading}
-                                className="flex items-center gap-2 bg-primary text-black px-6 py-3 rounded-lg font-bold hover:bg-primary/90 disabled:opacity-50 transition-all"
+                                className="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-primary/90 disabled:opacity-50 transition-all shadow-[0_8px_24px_-6px_rgba(79,70,229,0.35)]"
                             >
                                 {saving ? <Loader className="animate-spin w-5 h-5" /> : <Save className="w-5 h-5" />}
                                 {saving ? 'Speichert...' : 'Speichern'}
@@ -338,12 +324,11 @@ export default function Admin() {
                         )}
                     </div>
 
-                    {/* Status Message */}
                     {status.msg && (
                         <motion.div
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className={`p-4 rounded-lg mb-8 flex items-center gap-3 ${status.type === 'success' ? 'bg-green-500/10 text-green-500 border border-green-500/20' : 'bg-red-500/10 text-red-500 border border-red-500/20'
+                            className={`p-4 rounded-lg mb-8 flex items-center gap-3 ${status.type === 'success' ? 'bg-teal-50 text-teal-800 border border-teal-200/80' : 'bg-red-50 text-red-700 border border-red-200/80'
                                 }`}
                         >
                             {status.type === 'success' ? <CheckCircle className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
@@ -351,19 +336,18 @@ export default function Admin() {
                         </motion.div>
                     )}
 
-                    {/* Editor Form */}
                     {loading ? (
-                        <div className="flex items-center justify-center h-64 text-gray-500 gap-2">
+                        <div className="flex items-center justify-center h-64 text-slate-500 gap-2">
                             <Loader className="animate-spin" /> Lädt Inhalte...
                         </div>
                     ) : (
                         data ? (
-                            <div className="bg-surface/30 p-8 rounded-2xl border border-white/5">
+                            <div className="bg-white p-8 rounded-xl border border-slate-200/60 shadow-card">
                                 {renderFields(data)}
                             </div>
                         ) : (
                             mode === MODES.CASE_STUDIES && !isNewCaseStudy && (
-                                <div className="flex flex-col items-center justify-center h-64 text-gray-500 border-2 border-dashed border-white/10 rounded-2xl">
+                                <div className="flex flex-col items-center justify-center h-64 text-slate-500 border-2 border-dashed border-slate-200/80 rounded-xl bg-white">
                                     <p>Wähle eine Fallstudie aus der Leiste links oder erstelle eine neue.</p>
                                 </div>
                             )

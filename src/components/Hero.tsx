@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
     const { t } = useLanguage();
     return (
-        <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-white/5 bg-black">
+        <section className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden border-b border-slate-200/80 bg-[#f8fafc]/90">
             <HeroBackground />
 
             {/* Content */}
@@ -14,9 +15,9 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm text-xs font-semibold text-primary mb-8 md:mb-12 tracking-wide font-sans text-left"
+                    className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-teal-200/80 bg-white/85 backdrop-blur-md text-xs font-semibold text-slate-700 mb-8 md:mb-12 tracking-wide font-sans text-left shadow-card"
                 >
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,255,163,0.8)]" />
+                    <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.55)]" />
                     {t.hero.badge}
                 </motion.div>
 
@@ -24,7 +25,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8 font-sans text-white break-words hyphens-auto"
+                    className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8 font-sans text-slate-900 break-words hyphens-auto"
                 >
                     {t.hero.headline}
                 </motion.h1>
@@ -33,7 +34,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-8 md:mb-12 font-sans font-light leading-relaxed"
+                    className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-8 md:mb-12 font-sans font-light leading-relaxed"
                 >
                     {t.hero.sub}
                 </motion.p>
@@ -44,13 +45,13 @@ const Hero = () => {
                     transition={{ delay: 0.3 }}
                     className="flex flex-col md:flex-row items-center justify-center gap-6"
                 >
-                    <a href="#contact" className="w-full md:w-auto px-8 py-4 bg-primary text-black font-bold text-lg hover:bg-primary/90 transition-all duration-200 rounded-full font-sans shadow-[0_0_20px_rgba(0,255,163,0.3)] hover:shadow-[0_0_30px_rgba(0,255,163,0.5)] transform hover:scale-105 text-center flex items-center justify-center gap-3">
+                    <a href="#contact" className="w-full md:w-auto px-8 py-4 bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all duration-200 rounded-full font-sans shadow-[0_8px_28px_-6px_rgba(79,70,229,0.45)] hover:shadow-[0_12px_36px_-4px_rgba(79,70,229,0.5)] transform hover:scale-[1.02] text-center flex items-center justify-center gap-3">
                         <span className="flex items-center justify-center gap-3">
                             {t.hero.ctaPrimary} <ArrowRight className="w-5 h-5" />
                         </span>
                     </a>
 
-                    <a href="#case-studies" className="w-full md:w-auto px-8 py-4 text-text-secondary hover:text-white transition-all font-sans font-medium text-sm tracking-wide border-b border-transparent hover:border-white/20 text-center">
+                    <a href="#case-studies" className="w-full md:w-auto px-8 py-4 text-slate-600 hover:text-slate-900 transition-all font-sans font-medium text-sm tracking-wide border-b border-transparent hover:border-slate-400/80 text-center">
                         {t.hero.ctaSecondary}
                     </a>
                 </motion.div>
@@ -60,18 +61,141 @@ const Hero = () => {
     );
 };
 
-// Extracted for maintainability: separating heavy visual noise from content
 const HeroBackground = () => (
-    <>
-        {/* Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-
-        {/* Curved Lines Decoration */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-100 400 C 200 400, 400 200, 600 400 S 1000 600, 1540 400" stroke="#00ffa3" strokeWidth="1" strokeOpacity="0.15" fill="none" />
-            <path d="M-100 600 C 200 600, 400 400, 600 600 S 1000 800, 1540 600" stroke="#00F0FF" strokeWidth="1" strokeOpacity="0.15" fill="none" />
-        </svg>
-    </>
+    <div className="absolute inset-0 z-0 pointer-events-none min-h-full">
+        <div
+            className="absolute inset-0 bg-gradient-to-b from-[#e8ecfa] via-[#f4f6fd] to-white"
+            aria-hidden
+        />
+        <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_-15%,rgba(180,210,255,0.55),transparent_58%)]"
+            aria-hidden
+        />
+        <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_85%_45%,rgba(230,190,255,0.35),transparent_52%)]"
+            aria-hidden
+        />
+        <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_15%_55%,rgba(160,235,255,0.4),transparent_48%)]"
+            aria-hidden
+        />
+        <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_60%_25%,rgba(250,250,200,0.12),transparent_45%)]"
+            aria-hidden
+        />
+        <HeroWaveCanvas />
+        <div
+            className="absolute inset-0 bg-gradient-to-t from-white/75 via-transparent to-[#eef1fb]/30"
+            aria-hidden
+        />
+    </div>
 );
+
+type WaveLayer = {
+    base: number;
+    amp: number;
+    freq: number;
+    speed: number;
+    phase: number;
+    color: string;
+    harmonic: number;
+};
+
+/* Normal alpha compositing only — no CSS multiply (stacked multiply was turning the hero nearly black) */
+const WAVE_LAYERS: WaveLayer[] = [
+    { base: 0.22, amp: 1, freq: 1.1, speed: 0.22, phase: 0.5, color: 'rgba(99, 102, 241, 0.09)', harmonic: 1.65 },
+    { base: 0.34, amp: 1, freq: 1.35, speed: 0.28, phase: 2.1, color: 'rgba(45, 212, 191, 0.08)', harmonic: 1.5 },
+    { base: 0.46, amp: 1, freq: 1.0, speed: 0.24, phase: 1.0, color: 'rgba(129, 140, 248, 0.07)', harmonic: 1.8 },
+    { base: 0.58, amp: 1, freq: 1.5, speed: 0.32, phase: 3.2, color: 'rgba(167, 139, 250, 0.07)', harmonic: 1.45 },
+    { base: 0.72, amp: 1, freq: 1.2, speed: 0.26, phase: 4.0, color: 'rgba(251, 191, 36, 0.06)', harmonic: 1.7 },
+];
+
+const HeroWaveCanvas = () => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const timeRef = useRef(0);
+    const rafRef = useRef<number>(0);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const parent = canvas.parentElement;
+        if (!parent) return;
+
+        const resize = () => {
+            const w = parent.clientWidth;
+            const h = parent.clientHeight;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.max(1, Math.floor(w * dpr));
+            canvas.height = Math.max(1, Math.floor(h * dpr));
+            canvas.style.width = `${w}px`;
+            canvas.style.height = `${h}px`;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+
+        const waveY = (x: number, w: number, h: number, layer: WaveLayer, t: number) => {
+            const nx = (x / w) * Math.PI * 2;
+            const a = h * 0.045 * layer.amp;
+            return (
+                h * layer.base +
+                Math.sin(nx * layer.freq + t * layer.speed + layer.phase) * a +
+                Math.sin(nx * layer.freq * layer.harmonic + t * layer.speed * 0.62 + layer.phase * 1.4) *
+                    (a * 0.38)
+            );
+        };
+
+        const draw = () => {
+            const w = parent.clientWidth;
+            const h = parent.clientHeight;
+            if (w < 2 || h < 2) {
+                rafRef.current = requestAnimationFrame(draw);
+                return;
+            }
+
+            ctx.clearRect(0, 0, w, h);
+
+            const t = timeRef.current;
+            const step = Math.max(4, Math.floor(w / 100));
+
+            for (const layer of WAVE_LAYERS) {
+                ctx.beginPath();
+                ctx.moveTo(0, h);
+                ctx.lineTo(0, waveY(0, w, h, layer, t));
+                for (let x = step; x <= w; x += step) {
+                    ctx.lineTo(x, waveY(x, w, h, layer, t));
+                }
+                ctx.lineTo(w, h);
+                ctx.closePath();
+                ctx.fillStyle = layer.color;
+                ctx.fill();
+            }
+
+            timeRef.current += 0.0028;
+            rafRef.current = requestAnimationFrame(draw);
+        };
+
+        resize();
+        const ro = new ResizeObserver(() => {
+            resize();
+        });
+        ro.observe(parent);
+        rafRef.current = requestAnimationFrame(draw);
+
+        return () => {
+            ro.disconnect();
+            cancelAnimationFrame(rafRef.current);
+        };
+    }, []);
+
+    return (
+        <canvas
+            ref={canvasRef}
+            className="absolute inset-0 h-full w-full"
+            aria-hidden
+        />
+    );
+};
 
 export default Hero;
