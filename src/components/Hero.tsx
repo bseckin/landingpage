@@ -103,11 +103,11 @@ type WaveLayer = {
 
 /* Normal alpha compositing only — no CSS multiply (stacked multiply was turning the hero nearly black) */
 const WAVE_LAYERS: WaveLayer[] = [
-    { base: 0.22, amp: 1, freq: 1.1, speed: 0.22, phase: 0.5, color: 'rgba(99, 102, 241, 0.09)', harmonic: 1.65 },
-    { base: 0.34, amp: 1, freq: 1.35, speed: 0.28, phase: 2.1, color: 'rgba(45, 212, 191, 0.08)', harmonic: 1.5 },
-    { base: 0.46, amp: 1, freq: 1.0, speed: 0.24, phase: 1.0, color: 'rgba(129, 140, 248, 0.07)', harmonic: 1.8 },
-    { base: 0.58, amp: 1, freq: 1.5, speed: 0.32, phase: 3.2, color: 'rgba(167, 139, 250, 0.07)', harmonic: 1.45 },
-    { base: 0.72, amp: 1, freq: 1.2, speed: 0.26, phase: 4.0, color: 'rgba(251, 191, 36, 0.06)', harmonic: 1.7 },
+    { base: 0.22, amp: 1, freq: 1.1, speed: 0.42, phase: 0.5, color: 'rgba(99, 102, 241, 0.2)', harmonic: 1.65 },
+    { base: 0.34, amp: 1, freq: 1.35, speed: 0.52, phase: 2.1, color: 'rgba(45, 212, 191, 0.18)', harmonic: 1.5 },
+    { base: 0.46, amp: 1, freq: 1.0, speed: 0.48, phase: 1.0, color: 'rgba(129, 140, 248, 0.16)', harmonic: 1.8 },
+    { base: 0.58, amp: 1, freq: 1.5, speed: 0.58, phase: 3.2, color: 'rgba(167, 139, 250, 0.15)', harmonic: 1.45 },
+    { base: 0.72, amp: 1, freq: 1.2, speed: 0.5, phase: 4.0, color: 'rgba(251, 191, 36, 0.13)', harmonic: 1.7 },
 ];
 
 const HeroWaveCanvas = () => {
@@ -172,7 +172,7 @@ const HeroWaveCanvas = () => {
                 ctx.fill();
             }
 
-            timeRef.current += 0.0028;
+            timeRef.current += 0.0055;
             rafRef.current = requestAnimationFrame(draw);
         };
 
