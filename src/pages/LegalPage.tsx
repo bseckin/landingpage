@@ -29,11 +29,9 @@ const LegalPage = ({ type }: LegalPageProps) => {
                     {data.headline}
                 </h1>
 
-                <div className="prose prose-slate prose-lg max-w-none font-sans text-text-secondary">
-                    {data.content.split('\n').map((line, index) => (
-                        line === '' ? <br key={index} /> : <p key={index}>{line}</p>
-                    ))}
-                </div>
+                <article className="max-w-none font-sans text-text-secondary whitespace-pre-line leading-relaxed text-base md:text-lg">
+                    {data.content}
+                </article>
             </div>
         </div>
     );
