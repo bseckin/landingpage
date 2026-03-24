@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Search, FileJson, Hammer, Rocket, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
@@ -6,9 +7,61 @@ const icons = [Search, FileJson, Hammer, Rocket];
 
 const Process = () => {
     const { t } = useLanguage();
+    const sectionRef = useRef<HTMLElement | null>(null);
+    const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const [activeStepIndex, setActiveStepIndex] = useState(0);
+
+    const updateActiveStep = useCallback(() => {
+        const steps = t.process.steps;
+        if (!steps.length) return;
+
+        const vh = window.innerHeight;
+        // Scan line ~ upper third: reads naturally on mobile + desktop while scrolling
+        const lineY = Math.min(Math.max(vh * 0.36, 96), vh * 0.48);
+
+        let next = 0;
+        for (let i = 0; i < steps.length; i++) {
+            const el = stepRefs.current[i];
+            if (!el) continue;
+            const top = el.getBoundingClientRect().top;
+            if (top <= lineY) next = i;
+        }
+        setActiveStepIndex((prev) => (prev !== next ? next : prev));
+    }, [t.process.steps]);
+
+    useEffect(() => {
+        let scheduled = false;
+        const onScrollOrResize = () => {
+            if (scheduled) return;
+            scheduled = true;
+            requestAnimationFrame(() => {
+                scheduled = false;
+                updateActiveStep();
+            });
+        };
+
+        updateActiveStep();
+        window.addEventListener('scroll', onScrollOrResize, { passive: true });
+        window.addEventListener('resize', onScrollOrResize, { passive: true });
+
+        const ro =
+            typeof ResizeObserver !== 'undefined' && sectionRef.current
+                ? new ResizeObserver(onScrollOrResize)
+                : null;
+        ro?.observe(sectionRef.current!);
+
+        return () => {
+            window.removeEventListener('scroll', onScrollOrResize);
+            window.removeEventListener('resize', onScrollOrResize);
+            ro?.disconnect();
+        };
+    }, [updateActiveStep]);
 
     return (
-        <section className="py-20 md:py-32 relative border-t border-slate-200/80 overflow-hidden">
+        <section
+            ref={sectionRef}
+            className="py-20 md:py-32 relative border-t border-slate-200/80 overflow-hidden"
+        >
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/25 to-transparent -translate-x-1/2 block z-0" />
 
             <div className="container mx-auto px-6 relative z-10">
@@ -24,21 +77,56 @@ const Process = () => {
                 <div className="relative space-y-16 md:space-y-32">
                     {t.process.steps.map((step, index) => {
                         const Icon = icons[index];
+                        const isActive = activeStepIndex === index;
                         return (
-                            <div key={index} className={`flex flex-col md:flex-row items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-
-                                <div className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'text-center md:pl-24 md:text-left' : 'text-center md:pr-24 md:text-right'} mb-8 md:mb-0 relative z-10`}>
-                                    <div className="md:hidden w-12 h-12 mx-auto mb-4 rounded-full bg-white border border-primary/40 text-primary flex items-center justify-center relative z-10 shadow-card">
+                            <div
+                                key={index}
+                                ref={(el) => {
+                                    stepRefs.current[index] = el;
+                                }}
+                                className={`flex flex-col md:flex-row items-center transition-opacity duration-500 ease-out ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                                aria-current={isActive ? 'step' : undefined}
+                            >
+                                <div
+                                    className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'text-center md:pl-24 md:text-left' : 'text-center md:pr-24 md:text-right'} mb-8 md:mb-0 relative z-10`}
+                                >
+                                    <div
+                                        className={[
+                                            'md:hidden w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center relative z-10 transition-all duration-500 ease-out',
+                                            isActive
+                                                ? 'bg-white border border-primary text-primary shadow-[0_0_26px_-4px_rgba(79,70,229,0.5)] scale-100 opacity-100'
+                                                : 'bg-slate-50 border border-slate-200/90 text-slate-400 shadow-none scale-[0.97] opacity-55',
+                                        ].join(' ')}
+                                    >
                                         <Icon className="w-5 h-5" />
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-4 font-sans">{step.title}</h3>
-                                    <p className="text-text-secondary leading-relaxed font-sans text-base md:text-lg">
+                                    <h3
+                                        className={[
+                                            'text-2xl font-bold mb-4 font-sans transition-all duration-500 ease-out',
+                                            isActive ? 'text-slate-900' : 'text-slate-500',
+                                        ].join(' ')}
+                                    >
+                                        {step.title}
+                                    </h3>
+                                    <p
+                                        className={[
+                                            'leading-relaxed font-sans text-base md:text-lg transition-all duration-500 ease-out',
+                                            isActive ? 'text-text-secondary' : 'text-text-secondary/45',
+                                        ].join(' ')}
+                                    >
                                         {step.desc}
                                     </p>
                                 </div>
 
-                                <div className="absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-white border border-primary text-primary shadow-[0_0_24px_-4px_rgba(79,70,229,0.35)] hidden md:flex items-center justify-center z-10 transform transition-transform hover:scale-110 duration-300">
+                                <div
+                                    className={[
+                                        'absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full hidden md:flex items-center justify-center z-10 transform duration-500 ease-out',
+                                        isActive
+                                            ? 'bg-white border border-primary text-primary shadow-[0_0_28px_-4px_rgba(79,70,229,0.55)] md:scale-110'
+                                            : 'bg-slate-50 border border-slate-200/90 text-slate-400 shadow-none md:scale-100 opacity-50',
+                                    ].join(' ')}
+                                >
                                     <Icon className="w-6 h-6" />
                                 </div>
 
