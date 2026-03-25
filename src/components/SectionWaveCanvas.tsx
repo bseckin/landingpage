@@ -82,9 +82,15 @@ const SectionWaveCanvas = ({ preset, className }: SectionWaveCanvasProps) => {
         const parent = canvas.parentElement;
         if (!parent) return;
 
+        const sizeFromParent = () => {
+            const rect = parent.getBoundingClientRect();
+            const w = Math.max(1, Math.ceil(rect.width));
+            const h = Math.max(1, Math.ceil(rect.height));
+            return { w, h };
+        };
+
         const resize = () => {
-            const w = parent.clientWidth;
-            const h = parent.clientHeight;
+            const { w, h } = sizeFromParent();
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
             canvas.width = Math.max(1, Math.floor(w * dpr));
             canvas.height = Math.max(1, Math.floor(h * dpr));
@@ -125,8 +131,7 @@ const SectionWaveCanvas = ({ preset, className }: SectionWaveCanvasProps) => {
         };
 
         const draw = () => {
-            const w = parent.clientWidth;
-            const h = parent.clientHeight;
+            const { w, h } = sizeFromParent();
             if (w < 2 || h < 2) {
                 rafRef.current = requestAnimationFrame(draw);
                 return;
@@ -180,11 +185,12 @@ const SectionWaveCanvas = ({ preset, className }: SectionWaveCanvasProps) => {
     }, [preset]);
 
     return (
-        <canvas
-            ref={canvasRef}
-            className={className ?? 'absolute inset-0 h-full w-full'}
+        <div
+            className="pointer-events-none absolute inset-y-0 left-1/2 min-h-full w-[calc(100%+8px)] min-w-[calc(100%+8px)] max-w-none -translate-x-1/2"
             aria-hidden
-        />
+        >
+            <canvas ref={canvasRef} className={className ?? 'block h-full w-full'} aria-hidden />
+        </div>
     );
 };
 

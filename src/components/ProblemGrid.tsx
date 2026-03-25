@@ -10,8 +10,13 @@ const ProblemGrid = () => {
     const emojis = ["⛓️", "⚠️", "🔥"];
 
     return (
-        <section className="py-20 md:py-32 relative border-t border-slate-200/80">
-            <div className="container mx-auto px-6">
+        <section className="relative z-[1] isolate overflow-hidden pt-6 pb-20 md:pt-8 md:pb-32">
+            {/* Blend body mesh in slowly — avoids a hard band where hero ends and mesh begins */}
+            <div
+                className="pointer-events-none absolute inset-x-0 top-0 h-[min(32vh,13rem)] bg-gradient-to-b from-[#f8fafc] via-[#f8fafc]/82 to-transparent"
+                aria-hidden
+            />
+            <div className="container relative z-10 mx-auto px-6 pt-12 md:pt-16">
                 <SectionReveal className="mb-16 md:mb-24 text-center md:text-left">
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6 font-sans">
                         {t.problem.headline}

@@ -3,19 +3,20 @@ import { ArrowRight } from 'lucide-react';
 
 import { useLanguage } from '../context/LanguageContext';
 import SectionWaveCanvas from './SectionWaveCanvas';
+import HeroToContentFold from './HeroToContentFold';
 
 const Hero = () => {
     const { t } = useLanguage();
     return (
-        <section className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden border-b border-slate-200/80 bg-[#f8fafc]/90">
+        <section className="relative min-h-[100svh] flex flex-col items-center bg-[#f8fafc]/90">
             <HeroBackground />
 
             {/* Content */}
-            <div className="container mx-auto px-6 relative z-10 text-center">
+            <div className="container mx-auto px-6 relative z-10 text-center flex-1 flex flex-col justify-center items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-teal-200/80 bg-white/85 backdrop-blur-md text-xs font-semibold text-slate-700 mb-8 md:mb-12 tracking-wide font-sans text-left shadow-card"
+                    className="inline-flex w-fit max-w-full items-center gap-3 px-4 py-2 rounded-full border border-teal-200/80 bg-white/85 backdrop-blur-md text-xs font-semibold text-slate-700 mb-8 md:mb-12 tracking-wide font-sans text-left shadow-card"
                 >
                     <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.55)]" />
                     {t.hero.badge}
@@ -25,7 +26,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8 font-sans text-slate-900 break-words hyphens-auto"
+                    className="w-full text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8 font-sans text-slate-900 break-words hyphens-auto"
                 >
                     {t.hero.headline}
                 </motion.h1>
@@ -34,7 +35,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-8 md:mb-12 font-sans font-light leading-relaxed"
+                    className="w-full text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-8 md:mb-12 font-sans font-light leading-relaxed"
                 >
                     {t.hero.sub}
                 </motion.p>
@@ -43,7 +44,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="flex flex-col md:flex-row items-center justify-center gap-6"
+                    className="flex w-full flex-col md:flex-row items-center justify-center gap-6"
                 >
                     <a href="#contact" className="w-full md:w-auto px-8 py-4 bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all duration-200 rounded-full font-sans shadow-[0_8px_28px_-6px_rgba(79,70,229,0.45)] hover:shadow-[0_12px_36px_-4px_rgba(79,70,229,0.5)] transform hover:scale-[1.02] text-center flex items-center justify-center gap-3">
                         <span className="flex items-center justify-center gap-3">
@@ -57,7 +58,8 @@ const Hero = () => {
                 </motion.div>
 
             </div>
-        </section >
+            <HeroToContentFold />
+        </section>
     );
 };
 
@@ -86,6 +88,11 @@ const HeroBackground = () => (
         <SectionWaveCanvas preset="hero" />
         <div
             className="absolute inset-0 bg-gradient-to-t from-white/75 via-transparent to-[#eef1fb]/30"
+            aria-hidden
+        />
+        {/* Fade wave bands out before the section edge — no “photo crop” through the waves */}
+        <div
+            className="absolute inset-x-0 bottom-0 z-[2] h-[min(32vh,13rem)] bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/92 to-transparent"
             aria-hidden
         />
     </div>

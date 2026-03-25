@@ -38,3 +38,14 @@ html {
     @apply bg-white border border-slate-200/60 shadow-card rounded-xl;
   }
 }
+
+/* Hero → content fold: slow shimmer on accent lines (respects prefers-reduced-motion via motion-safe on element) */
+@keyframes foldShimmer {
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
