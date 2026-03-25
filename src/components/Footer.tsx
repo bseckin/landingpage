@@ -12,6 +12,8 @@ const ContactSectionBackdrop = () => (
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_90%_38%,rgba(20,184,166,0.055),transparent_50%)]" />
         <SectionWaveCanvas preset="trust" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/35 to-slate-50/30" />
+        {/* Dissolve trust waves at the top edge — avoids a hard crop into the section above */}
+        <div className="absolute inset-x-0 top-0 z-[2] h-[min(32vh,13rem)] bg-gradient-to-b from-[#f8fafc] via-[#f8fafc]/92 to-transparent" />
     </div>
 );
 
@@ -52,8 +54,16 @@ const Footer = () => {
     };
 
     return (
-        <footer className="py-20 md:py-24 border-t border-slate-200/80 relative overflow-hidden bg-[#f8fafc]" id="contact">
+        <footer
+            className="relative isolate overflow-hidden bg-[#f8fafc] -mt-16 pt-36 pb-20 md:-mt-20 md:pt-44 md:pb-24"
+            id="contact"
+        >
             <ContactSectionBackdrop />
+            {/* Fade from page / Process into contact backdrop — matches ProblemGrid-style handoff */}
+            <div
+                className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-[min(48vh,22rem)] bg-gradient-to-b from-[#f8fafc] via-[#f8fafc]/94 via-[40%] to-transparent"
+                aria-hidden
+            />
 
             <div className="container mx-auto px-6 relative z-10">
                 <SectionReveal className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
