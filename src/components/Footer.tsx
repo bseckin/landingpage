@@ -1,6 +1,19 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { SectionReveal } from './SectionReveal';
+import SectionWaveCanvas from './SectionWaveCanvas';
+
+/** Kontakt-Section: gleiche Wellen-Technik wie Hero, aber ruhiger — kühle Slate-/Blau-/Teal-Palette (Vertrauen). */
+const ContactSectionBackdrop = () => (
+    <div className="absolute inset-0 z-0 pointer-events-none min-h-full" aria-hidden>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#eef2f7] via-[#f8fafc] to-white" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_68%_at_50%_0%,rgba(148,163,184,0.2),transparent_58%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_78%_52%_at_10%_72%,rgba(59,130,246,0.07),transparent_52%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_90%_38%,rgba(20,184,166,0.055),transparent_50%)]" />
+        <SectionWaveCanvas preset="trust" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/35 to-slate-50/30" />
+    </div>
+);
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -39,8 +52,8 @@ const Footer = () => {
     };
 
     return (
-        <footer className="py-20 border-t border-slate-200/80 relative overflow-hidden bg-[#f8fafc]" id="contact">
-            <div className="absolute inset-0 bg-mesh-page opacity-60 pointer-events-none" aria-hidden />
+        <footer className="py-20 md:py-24 border-t border-slate-200/80 relative overflow-hidden bg-[#f8fafc]" id="contact">
+            <ContactSectionBackdrop />
 
             <div className="container mx-auto px-6 relative z-10">
                 <SectionReveal className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
@@ -146,7 +159,7 @@ const Footer = () => {
                 </SectionReveal>
             </div>
 
-            <SectionReveal className="mt-20 pt-8 border-t border-slate-200/80 flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-text-secondary font-sans uppercase tracking-wider">
+            <SectionReveal className="relative z-10 mt-20 pt-8 border-t border-slate-200/70 flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-text-secondary font-sans uppercase tracking-wider">
                 <div className="flex gap-8">
                     <a href="/impressum" className="hover:text-slate-900 transition-colors">Impressum</a>
                     <a href="/datenschutz" className="hover:text-slate-900 transition-colors">Datenschutz</a>
