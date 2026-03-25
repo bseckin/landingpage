@@ -101,13 +101,14 @@ type WaveLayer = {
     harmonic: number;
 };
 
-/* Normal alpha compositing only — no CSS multiply (stacked multiply was turning the hero nearly black) */
+/* Band fills between curves — soft light blue + existing palette; higher freq/amp = more „wellig“ */
 const WAVE_LAYERS: WaveLayer[] = [
-    { base: 0.22, amp: 1, freq: 1.1, speed: 0.42, phase: 0.5, color: 'rgba(99, 102, 241, 0.2)', harmonic: 1.65 },
-    { base: 0.34, amp: 1, freq: 1.35, speed: 0.52, phase: 2.1, color: 'rgba(45, 212, 191, 0.18)', harmonic: 1.5 },
-    { base: 0.46, amp: 1, freq: 1.0, speed: 0.48, phase: 1.0, color: 'rgba(129, 140, 248, 0.16)', harmonic: 1.8 },
-    { base: 0.58, amp: 1, freq: 1.5, speed: 0.58, phase: 3.2, color: 'rgba(167, 139, 250, 0.15)', harmonic: 1.45 },
-    { base: 0.72, amp: 1, freq: 1.2, speed: 0.5, phase: 4.0, color: 'rgba(251, 191, 36, 0.13)', harmonic: 1.7 },
+    { base: 0.17, amp: 1, freq: 1.75, speed: 0.44, phase: 0.45, color: 'rgba(186, 230, 253, 0.28)', harmonic: 1.85 },
+    { base: 0.29, amp: 1, freq: 1.95, speed: 0.52, phase: 2.0, color: 'rgba(99, 102, 241, 0.22)', harmonic: 1.75 },
+    { base: 0.41, amp: 1, freq: 1.65, speed: 0.5, phase: 1.1, color: 'rgba(45, 212, 191, 0.2)', harmonic: 1.9 },
+    { base: 0.53, amp: 1, freq: 2.05, speed: 0.58, phase: 3.0, color: 'rgba(129, 140, 248, 0.18)', harmonic: 1.7 },
+    { base: 0.65, amp: 1, freq: 1.8, speed: 0.52, phase: 3.9, color: 'rgba(167, 139, 250, 0.17)', harmonic: 1.8 },
+    { base: 0.77, amp: 1, freq: 1.55, speed: 0.48, phase: 1.65, color: 'rgba(224, 242, 254, 0.22)', harmonic: 1.75 },
 ];
 
 const HeroWaveCanvas = () => {
@@ -137,13 +138,14 @@ const HeroWaveCanvas = () => {
 
         const waveY = (x: number, w: number, h: number, layer: WaveLayer, t: number) => {
             const nx = (x / w) * Math.PI * 2;
-            const a = h * 0.045 * layer.amp;
-            return (
-                h * layer.base +
-                Math.sin(nx * layer.freq + t * layer.speed + layer.phase) * a +
-                Math.sin(nx * layer.freq * layer.harmonic + t * layer.speed * 0.62 + layer.phase * 1.4) *
-                    (a * 0.38)
-            );
+            const a = h * 0.072 * layer.amp;
+            const primary = Math.sin(nx * layer.freq + t * layer.speed + layer.phase) * a;
+            const secondary =
+                Math.sin(nx * layer.freq * layer.harmonic + t * layer.speed * 0.62 + layer.phase * 1.35) *
+                (a * 0.46);
+            const tertiary =
+                Math.sin(nx * layer.freq * 2.35 + t * layer.speed * 0.38 + layer.phase * 0.85) * (a * 0.18);
+            return h * layer.base + primary + secondary + tertiary;
         };
 
         const draw = () => {
@@ -157,16 +159,32 @@ const HeroWaveCanvas = () => {
             ctx.clearRect(0, 0, w, h);
 
             const t = timeRef.current;
-            const step = Math.max(4, Math.floor(w / 100));
+            const step = Math.max(3, Math.floor(w / 128));
 
-            for (const layer of WAVE_LAYERS) {
+            /*
+             * Band-fill between adjacent wave curves (no stacking to bottom).
+             * Stacking many semi-transparent fills from each curve down to y=h made the
+             * lower area read as gray; bands match the light tone of the upper waves.
+             */
+            for (let i = 0; i < WAVE_LAYERS.length; i++) {
+                const layer = WAVE_LAYERS[i];
+                const next = WAVE_LAYERS[i + 1];
+
                 ctx.beginPath();
-                ctx.moveTo(0, h);
-                ctx.lineTo(0, waveY(0, w, h, layer, t));
+                ctx.moveTo(0, waveY(0, w, h, layer, t));
                 for (let x = step; x <= w; x += step) {
                     ctx.lineTo(x, waveY(x, w, h, layer, t));
                 }
-                ctx.lineTo(w, h);
+                ctx.lineTo(w, waveY(w, w, h, layer, t));
+
+                if (next) {
+                    for (let x = w; x >= 0; x -= step) {
+                        ctx.lineTo(x, waveY(x, w, h, next, t));
+                    }
+                } else {
+                    ctx.lineTo(w, h);
+                    ctx.lineTo(0, h);
+                }
                 ctx.closePath();
                 ctx.fillStyle = layer.color;
                 ctx.fill();

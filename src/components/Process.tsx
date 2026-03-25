@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Search, FileJson, Hammer, Rocket, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { SectionReveal } from './SectionReveal';
 
 const icons = [Search, FileJson, Hammer, Rocket];
 
@@ -65,16 +66,17 @@ const Process = () => {
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/25 to-transparent -translate-x-1/2 block z-0" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-24">
+                <SectionReveal className="text-center mb-24">
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-sans tracking-tight">
                         {t.process.headline}
                     </h2>
                     <p className="text-text-secondary max-w-xl mx-auto font-sans text-lg">
                         {t.process.sub}
                     </p>
-                </div>
+                </SectionReveal>
 
-                <div className="relative space-y-16 md:space-y-32">
+                <SectionReveal>
+                    <div className="relative space-y-16 md:space-y-32">
                     {t.process.steps.map((step, index) => {
                         const Icon = icons[index];
                         const isActive = activeStepIndex === index;
@@ -134,9 +136,10 @@ const Process = () => {
                             </div>
                         );
                     })}
+                    </div>
+                </SectionReveal>
 
-                    <ProcessConclusion t={t} />
-                </div>
+                <ProcessConclusion t={t} />
             </div>
         </section>
     );

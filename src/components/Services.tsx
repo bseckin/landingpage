@@ -1,5 +1,6 @@
 import { useLanguage } from '../context/LanguageContext';
 import { Link, Bot, ShieldCheck, type LucideIcon } from 'lucide-react';
+import { SectionReveal, StaggerItem, StaggerReveal } from './SectionReveal';
 
 const Services = () => {
     const { t } = useLanguage();
@@ -9,7 +10,7 @@ const Services = () => {
     return (
         <section className="py-20 md:py-32 relative border-t border-slate-200/80">
             <div className="container mx-auto px-6">
-                <div className="mb-20">
+                <SectionReveal className="mb-20">
                     <div className="max-w-3xl">
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-12 font-sans">
                             {t.services.headline}
@@ -28,19 +29,20 @@ const Services = () => {
                             {t.services.sub}
                         </p>
                     </div>
-                </div>
+                </SectionReveal>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+                <StaggerReveal className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                     {t.services.cards.map((card, index) => (
-                        <ServiceCard
-                            key={index}
-                            tag={card.tag}
-                            title={card.title}
-                            desc={card.desc}
-                            Icon={icons[index]}
-                        />
+                        <StaggerItem key={index}>
+                            <ServiceCard
+                                tag={card.tag}
+                                title={card.title}
+                                desc={card.desc}
+                                Icon={icons[index]}
+                            />
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerReveal>
             </div>
         </section>
     );

@@ -1,5 +1,6 @@
 import { useLanguage } from '../context/LanguageContext';
 import { RefreshCcw, ShieldAlert, Activity, type LucideIcon } from 'lucide-react';
+import { SectionReveal, StaggerItem, StaggerReveal } from './SectionReveal';
 
 const ProblemGrid = () => {
     const { t } = useLanguage();
@@ -11,27 +12,28 @@ const ProblemGrid = () => {
     return (
         <section className="py-20 md:py-32 relative border-t border-slate-200/80">
             <div className="container mx-auto px-6">
-                <div className="mb-16 md:mb-24 text-center md:text-left">
+                <SectionReveal className="mb-16 md:mb-24 text-center md:text-left">
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6 font-sans">
                         {t.problem.headline}
                     </h2>
                     <p className="text-text-secondary max-w-2xl font-sans text-lg leading-relaxed">
                         {t.problem.description}
                     </p>
-                </div>
+                </SectionReveal>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+                <StaggerReveal className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                     {t.problem.cards.map((card, index) => (
-                        <ErrorCard
-                            key={index}
-                            tag={card.tag}
-                            emoji={emojis[index]}
-                            title={card.title}
-                            desc={card.description}
-                            Icon={icons[index]}
-                        />
+                        <StaggerItem key={index}>
+                            <ErrorCard
+                                tag={card.tag}
+                                emoji={emojis[index]}
+                                title={card.title}
+                                desc={card.description}
+                                Icon={icons[index]}
+                            />
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerReveal>
             </div>
         </section>
     );

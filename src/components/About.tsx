@@ -1,11 +1,13 @@
 import { useLanguage } from '../context/LanguageContext';
+import { SectionReveal } from './SectionReveal';
 
 const About = () => {
     const { t } = useLanguage();
     return (
         <section className="py-20 md:py-32 border-t border-slate-200/80">
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                <div className="order-2 lg:order-1">
+                <SectionReveal className="order-2 lg:order-1">
+                <div>
                     <div className="flex items-center gap-4 mb-8">
                         <span className="text-secondary text-5xl font-mono font-light">{'//'}</span>
                         <h2 className="text-3xl md:text-5xl font-mono font-bold text-primary tracking-widest uppercase">{t.about.whoAmI}</h2>
@@ -20,8 +22,10 @@ const About = () => {
                         <Badge label={t.about.badges.term.label} sub={t.about.badges.term.sub} />
                     </div>
                 </div>
+                </SectionReveal>
 
-                <div className="relative order-1 lg:order-2">
+                <SectionReveal className="relative order-1 lg:order-2" delay={0.08}>
+                <div>
                     <div className="aspect-square w-full max-w-[500px] mx-auto bg-white border border-slate-200/60 rounded-xl shadow-card relative flex items-center justify-center">
                         <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-primary rounded-tr-xl" />
                         <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-primary rounded-bl-xl" />
@@ -34,6 +38,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
+                </SectionReveal>
             </div>
         </section>
     );

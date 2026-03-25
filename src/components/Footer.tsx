@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { SectionReveal } from './SectionReveal';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -42,7 +43,7 @@ const Footer = () => {
             <div className="absolute inset-0 bg-mesh-page opacity-60 pointer-events-none" aria-hidden />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
+                <SectionReveal className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
 
                     <div>
                         <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight mb-8 font-sans">
@@ -142,15 +143,15 @@ const Footer = () => {
                             </form>
                         )}
                     </div>
-                </div>
+                </SectionReveal>
             </div>
 
-            <div className="mt-20 pt-8 border-t border-slate-200/80 flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-text-secondary font-sans uppercase tracking-wider">
+            <SectionReveal className="mt-20 pt-8 border-t border-slate-200/80 flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-text-secondary font-sans uppercase tracking-wider">
                 <div className="flex gap-8">
                     <a href="/impressum" className="hover:text-slate-900 transition-colors">Impressum</a>
                     <a href="/datenschutz" className="hover:text-slate-900 transition-colors">Datenschutz</a>
                 </div>
-            </div>
+            </SectionReveal>
         </footer>
     );
 };

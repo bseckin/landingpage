@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { SectionReveal, StaggerItem, StaggerReveal } from './SectionReveal';
 
 type CaseStudy = {
     id: string;
@@ -65,14 +66,14 @@ const CaseStudyGrid = () => {
 
     return (
         <section className="py-20 md:py-32 relative border-t border-slate-200/80" id="case-studies">
-            <div className="container mx-auto px-6 mb-12 flex justify-between items-end">
+            <SectionReveal className="container mx-auto px-6 mb-12 flex flex-col gap-8 sm:flex-row sm:justify-between sm:items-end">
                 <div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-sans tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-sans tracking-tight sm:mb-0">
                         {t.caseStudies.recentWork}
                     </h2>
                 </div>
 
-                <div className="hidden md:flex gap-4">
+                <div className="hidden md:flex gap-4 shrink-0">
                     <button
                         onClick={() => scroll('left')}
                         className="p-3 rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 text-slate-700 shadow-sm transition-all disabled:opacity-30"
@@ -88,22 +89,23 @@ const CaseStudyGrid = () => {
                         <ArrowRight className="w-5 h-5" />
                     </button>
                 </div>
-            </div>
+            </SectionReveal>
 
-            <div
+            <StaggerReveal
                 ref={scrollContainerRef}
                 className={`flex overflow-x-auto gap-6 px-6 pb-8 snap-x snap-mandatory scrollbar-hide ${centerClass}`}
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 {caseStudies.map((study) => (
-                    <CaseStudyCard
-                        key={study.id}
-                        study={study}
-                        navigate={navigate}
-                        t={t}
-                    />
+                    <StaggerItem key={study.id} className="shrink-0">
+                        <CaseStudyCard
+                            study={study}
+                            navigate={navigate}
+                            t={t}
+                        />
+                    </StaggerItem>
                 ))}
-            </div>
+            </StaggerReveal>
         </section>
     );
 };
