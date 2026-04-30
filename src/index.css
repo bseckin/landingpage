@@ -844,3 +844,135 @@ h3 {
     gap: 14px;
   }
 }
+
+/* ── Hero accent line ──────────────────────────────────────── */
+.hero-accent {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  color: var(--ink-muted);
+  margin: -0.5rem 0 1.25rem;
+  font-style: italic;
+}
+
+/* ── Demo section ──────────────────────────────────────────── */
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.demo-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.demo-step {
+  border-left: 3px solid var(--teal);
+  padding-left: 20px;
+}
+
+.demo-step .kicker {
+  margin-bottom: 4px;
+}
+
+.demo-step p:last-child {
+  margin: 0;
+  color: var(--ink-mid);
+}
+
+/* Phone mockup */
+.demo-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.demo-phone {
+  width: 220px;
+  background: #1a1a2e;
+  border-radius: 28px;
+  padding: 16px 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.demo-phone-screen {
+  background: #075e54;
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 140px;
+}
+
+.demo-whatsapp-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+}
+
+.demo-message {
+  background: #dcf8c6;
+  border-radius: 8px 8px 0 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demo-message strong {
+  font-size: 0.82rem;
+  color: #1a1a1a;
+}
+
+.demo-message span {
+  font-size: 0.75rem;
+  color: #4a4a4a;
+}
+
+.demo-time {
+  font-size: 0.65rem !important;
+  color: #7a7a7a !important;
+  align-self: flex-end;
+}
+
+@media (max-width: 760px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .demo-visual {
+    order: -1;
+  }
+}
+
+/* ── Differentiator section ────────────────────────────────── */
+.section-muted {
+  background: var(--teal-light);
+}
+
+.differentiator-wrap {
+  max-width: 720px;
+  padding-block: 72px;
+}
+
+.differentiator-text {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  line-height: 1.65;
+  color: var(--ink-mid);
+  margin: 0 0 20px;
+}
+
+.differentiator-highlight {
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  color: var(--teal);
+  margin: 8px 0 0;
+  line-height: 1.35;
+}
+
+@media (max-width: 600px) {
+  .hide-sm { display: none; }
+  .differentiator-wrap { padding-block: 48px; }
+}
