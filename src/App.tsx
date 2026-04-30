@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SectionWaveCanvas from './components/SectionWaveCanvas';
 import { LanguageProvider } from './context/LanguageContext';
@@ -7,16 +7,16 @@ import Admin from './routes/Admin';
 import CaseStudy from './routes/CaseStudy';
 
 // Load all case studies at build time from src/content/case-studies/*.json
-const caseModules = import.meta.glob<{ default: Omit<CaseStudyData, 'id'> }>(
+const caseModules = import.meta.glob<{ default: Record<string, unknown> }>(
   './content/case-studies/*.json',
   { eager: true }
 );
 
 const allCases: CaseStudyData[] = Object.entries(caseModules)
-  .map(([path, mod]) => ({
-    id: path.split('/').pop()!.replace('.json', ''),
-    ...(mod.default as CaseStudyData),
-  }))
+  .map(([path, mod]) => {
+    const data = mod.default as unknown as CaseStudyData;
+    return { ...data, id: path.split('/').pop()!.replace('.json', '') };
+  })
   .filter((d) => d.title && d.kicker);
 
 interface CaseStudyData {
