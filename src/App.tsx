@@ -458,10 +458,9 @@ function HomePage() {
             Berkay <span>Seckin</span>
           </p>
           <div className="footer-links">
-            <a href="#ansatz">Ansatz</a>
-            <a href="#leistungen">Leistungen</a>
-            <a href="#ueber-mich">Über mich</a>
             <a href="#kontakt">Kontakt</a>
+            <a href="/datenschutz">Datenschutzerklärung</a>
+            <a href="/impressum">Impressum</a>
           </div>
           <p className="copyright">© 2025 Berkay Seckin - Wien</p>
         </div>
