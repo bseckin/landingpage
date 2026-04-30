@@ -788,3 +788,59 @@ h3 {
     gap: 18px;
   }
 }
+
+/* ── Carousel ─────────────────────────────────────────────── */
+.carousel-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  cursor: grab;
+  user-select: none;
+  /* tell the browser we'll handle horizontal touch ourselves */
+  touch-action: pan-y;
+  padding-block: 12px;
+}
+
+.carousel-viewport.dragging,
+.carousel-viewport:active {
+  cursor: grabbing;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  will-change: transform;
+  /* no CSS transition — JS drives every frame */
+  pointer-events: none; /* cards don't interfere with drag detection */
+}
+
+/* Re-enable pointer events on cards so text is selectable after drag */
+.carousel-track .case-card {
+  pointer-events: auto;
+  flex: 0 0 360px;
+  width: 360px;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .carousel-track .case-card {
+    flex: 0 0 82vw;
+    width: 82vw;
+  }
+
+  .carousel-track {
+    gap: 14px;
+  }
+}

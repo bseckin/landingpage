@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react'; // useState used by HomePage
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SectionWaveCanvas from './components/SectionWaveCanvas';
 import { LanguageProvider } from './context/LanguageContext';
@@ -7,8 +7,6 @@ import Admin from './routes/Admin';
 import CaseStudy from './routes/CaseStudy';
 
 const API_BASE = 'http://localhost:3001';
-
-const CASE_STUDY_IDS = ['angebotserstellung', 'mahnwesen'];
 
 interface CaseStudyData {
   id: string;
@@ -19,17 +17,216 @@ interface CaseStudyData {
   metrics: { value: string; label: string }[];
 }
 
+function CaseCarousel({ cases }: { cases: CaseStudyData[] }) {
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  const rafRef = useRef<number>(0);
+  const posRef = useRef(0);
+  const resetAtRef = useRef(0);
+  // drag state kept in a ref to avoid re-renders
+  const drag = useRef({ active: false, startX: 0, startPos: 0 });
+
+  // ── Auto-scroll + clone setup ───────────────────────────────
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || cases.length === 0) return;
+
+    posRef.current = 0;
+    const original = Array.from(track.children) as HTMLElement[];
+    const originalCount = original.length;
+
+    for (let i = 0; i < 5; i++) {
+      original.forEach((el) => {
+        const clone = el.cloneNode(true) as HTMLElement;
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+    }
+
+    const firstClone = track.children[originalCount] as HTMLElement;
+    const trackRect = track.getBoundingClientRect();
+    const cloneRect = firstClone.getBoundingClientRect();
+    resetAtRef.current = cloneRect.left - trackRect.left;
+
+    const speed = 0.45;
+    const normalise = (p: number) => {
+      const r = resetAtRef.current;
+      return r > 0 ? ((p % r) + r) % r : 0;
+    };
+
+    const tick = () => {
+      if (!pausedRef.current && !drag.current.active) {
+        posRef.current = normalise(posRef.current + speed);
+        track.style.transform = `translateX(-${posRef.current}px)`;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      track.style.transform = '';
+      Array.from(track.children).slice(originalCount).forEach((el) => el.remove());
+    };
+  }, [cases]);
+
+  // ── Mouse drag (desktop) ────────────────────────────────────
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const normalise = (p: number) => {
+      const r = resetAtRef.current;
+      return r > 0 ? ((p % r) + r) % r : 0;
+    };
+
+    const onDown = (e: MouseEvent) => {
+      drag.current = { active: true, startX: e.clientX, startPos: posRef.current };
+      pausedRef.current = true;
+      viewport.classList.add('dragging');
+    };
+
+    const onMove = (e: MouseEvent) => {
+      if (!drag.current.active) return;
+      const delta = drag.current.startX - e.clientX;
+      posRef.current = normalise(drag.current.startPos + delta);
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translateX(-${posRef.current}px)`;
+      }
+    };
+
+    const onUp = () => {
+      if (!drag.current.active) return;
+      drag.current.active = false;
+      pausedRef.current = false;
+      viewport.classList.remove('dragging');
+    };
+
+    viewport.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+
+    return () => {
+      viewport.removeEventListener('mousedown', onDown);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+  }, []);
+
+  // ── Touch swipe (mobile) ────────────────────────────────────
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    let startX = 0, startY = 0, startPos = 0;
+    let direction: 'horizontal' | 'vertical' | null = null;
+
+    const normalise = (p: number) => {
+      const r = resetAtRef.current;
+      return r > 0 ? ((p % r) + r) % r : 0;
+    };
+
+    const onStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      startPos = posRef.current;
+      direction = null;
+      drag.current.active = true;
+      pausedRef.current = true;
+    };
+
+    const onMove = (e: TouchEvent) => {
+      if (!drag.current.active) return;
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
+
+      if (direction === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
+        direction = Math.abs(dx) >= Math.abs(dy) ? 'horizontal' : 'vertical';
+      }
+
+      if (direction === 'horizontal') {
+        e.preventDefault();
+        posRef.current = normalise(startPos - dx);
+        if (trackRef.current) {
+          trackRef.current.style.transform = `translateX(-${posRef.current}px)`;
+        }
+      } else if (direction === 'vertical') {
+        // vertical scroll wins — release carousel
+        drag.current.active = false;
+        pausedRef.current = false;
+      }
+    };
+
+    const onEnd = () => {
+      drag.current.active = false;
+      pausedRef.current = false;
+      direction = null;
+    };
+
+    // passive: true for start (no need to block), passive: false for move so we can preventDefault
+    viewport.addEventListener('touchstart', onStart, { passive: true });
+    viewport.addEventListener('touchmove', onMove, { passive: false });
+    viewport.addEventListener('touchend', onEnd, { passive: true });
+    viewport.addEventListener('touchcancel', onEnd, { passive: true });
+
+    return () => {
+      viewport.removeEventListener('touchstart', onStart);
+      viewport.removeEventListener('touchmove', onMove);
+      viewport.removeEventListener('touchend', onEnd);
+      viewport.removeEventListener('touchcancel', onEnd);
+    };
+  }, []);
+
+  return (
+    <div ref={viewportRef} className="carousel-viewport">
+      <div className="carousel-track" ref={trackRef}>
+        {cases.map((c) => (
+          <article key={c.id} className="case-card">
+            <p className="kicker">{c.kicker}</p>
+            <h3>{c.title}</h3>
+            {c.image ? (
+              <img src={c.image} alt={c.title} className="case-image" />
+            ) : (
+              <div className="case-placeholder" />
+            )}
+            <p>{c.summary}</p>
+            {c.metrics?.length > 0 && (
+              <div className="metrics">
+                {c.metrics.map((m) => (
+                  <div key={m.label}>
+                    <strong>{m.value}</strong>
+                    <span>{m.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function HomePage() {
   const [cases, setCases] = useState<CaseStudyData[]>([]);
 
   useEffect(() => {
-    Promise.all(
-      CASE_STUDY_IDS.map((id) =>
-        fetch(`${API_BASE}/api/case-studies/${id}`)
-          .then((r) => r.json())
-          .then((data) => ({ id, ...data }))
+    fetch(`${API_BASE}/api/list/case-studies`)
+      .then((r) => r.json())
+      .then((ids: string[]) =>
+        Promise.all(
+          ids.map((id) =>
+            fetch(`${API_BASE}/api/case-studies/${id}`)
+              .then((r) => r.json())
+              .then((data) => ({ id, ...data }))
+              // Skip entries without a title (old test data)
+              .then((data) => (data.title && data.kicker ? data : null))
+          )
+        )
       )
-    ).then(setCases).catch(() => {});
+      .then((all) => setCases(all.filter(Boolean) as CaseStudyData[]))
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -207,31 +404,8 @@ function HomePage() {
           <div className="site-container">
             <p className="section-label reveal">Referenzen</p>
             <h2 className="section-title reveal">Was in der Praxis passiert.</h2>
-            <div className="case-grid">
-              {cases.map((c, idx) => (
-                <article key={c.id} className={`case-card reveal${idx > 0 ? ` reveal-d${idx}` : ''}`}>
-                  <p className="kicker">{c.kicker}</p>
-                  <h3>{c.title}</h3>
-                  {c.image ? (
-                    <img src={c.image} alt={c.title} className="case-image" />
-                  ) : (
-                    <div className="case-placeholder" />
-                  )}
-                  <p>{c.summary}</p>
-                  {c.metrics?.length > 0 && (
-                    <div className="metrics">
-                      {c.metrics.map((m) => (
-                        <div key={m.label}>
-                          <strong>{m.value}</strong>
-                          <span>{m.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </article>
-              ))}
-            </div>
           </div>
+          {cases.length > 0 && <CaseCarousel cases={cases} />}
         </section>
         <section id="ueber-mich" className="section about-section">
           <div className="site-container about-grid">
