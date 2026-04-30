@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import impressumData from '../content/impressum.json';
+import datenschutzData from '../content/datenschutz.json';
 
-const API_BASE = 'http://localhost:3001';
+const legalContent = {
+    impressum: impressumData,
+    datenschutz: datenschutzData,
+} as const;
 
 interface LegalPageProps {
     type: 'impressum' | 'datenschutz';
@@ -10,18 +14,7 @@ interface LegalPageProps {
 
 const LegalPage = ({ type }: LegalPageProps) => {
     const navigate = useNavigate();
-    const [headline, setHeadline] = useState('');
-    const [content, setContent] = useState('');
-
-    useEffect(() => {
-        fetch(`${API_BASE}/api/${type}.json`)
-            .then((r) => r.json())
-            .then((data) => {
-                setHeadline(data.headline ?? '');
-                setContent(data.content ?? '');
-            })
-            .catch(() => {});
-    }, [type]);
+    const { headline, content } = legalContent[type];
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 px-6 py-24 md:py-32">

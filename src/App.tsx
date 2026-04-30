@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'; // useState used by HomePage
+import { useEffect, useRef, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SectionWaveCanvas from './components/SectionWaveCanvas';
 import { LanguageProvider } from './context/LanguageContext';
@@ -6,7 +6,18 @@ import LegalPage from './pages/LegalPage';
 import Admin from './routes/Admin';
 import CaseStudy from './routes/CaseStudy';
 
-const API_BASE = 'http://localhost:3001';
+// Load all case studies at build time from src/content/case-studies/*.json
+const caseModules = import.meta.glob<{ default: Omit<CaseStudyData, 'id'> }>(
+  './content/case-studies/*.json',
+  { eager: true }
+);
+
+const allCases: CaseStudyData[] = Object.entries(caseModules)
+  .map(([path, mod]) => ({
+    id: path.split('/').pop()!.replace('.json', ''),
+    ...(mod.default as CaseStudyData),
+  }))
+  .filter((d) => d.title && d.kicker);
 
 interface CaseStudyData {
   id: string;
@@ -209,25 +220,7 @@ function CaseCarousel({ cases }: { cases: CaseStudyData[] }) {
 }
 
 function HomePage() {
-  const [cases, setCases] = useState<CaseStudyData[]>([]);
-
-  useEffect(() => {
-    fetch(`${API_BASE}/api/list/case-studies`)
-      .then((r) => r.json())
-      .then((ids: string[]) =>
-        Promise.all(
-          ids.map((id) =>
-            fetch(`${API_BASE}/api/case-studies/${id}`)
-              .then((r) => r.json())
-              .then((data) => ({ id, ...data }))
-              // Skip entries without a title (old test data)
-              .then((data) => (data.title && data.kicker ? data : null))
-          )
-        )
-      )
-      .then((all) => setCases(all.filter(Boolean) as CaseStudyData[]))
-      .catch(() => {});
-  }, []);
+  const cases = allCases;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
