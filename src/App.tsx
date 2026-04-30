@@ -458,7 +458,6 @@ function HomePage() {
             Berkay <span>Seckin</span>
           </p>
           <div className="footer-links">
-            <a href="#kontakt">Kontakt</a>
             <a href="/datenschutz">Datenschutzerklärung</a>
             <a href="/impressum">Impressum</a>
           </div>
