@@ -80,9 +80,13 @@ export default function Admin() {
         setIsNewCaseStudy(true);
         setData({
             title: 'Neue Fallstudie',
-            client: '',
+            kicker: '',
             summary: '',
             image: '',
+            metrics: [
+                { value: '', label: '' },
+                { value: '', label: '' },
+            ],
             content: '<h1>Ergebnis</h1><p>Beschreiben Sie hier das Ergebnis...</p>'
         });
     };
@@ -154,6 +158,12 @@ export default function Admin() {
         if (!obj) return null;
 
         if (mode === MODES.CASE_STUDIES) {
+            const metrics: { value: string; label: string }[] = obj.metrics ?? [{ value: '', label: '' }, { value: '', label: '' }];
+            const updateMetric = (idx: number, field: 'value' | 'label', val: string) => {
+                const next = metrics.map((m, i) => i === idx ? { ...m, [field]: val } : m);
+                updateField('metrics', next);
+            };
+
             return (
                 <div className="space-y-6">
                     <div className="grid grid-cols-2 gap-6">
@@ -163,9 +173,10 @@ export default function Admin() {
                                 value={obj.title || ''} onChange={e => updateField('title', e.target.value)} />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-slate-500 mb-2">Kunde</label>
+                            <label className="block text-sm font-medium text-slate-500 mb-2">Kategorie / Kicker</label>
                             <input type="text" className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none shadow-sm"
-                                value={obj.client || ''} onChange={e => updateField('client', e.target.value)} />
+                                placeholder="z.B. Dienstleistung Wien"
+                                value={obj.kicker || ''} onChange={e => updateField('kicker', e.target.value)} />
                         </div>
                     </div>
 
@@ -176,13 +187,34 @@ export default function Admin() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-500 mb-2">Kurzfassung</label>
+                        <label className="block text-sm font-medium text-slate-500 mb-2">Kurzfassung (wird auf der Startseite angezeigt)</label>
                         <textarea className="w-full bg-white border border-slate-200/80 rounded-lg p-3 text-slate-900 focus:border-primary outline-none h-24 shadow-sm"
                             value={obj.summary || ''} onChange={e => updateField('summary', e.target.value)} />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-primary mb-2">Inhalt (Rich Text)</label>
+                        <label className="block text-sm font-medium text-slate-500 mb-3">Metriken (auf der Startseite sichtbar)</label>
+                        <div className="grid grid-cols-2 gap-4">
+                            {metrics.map((m, idx) => (
+                                <div key={idx} className="border border-slate-200/80 rounded-lg p-4 bg-slate-50 space-y-3">
+                                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Metrik {idx + 1}</p>
+                                    <div>
+                                        <label className="block text-xs text-slate-500 mb-1">Wert (z.B. -94%)</label>
+                                        <input type="text" className="w-full bg-white border border-slate-200/80 rounded-lg p-2 text-slate-900 focus:border-primary outline-none shadow-sm text-lg font-bold"
+                                            value={m.value} onChange={e => updateMetric(idx, 'value', e.target.value)} />
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs text-slate-500 mb-1">Bezeichnung</label>
+                                        <input type="text" className="w-full bg-white border border-slate-200/80 rounded-lg p-2 text-slate-900 focus:border-primary outline-none shadow-sm"
+                                            value={m.label} onChange={e => updateMetric(idx, 'label', e.target.value)} />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-primary mb-2">Inhalt (Rich Text — für die Detailseite)</label>
                         <RichTextEditor value={obj.content || ''} onChange={val => updateField('content', val)} />
                     </div>
                 </div>
