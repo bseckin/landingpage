@@ -307,7 +307,7 @@ function DiagnosisForm() {
       </button>
       {status === 'error' && (
         <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
-          Senden fehlgeschlagen. Bitte erneut versuchen oder direkt an hello@berkayseckin.at.
+          Senden fehlgeschlagen. Bitte erneut versuchen oder direkt an hallo@berkayseckin.at.
         </p>
       )}
     </form>
@@ -596,7 +596,7 @@ function HomePage() {
               Kostenlos, unverbindlich, kein Pitch. Wir schauen 30 Minuten auf Ihren Anfrage-Eingang — finden wir
               keinen konkreten Hebel, hat es Sie nur die Zeit gekostet, nicht mein Honorar.
             </p>
-            <small>Oder direkt: hello@berkayseckin.at</small>
+            <small>Oder direkt: hallo@berkayseckin.at</small>
           </div>
         </section>
       </main>
