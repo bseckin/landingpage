@@ -165,6 +165,27 @@ export default function Recruiting() {
           </div>
         </section>
 
+        <section className="section section-muted">
+          <div className="site-container differentiator-wrap">
+            <p className="section-label reveal">Warum das hält</p>
+            <div className="credentials reveal reveal-d1">
+              <p>
+                <span>ORF</span> Werbetechnologie
+              </p>
+              <p>
+                <span>BRZ</span> Requirement Engineer
+              </p>
+              <p>
+                <span>Studium</span> Wirtschaftsinformatik
+              </p>
+            </div>
+            <p className="differentiator-text reveal reveal-d2" style={{ marginTop: '1.25rem', marginBottom: 0 }}>
+              Gebaut nach dem Audit- und Sicherheitsniveau, das beim Bundesrechenzentrum durch die Abnahme
+              musste — kein zusammengeschustertes Bastel-Skript.
+            </p>
+          </div>
+        </section>
+
         <section id="angebot" className="section section-dark">
           <div className="site-container">
             <p className="section-label reveal">Das Angebot</p>
@@ -179,19 +200,24 @@ export default function Recruiting() {
                 <p className="featured-badge">Schlüsselfertiges System</p>
                 <h3>Der Kandidaten-Reaktor</h3>
                 <ul>
-                  <li>60-Sekunden-Reaktor von Eingang bis Recruiter-Handy</li>
-                  <li>Anbindung an dein bestehendes ATS</li>
-                  <li>Automatische Eingangsbestätigung an Kandidaten</li>
-                  <li>48-Stunden-Follow-up-Reminder</li>
-                  <li>Error-Handling, aktives Alerting &amp; Audit-Log</li>
-                  <li>Vollständige Dokumentation, kein Vendor Lock-in</li>
+                  <li>
+                    Jede Bewerbung in unter 60 Sek. auf dem Handy des zuständigen Recruiters — Sonntag
+                    20 Uhr wie Dienstag 11 Uhr
+                  </li>
+                  <li>Läuft auf deinem ATS (Bullhorn/Personio/Zoho) — kein neues Tool, kein Team-Training</li>
+                  <li>Kandidat bekommt sofort eine Bestätigung — Candidate Experience, ohne dass jemand tippt</li>
+                  <li>Kein offener Kontakt versandet — nach 48 h erzwingt das System das Nachfassen</li>
+                  <li>Fällt eine Schnittstelle aus, wirst du alarmiert — keine still verlorene Bewerbung</li>
+                  <li>Du besitzt das System: vollständig dokumentiert, kein Vendor Lock-in</li>
                 </ul>
-                <p className="price-note" style={{ marginTop: '1rem' }}>
-                  Eine einzige Vermittlung, die du sonst an die schnellere Konkurrenz verlierst, liegt
-                  branchenüblich bei 10.000–30.000 € Provision. Das System kostet einen Bruchteil davon — einmalig.
+                <p className="price-note" style={{ marginTop: '1.5rem', marginBottom: '0.25rem' }}>
+                  Eine einzige Vermittlung an die schnellere Konkurrenz: branchenüblich 10.000–30.000 €
+                  Provision.
                 </p>
-                <p className="price">Investition ab 2.000 €</p>
-                <p className="price-note">Festpreis — exakt nach der kostenlosen Diagnose</p>
+                <p className="price">dagegen einmalig ab&nbsp;2.000&nbsp;€</p>
+                <p className="price-note">
+                  Festpreis — exakt nach der kostenlosen Diagnose. Mehraufwand in der Umsetzung trage ich.
+                </p>
               </article>
             </div>
           </div>
@@ -203,6 +229,10 @@ export default function Recruiting() {
             <p className="differentiator-highlight reveal">
               Die Diagnose ist kostenlos, kein Pitch, null Verpflichtung. Finden wir keinen konkreten Hebel in
               deinem Bewerbungs-Eingang, hat es dich 30 Minuten gekostet — nicht mein Honorar.
+            </p>
+            <p className="differentiator-highlight reveal reveal-d1" style={{ marginTop: '1.5rem' }}>
+              Und der Build: Umfang und Preis stehen vor Projektstart fest. Mehraufwand in der Umsetzung geht
+              auf mich — nicht auf dich.
             </p>
           </div>
         </section>
@@ -237,21 +267,6 @@ export default function Recruiting() {
                 Ablauf im Detail
               </a>
             </article>
-            <div className="credentials reveal reveal-d2" style={{ marginTop: '2.5rem' }}>
-              <p>
-                <span>ORF</span> Werbetechnologie
-              </p>
-              <p>
-                <span>BRZ</span> Requirement Engineer
-              </p>
-              <p>
-                <span>Studium</span> Wirtschaftsinformatik
-              </p>
-            </div>
-            <p className="section-subtext reveal reveal-d3" style={{ marginTop: '1rem' }}>
-              Gebaut nach den Architektur- und Sicherheitsstandards von ORF und Bundesrechenzentrum — kein
-              zusammengeschustertes Bastel-Skript.
-            </p>
           </div>
         </section>
 
