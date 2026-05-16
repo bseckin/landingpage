@@ -24,10 +24,11 @@ Das frühere harte Deploy-Gate (Gewerbe-Vorbehalt) ist **aufgehoben** (Inhaber-B
 - **Zielgruppe — AUFGELÖST 2026-05-16 (Drei-Achsen-Modell, Achsen NICHT wieder vermengen):**
   - **A) Öffentliche Positionierung = breit, problembasiert. Endgültig.** Seite/CLAUDE/Impressum/AMS-Geschäftsidee: ein Versprechen, Speed-to-Lead („keine Anfrage geht verloren"), **keine Branche** in der Außenkommunikation. Begründung: subsumiert jede Vertikale, technisch identisches Produkt, war durchgängig die einzige kundenseitige Copy.
   - **B) Outreach-Beachhead = EINE Vertikale: Recruiting-Boutiquen DACH** bis 3 Referenzdeals → dann Performance-Agenturen → dann Steuerberater (Strategiepapier v3). Nur 1:1-Pitch, nicht auf der Seite. Alle früheren Beauty/SHK/Makler/PV/Coaches/Verlage-Varianten = **tot** (Strategiepapier strich sie explizit).
-  - **C) Proof/Case-Studies** müssen zum Beachhead passen — **offene Lücke:** sichtbare Demos sind E-Commerce/Dienstleistung, kein Recruiting. To-do: ≥1 Recruiting-`demo`-Case.
+  - **C) Proof/Case-Studies**: Recruiting-`demo`-Case `recruiting-speed-to-lead.json` existiert; auf `/recruiting` als Proof gerendert. Lücke geschlossen.
   - Seite breit ≠ Outreach spitz ist **gewollt**, kein Widerspruch. Wer „die Zielgruppe" ändern will, muss sagen *welche Achse*.
-- Umgesetzt: Eine Seite, **ein Versprechen**, breites Speed-to-Lead-Outcome („keine Anfrage geht verloren"). Outcome-Sprache, **kein** Tool/„n8n" als Held.
-- Genau **ein** primärer CTA: kostenlose Prozess-Diagnose über Inline-`DiagnosisForm` (in `App.tsx`) → `POST /api/contact`.
+- **Zwei Landingpages (Achsen getrennt umgesetzt):** `/` = breit, problembasiert (Achse A, kanonisch, hardcodiert in `src/App.tsx`). `/recruiting` = recruiting-spitze Hormozi-Variante (Achse B, `src/routes/Recruiting.tsx`) — Avatar-Headline, Offer-Stack, weiche Risikoumkehr; dorthin zeigt der Recruiting-Outreach. `/` bleibt unverändert; `/recruiting` ist additiv & reversibel.
+- Umgesetzt: breites Speed-to-Lead-Outcome („keine Anfrage geht verloren") auf `/`. Outcome-Sprache, **kein** Tool/„n8n" als Held.
+- Genau **ein** primärer CTA je Seite: kostenlose Prozess-Diagnose über `DiagnosisForm` (`src/components/DiagnosisForm.tsx`, geteilt von `/` und `/recruiting`; letztere setzt `source="recruiting"`) → `POST /api/contact`.
 - `api/contact.ts` = Vercel-Function (läuft **nicht** unter `vite dev`), mailt hardcodiert an `berkay.seckin1@gmail.com`.
 - Design: `.cursorrules` befolgen (Anti-KI-Slop-Ästhetik).
 

@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SectionWaveCanvas from './components/SectionWaveCanvas';
+import DiagnosisForm from './components/DiagnosisForm';
 import { LanguageProvider } from './context/LanguageContext';
 import LegalPage from './pages/LegalPage';
 import Admin from './routes/Admin';
 import CaseStudy from './routes/CaseStudy';
+import Recruiting from './routes/Recruiting';
 
 // Load all case studies at build time from src/content/case-studies/*.json
 const caseModules = import.meta.glob<{ default: Record<string, unknown> }>(
@@ -232,85 +234,6 @@ function CaseCarousel({ cases }: { cases: CaseStudyData[] }) {
         ))}
       </div>
     </div>
-  );
-}
-
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-
-function DiagnosisForm() {
-  const [status, setStatus] = useState<FormStatus>('idle');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('submitting');
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error('failed');
-      setStatus('success');
-    } catch {
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
-    }
-  };
-
-  const inputStyle: React.CSSProperties = {
-    width: '100%',
-    padding: '0.85rem 1rem',
-    borderRadius: '0.6rem',
-    border: '1px solid rgba(148,163,184,0.4)',
-    background: 'rgba(255,255,255,0.06)',
-    color: 'inherit',
-    font: 'inherit',
-    outline: 'none',
-  };
-
-  if (status === 'success') {
-    return (
-      <div
-        style={{
-          maxWidth: '440px',
-          margin: '0 auto',
-          padding: '1.5rem',
-          borderRadius: '0.75rem',
-          border: '1px solid rgba(20,184,166,0.4)',
-          background: 'rgba(20,184,166,0.1)',
-          fontWeight: 700,
-        }}
-      >
-        Angefragt — ich melde mich in Kürze.
-      </div>
-    );
-  }
-
-  return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '440px', margin: '0 auto', textAlign: 'left' }}
-    >
-      <input style={inputStyle} type="text" name="name" required placeholder="Name" aria-label="Name" />
-      <input style={inputStyle} type="email" name="email" required placeholder="E-Mail" aria-label="E-Mail" />
-      <input
-        style={inputStyle}
-        type="text"
-        name="message"
-        required
-        placeholder="Worum geht's grob?"
-        aria-label="Worum geht's grob?"
-      />
-      <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
-        {status === 'submitting' ? 'Wird gesendet…' : 'Kostenlose Prozess-Diagnose anfragen'}
-      </button>
-      {status === 'error' && (
-        <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
-          Senden fehlgeschlagen. Bitte erneut versuchen oder direkt an hallo@berkayseckin.at.
-        </p>
-      )}
-    </form>
   );
 }
 
@@ -622,6 +545,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/recruiting" element={<Recruiting />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/case-study/:id" element={<CaseStudy />} />
           <Route path="/impressum" element={<LegalPage type="impressum" />} />
