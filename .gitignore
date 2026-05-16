@@ -25,3 +25,6 @@ dist-ssr
 
 # Claude Code session dir
 .claude/
+
+# Internal strategy/concept docs — local only, never deploy
+_docs/

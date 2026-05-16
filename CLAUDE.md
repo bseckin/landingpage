@@ -2,9 +2,9 @@
 
 Solo-Freelance-Landingpage (Speed-to-Lead / Prozessautomatisierung, Wien). React 19 + Vite + Tailwind. Deploy: `git push` auf `main` → GitHub (`bseckin/landingpage`) → Vercel (Auto-Deploy). SPA-Rewrites in `vercel.json`.
 
-## ⛔ HARTES DEPLOY-GATE (zuerst lesen)
+## Go-Live-Status (zuerst lesen)
 
-**Nicht** die kommerzielle Verkaufsseite live deployen / `git push` auf `main`, **bis das Gewerbe angemeldet ist** (geplant ~2026-07). Verkaufende Tätigkeit (Preise, Diagnose-Funnel, „Umsetzung ab …") ohne Gewerbeberechtigung = GewO-Verwaltungsübertretung. Bis dahin: deploy-fertig halten, nicht pushen — oder nur eine klar **nicht-kommerzielle** „in Vorbereitung"-Variante.
+Das frühere harte Deploy-Gate (Gewerbe-Vorbehalt) ist **aufgehoben** (Inhaber-Bestätigung 2026-05-16): kommerzieller Go-Live / `git push` auf `main` ist erlaubt. **Vor dem ersten Live-Deploy** muss aber die echte Impressum-Hausnummer gesetzt sein (siehe Offene Blocker) — eine kommerzielle Seite mit unvollständigem Impressum ist rechtswidrig. Push auf `main` weiterhin nicht ungefragt — Risiko/Blast-Radius mit Inhaber abstimmen.
 
 ## Content-Architektur (kritisch — spart Wiederentdeckung)
 
@@ -19,9 +19,14 @@ Solo-Freelance-Landingpage (Speed-to-Lead / Prozessautomatisierung, Wien). React
 - Gerendert nur über: App.tsx `CaseCarousel` (Filter `title && kicker && status !== 'draft'`) und `/case-study/:id` (`src/routes/CaseStudy.tsx`; `draft` oder nicht-String-`content` → 404).
 - **Integritätsregel:** nie Demo/fiktiv als echtes Kundenprojekt darstellen. `demo` trägt sichtbares Badge + Disclaimer; `draft` = unfertig/versteckt. Stand: **alle Cases sind Demos** (kein echtes Kundenprojekt) — kein `client` ohne Bestätigung des Inhabers.
 
-## Positionierung & Stil (entschieden)
+## Positionierung & Stil
 
-- Eine Seite, **ein Versprechen**: breites Speed-to-Lead-Outcome („keine Anfrage geht verloren"). *Nicht* recruiting-spezifisch, *nicht* „fertiges Produkt vs. Allround". Outcome-Sprache, **kein** Tool/„n8n" als Held.
+- **Zielgruppe — AUFGELÖST 2026-05-16 (Drei-Achsen-Modell, Achsen NICHT wieder vermengen):**
+  - **A) Öffentliche Positionierung = breit, problembasiert. Endgültig.** Seite/CLAUDE/Impressum/AMS-Geschäftsidee: ein Versprechen, Speed-to-Lead („keine Anfrage geht verloren"), **keine Branche** in der Außenkommunikation. Begründung: subsumiert jede Vertikale, technisch identisches Produkt, war durchgängig die einzige kundenseitige Copy.
+  - **B) Outreach-Beachhead = EINE Vertikale: Recruiting-Boutiquen DACH** bis 3 Referenzdeals → dann Performance-Agenturen → dann Steuerberater (Strategiepapier v3). Nur 1:1-Pitch, nicht auf der Seite. Alle früheren Beauty/SHK/Makler/PV/Coaches/Verlage-Varianten = **tot** (Strategiepapier strich sie explizit).
+  - **C) Proof/Case-Studies** müssen zum Beachhead passen — **offene Lücke:** sichtbare Demos sind E-Commerce/Dienstleistung, kein Recruiting. To-do: ≥1 Recruiting-`demo`-Case.
+  - Seite breit ≠ Outreach spitz ist **gewollt**, kein Widerspruch. Wer „die Zielgruppe" ändern will, muss sagen *welche Achse*.
+- Umgesetzt: Eine Seite, **ein Versprechen**, breites Speed-to-Lead-Outcome („keine Anfrage geht verloren"). Outcome-Sprache, **kein** Tool/„n8n" als Held.
 - Genau **ein** primärer CTA: kostenlose Prozess-Diagnose über Inline-`DiagnosisForm` (in `App.tsx`) → `POST /api/contact`.
 - `api/contact.ts` = Vercel-Function (läuft **nicht** unter `vite dev`), mailt hardcodiert an `berkay.seckin1@gmail.com`.
 - Design: `.cursorrules` befolgen (Anti-KI-Slop-Ästhetik).
@@ -33,6 +38,5 @@ Solo-Freelance-Landingpage (Speed-to-Lead / Prozessautomatisierung, Wien). React
 
 ## Offene Blocker (nur vom Inhaber lösbar)
 
-- Echte Hausnummer Lissbauergasse fürs Impressum (kein Raten).
-- Gewerbe-Anmeldung (~2026-07) — gated Go-Live (siehe oben).
+- **Impressum/Datenschutz tragen aktuell einen bewussten PLATZHALTER „Demostraße 3, 1190 Wien" (vom Inhaber so gewählt, NICHT die echte Adresse).** Vor jedem kommerziellen Go-Live / Push zwingend durch die echte Geschäftsadresse ersetzen — eine erfundene Adresse in einem live geschalteten Impressum = ECG-§5-Verstoß. Harter Go-Live-Blocker, da Deploy-Gate aufgehoben.
 - Produktions-WhatsApp statt Twilio-Sandbox (separates n8n-Projekt) — nötig, bevor das Produkt lieferbar ist.
