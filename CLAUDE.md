@@ -38,5 +38,5 @@ Das frühere harte Deploy-Gate (Gewerbe-Vorbehalt) ist **aufgehoben** (Inhaber-B
 
 ## Offene Blocker (nur vom Inhaber lösbar)
 
-- **Impressum/Datenschutz tragen aktuell einen bewussten PLATZHALTER „Demostraße 3, 1190 Wien" (vom Inhaber so gewählt, NICHT die echte Adresse).** Vor jedem kommerziellen Go-Live / Push zwingend durch die echte Geschäftsadresse ersetzen — eine erfundene Adresse in einem live geschalteten Impressum = ECG-§5-Verstoß. Harter Go-Live-Blocker, da Deploy-Gate aufgehoben.
+- ~~Impressum-Adresse~~ **GELÖST 2026-05-16:** echte Geschäftsadresse „Lissbauergasse 3, 1190 Wien" in `impressum.json` + `datenschutz.json` gesetzt. Go-Live-Blocker entfällt; Seite wurde nach `main` deployt.
 - Produktions-WhatsApp statt Twilio-Sandbox (separates n8n-Projekt) — nötig, bevor das Produkt lieferbar ist.
