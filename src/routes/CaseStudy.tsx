@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 type CaseStudyData = {
     title: string;
+    status?: 'client' | 'demo' | 'draft';
     client: string;
     summary: string;
     image: string;
@@ -25,6 +26,9 @@ const CaseStudy = () => {
 
                 if (modules[path]) {
                     const mod: any = await modules[path]();
+                    if (mod.default?.status === 'draft' || typeof mod.default?.content !== 'string') {
+                        throw new Error('Case Study not published');
+                    }
                     setData(mod.default);
                 } else {
                     throw new Error('Case Study not found');
@@ -79,8 +83,13 @@ const CaseStudy = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <div className="inline-block px-3 py-1 bg-teal-50 border border-teal-100/80 rounded-full text-secondary text-xs font-bold font-sans mb-6 tracking-wide">
-                            {data.client}
+                        <div className="flex flex-wrap items-center gap-3 mb-6">
+                            <span className="inline-block px-3 py-1 bg-teal-50 border border-teal-100/80 rounded-full text-secondary text-xs font-bold font-sans tracking-wide">
+                                {data.client}
+                            </span>
+                            <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold font-sans tracking-wide border ${data.status === 'client' ? 'bg-teal-50 border-teal-100/80 text-teal-700' : 'bg-slate-100 border-slate-200 text-slate-600'}`}>
+                                {data.status === 'client' ? 'Echtes Kundenprojekt' : 'Demo-Szenario'}
+                            </span>
                         </div>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl text-slate-900">
                             {data.title}

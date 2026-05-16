@@ -1,5 +1,6 @@
 {
   "title": "Mahnwesen automatisiert",
+  "status": "demo",
   "kicker": "E-Commerce DACH",
   "summary": "Offene Posten. Manuelle Mahnungen. Excel. → Automatischer Forderungsworkflow.",
   "image": "",
@@ -7,5 +8,5 @@
     { "value": "+31%", "label": "Cashflow-Speed" },
     { "value": "6h", "label": "Gespart / Woche" }
   ],
-  "content": "<h2>Ausgangssituation</h2><p>Offene Posten wurden in Excel verwaltet, Mahnungen manuell verfasst und per Hand verschickt. 6 Stunden Aufwand pro Woche, Forderungen oft zu spät angemahnt.</p><h2>Lösung</h2><p>Automatisierter Forderungsworkflow: Fälligkeiten werden täglich geprüft, Mahnstufen automatisch eskaliert, Zahlungseingänge abgeglichen und der Buchhalter nur bei kritischen Fällen benachrichtigt.</p><h2>Ergebnis</h2><p>31 % schnellerer Cashflow-Eingang. 6 Stunden Zeitersparnis pro Woche. Vollständige Nachvollziehbarkeit aller Mahnstufen.</p>"
+  "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Offene Posten wurden in Excel verwaltet, Mahnungen manuell verfasst und per Hand verschickt. 6 Stunden Aufwand pro Woche, Forderungen oft zu spät angemahnt.</p><h2>Lösung</h2><p>Automatisierter Forderungsworkflow: Fälligkeiten werden täglich geprüft, Mahnstufen automatisch eskaliert, Zahlungseingänge abgeglichen und der Buchhalter nur bei kritischen Fällen benachrichtigt.</p><h2>Ergebnis</h2><p>31 % schnellerer Cashflow-Eingang. 6 Stunden Zeitersparnis pro Woche. Vollständige Nachvollziehbarkeit aller Mahnstufen.</p>"
 }

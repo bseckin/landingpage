@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SectionWaveCanvas from './components/SectionWaveCanvas';
 import { LanguageProvider } from './context/LanguageContext';
@@ -17,11 +17,12 @@ const allCases: CaseStudyData[] = Object.entries(caseModules)
     const data = mod.default as unknown as CaseStudyData;
     return { ...data, id: path.split('/').pop()!.replace('.json', '') };
   })
-  .filter((d) => d.title && d.kicker);
+  .filter((d) => d.title && d.kicker && d.status !== 'draft');
 
 interface CaseStudyData {
   id: string;
   title: string;
+  status?: 'client' | 'demo' | 'draft';
   kicker: string;
   summary: string;
   image: string;
@@ -195,6 +196,21 @@ function CaseCarousel({ cases }: { cases: CaseStudyData[] }) {
         {cases.map((c) => (
           <article key={c.id} className="case-card">
             <p className="kicker">{c.kicker}</p>
+            <span
+              style={{
+                display: 'inline-block',
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                padding: '0.2rem 0.6rem',
+                borderRadius: '999px',
+                marginBottom: '0.5rem',
+                background: c.status === 'client' ? 'rgba(20,184,166,0.12)' : 'rgba(100,116,139,0.12)',
+                color: c.status === 'client' ? '#0d9488' : '#475569',
+              }}
+            >
+              {c.status === 'client' ? 'Echtes Kundenprojekt' : 'Demo-Szenario'}
+            </span>
             <h3>{c.title}</h3>
             {c.image ? (
               <img src={c.image} alt={c.title} className="case-image" />
@@ -216,6 +232,85 @@ function CaseCarousel({ cases }: { cases: CaseStudyData[] }) {
         ))}
       </div>
     </div>
+  );
+}
+
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
+function DiagnosisForm() {
+  const [status, setStatus] = useState<FormStatus>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('failed');
+      setStatus('success');
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '0.85rem 1rem',
+    borderRadius: '0.6rem',
+    border: '1px solid rgba(148,163,184,0.4)',
+    background: 'rgba(255,255,255,0.06)',
+    color: 'inherit',
+    font: 'inherit',
+    outline: 'none',
+  };
+
+  if (status === 'success') {
+    return (
+      <div
+        style={{
+          maxWidth: '440px',
+          margin: '0 auto',
+          padding: '1.5rem',
+          borderRadius: '0.75rem',
+          border: '1px solid rgba(20,184,166,0.4)',
+          background: 'rgba(20,184,166,0.1)',
+          fontWeight: 700,
+        }}
+      >
+        Angefragt — ich melde mich in Kürze.
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '440px', margin: '0 auto', textAlign: 'left' }}
+    >
+      <input style={inputStyle} type="text" name="name" required placeholder="Name" aria-label="Name" />
+      <input style={inputStyle} type="email" name="email" required placeholder="E-Mail" aria-label="E-Mail" />
+      <input
+        style={inputStyle}
+        type="text"
+        name="message"
+        required
+        placeholder="Worum geht's grob?"
+        aria-label="Worum geht's grob?"
+      />
+      <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
+        {status === 'submitting' ? 'Wird gesendet…' : 'Kostenlose Prozess-Diagnose anfragen'}
+      </button>
+      {status === 'error' && (
+        <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
+          Senden fehlgeschlagen. Bitte erneut versuchen oder direkt an hello@berkayseckin.at.
+        </p>
+      )}
+    </form>
   );
 }
 
@@ -248,7 +343,7 @@ function HomePage() {
           </a>
           <nav className="nav-links">
             <a href="#leistungen">Leistungen</a>
-            <a href="#referenzen">Referenzen</a>
+            <a href="#referenzen">Beispiele</a>
             <a href="#ueber-mich">Über mich</a>
           </nav>
           <a href="#kontakt" className="btn nav-cta">
@@ -266,19 +361,19 @@ function HomePage() {
               <span /> Prozessautomatisierung - Wien
             </p>
             <h1>
-              Ihr nächster Kandidat landet
-              <span>in 60 Sekunden auf Ihrem Handy.</span>
+              Keine Anfrage geht
+              <span>mehr verloren.</span>
             </h1>
-            <p className="hero-accent">Nicht Montag früh im Posteingang.</p>
+            <p className="hero-accent">Automatisch erfasst — in Sekunden bei der richtigen Person.</p>
             <p className="hero-subtext">
-              Kein generischer Automatisierungs-Freelancer. Ein konkretes System für ein konkretes Problem. Schlüsselfertig.
+              Für Betriebe mit mehr Anfragen als Zeit, sie schnell zu beantworten. Ein konkretes System für ein konkretes Problem — schlüsselfertig.
             </p>
             <div className="hero-actions">
-              <a href="#demo" className="btn btn-primary">
-                Live-Demo ansehen
+              <a href="#kontakt" className="btn btn-primary">
+                Kostenlose Prozess-Diagnose
               </a>
-              <a href="#kontakt" className="btn btn-secondary">
-                Erstgespräch buchen
+              <a href="#demo" className="btn btn-secondary">
+                So funktioniert's
               </a>
             </div>
             <div className="hero-tags">
@@ -290,29 +385,29 @@ function HomePage() {
         </section>
         <section id="demo" className="section section-light">
           <div className="site-container">
-            <p className="section-label reveal">Live Demo</p>
+            <p className="section-label reveal">So funktioniert's</p>
             <h2 className="section-title reveal">
-              Testen Sie es.<span>Jetzt. Live.</span>
+              Vom Eingang<span>aufs Handy.</span>
             </h2>
             <div className="demo-grid">
               <div className="demo-steps">
                 <div className="demo-step reveal reveal-d1">
-                  <p className="kicker">Das sehen Ihre Kandidaten</p>
+                  <p className="kicker">Das sieht Ihr Interessent</p>
                   <p>Ein schlichtes Formular. Name. Nummer. Absenden.</p>
                 </div>
                 <div className="demo-step reveal reveal-d2">
                   <p className="kicker">Das passiert dahinter</p>
                   <p>
-                    Name + Nummer landen in 60&nbsp;Sekunden als WhatsApp auf Ihrem Handy — inklusive Log, Error
-                    Handling, Audit-Trail.
+                    Die Anfrage landet in 60&nbsp;Sekunden als WhatsApp bei der richtigen Person — inklusive Log,
+                    Error Handling, Audit-Trail.
                   </p>
                 </div>
                 <div className="demo-step reveal reveal-d3">
-                  <p className="kicker">Das zeige ich Ihnen live</p>
-                  <p>Füllen Sie das Formular aus, schauen Sie auf Ihr Handy.</p>
+                  <p className="kicker">Im Erstgespräch</p>
+                  <p>Ich zeige Ihnen den Durchlauf live an Ihrem eigenen Beispiel.</p>
                 </div>
                 <a href="#kontakt" className="btn btn-primary reveal reveal-d3">
-                  Demo testen →
+                  Kostenlose Prozess-Diagnose
                 </a>
               </div>
               <div className="demo-visual reveal reveal-d2">
@@ -320,7 +415,7 @@ function HomePage() {
                   <div className="demo-phone-screen">
                     <p className="demo-whatsapp-label">WhatsApp</p>
                     <div className="demo-message">
-                      <strong>Neue Bewerbung</strong>
+                      <strong>Neue Anfrage</strong>
                       <span>Max Mustermann · +43 664 123 45 67</span>
                       <span className="demo-time">gerade eben ✓✓</span>
                     </div>
@@ -334,45 +429,17 @@ function HomePage() {
           <div className="site-container differentiator-wrap">
             <p className="section-label reveal">Warum nicht einfach jemand anderen?</p>
             <p className="differentiator-text reveal">
-              Es gibt ~50 n8n-Freelancer im DACH-Raum.
+              Die meisten Automatisierer
               <br />
-              Die meisten bauen alles für jeden.
+              bauen alles für jeden.
             </p>
             <p className="differentiator-text reveal reveal-d1">
-              Ich gehe mit einem fertigen Produkt in ein bekanntes Problem rein —<br className="hide-sm" />
+              Ich komme mit einem erprobten System für <em>ein</em> bekanntes Problem —<br className="hide-sm" />
               und passe es auf Ihre Situation an.
             </p>
             <p className="differentiator-highlight reveal reveal-d2">
               Spitz schlägt generisch. Im Erstgespräch und beim Ergebnis.
             </p>
-          </div>
-        </section>
-        <section id="ansatz" className="section section-light">
-          <div className="site-container">
-            <p className="section-label reveal">Ansatz</p>
-            <h2 className="section-title reveal">
-              Drei Prinzipien.<span>Keine Kompromisse.</span>
-            </h2>
-            <div className="principles-grid">
-              <article className="principle-card reveal reveal-d1">
-                <div className="icon-box icon-search" />
-                <p className="kicker">01 - Kein Scope-Creep</p>
-                <h3>Erst Lastenheft. Dann Festpreis.</h3>
-                <p>Ich baue nicht drauflos. Erst ein technisches Lastenheft — dann eine Festpreisofferte. Sie wissen vor Beginn exakt, was gebaut wird und was es kostet.</p>
-              </article>
-              <article className="principle-card reveal reveal-d2">
-                <div className="icon-box icon-grid" />
-                <p className="kicker">02 - Industrieller Standard</p>
-                <h3>Industrieller Standard.</h3>
-                <p>Error Handling, Backups, Monitoring. Architektur wie beim ORF und BRZ - Tempo wie ein Freelancer.</p>
-              </article>
-              <article className="principle-card reveal reveal-d3">
-                <div className="icon-box icon-growth" />
-                <p className="kicker">03 - Ergebnisse</p>
-                <h3>Ergebnisse, nicht Technik.</h3>
-                <p>Sie bekommen Zeit und Fokus zurück. Am Ende gehört Ihnen alles - kein Vendor Lock-in.</p>
-              </article>
-            </div>
           </div>
         </section>
         <section id="leistungen" className="section section-dark">
@@ -381,25 +448,28 @@ function HomePage() {
             <h2 className="section-title reveal dark-title">
               Drei Schritte.<span>Ein klares System.</span>
             </h2>
+            <p className="section-subtext reveal">
+              Kein Scope-Creep: erst Lastenheft, dann Festpreis — Sie wissen vor Beginn exakt, was gebaut wird und was es kostet.
+            </p>
             <div className="pricing-grid">
               <article className="pricing-card reveal">
                 <p className="kicker">Schritt 01</p>
-                <h3>Profit-Prozess-Audit</h3>
-                <p className="price">ab 690 EUR</p>
-                <p className="price-note">Anrechenbar auf Schritt 02</p>
+                <h3>Kostenlose Prozess-Diagnose</h3>
+                <p className="price">0 EUR</p>
+                <p className="price-note">30 Minuten, unverbindlich</p>
                 <ul>
-                  <li>Prozessanalyse</li>
-                  <li>10-15 Seiten Lastenheft</li>
-                  <li>ROI-Kalkulation</li>
-                  <li>Umsetzungsroadmap</li>
+                  <li>Wo geht Zeit/Umsatz verloren</li>
+                  <li>Konkreter Lösungsweg</li>
+                  <li>Ehrliche Einschätzung, kein Pitch</li>
+                  <li>Grobe Investitions-Range</li>
                 </ul>
               </article>
               <article className="pricing-card featured reveal reveal-d1">
                 <p className="featured-badge">Kernleistung</p>
                 <p className="kicker">Schritt 02</p>
                 <h3>Schlüsselfertige Umsetzung</h3>
-                <p className="price">ab 2.000 EUR</p>
-                <p className="price-note">S:2k-4k - M:4k-9k - L:ab 10k</p>
+                <p className="price">Investition ab 2.000 EUR</p>
+                <p className="price-note">Fixpreis — exakt nach Diagnose</p>
                 <ul>
                   <li>Exakt nach Blueprint</li>
                   <li>Error Handling und Monitoring</li>
@@ -410,8 +480,8 @@ function HomePage() {
               <article className="pricing-card reveal reveal-d2">
                 <p className="kicker">Schritt 03</p>
                 <h3>Betrieb und SLA</h3>
-                <p className="price">ab 99 EUR / Monat</p>
-                <p className="price-note">Optional</p>
+                <p className="price">Optional</p>
+                <p className="price-note">Monatlich, im Gespräch festgelegt</p>
                 <ul>
                   <li>Aktives Monitoring</li>
                   <li>API-Update-Management</li>
@@ -422,41 +492,10 @@ function HomePage() {
             </div>
           </div>
         </section>
-        <section className="section section-dark border-top">
-          <div className="site-container">
-            <p className="section-label reveal">Betrieb und SLA</p>
-            <h2 className="section-title reveal dark-title">Systeme brauchen jemanden der wacht.</h2>
-            <p className="section-subtext reveal">
-              Externe APIs ändern sich. Prozesse wachsen. Wählen Sie Ihr Sicherheitsnetz.
-            </p>
-            <div className="sla-grid">
-              {[
-                { tier: 'Basic', price: '99 EUR', features: ['Monitoring', 'Fehlerdiagnose', 'Report', 'Response 48h'] },
-                {
-                  tier: 'Professional',
-                  price: '149 EUR',
-                  features: ['API-Updates', 'Kleinanpassungen', 'Report', 'Response 24h'],
-                },
-                { tier: 'Premium', price: '299 EUR', features: ['Dedizierte Betreuung', 'Reviews', 'Report', 'Response 4h'] },
-              ].map((plan, idx) => (
-                <article key={plan.tier} className={`sla-card reveal reveal-d${idx}`}>
-                  <p className="kicker">{plan.tier}</p>
-                  <p className="price">{plan.price}</p>
-                  <p className="price-note">pro Monat</p>
-                  <ul>
-                    {plan.features.map((feature) => (
-                      <li key={feature}>{feature}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
         <section id="referenzen" className="section section-light">
           <div className="site-container">
-            <p className="section-label reveal">Referenzen</p>
-            <h2 className="section-title reveal">Was in der Praxis passiert.</h2>
+            <p className="section-label reveal">Beispiel-Szenarien</p>
+            <h2 className="section-title reveal">Wie ein Durchlauf aussieht.</h2>
           </div>
           {cases.length > 0 && <CaseCarousel cases={cases} />}
         </section>
@@ -465,14 +504,15 @@ function HomePage() {
             <div>
               <p className="section-label reveal">Über mich</p>
               <h2 className="section-title reveal">
-                Fertiges Produkt.<span>Bekanntes Problem.</span>
+                Ein System.<span>Ein konkretes Problem.</span>
               </h2>
               <p className="reveal">
-                Andere Freelancer bieten Automatisierung an. Ich komme mit einem fertigen Produkt für Ihr Problem —
-                gebaut nach den Architekturstandards vom ORF und Bundesrechenzentrum.
+                Andere bieten generische Automatisierung. Ich bringe ein erprobtes System für genau ein Problem —
+                eingehende Anfragen gehen nicht mehr verloren — und passe es an Ihren Betrieb an. Gebaut nach den
+                Architektur- und Qualitätsstandards von ORF und Bundesrechenzentrum.
               </p>
               <p className="reveal reveal-d1">
-                Solo. Kein Overhead. Sie sprechen immer mit mir.
+                Solo geliefert. Kein Overhead. Sie sprechen immer mit mir.
               </p>
               <div className="credentials reveal reveal-d2">
                 <p>
@@ -487,7 +527,35 @@ function HomePage() {
               </div>
             </div>
             <div className="portrait-placeholder reveal reveal-d3">
-              <img src="/portrait.jpg" alt="Berkay Seckin" />
+              <img
+                src="/portrait.jpg"
+                alt="Berkay Seckin"
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  img.style.display = 'none';
+                  const fb = img.nextElementSibling as HTMLElement | null;
+                  if (fb) fb.style.display = 'flex';
+                }}
+              />
+              <div
+                aria-hidden
+                style={{
+                  display: 'none',
+                  width: '100%',
+                  height: '100%',
+                  minHeight: '320px',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '4rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.05em',
+                  color: '#475569',
+                  background: 'linear-gradient(135deg,#e2e8f0,#f1f5f9)',
+                  borderRadius: 'inherit',
+                }}
+              >
+                BS
+              </div>
             </div>
           </div>
         </section>
@@ -498,9 +566,36 @@ function HomePage() {
               <span>zuerst?</span>
             </h2>
             <p>30 Minuten. Kostenlos. Sie hören ein konkretes System, kein Angebot.</p>
-            <a href="mailto:hello@berkayseckin.at" className="btn btn-primary">
-              Kostenloses Erstgespräch buchen
-            </a>
+            <ul
+              style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: '0 auto 1.75rem',
+                maxWidth: '440px',
+                textAlign: 'left',
+                display: 'grid',
+                gap: '0.4rem',
+                fontSize: '0.95rem',
+              }}
+            >
+              <li>→ Wo genau Zeit/Umsatz im Anfrage-Eingang verloren geht</li>
+              <li>→ Ein konkreter Lösungsweg für Ihren Fall</li>
+              <li>→ Ehrliche Einschätzung, kein Pitch</li>
+              <li>→ Grobe Investitions-Range</li>
+            </ul>
+            <DiagnosisForm />
+            <p
+              style={{
+                maxWidth: '440px',
+                margin: '1.25rem auto 0',
+                fontSize: '0.85rem',
+                opacity: 0.75,
+                lineHeight: 1.5,
+              }}
+            >
+              Kostenlos, unverbindlich, kein Pitch. Wir schauen 30 Minuten auf Ihren Anfrage-Eingang — finden wir
+              keinen konkreten Hebel, hat es Sie nur die Zeit gekostet, nicht mein Honorar.
+            </p>
             <small>Oder direkt: hello@berkayseckin.at</small>
           </div>
         </section>

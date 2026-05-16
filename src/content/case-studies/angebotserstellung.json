@@ -1,5 +1,6 @@
 {
   "title": "Angebotserstellung eliminiert",
+  "status": "demo",
   "kicker": "Dienstleistung Wien",
   "summary": "80+ Angebote pro Monat. Manuell. 3h/Woche. → 4 Minuten. Automatisch. Fehlerfrei.",
   "image": "",
@@ -7,5 +8,5 @@
     { "value": "-94%", "label": "Zeitaufwand" },
     { "value": "0", "label": "Fehler / Monat" }
   ],
-  "content": "<h2>Ausgangssituation</h2><p>Der Kunde stellte monatlich über 80 Angebote manuell aus. Jedes Angebot kostete im Schnitt 2–3 Minuten, kumuliert rund 3 Stunden pro Woche – fehleranfällig und nicht skalierbar.</p><h2>Lösung</h2><p>Vollautomatischer Angebots-Workflow: Eingehende Anfragen werden klassifiziert, mit Produktdaten befüllt, als PDF generiert und verschickt. Kein manueller Eingriff notwendig.</p><h2>Ergebnis</h2><p>94 % Zeitersparnis. 0 Fehler seit Inbetriebnahme. Der Kunde fokussiert sich auf Vertrieb statt Büroarbeit.</p>"
+  "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Der Kunde stellte monatlich über 80 Angebote manuell aus. Jedes Angebot kostete im Schnitt 2–3 Minuten, kumuliert rund 3 Stunden pro Woche – fehleranfällig und nicht skalierbar.</p><h2>Lösung</h2><p>Vollautomatischer Angebots-Workflow: Eingehende Anfragen werden klassifiziert, mit Produktdaten befüllt, als PDF generiert und verschickt. Kein manueller Eingriff notwendig.</p><h2>Ergebnis</h2><p>94 % Zeitersparnis. 0 Fehler seit Inbetriebnahme. Der Kunde fokussiert sich auf Vertrieb statt Büroarbeit.</p>"
 }
