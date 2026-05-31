@@ -29,13 +29,23 @@ Das frühere harte Deploy-Gate (Gewerbe-Vorbehalt) ist **aufgehoben** (Inhaber-B
 - **Zwei Landingpages (Achsen getrennt umgesetzt):** `/` = breit, problembasiert (Achse A, kanonisch, hardcodiert in `src/App.tsx`). `/recruiting` = recruiting-spitze Hormozi-Variante (Achse B, `src/routes/Recruiting.tsx`) — Avatar-Headline, Offer-Stack, weiche Risikoumkehr; dorthin zeigt der Recruiting-Outreach. `/` bleibt unverändert; `/recruiting` ist additiv & reversibel.
 - Umgesetzt: breites Speed-to-Lead-Outcome („keine Anfrage geht verloren") auf `/`. Outcome-Sprache, **kein** Tool/„n8n" als Held.
 - Genau **ein** primärer CTA je Seite: kostenlose Prozess-Diagnose über `DiagnosisForm` (`src/components/DiagnosisForm.tsx`, geteilt von `/` und `/recruiting`; letztere setzt `source="recruiting"`) → `POST /api/contact`.
-- `api/contact.ts` = Vercel-Function (läuft **nicht** unter `vite dev`), mailt hardcodiert an `berkay.seckin1@gmail.com`.
+- `api/contact.ts` = Vercel-Function (läuft **nicht** unter `vite dev`), mailt hardcodiert an `hallo@berkayseckin.at` (Business-Inbox). Mail-Body wird HTML-escaped (kein Injection-Sink); `GMAIL_USER`/`GMAIL_PASS` in Vercel Prod gesetzt & end-to-end bestätigt.
 - Design: `.cursorrules` befolgen (Anti-KI-Slop-Ästhetik).
 
 ## Werte / Leitplanken
 
 - Keine Bastellösung in seriösen Projekten; keine erfundenen Belege/Claims; Rechtstexte müssen wahr sein.
 - Build prüfen vor Commit: `npm run build` (tsc + vite) muss grün sein.
+
+## Stand / Letzte Änderungen (2026-05-31)
+
+Live & verifiziert (Commit-Historie = Quelle der Wahrheit, nicht dieser Block):
+
+- **Lead-Strecke läuft end-to-end** — `POST /api/contact` → `hallo@berkayseckin.at`; live getestet, Mail kommt an. Das frühere „GMAIL-env-vars-unbekannt"-Risiko (stiller Lead-Verlust) ist damit geschlossen.
+- **Security:** Mail-Body in `api/contact.ts` HTML-escaped + `request.body ?? {}` (P6/P5 behoben).
+- **Performance:** `/admin` (Quill-CMS) lazy-loaded → Public-Bundle 628→404 kB JS (gzip 197→131), Quill-CSS aus Main raus. Admin nur localhost, lädt on-demand — Verhalten unverändert.
+- **Social:** dediziertes OG-Bild `public/og-image.png` (1200×630) + OG/Twitter-Tags (inkl. width/height/type/alt) in `index.html`. Reproduzierbar: `node scripts/generate-og.mjs` (bettet echte Sora/Manrope-Fonts ein, rendert via headless Chrome — keine npm-Dep).
+- **Favicon:** `public/favicon.svg` (BS-Monogramm) statt `vite.svg`.
 
 ## Offene Blocker (nur vom Inhaber lösbar)
 
