@@ -1,12 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SectionWaveCanvas from './components/SectionWaveCanvas';
 import DiagnosisForm from './components/DiagnosisForm';
 import { LanguageProvider } from './context/LanguageContext';
 import LegalPage from './pages/LegalPage';
-import Admin from './routes/Admin';
 import CaseStudy from './routes/CaseStudy';
 import Recruiting from './routes/Recruiting';
+
+// Admin is a localhost-only CMS that pulls in the heavy rich-text editor (Quill).
+// Lazy-load it so its bundle ships as a separate chunk and never burdens the
+// public pages that real visitors actually load.
+const Admin = lazy(() => import('./routes/Admin'));
 
 // Load all case studies at build time from src/content/case-studies/*.json
 const caseModules = import.meta.glob<{ default: Record<string, unknown> }>(
@@ -546,7 +550,14 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/recruiting" element={<Recruiting />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/admin"
+            element={
+              <Suspense fallback={<div style={{ padding: '2rem', fontFamily: 'system-ui' }}>Admin lädt …</div>}>
+                <Admin />
+              </Suspense>
+            }
+          />
           <Route path="/case-study/:id" element={<CaseStudy />} />
           <Route path="/impressum" element={<LegalPage type="impressum" />} />
           <Route path="/datenschutz" element={<LegalPage type="datenschutz" />} />
