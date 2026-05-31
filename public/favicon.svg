@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="7" fill="#0f172a"/>
+  <text x="16" y="16.5" text-anchor="middle" dominant-baseline="central"
+        font-family="'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-weight="800" font-size="15" letter-spacing="-0.5">
+    <tspan fill="#f8fafc">B</tspan><tspan fill="#2dd4bf">S</tspan>
+  </text>
+</svg>

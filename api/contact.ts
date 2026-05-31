@@ -1,12 +1,21 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
+/** Escape user-supplied values before interpolating them into the HTML email body. */
+const escapeHtml = (value: unknown): string =>
+    String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
 export default async function handler(request: VercelRequest, response: VercelResponse) {
     if (request.method !== 'POST') {
         return response.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { name, email, message } = request.body;
+    const { name, email, message } = request.body ?? {};
 
     // Validation
     if (!name || !email || !message) {
@@ -35,11 +44,11 @@ ${message}
             `,
             html: `
 <h3>Neue Anfrage über die Webseite</h3>
-<p><strong>Name:</strong> ${name}</p>
-<p><strong>Email:</strong> ${email}</p>
+<p><strong>Name:</strong> ${escapeHtml(name)}</p>
+<p><strong>Email:</strong> ${escapeHtml(email)}</p>
 <br/>
 <p><strong>Nachricht:</strong></p>
-<p>${message.replace(/\n/g, '<br>')}</p>
+<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
             `,
         };
 
