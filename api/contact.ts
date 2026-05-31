@@ -33,7 +33,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
 
         const mailOptions = {
             from: process.env.GMAIL_USER,
-            to: 'berkay.seckin1@gmail.com',
+            to: 'hallo@berkayseckin.at',
             subject: `Neue Anfrage von ${name}`,
             text: `
 Name: ${name}
