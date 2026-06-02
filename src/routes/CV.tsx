@@ -10,9 +10,9 @@ import './cv.css';
    Truth-Guard: Selbstständigkeit ohne erfundene Mandate ("verfügbar
    für Mandate"); keine erfundenen Metriken bei ORF/BRZ.
 
-   PLATZHALTER — vor Live vom Inhaber zu füllen (mit .cv-todo markiert):
-   LinkedIn-URL, Telefon (optional), Ausbildungs-Details (Institution/
-   Zeitraum), Sprach-Niveaus. Siehe Konstanten unten.
+   Alle Daten vom Inhaber bestätigt und gefüllt (LinkedIn, Telefon,
+   Ausbildung, Sprach-Niveaus). Copy 2026-06-02 entstilisiert
+   (menschlicher Ton, keine Gedankenstriche/AI-Floskeln).
    ────────────────────────────────────────────────────────────── */
 
 const EMAIL = 'hallo@berkayseckin.at';
@@ -24,19 +24,19 @@ const LINKEDIN_LABEL = 'linkedin.com/in/berkay-seckin';
 const competencies = [
   {
     title: 'Requirements Engineering',
-    desc: 'Anforderungserhebung, -spezifikation und -validierung; Lasten-/Pflichtenheft, Abnahmekriterien.',
+    desc: 'Anforderungen erheben und spezifizieren, dann gegen Abnahmekriterien prüfen. Lasten- und Pflichtenheft schreibe ich dazu.',
   },
   {
     title: 'Business Analysis',
-    desc: 'Prozess- und Stakeholder-Analyse, Schnittstelle zwischen Fachbereich, Entwicklung und externen Partnern.',
+    desc: 'Prozesse und Stakeholder analysieren. Und die Schnittstelle sein zwischen Fachbereich, internen Entwicklern und externen Partnern.',
   },
   {
     title: 'Prozessautomatisierung',
-    desc: 'Schlüsselfertige Workflows (n8n), Speed-to-Lead-Systeme, Error-Handling und Audit-Trail.',
+    desc: 'Workflows in n8n, oft Speed-to-Lead. Error-Handling und Audit-Trail gehören dazu.',
   },
   {
-    title: 'System- & API-Integration',
-    desc: 'REST, JSON/XML, Datenflüsse zwischen bestehenden Systemen — ohne neues Tool fürs Team.',
+    title: 'System- und API-Integration',
+    desc: 'REST, JSON, XML. Datenflüsse zwischen Systemen, die schon da sind, ohne dass das Team ein neues Tool lernen muss.',
   },
 ];
 
@@ -51,14 +51,14 @@ interface Experience {
 
 const experience: Experience[] = [
   {
-    role: 'Requirements Engineer & Automation Consultant',
+    role: 'Requirements Engineer und Automation Consultant',
     org: 'Selbstständig',
     period: 'seit Apr. 2026',
-    location: 'Wien · remote / DACH',
+    location: 'Wien, remote oder DACH',
     bullets: [
-      'Konzeption und schlüsselfertiger Aufbau von Prozessautomatisierung für KMU — Speed-to-Lead: jede Anfrage automatisch erfasst und in Sekunden bei der richtigen Person.',
-      'Eigene Lead-Follow-Up-Pipeline (n8n) inkl. Error-Handling, Monitoring und Audit-Trail.',
-      'Verfügbar für RE-/BA-Mandate (remote oder DACH-Raum).',
+      'Prozessautomatisierung für KMU konzipiert und schlüsselfertig gebaut. Meist Speed-to-Lead: eine Anfrage kommt rein, wird erfasst und ist in Sekunden bei der Person, die sie bearbeitet.',
+      'Eigene Lead-Pipeline in n8n. Error-Handling und Monitoring laufen mit, jeder Schritt landet im Audit-Trail.',
+      'Aktuell offen für RE- und BA-Mandate, remote oder im DACH-Raum.',
     ],
     tags: ['Requirements Engineering', 'Business Analysis', 'n8n', 'REST', 'BPMN'],
   },
@@ -68,8 +68,8 @@ const experience: Experience[] = [
     period: 'Aug. 2024 – Juni 2025',
     location: 'Wien',
     bullets: [
-      'Anforderungserhebung für Datenmanagement-, Knowledge-Discovery- und KI-Projekte der österreichischen Bundesverwaltung.',
-      'Stakeholder-Koordination und Spezifikation unter den Audit- und Sicherheitsstandards des öffentlichen Sektors.',
+      'Anforderungen erhoben für Projekte der österreichischen Bundesverwaltung, rund um Datenmanagement, Knowledge Discovery und KI.',
+      'Stakeholder koordiniert und spezifiziert, unter den Audit- und Sicherheitsstandards, die im öffentlichen Sektor gelten.',
     ],
     tags: ['Requirements Engineering', 'Datenmanagement', 'Public Sector', 'KI-Projekte'],
   },
@@ -79,8 +79,8 @@ const experience: Experience[] = [
     period: 'Okt. 2019 – Juni 2023',
     location: 'Wien',
     bullets: [
-      'Schnittstelle zwischen ORF, internen Teams und externen Entwicklungspartnern für die Streaming-Plattform ORF TVThek.',
-      'Anforderungserhebung und Multi-Vendor-Koordination, u. a. für den Timeshift- und DRM-/Token-Validation-Flow.',
+      'Schnittstelle zwischen ORF, internen Teams und externen Entwicklungspartnern. Es ging um die Streaming-Plattform ORF TVThek.',
+      'Anforderungen erhoben und über mehrere Vendoren hinweg koordiniert, unter anderem für den Timeshift- und den DRM-Token-Validation-Flow.',
     ],
     tags: ['Business Analysis', 'Streaming', 'Multi-Vendor', 'DRM / Token-Flow'],
   },
@@ -95,22 +95,22 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'ORF TVThek — Timeshift & DRM',
-    problem: 'Die Timeshift-Funktion brauchte einen gesicherten Token-Validation-Flow über mehrere Vendoren hinweg.',
-    solution: 'Anforderungen erhoben und ORF, interne Teams und externe Entwickler auf eine gemeinsame Spezifikation koordiniert.',
-    result: 'Abgestimmter, umsetzbarer Token-Validation-Flow als Grundlage der Multi-Vendor-Umsetzung.',
+    title: 'ORF TVThek, Timeshift und DRM',
+    problem: 'Die Timeshift-Funktion brauchte einen gesicherten Token-Validation-Flow, und das über mehrere Vendoren hinweg.',
+    solution: 'Ich habe die Anforderungen erhoben und ORF, interne Teams und externe Entwickler auf eine gemeinsame Spezifikation gebracht.',
+    result: 'Ein abgestimmter Token-Validation-Flow, mit dem die Vendoren dann tatsächlich umsetzen konnten.',
   },
   {
-    title: 'BRZ — Datenmanagement & Knowledge Discovery',
-    problem: 'Datenmanagement und Wissenserschließung für die Bundesverwaltung — hohe Anforderungen an Nachvollziehbarkeit.',
-    solution: 'Anforderungserhebung und Spezifikation für Datenmanagement- und KI-Projekte unter Public-Sector-Standards.',
-    result: 'Belastbare, abnahmefähige Anforderungsbasis für die nachgelagerte Umsetzung.',
+    title: 'BRZ, Datenmanagement und Knowledge Discovery',
+    problem: 'Datenmanagement und Wissenserschließung für die Bundesverwaltung. Die Anforderungen an Nachvollziehbarkeit waren hoch.',
+    solution: 'Anforderungen erhoben und spezifiziert, für Datenmanagement- und KI-Projekte, nach den Standards des öffentlichen Sektors.',
+    result: 'Eine belastbare Anforderungsbasis, die durch die Abnahme ging und auf der die Umsetzung aufsetzen konnte.',
   },
   {
     title: 'Speed-to-Lead-Automation (eigenes System)',
-    problem: 'Eingehende Anfragen versanden oder werden zu spät beantwortet — verlorener Umsatz.',
-    solution: 'Schlüsselfertiges n8n-System: Anfrage → in unter 60 Sekunden als Nachricht bei der richtigen Person, inkl. Logging und Error-Handling.',
-    result: 'Keine Anfrage geht mehr verloren; Reaktionszeit von Stunden auf Sekunden.',
+    problem: 'Anfragen versanden oder werden zu spät beantwortet. Das kostet Umsatz.',
+    solution: 'Ein schlüsselfertiges System in n8n. Die Anfrage ist in unter 60 Sekunden als Nachricht bei der richtigen Person, mit Logging und Error-Handling.',
+    result: 'Keine Anfrage geht mehr verloren. Die Reaktionszeit fällt von Stunden auf Sekunden.',
   },
 ];
 
@@ -119,7 +119,7 @@ const skills: { label: string; items: string[] }[] = [
   { label: 'Werkzeuge', items: ['Jira', 'Confluence', 'Lucidchart', 'Draw.io', 'Figma', 'Miro'] },
   { label: 'Technologien', items: ['REST', 'JSON', 'XML', 'SQL (MySQL / PostgreSQL)', 'n8n', 'React'] },
   { label: 'Domänen', items: ['Streaming-Plattformen', 'Public Sector', 'KMU-Prozessautomatisierung'] },
-  { label: 'Sprachen', items: ['Deutsch (Muttersprache)', 'Englisch (verhandlungssicher)'] },
+  { label: 'Sprachen', items: ['Deutsch (Muttersprache)', 'Türkisch (fließend)', 'Englisch (verhandlungssicher)'] },
 ];
 
 interface Education {
@@ -173,7 +173,7 @@ const PhoneIcon = () => (
 export default function CV() {
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = 'Berkay Seckin — Requirements Engineer & Business Analyst, Wien';
+    document.title = 'Berkay Seckin, Requirements Engineer und Business Analyst, Wien';
 
     const ld = document.createElement('script');
     ld.type = 'application/ld+json';
@@ -187,7 +187,7 @@ export default function CV() {
       url: 'https://berkayseckin.at/cv',
       sameAs: [LINKEDIN_URL],
       address: { '@type': 'PostalAddress', addressLocality: 'Wien', addressCountry: 'AT' },
-      knowsLanguage: ['de', 'en'],
+      knowsLanguage: ['de', 'tr', 'en'],
       alumniOf: [
         { '@type': 'CollegeOrUniversity', name: 'FH Technikum Wien' },
         { '@type': 'EducationalOrganization', name: 'Technologisches Gewerbemuseum (TGM)' },
@@ -235,15 +235,15 @@ export default function CV() {
               <p className="cv-eyebrow">Lebenslauf · Profil</p>
               <h1 className="cv-name">Berkay Seckin</h1>
               <p className="cv-role">
-                Requirements Engineer &amp; Business Analyst — <b>Prozessautomatisierung</b>, Wien
+                Requirements Engineer und Business Analyst, Wien. Schwerpunkt <b>Prozessautomatisierung</b>.
               </p>
               <span className="cv-availability">
-                <span className="dot" /> Verfügbar für neue Mandate · remote / DACH
+                <span className="dot" /> Verfügbar für neue Mandate, remote oder im DACH-Raum
               </span>
               <p className="cv-lead">
-                Ich übersetze unklare Anforderungen in umsetzbare Spezifikationen und schlüsselfertige
-                Automatisierung. Erfahrung aus Streaming-Plattform (ORF&nbsp;TVThek) und öffentlicher Verwaltung
-                (Bundesrechenzentrum) — heute selbstständig für KMU im DACH-Raum.
+                Ich nehme unklare Anforderungen auseinander und schreibe Spezifikationen, mit denen Entwickler
+                arbeiten können. Manches setze ich danach selbst um, schlüsselfertig. Die Erfahrung dazu kommt von
+                der ORF&nbsp;TVThek und vom Bundesrechenzentrum. Heute selbstständig, vor allem für KMU im DACH-Raum.
               </p>
               <ul className="cv-contact">
                 <li>
@@ -299,14 +299,16 @@ export default function CV() {
             <h2 className="cv-section-label">Profil</h2>
             <div className="cv-prose">
               <p>
-                Requirements Engineer und Business Analyst aus Wien mit Schwerpunkt auf der sauberen Erhebung von
-                Anforderungen und deren Umsetzung in funktionierende, dokumentierte Systeme — von der
-                Streaming-Plattform bis zur Bundesverwaltung.
+                Requirements Engineer und Business Analyst aus Wien. Mein Schwerpunkt ist die saubere Erhebung von
+                Anforderungen und der Weg von dort zu Systemen, die laufen und dokumentiert sind. Das reicht von
+                der Streaming-Plattform bis in die Bundesverwaltung.
               </p>
               <p>
-                Heute selbstständig: Ich baue für KMU schlüsselfertige Prozessautomatisierung, bei der keine
-                Anfrage mehr verloren geht — nach denselben Audit- und Qualitätsstandards, die bei ORF und
-                Bundesrechenzentrum durch die Abnahme mussten. Solo geliefert, ohne Vendor Lock-in.
+                Inzwischen bin ich selbstständig, mit Fokus auf KMU. Ich finde die Stellen, an denen Zeit in
+                manueller, wiederkehrender Arbeit verloren geht, und baue die Abläufe so um, dass sie von selbst
+                laufen und die vorhandenen Tools miteinander reden. Davor steht immer die Analyse, was wirklich
+                gebraucht wird. Die Audit- und Qualitätsanforderungen dafür kenne ich von ORF und
+                Bundesrechenzentrum, dort musste alles durch die Abnahme. Geliefert wird solo, ohne Vendor Lock-in.
               </p>
             </div>
           </section>
@@ -416,8 +418,8 @@ export default function CV() {
             <div className="cv-contact-block">
               <h2>Verfügbar für neue Mandate.</h2>
               <p>
-                Remote oder im DACH-Raum, als Requirements Engineer / Business Analyst oder für ein konkretes
-                Automatisierungs-Projekt. Schreiben Sie mir — ich melde mich kurzfristig zurück.
+                Remote oder im DACH-Raum. Als Requirements Engineer oder Business Analyst, oder für ein konkretes
+                Automatisierungsprojekt. Schreiben Sie mir, ich melde mich kurzfristig.
               </p>
               <div className="cv-actions">
                 <a href={`mailto:${EMAIL}`} className="btn btn-primary">
