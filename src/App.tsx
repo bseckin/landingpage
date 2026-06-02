@@ -6,6 +6,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import LegalPage from './pages/LegalPage';
 import CaseStudy from './routes/CaseStudy';
 import Recruiting from './routes/Recruiting';
+import CV from './routes/CV';
 
 // Admin is a localhost-only CMS that pulls in the heavy rich-text editor (Quill).
 // Lazy-load it so its bundle ships as a separate chunk and never burdens the
@@ -533,10 +534,11 @@ function HomePage() {
             Berkay <span>Seckin</span>
           </p>
           <div className="footer-links">
+            <a href="/cv">Lebenslauf</a>
             <a href="/datenschutz">Datenschutzerklärung</a>
             <a href="/impressum">Impressum</a>
           </div>
-          <p className="copyright">© 2025 Berkay Seckin - Wien</p>
+          <p className="copyright">© {new Date().getFullYear()} Berkay Seckin - Wien</p>
         </div>
       </footer>
     </div>
@@ -550,6 +552,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/recruiting" element={<Recruiting />} />
+          <Route path="/cv" element={<CV />} />
           <Route
             path="/admin"
             element={

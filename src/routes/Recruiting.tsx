@@ -338,7 +338,7 @@ export default function Recruiting() {
             <a href="/datenschutz">Datenschutzerklärung</a>
             <a href="/impressum">Impressum</a>
           </div>
-          <p className="copyright">© 2025 Berkay Seckin - Wien</p>
+          <p className="copyright">© {new Date().getFullYear()} Berkay Seckin - Wien</p>
         </div>
       </footer>
     </div>
