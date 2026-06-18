@@ -3,10 +3,10 @@ export type Language = 'de' | 'en';
 export const translations = {
     de: {
         hero: {
-            badge: "VERFÜGBAR FÜR NEUE PROJEKTE",
-            headline: <>Ein System, das Sie<br /> <span className="text-secondary">nicht ständig braucht.</span></>,
-            sub: <>Ich befreie Ihr Unternehmen von manueller Arbeit. <br className="hidden md:block" /> Für stabile Abläufe, weniger Fehler und echtes Wachstum.</>,
-            ctaPrimary: "Potenzial-Gespräch vereinbaren",
+            badge: "LEAD-RETTER-SYSTEM",
+            headline: <>Wertvolle Kundenanfragen<br /><span className="text-secondary">versickern nicht mehr.</span></>,
+            sub: <>Automatisch erfasst — in Sekunden auf Ihrem Handy.<br className="hidden md:block" /> Für Betriebe, bei denen teure Anfragen im Alltagschaos untergehen.</>,
+            ctaPrimary: "30-Minuten Leck-Analyse buchen",
             ctaSecondary: "Fallstudien ansehen"
         },
         problem: {
@@ -34,68 +34,68 @@ export const translations = {
             headline: <>Die meisten Unternehmen arbeiten nicht falsch.<br />Sie arbeiten <span className="text-secondary">ohne System.</span></>
         },
         services: {
-            principle: "Erst Ordnung. Dann Geschwindigkeit.",
-            headline: "Ergebnisse vor Technik",
-            sub: "Ich analysiere Ihre Abläufe und schaffe klare Strukturen, die verlässlich funktionieren.",
+            principle: "Spitz schlägt generisch",
+            headline: "Spezialisiert auf den Lead-Eingang",
+            sub: "Nicht noch eine Allround-Lösung. Ein erprobtes System für das kritischste Nadelöhr: den Moment, in dem aus einer Anfrage ein Kunde wird.",
             cards: [
                 {
-                    tag: "INTEGRATION",
-                    title: "Verbundene Systeme",
-                    desc: "Isolierte Tools werden verknüpft. Daten fließen automatisch und fehlerfrei zwischen Ihren Anwendungen."
+                    tag: "AUSFALLSICHERHEIT",
+                    title: "Redundanz, keine Ausreden",
+                    desc: "Selbst wenn eine Website oder ein Dienst kurzzeitig nicht erreichbar ist, geht keine Anfrage verloren. Das System puffert, wiederholt und alarmiert – automatisch."
                 },
                 {
-                    tag: "STABILITÄT",
-                    title: "Verlässliche Routinen",
-                    desc: "Wiederkehrende Aufgaben werden fest definiert und automatisiert. Der Betrieb läuft unabhängig von Tagesform und Anwesenheit."
+                    tag: "NACHVOLLZIEHBARKEIT",
+                    title: "Lückenlose Dokumentation",
+                    desc: "Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann einging, wer sie bearbeitet hat und ob sie beantwortet wurde."
                 },
                 {
-                    tag: "TRANSPARENZ",
-                    title: "Volle Kontrolle",
-                    desc: "Keine Black-Box. Sie erhalten dokumentierte, nachvollziehbare Logik und behalten die Hoheit über Ihre Systeme."
+                    tag: "UNABHÄNGIGKEIT",
+                    title: "Ihre Daten, Ihre Hoheit",
+                    desc: "Open Source (n8n) auf Ihren oder österreichischen Servern. Kein Vendor Lock-in. Sie besitzen das System – nicht ich."
                 }
             ]
         },
         process: {
-            headline: "Vom Chaos zum System",
-            sub: "Von der Analyse bis zur digitalen Freiheit in vier Schritten.",
+            headline: "So funktioniert Ihr Lead-Retter",
+            sub: "Vom Anfrage-Eingang zur Benachrichtigung auf Ihrem Handy – in unter 60 Sekunden.",
             steps: [
                 {
-                    title: 'Die Analyse',
-                    desc: 'Wir finden heraus, wo Sie Zeit und Geld verlieren. Schwarz auf weiß sehen Sie, was Sie Ihre aktuellen Abläufe kosten.',
+                    title: 'Die kostenlose Leck-Analyse',
+                    desc: '30 Minuten Live-Demo: Ich zeige Ihnen auf Ihrem eigenen Smartphone, wie sekundenschnelle Weiterleitung funktioniert. Keine Verpflichtung, nur ein Erlebnis.',
                 },
                 {
-                    title: 'Der Bauplan',
-                    desc: 'Ein technisches Konzept statt theoretischer Beratung. Dieser Plan gehört Ihnen, unabhängig von der Umsetzung.',
+                    title: 'Der Projekt-Bauplan mit Fixpreis',
+                    desc: 'Nach der Analyse erhalten Sie einen glasklaren, schriftlichen Bauplan. Fixpreis-Garantie ab 2.000 €. Keine bösen Überraschungen.',
                 },
                 {
-                    title: 'Die Umsetzung',
-                    desc: 'Ich baue stabile Lösungen, die ab Tag 1 funktionieren. Keine Experimente, sondern bewährte Standards.',
+                    title: 'Schlüsselfertige Umsetzung',
+                    desc: 'Ich baue das System in Ihrer Umgebung auf – Open Source (n8n), lokal gehostet, nach Enterprise-Standards. Ab Tag 1 produktiv.',
                 },
                 {
-                    title: 'Sichere Übergabe',
-                    desc: 'Sie erhalten alle Zugänge. Ihr Business läuft automatisch – und Sie behalten die volle Kontrolle.',
+                    title: 'Dauerhafter Systemschutz',
+                    desc: 'Ihr System läuft auch dann weiter, wenn Meta, Google oder WhatsApp Updates einspielen. Monitoring, Redundanz und Nachvollziehbarkeit inklusive.',
                 }
             ],
             conclusion: {
-                headline: "Alles läuft. Auch ohne Sie.",
-                description: "Manuelle Arbeit ist ersetzt – Ihr Geschäft funktioniert, auch wenn Sie gerade nicht hinschauen."
+                headline: "Ihr Lead-Retter läuft. Auch am Wochenende.",
+                description: "Jede Anfrage wird erfasst, weitergeleitet und dokumentiert – völlig automatisch. Sie müssen nur noch antworten."
             }
         },
         about: {
-            whoAmI: "WHO_AM_I",
-            description: "Die Brücke zwischen Betriebswirtschaft und IT. Ich verstehe nicht nur Code, sondern Ihre Zahlen. Ich baue keine technischen Spielereien, sondern nützliche Lösungen für Ihr Wachstum.",
+            whoAmI: "SYSTEM-ARCHITEKT",
+            description: "Die Brücke zwischen kritischer Infrastruktur und Ihrem Betrieb. Ich habe Systeme gebaut, die für den Staat kritisch waren (ORF, BRZ). Dieselbe kompromisslose Stabilität, Ausfallsicherheit und der harte österreichische Datenschutz kommen jetzt in Ihren Betrieb.",
             badges: {
-                code: { label: "CODE", sub: "Full Stack" },
-                term: { label: "TERM", sub: "n8n Expert" }
+                code: { label: "ORF", sub: "Werbetechnologie" },
+                term: { label: "BRZ", sub: "Requirement Engineer" }
             },
-            status: "STATUS: DEPLOYING"
+            status: "STATUS: SYSTEM AKTIV"
         },
         footer: {
-            headline: "Schluss mit Raten.",
-            text: "Finden Sie heraus, wo Sie Zeit und Geld verlieren. Ein Gespräch von Unternehmer zu Unternehmer.",
-            ctaButton: "Gespräch anfragen",
-            location: { label: "STANDORT", value: "Chiang Mai, TH" },
-            timezone: { label: "ZEITZONE", value: "GMT+7" },
+            headline: "Jede Anfrage ist eine Umsatz-Chance.",
+            text: "Sehen Sie in 30 Minuten live auf Ihrem Handy, wie Ihr Lead-Retter funktioniert. Kostenlos. Unverbindlich.",
+            ctaButton: "30-Minuten Leck-Analyse buchen",
+            location: { label: "STANDORT", value: "Wien, AT" },
+            timezone: { label: "ZEITZONE", value: "GMT+2" },
             form: {
                 name: "IHR NAME",
                 email: "IHRE EMAIL",
@@ -122,10 +122,10 @@ export const translations = {
     },
     en: {
         hero: {
-            badge: "AVAILABLE FOR NEW PROJECTS",
-            headline: <>A system that doesn't<br /><span className="text-secondary">constantly need you.</span></>,
-            sub: <>I liberate your business from manual work. <br className="hidden md:block" /> For stable workflows, fewer errors, and real growth.</>,
-            ctaPrimary: "Schedule Consultation",
+            badge: "LEAD-RESCUE SYSTEM",
+            headline: <>Valuable customer inquiries<br /><span className="text-secondary">no longer slip through.</span></>,
+            sub: <>Automatically captured — on your phone in seconds.<br className="hidden md:block" /> For businesses where expensive leads get lost in daily chaos.</>,
+            ctaPrimary: "Book 30-Min Leak Analysis",
             ctaSecondary: "View Case Studies"
         },
         problem: {
@@ -153,68 +153,68 @@ export const translations = {
             headline: <>Most companies don't work incorrectly.<br />They work <span className="text-secondary">without a system.</span></>
         },
         services: {
-            principle: "First Order. Then Speed.",
-            headline: "Results before Technology",
-            sub: "I analyze your workflows and create clear structures that function reliably.",
+            principle: "Sharp beats generic",
+            headline: "Specialized on Lead Intake",
+            sub: "Not another allround solution. A proven system for the most critical bottleneck: the moment an inquiry must become a customer.",
             cards: [
                 {
-                    tag: "INTEGRATION",
-                    title: "Connected Systems",
-                    desc: "Isolated tools are linked. Data flows automatically and without errors between your applications."
+                    tag: "RESILIENCE",
+                    title: "Redundancy, No Excuses",
+                    desc: "Even if a website or service is temporarily unavailable, no inquiry is lost. The system buffers, retries and alerts – automatically."
                 },
                 {
-                    tag: "STABILITY",
-                    title: "Reliable Routines",
-                    desc: "Recurring tasks are strictly defined and automated. Operations run independently of daily performance or presence."
+                    tag: "TRACEABILITY",
+                    title: "Complete Documentation",
+                    desc: "Every step is logged. You see exactly which inquiry arrived when, who handled it and whether it was answered."
                 },
                 {
-                    tag: "TRANSPARENCY",
-                    title: "Full Control",
-                    desc: "No black box. You receive documented, traceable logic and retain sovereignty over your systems."
+                    tag: "INDEPENDENCE",
+                    title: "Your Data, Your Sovereignty",
+                    desc: "Open Source (n8n) on your or Austrian servers. No vendor lock-in. You own the system – not me."
                 }
             ]
         },
         process: {
-            headline: "From Chaos to System",
-            sub: "From analysis to digital freedom in four steps.",
+            headline: "How Your Lead-Rescue Works",
+            sub: "From inquiry arrival to phone notification – in under 60 seconds.",
             steps: [
                 {
-                    title: 'The Analysis',
-                    desc: 'We find out where you lose time and money. You see in black and white what your current workflows cost you.',
+                    title: 'Free Leak Analysis',
+                    desc: '30-minute live demo: I show you on your own smartphone how instant forwarding works. No obligation, just an experience.',
                 },
                 {
-                    title: 'The Blueprint',
-                    desc: 'A technical concept instead of theoretical advice. This plan belongs to you, independent of the implementation.',
+                    title: 'Project Blueprint with Fixed Price',
+                    desc: 'After the analysis you receive a clear, written blueprint. Fixed price guarantee from €2,000. No surprises.',
                 },
                 {
-                    title: 'The Implementation',
-                    desc: 'I build stable solutions that work from day 1. No experiments, but proven standards.',
+                    title: 'Turnkey Implementation',
+                    desc: 'I build the system in your environment – Open Source (n8n), locally hosted, enterprise-grade. Productive from day 1.',
                 },
                 {
-                    title: 'Secure Handover',
-                    desc: 'You receive all access. Your business runs automatically – and you keep full control.',
+                    title: 'Ongoing System Protection',
+                    desc: 'Your system keeps running even when Meta, Google or WhatsApp push updates. Monitoring, redundancy and traceability included.',
                 }
             ],
             conclusion: {
-                headline: "Everything runs. Even without you.",
-                description: "Manual work is replaced – your business works, even when you're not looking."
+                headline: "Your Lead-Rescue runs. Even on weekends.",
+                description: "Every inquiry is captured, forwarded and documented – fully automatic. All you have to do is reply."
             }
         },
         about: {
-            whoAmI: "WHO_AM_I",
-            description: "The bridge between business administration and IT. I understand not just code, but your numbers. I don't build technical toys, but useful solutions for your growth.",
+            whoAmI: "SYSTEM ARCHITECT",
+            description: "The bridge between critical infrastructure and your business. I built systems that were critical for the state (ORF, BRZ). The same uncompromising stability, resilience and Austrian data protection now come to your operation.",
             badges: {
-                code: { label: "CODE", sub: "Full Stack" },
-                term: { label: "TERM", sub: "n8n Expert" }
+                code: { label: "ORF", sub: "Ad Technology" },
+                term: { label: "BRZ", sub: "Requirement Engineer" }
             },
-            status: "STATUS: DEPLOYING"
+            status: "STATUS: SYSTEM ACTIVE"
         },
         footer: {
-            headline: "Stop Guessing.",
-            text: "Find out where you lose time and money. A conversation from entrepreneur to entrepreneur.",
-            ctaButton: "Request Conversation",
-            location: { label: "LOCATION", value: "Chiang Mai, TH" },
-            timezone: { label: "TIMEZONE", value: "GMT+7" },
+            headline: "Every inquiry is a revenue opportunity.",
+            text: "See your Lead-Rescue in action on your phone – 30 minutes, free, no obligation.",
+            ctaButton: "Book 30-Min Leak Analysis",
+            location: { label: "LOCATION", value: "Vienna, AT" },
+            timezone: { label: "TIMEZONE", value: "GMT+2" },
             form: {
                 name: "YOUR NAME",
                 email: "YOUR EMAIL",

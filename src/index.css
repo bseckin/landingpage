@@ -976,3 +976,54 @@ h3 {
   .hide-sm { display: none; }
   .differentiator-wrap { padding-block: 48px; }
 }
+
+/* ── Usecase cards (Sektion 5) ────────────────────────────── */
+.usecase-grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.usecase-card {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 32px 28px 36px;
+  box-shadow: 0 10px 28px -18px rgba(99, 91, 255, 0.35);
+  transition: border-color 0.35s, transform 0.35s;
+}
+
+.usecase-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.usecase-card .kicker {
+  margin-top: 0;
+}
+
+.usecase-card h3 {
+  margin-top: 14px;
+  font-size: 21px;
+}
+
+.usecase-card p:last-of-type {
+  margin: 12px 0 0;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+@media (max-width: 1080px) {
+  .usecase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Incoming WhatsApp message ────────────────────────────── */
+.demo-message-incoming {
+  background: #ffffff;
+  border-radius: 8px 8px 8px 0;
+  margin-top: 10px;
+}

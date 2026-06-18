@@ -1,22 +1,22 @@
 {
-  "headline": "Vom Chaos zum System",
-  "description": "Von der Analyse bis zur digitalen Freiheit in vier Schritten.",
+  "headline": "So funktioniert Ihr Lead-Retter",
+  "description": "Vom Anfrage-Eingang zur Benachrichtigung auf Ihrem Handy – in unter 60 Sekunden.",
   "steps": [
     {
-      "title": "Die Analyse",
-      "description": "Wir finden heraus, wo Sie Zeit und Geld verlieren. Schwarz auf weiß sehen Sie, was Sie Ihre aktuellen Abläufe kosten."
+      "title": "Die kostenlose Leck-Analyse",
+      "description": "30 Minuten Live-Demo: Ich zeige Ihnen auf Ihrem eigenen Smartphone, wie sekundenschnelle Weiterleitung funktioniert. Keine Verpflichtung, nur ein Erlebnis."
     },
     {
-      "title": "Der Bauplan",
-      "description": "Ein technisches Konzept statt theoretischer Beratung. Dieser Plan gehört Ihnen, unabhängig von der Umsetzung."
+      "title": "Der Projekt-Bauplan mit Fixpreis",
+      "description": "Nach der Analyse erhalten Sie einen glasklaren, schriftlichen Bauplan. Fixpreis-Garantie ab 2.000 €. Keine bösen Überraschungen."
     },
     {
-      "title": "Die Umsetzung",
-      "description": "Ich baue stabile Lösungen, die ab Tag 1 funktionieren. Keine Experimente, sondern bewährte Standards."
+      "title": "Schlüsselfertige Umsetzung",
+      "description": "Ich baue das System in Ihrer Umgebung auf – Open Source (n8n), lokal gehostet, nach Enterprise-Standards. Ab Tag 1 produktiv."
     },
     {
-      "title": "Sichere Übergabe",
-      "description": "Sie erhalten alle Zugänge. Ihr Business läuft automatisch – und Sie behalten die volle Kontrolle."
+      "title": "Dauerhafter Systemschutz & Wartung",
+      "description": "Ihr System läuft auch dann weiter, wenn Meta, Google oder WhatsApp Updates einspielen. Monitoring, Redundanz und lückenlose Nachvollziehbarkeit inklusive."
     }
   ]
 }

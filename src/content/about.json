@@ -1,9 +1,9 @@
 {
-  "headline": "Direkt. Verlässlich. Auf Augenhöhe.",
-  "description": "Sie arbeiten direkt mit mir – ohne Umwege, ohne Übergaben, ohne wechselnde Ansprechpartner.\n\nIch begleite Ihr Projekt von der ersten Analyse bis zur Umsetzung und denke dabei nicht in Tools, sondern in stabilen Abläufen, die Ihren Alltag spürbar entlasten.\n\nTechnik ist dabei kein Selbstzweck.\nSie soll Ordnung schaffen, Fehler reduzieren und dafür sorgen, dass Ihr Unternehmen auch dann sauber läuft, wenn Sie nicht ständig eingreifen.",
+  "headline": "Sicherheitsgarantie aus der System-Architektur",
+  "description": "Jahrelange Erfahrung mit kritischer Infrastruktur – jetzt für Ihren Betrieb.\n\nIch habe Systeme gebaut, die für den Staat kritisch waren (ORF Werbetechnologie, Bundesrechenzentrum). Dieselbe kompromisslose Stabilität, Ausfallsicherheit und der harte österreichische Datenschutz (lokales Hosting) kommen jetzt in Ihren inhabergeführten Betrieb.\n\nKein Overhead, keine wechselnden Ansprechpartner. Sie arbeiten direkt mit demjenigen, der Ihr System baut.",
   "badges": [
-    "STRATEGIE",
-    "AUTOMATION",
-    "SKALIERUNG"
+    "SYSTEM-ARCHITEKTUR",
+    "AUSFALLSICHERHEIT",
+    "DATENSCHUTZ"
   ]
 }

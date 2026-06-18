@@ -40,6 +40,28 @@ Das frühere harte Deploy-Gate (Gewerbe-Vorbehalt) ist **aufgehoben** (Inhaber-B
 - Keine Bastellösung in seriösen Projekten; keine erfundenen Belege/Claims; Rechtstexte müssen wahr sein.
 - Build prüfen vor Commit: `npm run build` (tsc + vite) muss grün sein.
 
+## Stand / Letzte Änderungen
+
+### 2026-06-18 — Kompletter Website-Copy-Rewrite (7 Sektionen)
+
+Die gesamte Homepage-Copy wurde nach der "Sonnet-Richtlinie" für B2B-KMU-Konversion neu geschrieben. Positionierung: vom generischen Automatisierer zum spezialisierten **Lead-Retter-System** für inhabergeführte Betriebe mit wertvollen Kundenanfragen.
+
+**Sektion 1 (Hero):** Headline "Wertvolle Kundenanfragen versickern nicht mehr." Fokus auf Pain (teure Leads im Alltagschaos) + Outcome (Umsatz sichern bevor Konkurrenz anruft). Tags: Festpreis ab 2.000 €, Open Source (n8n), Enterprise-Stabilität.
+
+**Sektion 2 (So funktioniert's):** 60-Sekunden-WhatsApp-Flow beibehalten. Tech-Begriffe übersetzt: "Error Handling" → "Ausfallsicherheit & Redundanz", "Audit-Trail/Log" → "Lückenlose Nachvollziehbarkeit".
+
+**Sektion 3 (Methodik):** "Spitz schlägt generisch" geschärft. Erklärt, warum Allrounder-Agenturen scheitern (fragile Software-Konstrukte) vs. Spezialisierung auf das Nadelöhr "Anfrage → Kunde".
+
+**Sektion 4 (Leistungsphasen):** Behörden-IT-Overhead entfernt. Schritt 1: "Kostenlose Leck-Analyse" (30 Min Live-Demo auf Handy). Schritt 2: "Glasklarer Bauplan mit Fixpreis-Garantie". Schritt 3: "Dauerhafter Systemschutz & Wartung".
+
+**Sektion 5 (Anwendungsszenarien):** E-Commerce-Mahnwesen entfernt (bereits `draft`). 3 neue konsistente KMU-Szenarien: (1) High-Ticket-Vertrieb Speed-to-Lead, (2) Backoffice-Angebotsentwurf, (3) HR/Recruiting priorisiert.
+
+**Sektion 6 (Über mich):** Von defensivem Lebenslauf zu Sicherheitsgarantie: ORF + BRZ als kritisches Infrastruktur-Know-how positioniert. "Systeme für den Staat → jetzt für Ihren Betrieb."
+
+**Sektion 7 (CTA):** "30-Minuten Leck-Analyse inklusive Live-Handy-Demo" statt Diagnose. Risikofreies Erlebnis: Kunde sieht auf eigenem Smartphone die sekundenschnelle Weiterleitung.
+
+**Geänderte Dateien:** `src/App.tsx`, `src/index.css` (neue usecase-grid/usecase-card Klassen), `src/content/translations.tsx`, `src/content/hero.json`, `process.json`, `services.json`, `about.json`, `footer.json`.
+
 ## Stand / Letzte Änderungen (2026-05-31)
 
 Live & verifiziert (Commit-Historie = Quelle der Wahrheit, nicht dieser Block):

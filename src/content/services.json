@@ -1,21 +1,21 @@
 {
-  "headline": "Ergebnisse vor Technik",
-  "description": "Ich analysiere Abläufe und setze die Lösung direkt um.\n\nIch verbinde Ihre bestehenden Systeme,\nrichte eine stabile technische Basis ein\nund ersetze manuelle sowie umständliche Abläufe\ndurch feste, automatische Prozesse.\n\nSo entsteht ein System, das zuverlässig läuft\nund nicht ständig Aufmerksamkeit braucht.",
+  "headline": "Spitz schlägt generisch",
+  "description": "Ich habe mich radikal auf das kritischste Nadelöhr in Ihrem Betrieb spezialisiert: den Moment, in dem aus einer digitalen Anfrage ein echter Kunde werden muss.\n\nAllrounder-Agenturen bauen für jedes Problem ein neues, fragiles Software-Konstrukt. Ich bringe ein erprobtes System für genau dieses eine Problem – und passe es auf Ihre Situation an.\n\nDas Ergebnis: Ausfallsichere Enterprise-Stabilität. Digitale Unabhängigkeit durch Open Source (n8n). Und ein System, das läuft, auch wenn Schnittstellen haken.",
   "cards": [
     {
-      "tag": "VERNETZUNG",
-      "title": "Nahtlose Verbindung",
-      "description": "Ihre Software-Tools arbeiten zusammen statt gegeneinander. Daten landen automatisch dort, wo sie gebraucht werden."
+      "tag": "AUSFALLSICHERHEIT",
+      "title": "Redundanz, keine Ausreden",
+      "description": "Integrierte Fehlerbehandlung: Selbst wenn eine Website oder ein Dienst kurzzeitig nicht erreichbar ist, geht keine Anfrage verloren. Das System puffert, wiederholt und alarmiert – automatisch."
     },
     {
-      "tag": "24/7 BETRIEB",
-      "title": "Ihr Digitaler Mitarbeiter",
-      "description": "KI-Agenten, die wie Ihr bester Mitarbeiter denken – nur rund um die Uhr. Support, Analyse und Reporting auf Autopilot."
+      "tag": "NACHVOLLZIEHBARKEIT",
+      "title": "Lückenlose Dokumentation",
+      "description": "Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann einging, wer sie bearbeitet hat und ob sie beantwortet wurde. Kein Lead kann unbemerkt ignoriert werden."
     },
     {
-      "tag": "EIGENTUM",
-      "title": "Volle Kontrolle",
-      "description": "Sie erhalten keine Black-Box, sondern besitzen die Technik selbst. Alle Zugänge und Rechte liegen zu 100% bei Ihnen."
+      "tag": "DIGITALE UNABHÄNGIGKEIT",
+      "title": "Ihre Daten, Ihre Hoheit",
+      "description": "Open Source (n8n) auf Ihren oder österreichischen Servern. Kein Vendor Lock-in, keine undurchsichtigen Cloud-Abhängigkeiten. Sie besitzen das System – nicht ich."
     }
   ]
 }
