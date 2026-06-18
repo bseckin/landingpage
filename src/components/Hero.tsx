@@ -1,101 +1,104 @@
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-
-import { useLanguage } from '../context/LanguageContext';
-import SectionWaveCanvas from './SectionWaveCanvas';
-import HeroToContentFold from './HeroToContentFold';
+import { useEffect, useRef } from 'react';
 
 const Hero = () => {
-    const { t } = useLanguage();
-    return (
-        <section className="relative min-h-[100svh] flex flex-col items-center bg-[#f8fafc]/90">
-            <HeroBackground />
+  const bootRef = useRef<HTMLDivElement>(null);
 
-            {/* Content */}
-            <div className="container mx-auto px-6 relative z-10 text-center flex-1 flex flex-col justify-center items-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex w-fit max-w-full items-center gap-3 px-4 py-2 rounded-full border border-teal-200/80 bg-white/85 backdrop-blur-md text-xs font-semibold text-slate-700 mb-8 md:mb-12 tracking-wide font-sans text-left shadow-card"
-                >
-                    <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.55)]" />
-                    {t.hero.badge}
-                </motion.div>
-
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="w-full text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8 font-sans text-slate-900 break-words hyphens-auto"
-                >
-                    {t.hero.headline}
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="w-full text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-8 md:mb-12 font-sans font-light leading-relaxed"
-                >
-                    {t.hero.sub}
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="flex w-full flex-col md:flex-row items-center justify-center gap-6"
-                >
-                    <a href="#contact" className="w-full md:w-auto px-8 py-4 bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all duration-200 rounded-full font-sans shadow-[0_8px_28px_-6px_rgba(79,70,229,0.45)] hover:shadow-[0_12px_36px_-4px_rgba(79,70,229,0.5)] transform hover:scale-[1.02] text-center flex items-center justify-center gap-3">
-                        <span className="flex items-center justify-center gap-3">
-                            {t.hero.ctaPrimary} <ArrowRight className="w-5 h-5" />
-                        </span>
-                    </a>
-
-                    <a href="#case-studies" className="w-full md:w-auto px-8 py-4 text-slate-600 hover:text-slate-900 transition-all font-sans font-medium text-sm tracking-wide border-b border-transparent hover:border-slate-400/80 text-center">
-                        {t.hero.ctaSecondary}
-                    </a>
-                </motion.div>
-
-            </div>
-            <HeroToContentFold />
-        </section>
+  useEffect(() => {
+    const el = bootRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('boot-sequence');
+        }
+      },
+      { threshold: 0.15 },
     );
-};
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
-const HeroBackground = () => (
-    <div className="absolute inset-0 z-0 pointer-events-none min-h-full">
-        <div
-            className="absolute inset-0 bg-gradient-to-b from-[#e8ecfa] via-[#f4f6fd] to-white"
-            aria-hidden
-        />
-        <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_-15%,rgba(180,210,255,0.55),transparent_58%)]"
-            aria-hidden
-        />
-        <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_85%_45%,rgba(230,190,255,0.35),transparent_52%)]"
-            aria-hidden
-        />
-        <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_15%_55%,rgba(160,235,255,0.4),transparent_48%)]"
-            aria-hidden
-        />
-        <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_60%_25%,rgba(250,250,200,0.12),transparent_45%)]"
-            aria-hidden
-        />
-        <SectionWaveCanvas preset="hero" />
-        <div
-            className="absolute inset-0 bg-gradient-to-t from-white/75 via-transparent to-[#eef1fb]/30"
-            aria-hidden
-        />
-        {/* Fade wave bands out before the section edge — no “photo crop” through the waves */}
-        <div
-            className="absolute inset-x-0 bottom-0 z-[2] h-[min(32vh,13rem)] bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/92 to-transparent"
-            aria-hidden
-        />
-    </div>
-);
+  return (
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-16 px-margin-mobile md:px-margin-desktop border-b border-outline-variant bg-background">
+      {/* Grid Structure Decor */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="grid-line-v left-margin-desktop" />
+        <div className="grid-line-v right-margin-desktop" />
+        <div className="grid-line-h top-1/4" />
+        <div className="grid-line-h bottom-1/4" />
+      </div>
+
+      <div
+        ref={bootRef}
+        className="relative z-10 text-center max-w-4xl mx-auto space-y-8 md:space-y-10"
+      >
+        {/* Badge */}
+        <div className="inline-flex items-center gap-3 px-4 py-1.5 border border-outline-variant bg-surface">
+          <span className="w-1.5 h-1.5 bg-primary animate-pulse" />
+          <span className="label-caps text-on-surface-variant">
+            FOKUSSIERT AUF SPEED-TO-LEAD
+          </span>
+        </div>
+
+        {/* Headline */}
+        <h1 className="text-4xl md:text-7xl font-display font-black leading-[0.95] tracking-tight max-w-3xl mx-auto">
+          Wertvolle Kundenanfragen{' '}
+          <br className="hidden md:block" />
+          <span
+            className="text-primary"
+            style={{ textShadow: '1px 1px 0px #0F172A' }}
+          >
+            versickern nicht mehr.
+          </span>
+        </h1>
+
+        {/* Subheadline */}
+        <p className="text-xl md:text-2xl text-on-surface font-display font-bold tracking-tight max-w-2xl mx-auto">
+          Automatisch erfasst — in Sekunden auf Ihrem Handy.
+        </p>
+
+        {/* Description */}
+        <p className="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto font-medium leading-relaxed">
+          Für Betriebe, bei denen teure Kundenanfragen im Alltagschaos
+          untergehen. Ein schlüsselfertiges System, das jede Anfrage fängt,
+          sofort alarmiert und Umsatz sichert, bevor die Konkurrenz anruft.
+        </p>
+
+        {/* CTA Block */}
+        <div className="flex flex-col items-center gap-4 pt-4">
+          <button
+            className="px-10 md:px-12 py-5 md:py-6 bg-primary text-on-surface font-display font-black text-lg md:text-xl hover:translate-x-1 hover:-translate-y-1 transition-transform shadow-cta"
+            onClick={() =>
+              document
+                .getElementById('cta')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            Kostenlosen Systemcheck buchen
+          </button>
+          <p className="text-xs md:text-sm text-on-surface-variant/70 font-medium">
+            Erleben Sie das System live auf Ihrem eigenen Smartphone
+          </p>
+        </div>
+
+        {/* Badges / Chips */}
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+          <div className="border border-outline-variant bg-surface px-4 py-2 label-caps text-on-surface-variant text-[10px]">
+            Festpreis ab 2.000 €
+          </div>
+          <div className="border border-outline-variant bg-surface px-4 py-2 label-caps text-on-surface-variant text-[10px]">
+            Schlüsselfertig
+          </div>
+          <div className="border border-outline-variant bg-surface px-4 py-2 label-caps text-on-surface-variant text-[10px]">
+            Open Source (n8n)
+          </div>
+          <div className="border border-outline-variant bg-surface px-4 py-2 label-caps text-on-surface-variant text-[10px]">
+            Enterprise-Stabilität
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Hero;

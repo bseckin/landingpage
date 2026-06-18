@@ -1,197 +1,294 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Search, FileJson, Hammer, Rocket, Check } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
-import { SectionReveal } from './SectionReveal';
+import { useEffect, useState } from 'react';
 
-const icons = [Search, FileJson, Hammer, Rocket];
+/* ─── 60-Sekunden Countdown Timer ─────────────────────────────── */
+function useCountdown(initialSeconds: number) {
+  const [timeLeft, setTimeLeft] = useState(initialSeconds);
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTimeLeft((prev) => {
+        const next = prev - 1;
+        return next < 0 ? initialSeconds : next;
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [initialSeconds]);
+
+  const seconds = String(timeLeft).padStart(2, '0');
+  return `00:00:${seconds}`;
+}
+
+/* ─── Process Component ───────────────────────────────────────── */
 const Process = () => {
-    const { t } = useLanguage();
-    const sectionRef = useRef<HTMLElement | null>(null);
-    const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const display = useCountdown(60);
 
-    const updateActiveStep = useCallback(() => {
-        const steps = t.process.steps;
-        if (!steps.length) return;
-
-        const vh = window.innerHeight;
-        // Scan line ~ upper third: reads naturally on mobile + desktop while scrolling
-        const lineY = Math.min(Math.max(vh * 0.36, 96), vh * 0.48);
-
-        let next = 0;
-        for (let i = 0; i < steps.length; i++) {
-            const el = stepRefs.current[i];
-            if (!el) continue;
-            const top = el.getBoundingClientRect().top;
-            if (top <= lineY) next = i;
-        }
-        setActiveStepIndex((prev) => (prev !== next ? next : prev));
-    }, [t.process.steps]);
-
-    useEffect(() => {
-        let scheduled = false;
-        const onScrollOrResize = () => {
-            if (scheduled) return;
-            scheduled = true;
-            requestAnimationFrame(() => {
-                scheduled = false;
-                updateActiveStep();
-            });
-        };
-
-        updateActiveStep();
-        window.addEventListener('scroll', onScrollOrResize, { passive: true });
-        window.addEventListener('resize', onScrollOrResize, { passive: true });
-
-        const ro =
-            typeof ResizeObserver !== 'undefined' && sectionRef.current
-                ? new ResizeObserver(onScrollOrResize)
-                : null;
-        ro?.observe(sectionRef.current!);
-
-        return () => {
-            window.removeEventListener('scroll', onScrollOrResize);
-            window.removeEventListener('resize', onScrollOrResize);
-            ro?.disconnect();
-        };
-    }, [updateActiveStep]);
-
-    return (
-        <section
-            ref={sectionRef}
-            className="py-20 md:py-32 relative border-t border-slate-200/80 overflow-hidden"
-        >
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/25 to-transparent -translate-x-1/2 block z-0" />
-
-            <div className="container mx-auto px-6 relative z-10">
-                <SectionReveal className="text-center mb-24">
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-sans tracking-tight">
-                        {t.process.headline}
-                    </h2>
-                    <p className="text-text-secondary max-w-xl mx-auto font-sans text-lg">
-                        {t.process.sub}
-                    </p>
-                </SectionReveal>
-
-                <SectionReveal>
-                    <div className="relative space-y-16 md:space-y-32">
-                    {t.process.steps.map((step, index) => {
-                        const Icon = icons[index];
-                        const isActive = activeStepIndex === index;
-                        return (
-                            <div
-                                key={index}
-                                ref={(el) => {
-                                    stepRefs.current[index] = el;
-                                }}
-                                className={`flex flex-col md:flex-row items-center transition-opacity duration-500 ease-out ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
-                                aria-current={isActive ? 'step' : undefined}
-                            >
-                                <div
-                                    className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'text-center md:pl-24 md:text-left' : 'text-center md:pr-24 md:text-right'} mb-8 md:mb-0 relative z-10`}
-                                >
-                                    <div
-                                        className={[
-                                            'md:hidden w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center relative z-10 transition-all duration-500 ease-out',
-                                            isActive
-                                                ? 'bg-white border border-primary text-primary shadow-[0_0_26px_-4px_rgba(79,70,229,0.5)] scale-100 opacity-100'
-                                                : 'bg-slate-50 border border-slate-200/90 text-slate-400 shadow-none scale-[0.97] opacity-55',
-                                        ].join(' ')}
-                                    >
-                                        <Icon className="w-5 h-5" />
-                                    </div>
-
-                                    <h3
-                                        className={[
-                                            'text-2xl font-bold mb-4 font-sans transition-all duration-500 ease-out',
-                                            isActive ? 'text-slate-900' : 'text-slate-500',
-                                        ].join(' ')}
-                                    >
-                                        {step.title}
-                                    </h3>
-                                    <p
-                                        className={[
-                                            'leading-relaxed font-sans text-base md:text-lg transition-all duration-500 ease-out',
-                                            isActive ? 'text-text-secondary' : 'text-text-secondary/45',
-                                        ].join(' ')}
-                                    >
-                                        {step.desc}
-                                    </p>
-                                </div>
-
-                                <div
-                                    className={[
-                                        'absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full hidden md:flex items-center justify-center z-10 transform duration-500 ease-out',
-                                        isActive
-                                            ? 'bg-white border border-primary text-primary shadow-[0_0_28px_-4px_rgba(79,70,229,0.55)] md:scale-110'
-                                            : 'bg-slate-50 border border-slate-200/90 text-slate-400 shadow-none md:scale-100 opacity-50',
-                                    ].join(' ')}
-                                >
-                                    <Icon className="w-6 h-6" />
-                                </div>
-
-                                <div className="w-full md:w-1/2" />
-                            </div>
-                        );
-                    })}
-                    </div>
-                </SectionReveal>
-
-                <ProcessConclusion t={t} />
-            </div>
-        </section>
-    );
-};
-
-const ProcessConclusion = ({ t }: { t: any }) => (
-    <div className="flex flex-col items-center justify-center pt-24 md:pt-40 relative z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 md:h-40 w-px bg-gradient-to-b from-primary/25 to-transparent block" />
-
-        <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-24 h-24 md:w-32 md:h-32 mb-10 flex items-center justify-center"
-        >
-            <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl" />
-
-            <motion.div
-                className="absolute inset-0 rounded-full border border-primary/25"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 2, delay: 0.2 }}
-            />
-
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-white border border-primary/35 rounded-full flex items-center justify-center shadow-[0_0_28px_-6px_rgba(79,70,229,0.45)] relative z-10">
-                <Check className="w-8 h-8 md:w-10 md:h-10 text-primary" strokeWidth={1.5} />
-            </div>
-        </motion.div>
-
-        <div className="text-center max-w-lg px-4">
-            <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 font-sans tracking-tight"
-            >
-                {t.process.conclusion.headline}
-            </motion.h3>
-
-            <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="text-text-secondary text-lg font-sans leading-relaxed"
-            >
-                {t.process.conclusion.description}
-            </motion.p>
+  return (
+    <section
+      className="py-24 md:py-32 bg-background border-b border-outline-variant"
+      id="process"
+    >
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        {/* Section Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="label-caps text-on-surface-variant mb-4 block">
+            Der Workflow
+          </span>
+          <h3 className="text-3xl md:text-5xl font-display font-black uppercase leading-tight max-w-3xl mx-auto">
+            Eine Anfrage kommt rein. Das passiert in den nächsten 60 Sekunden.
+          </h3>
         </div>
-    </div>
-);
+
+        {/* Countdown Timer + Reaktor Visual */}
+        <div className="relative max-w-5xl mx-auto mb-20 border border-outline-variant bg-surface p-6 md:p-8 blueprint-grid overflow-hidden">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 border-b border-outline-variant pb-6">
+            <div className="flex gap-4 items-center">
+              <div className="w-3 h-3 bg-primary animate-pulse" />
+              <span className="label-caps text-on-surface-variant">
+                System Live // Lead-Rescue Engine v4.2
+              </span>
+            </div>
+            <div className="text-right">
+              <div className="text-4xl md:text-5xl font-display font-black text-on-surface tabular-nums">
+                {display}
+              </div>
+              <span className="label-caps text-[9px] text-on-surface-variant opacity-60">
+                Sekunden bis zur Alarmierung
+              </span>
+            </div>
+          </div>
+
+          <div className="relative h-64 md:h-80 flex items-center justify-between px-2 md:px-4">
+            {/* Data Pipeline SVG */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              preserveAspectRatio="none"
+              viewBox="0 0 800 200"
+            >
+              <path
+                d="M40,100 L760,100"
+                fill="none"
+                stroke="#E2E8F4"
+                strokeWidth="1.5"
+              />
+              <path
+                className="data-pulse"
+                d="M40,100 L760,100"
+                fill="none"
+                stroke="#00F2FE"
+                strokeWidth="3"
+              />
+            </svg>
+
+            {/* Node 1: Multi-Channel Capture */}
+            <div className="relative z-10 flex flex-col items-center gap-3 bg-surface border border-outline-variant p-3 md:p-4 w-28 md:w-32 shadow-sm">
+              <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-1">
+                <span className="material-symbols-outlined text-on-surface-variant text-sm md:text-base">
+                  mail
+                </span>
+                <span className="material-symbols-outlined text-on-surface-variant text-sm md:text-base">
+                  description
+                </span>
+                <span className="material-symbols-outlined text-on-surface-variant text-sm md:text-base">
+                  forum
+                </span>
+                <span className="material-symbols-outlined text-on-surface-variant text-sm md:text-base">
+                  share
+                </span>
+              </div>
+              <span className="label-caps text-[8px] md:text-[9px]">
+                Multi-Channel
+              </span>
+              <div className="flex gap-1">
+                <div className="w-1 h-1 bg-primary" />
+                <div className="w-1 h-1 bg-primary opacity-30" />
+                <div className="w-1 h-1 bg-primary opacity-10" />
+              </div>
+            </div>
+
+            {/* Node 2: Validation */}
+            <div className="relative z-10 flex flex-col items-center gap-3 bg-surface border border-outline-variant p-3 md:p-4 w-28 md:w-32 shadow-sm">
+              <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border border-outline-variant">
+                <div className="scan-line" />
+                <span className="material-symbols-outlined text-on-surface-variant text-xl md:text-2xl">
+                  grid_view
+                </span>
+              </div>
+              <span className="label-caps text-[8px] md:text-[9px]">
+                Validation
+              </span>
+            </div>
+
+            {/* Node 3: Reaktor (CORE) */}
+            <div className="relative z-10 flex flex-col items-center justify-center bg-surface border-2 border-primary w-32 h-32 md:w-40 md:h-40 reaktor-glow shadow-md">
+              <div className="absolute inset-0 border border-primary/10 scale-110 animate-ping duration-1000" />
+              <div className="relative">
+                <svg
+                  className="w-12 h-12 md:w-16 md:h-16 animate-spin duration-[4s]"
+                  viewBox="0 0 100 100"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    fill="none"
+                    r="45"
+                    stroke="#00F2FE"
+                    strokeDasharray="20 10"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    fill="none"
+                    r="30"
+                    stroke="#00F2FE"
+                    strokeDasharray="5 5"
+                    strokeWidth="1"
+                  />
+                </svg>
+                <span className="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-on-surface text-2xl md:text-3xl">
+                  hub
+                </span>
+              </div>
+              <span className="label-caps text-[9px] md:text-[10px] text-on-surface mt-3 md:mt-4">
+                n8n CORE ENGINE
+              </span>
+              <span className="text-[7px] uppercase text-on-surface-variant font-black tracking-widest">
+                Active Processing
+              </span>
+            </div>
+
+            {/* Node 4: Logging */}
+            <div className="relative z-10 flex flex-col items-center gap-3 bg-surface border border-outline-variant p-3 md:p-4 w-28 md:w-32 shadow-sm">
+              <div className="flex flex-col gap-0.5">
+                <div className="w-6 h-1.5 md:w-8 md:h-2 border border-outline-variant" />
+                <div className="w-6 h-1.5 md:w-8 md:h-2 border border-outline-variant bg-on-surface-variant/5" />
+                <div className="w-6 h-1.5 md:w-8 md:h-2 border border-outline-variant" />
+              </div>
+              <span className="label-caps text-[8px] md:text-[9px]">
+                Audit Trail
+              </span>
+            </div>
+
+            {/* Node 5: WhatsApp Delivery */}
+            <div className="relative z-10 flex flex-col items-center gap-3 bg-surface border border-outline-variant p-3 md:p-4 w-28 md:w-32 shadow-sm">
+              <div className="relative">
+                <span className="material-symbols-outlined text-on-surface-variant text-2xl md:text-3xl">
+                  smartphone
+                </span>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-pulse border-2 border-surface" />
+              </div>
+              <span className="label-caps text-[8px] md:text-[9px]">
+                WhatsApp Alarm
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* 3 Steps */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {/* Step 1 */}
+          <div className="space-y-4 border-l border-outline-variant pl-6">
+            <span className="label-caps text-on-surface-variant text-[10px]">
+              Schritt 1
+            </span>
+            <h4 className="text-lg font-display font-bold uppercase text-on-surface">
+              Automatische Erfassung aller Kanäle
+            </h4>
+            <p className="text-sm text-on-surface-variant leading-relaxed">
+              Egal ob Website-Formular, WhatsApp oder E-Mail – das System
+              erfasst jede Anfrage sofort. Pflichtfelder werden automatisch
+              geprüft. Unvollständige Anfragen werden zurückgewiesen. Keine
+              leeren Leads im System.
+            </p>
+          </div>
+
+          {/* Step 2 */}
+          <div className="space-y-4 border-l border-primary pl-6">
+            <span className="label-caps text-on-surface text-[10px]">
+              Schritt 2
+            </span>
+            <h4 className="text-lg font-display font-bold uppercase text-on-surface">
+              Sekundenschnelle Analyse und Weiterleitung
+            </h4>
+            <p className="text-sm text-on-surface-variant leading-relaxed">
+              Das System analysiert den Absender, das Anliegen und die
+              Dringlichkeit. Eine fertig aufbereitete Nachricht landet als
+              WhatsApp auf dem Handy des richtigen Ansprechpartners.
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="space-y-4 border-l border-outline-variant pl-6">
+            <span className="label-caps text-on-surface-variant text-[10px]">
+              Schritt 3
+            </span>
+            <h4 className="text-lg font-display font-bold uppercase text-on-surface">
+              Kein Lead verschwindet, das erste Angebot steht
+            </h4>
+            <p className="text-sm text-on-surface-variant leading-relaxed">
+              Der Kunde erhält eine Eingangsbestätigung. Gleichzeitig generiert
+              das System im Hintergrund vollautomatisch den ersten,
+              fehlerfreien Angebotsentwurf aus den Formulardaten (Zeitersparnis
+              von Stunden auf 4 Minuten). Bleibt eine Reaktion aus, alarmiert
+              das System.
+            </p>
+          </div>
+        </div>
+
+        {/* Tech-Proof Headline */}
+        <div className="text-center mb-12">
+          <span className="label-caps text-on-surface-variant mb-3 block">
+            Stabilität
+          </span>
+          <h3 className="text-3xl md:text-4xl font-display font-black uppercase">
+            Enterprise-Stabilität. Keine Ausreden.
+          </h3>
+        </div>
+
+        {/* Tech-Proof Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant border border-outline-variant">
+          <div className="bg-surface p-8 md:p-10 technical-card">
+            <span className="label-caps text-on-surface block mb-4">
+              Safety
+            </span>
+            <h5 className="text-lg font-bold mb-3 uppercase">
+              Selbst wenn Ihre Website down ist
+            </h5>
+            <p className="text-sm text-on-surface-variant">
+              Das System puffert Anfragen bei Ausfällen, wiederholt Verbindungen
+              und alarmiert bei Störungen. Keine Anfrage geht verloren.
+            </p>
+          </div>
+          <div className="bg-surface p-8 md:p-10 technical-card">
+            <span className="label-caps text-on-surface block mb-4">
+              Metrics
+            </span>
+            <h5 className="text-lg font-bold mb-3 uppercase">
+              Lückenlose Dokumentation
+            </h5>
+            <p className="text-sm text-on-surface-variant">
+              Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage
+              wann einging und wer sie bearbeitet hat. Vollständiger
+              Audit-Trail.
+            </p>
+          </div>
+          <div className="bg-surface p-8 md:p-10 technical-card">
+            <span className="label-caps text-on-surface block mb-4">
+              Ownership
+            </span>
+            <h5 className="text-lg font-bold mb-3 uppercase">
+              Open Source. Auf Ihren Servern.
+            </h5>
+            <p className="text-sm text-on-surface-variant">
+              Das System basiert auf n8n, läuft auf österreichischen Servern
+              und gehört Ihnen. Kein Vendor Lock-in. Sie besitzen das System –
+              ich warte es.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Process;

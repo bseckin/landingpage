@@ -1,71 +1,74 @@
-import { useLanguage } from '../context/LanguageContext';
-import { RefreshCcw, ShieldAlert, Activity, type LucideIcon } from 'lucide-react';
-import { SectionReveal, StaggerItem, StaggerReveal } from './SectionReveal';
-
 const ProblemGrid = () => {
-    const { t } = useLanguage();
-
-    const icons = [RefreshCcw, ShieldAlert, Activity];
-
-    const emojis = ["⛓️", "⚠️", "🔥"];
-
-    return (
-        <section className="relative z-[1] isolate overflow-hidden pt-6 pb-20 md:pt-8 md:pb-32">
-            {/* Blend body mesh in slowly — avoids a hard band where hero ends and mesh begins */}
-            <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-[min(32vh,13rem)] bg-gradient-to-b from-[#f8fafc] via-[#f8fafc]/82 to-transparent"
-                aria-hidden
-            />
-            <div className="container relative z-10 mx-auto px-6 pt-12 md:pt-16">
-                <SectionReveal className="mb-16 md:mb-24 text-center md:text-left">
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6 font-sans">
-                        {t.problem.headline}
-                    </h2>
-                    <p className="text-text-secondary max-w-2xl font-sans text-lg leading-relaxed">
-                        {t.problem.description}
-                    </p>
-                </SectionReveal>
-
-                <StaggerReveal className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
-                    {t.problem.cards.map((card, index) => (
-                        <StaggerItem key={index}>
-                            <ErrorCard
-                                tag={card.tag}
-                                emoji={emojis[index]}
-                                title={card.title}
-                                desc={card.description}
-                                Icon={icons[index]}
-                            />
-                        </StaggerItem>
-                    ))}
-                </StaggerReveal>
-            </div>
-        </section>
-    );
-};
-
-const ErrorCard = ({ tag, emoji, title, desc, Icon }: { tag: string, emoji: string, title: string, desc: string, Icon: LucideIcon }) => {
-    return (
-        <div className="group relative p-10 bg-white border border-slate-200/60 rounded-xl shadow-card overflow-hidden hover:border-slate-300/80 hover:shadow-glow transition-all duration-300">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-teal-50/50 via-transparent to-indigo-50/40 pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col h-full">
-                <div className="flex justify-between items-start mb-8">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-rose-50 border border-rose-100/80 rounded-full text-rose-800/90 text-xs font-bold font-sans tracking-wide">
-                        <span>{emoji}</span>
-                        <span>{tag}</span>
-                    </div>
-                    <Icon className="w-8 h-8 text-slate-400 group-hover:text-secondary transition-colors" />
-                </div>
-
-                <div className="mt-auto">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4 font-sans">{title}</h3>
-                    <p className="text-text-secondary leading-relaxed font-sans text-base">
-                        {desc}
-                    </p>
-                </div>
-            </div>
+  return (
+    <section className="py-24 md:py-32 border-b border-outline-variant bg-surface">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-16 md:mb-24 gap-8 md:gap-12">
+          <div className="max-w-2xl border-l-4 border-error pl-8">
+            <h2 className="label-caps text-error mb-4">
+              Die Realität im Tagesgeschäft
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-display font-black leading-none">
+              Es funktioniert. Aber nur, solange Sie zusehen.
+            </h3>
+          </div>
+          <div className="text-on-surface-variant max-w-xs text-sm md:text-base leading-relaxed font-medium">
+            Ihr Geschäft läuft, aber es hängt zu sehr von Ihrer persönlichen
+            Anwesenheit ab. Wachstum fühlt sich deshalb stressig an.
+          </div>
         </div>
-    );
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant border border-outline-variant">
+          {/* Card 1 */}
+          <div className="bg-surface p-8 md:p-12 technical-card hover:z-10">
+            <span className="material-symbols-outlined text-error mb-8 text-4xl">
+              person_off
+            </span>
+            <h4 className="text-xl md:text-2xl font-display font-bold mb-4 uppercase">
+              Gefangen im Tagesgeschäft
+            </h4>
+            <p className="text-on-surface-variant leading-relaxed">
+              Sie arbeiten im System statt am System. Jede eingehende Anfrage
+              müssen Sie manuell prüfen, weiterleiten und im Kopf behalten. Das
+              kostet Zeit – und kostet Sie am Ende Aufträge.
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-surface p-8 md:p-12 technical-card hover:z-10">
+            <span className="material-symbols-outlined text-error mb-8 text-4xl">
+              warning
+            </span>
+            <h4 className="text-xl md:text-2xl font-display font-bold mb-4 uppercase">
+              Eine vergessene Anfrage reicht
+            </h4>
+            <p className="text-on-surface-variant leading-relaxed">
+              Eine Anfrage übersehen, eine Rückmeldung vergessen, eine E-Mail
+              im Spam-Ordner. Jeder manuelle Schritt ist eine Fehlerquelle, die
+              Ihren Ruf gefährdet. Sie merken es erst, wenn der Kunde längst
+              weg ist.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-surface p-8 md:p-12 technical-card hover:z-10">
+            <span className="material-symbols-outlined text-error mb-8 text-4xl">
+              money_off
+            </span>
+            <h4 className="text-xl md:text-2xl font-display font-bold mb-4 uppercase">
+              Die unsichtbare Lücke im Cashflow
+            </h4>
+            <p className="text-on-surface-variant leading-relaxed">
+              Mehr Marketing-Budget oder neue Mitarbeiter bringen aktuell
+              nichts, weil wertvolle Anfragen schon jetzt im Tageschaos
+              ungelesen liegen bleiben. Jede Anfrage, die nicht in Minuten
+              beantwortet wird, ist ein verlorener Umsatz. Was Sie nicht sehen,
+              können Sie nicht retten.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
+
 export default ProblemGrid;

@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -23,30 +23,12 @@ export default function DiagnosisForm({ source }: { source?: string }) {
     }
   };
 
-  const inputStyle: CSSProperties = {
-    width: '100%',
-    padding: '0.85rem 1rem',
-    borderRadius: '0.6rem',
-    border: '1px solid rgba(148,163,184,0.4)',
-    background: 'rgba(255,255,255,0.06)',
-    color: 'inherit',
-    font: 'inherit',
-    outline: 'none',
-  };
+  const inputClass =
+    'w-full px-4 py-3 bg-background border border-outline-variant focus:border-on-surface text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-colors font-body text-sm';
 
   if (status === 'success') {
     return (
-      <div
-        style={{
-          maxWidth: '440px',
-          margin: '0 auto',
-          padding: '1.5rem',
-          borderRadius: '0.75rem',
-          border: '1px solid rgba(20,184,166,0.4)',
-          background: 'rgba(20,184,166,0.1)',
-          fontWeight: 700,
-        }}
-      >
+      <div className="max-w-[440px] mx-auto p-6 border border-primary/40 bg-primary/10 text-on-surface font-bold font-display text-lg">
         Angefragt — ich melde mich in Kürze.
       </div>
     );
@@ -55,25 +37,46 @@ export default function DiagnosisForm({ source }: { source?: string }) {
   return (
     <form
       onSubmit={handleSubmit}
-      style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '440px', margin: '0 auto', textAlign: 'left' }}
+      className="flex flex-col gap-3 max-w-[440px] mx-auto text-left"
     >
       {source && <input type="hidden" name="source" value={source} />}
-      <input style={inputStyle} type="text" name="name" required placeholder="Name" aria-label="Name" />
-      <input style={inputStyle} type="email" name="email" required placeholder="E-Mail" aria-label="E-Mail" />
       <input
-        style={inputStyle}
+        className={inputClass}
+        type="text"
+        name="name"
+        required
+        placeholder="Name"
+        aria-label="Name"
+      />
+      <input
+        className={inputClass}
+        type="email"
+        name="email"
+        required
+        placeholder="E-Mail"
+        aria-label="E-Mail"
+      />
+      <input
+        className={inputClass}
         type="text"
         name="message"
         required
         placeholder="Worum geht's grob?"
         aria-label="Worum geht's grob?"
       />
-      <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
-        {status === 'submitting' ? 'Wird gesendet…' : 'Kostenlosen Systemcheck buchen'}
+      <button
+        type="submit"
+        disabled={status === 'submitting'}
+        className="px-10 py-5 bg-primary text-on-surface font-display font-black text-lg hover:translate-x-1 hover:-translate-y-1 transition-transform shadow-cta disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+      >
+        {status === 'submitting'
+          ? 'Wird gesendet…'
+          : 'Kostenlosen Systemcheck buchen'}
       </button>
       {status === 'error' && (
-        <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
-          Senden fehlgeschlagen. Bitte erneut versuchen oder direkt an hallo@berkayseckin.at.
+        <p className="text-error text-sm font-medium mt-1">
+          Senden fehlgeschlagen. Bitte erneut versuchen oder direkt an
+          hallo@berkayseckin.at.
         </p>
       )}
     </form>
