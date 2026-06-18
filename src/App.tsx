@@ -45,7 +45,7 @@ function HomePage() {
             <a href="#ueber-mich">Über mich</a>
           </nav>
           <a href="#kontakt" className="btn nav-cta">
-            Kostenlosen Systemcheck
+            Kostenlosen Systemcheck buchen
           </a>
         </div>
       </header>
@@ -184,8 +184,8 @@ function HomePage() {
               </p>
             </article>
             <article className="usecase-card reveal reveal-d1">
-              <p className="kicker">Szenario 2: Automatischer Angebotsentwurf</p>
-              <h3>Backoffice – Zeitersparnis von Stunden</h3>
+              <p className="kicker">VERTRIEB-BESCHLEUNIGUNG – ANGEBOT IN 4 MINUTEN</p>
+              <h3>Angebotsentwurf – Zeitersparnis von Stunden</h3>
               <p>
                 Das System fängt die eingehende Anfrage nicht nur, sondern erstellt im 
                 Hintergrund automatisch einen fehlerfreien Angebotsentwurf aus Ihren 
@@ -331,7 +331,6 @@ function HomePage() {
             Berkay <span>Seckin</span>
           </p>
           <div className="footer-links">
-            <a href="/cv">Lebenslauf</a>
             <a href="/datenschutz">Datenschutzerklärung</a>
             <a href="/impressum">Impressum</a>
           </div>

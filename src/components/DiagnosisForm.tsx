@@ -69,7 +69,7 @@ export default function DiagnosisForm({ source }: { source?: string }) {
         aria-label="Worum geht's grob?"
       />
       <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
-        {status === 'submitting' ? 'Wird gesendet…' : 'Kostenlose Prozess-Diagnose anfragen'}
+        {status === 'submitting' ? 'Wird gesendet…' : 'Kostenlosen Systemcheck buchen'}
       </button>
       {status === 'error' && (
         <p style={{ color: '#f87171', fontSize: '0.85rem', margin: 0 }}>
