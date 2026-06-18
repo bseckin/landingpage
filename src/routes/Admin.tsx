@@ -5,9 +5,8 @@ import RichTextEditor from '../components/RichTextEditor';
 
 const SECTIONS = [
     { id: 'hero.json', label: 'Startseite (Hero)' },
-    { id: 'services.json', label: 'Services' },
+    { id: 'solution.json', label: 'Lösung & Prozess' },
     { id: 'about.json', label: 'Über Mich' },
-    { id: 'process.json', label: 'Prozess' },
     { id: 'footer.json', label: 'Footer' },
     { id: 'impressum.json', label: 'Impressum' },
     { id: 'datenschutz.json', label: 'Datenschutzerklärung' }

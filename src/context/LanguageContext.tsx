@@ -4,8 +4,6 @@ import { translations as defaultTranslations, type Language } from '../content/t
 // Static Imports for Production Build
 import heroData from '../content/hero.json';
 import problemData from '../content/problem.json';
-import servicesData from '../content/services.json';
-import processData from '../content/process.json';
 import aboutData from '../content/about.json';
 import footerData from '../content/footer.json';
 import impressumData from '../content/impressum.json';
@@ -38,8 +36,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
                 const next = { ...prev };
                 const hero = heroData;
                 const problem = problemData;
-                const services = servicesData;
-                const process = processData;
                 const about = aboutData;
                 const footer = footerData;
 
@@ -77,20 +73,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
                     };
                 }
 
-                if (services) {
-                    next.de.services = {
-                        ...next.de.services,
-                        headline: services.headline || next.de.services.headline,
-                        sub: services.description || next.de.services.sub, // Services JSON uses 'description'
-                        cards: services.cards?.map((c: any) => ({
-                            tag: c.tag,
-                            title: c.title,
-                            desc: c.description // ServiceCard uses 'desc'
-                        })) || next.de.services.cards
-                    };
-                }
-
-                // Basic identity mapping for others if keys align, otherwise keep static
                 // Explicitly map 'about' to avoid overwriting structural objects with flat arrays
                 if (about) {
                     next.de.about = {
@@ -102,17 +84,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
                     };
                 }
 
-                if (process) {
-                    next.de.process = {
-                        ...next.de.process,
-                        headline: process.headline || next.de.process.headline,
-                        sub: process.description || next.de.process.sub, // JSON 'description' -> 'sub'
-                        steps: process.steps?.map((s: any) => ({
-                            title: s.title,
-                            desc: s.description // JSON 'description' -> Component 'desc'
-                        })) || next.de.process.steps
-                    };
-                }
                 if (footer) {
                     next.de.footer = {
                         ...next.de.footer,
