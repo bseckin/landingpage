@@ -67,7 +67,7 @@ function HomePage() {
               className="label-caps text-on-surface-variant hover:text-on-surface transition-colors"
               href="#cases"
             >
-              Cases
+              Fallstudien
             </a>
             <a
               className="bg-on-surface text-background px-5 py-2 label-caps font-black hover:bg-on-surface/90 transition-all"

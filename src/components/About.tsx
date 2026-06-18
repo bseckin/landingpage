@@ -11,7 +11,7 @@ const About = () => {
             <div className="relative border border-outline-variant p-1 bg-background">
               <img
                 className="w-full grayscale filter contrast-110 opacity-90"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXaDQEBloa_U3kCBM8V0iTrMelNiaGvscrO2lqtaXYSAMsjPBi-_rWkFdZU-tzANd0_Oq2kkC3oyXIwljduFAzEqCEJ9YrisgY_b1ZJWCTTgktbkxXEgixrQZJmZG4N0Rty0Z1ycMWd0zu6BiJW3JiNn-HV1F-0KFjrJ2OLryJDaYkzE-VP7NsnR3SNpUM7kweoliDwJWI4vvNaFtDfpTs2XMngtAic8Q8oph8tpj2C8Xgbl-dxEzZjTeVN84_bSmIHoQjjAuzSKs"
+                src="/portrait.jpg"
                 alt="Berkay Seckin"
                 onError={(e) => {
                   const img = e.currentTarget;
