@@ -1,21 +1,21 @@
 {
-    "headline": "Es funktioniert. Aber nur, solange Sie zusehen.",
-    "description": "Ihr Geschäft läuft, aber es hängt zu sehr von Ihrer persönlichen Anwesenheit ab. Wachstum fühlt sich deshalb stressig an.",
+    "headline": "Die besten Aufträge kommen dann, wenn Sie nicht rangehen können.",
+    "description": "Handwerker verdienen ihr Geld auf der Baustelle – nicht im Büro. Aber genau dort gehen täglich Aufträge verloren.",
     "cards": [
         {
             "tag": "DER FLASCHENHALS",
-            "title": "Gefangen im Tagesgeschäft",
-            "description": "Sie arbeiten im System statt am System. Jede eingehende Anfrage müssen Sie manuell prüfen, weiterleiten und im Kopf behalten. Das kostet Zeit – und kostet Sie am Ende Aufträge."
+            "title": "Das Telefon klingelt, wenn Sie unterm Kessel liegen.",
+            "description": "Sie können nicht rangehen. Der Kunde ruft den nächsten Installateur an. Der Auftrag ist weg – ohne dass Sie es je erfahren."
         },
         {
-            "tag": "DIE STILLE SELBSTSABOTAGE",
-            "title": "Eine vergessene Anfrage reicht",
-            "description": "Eine Anfrage übersehen, eine Rückmeldung vergessen, eine E-Mail im Spam-Ordner. Jeder manuelle Schritt ist eine Fehlerquelle, die Ihren Ruf gefährdet. Sie merken es erst, wenn der Kunde längst weg ist."
+            "tag": "ZEITFRESSER",
+            "title": "Abends zwei Stunden Büro für halbfertige Anfragen.",
+            "description": "Nach 10 Stunden Baustelle sitzen Sie vor E-Mails, bei denen die Hälfte der Infos fehlt. Fotos? Fehlanzeige. Adresse? Unklar. Sie schreiben zurück. Der Kunde antwortet nicht mehr."
         },
         {
-            "tag": "ENTGANGENE UMSÄTZE",
-            "title": "Die unsichtbare Lücke im Cashflow",
-            "description": "Jede Anfrage, die Sie nicht innerhalb von Minuten beantworten, ist ein Risiko. Der Kunde vergleicht, der Kunde ruft den nächsten an. Was Sie nicht sehen, können Sie nicht retten."
+            "tag": "VERLORENE AUFTRÄGE",
+            "title": "Sie wählen Aufträge aus – aber nicht die richtigen.",
+            "description": "Sie haben keine Zeit fuer 'Was kostet ungefaehr eine Heizung?'. Aber ohne System landen alle Anfragen gleich in Ihrer Inbox. Das System holt die fehlenden Infos automatisch ein – und Sie entscheiden, welche Kundenanfrage ein Angebot wert ist."
         }
     ]
 }

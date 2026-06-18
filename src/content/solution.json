@@ -5,7 +5,7 @@
       "stepNumber": "1",
       "tag": "ERFASSUNG",
       "title": "Automatische Erfassung aller Kanäle",
-      "description": "Egal ob Website-Formular, WhatsApp oder E-Mail – das System erfasst jede Anfrage sofort. Pflichtfelder werden automatisch geprüft. Unvollständige Anfragen werden zurückgewiesen mit der Bitte um Ergänzung. Keine leeren Leads im System."
+      "description": "Egal ob Website-Formular, WhatsApp oder E-Mail – das System erfasst jede Kundenanfrage sofort. Fehlende Angaben fragt es automatisch nach. Nur vollständige Anfragen landen bei Ihnen."
     },
     {
       "stepNumber": "2",
@@ -16,25 +16,25 @@
     {
       "stepNumber": "3",
       "tag": "RÜCKVERSICHERUNG & ESKALATION",
-      "title": "Kein Lead verschwindet unbemerkt",
-      "description": "Der Kunde erhält sofort eine Eingangsbestätigung mit Reaktionszeit-Versprechen. Bleibt eine Antwort aus, alarmiert das System automatisch. Nachvollziehbar, protokolliert, DSGVO-konform. Auf Wunsch wird parallel ein erster Angebotsentwurf generiert – basierend auf den eingegangenen Daten."
+      "title": "Kein Auftrag verschwindet, das Angebot steht in Minuten",
+      "description": "Der Kunde erhält sofort eine Eingangsbestätigung. Im Hintergrund erstellt das System aus den Formulardaten einen Angebotsentwurf – aus Ihren hinterlegten Preisen. Sie prüfen am Handy und drücken auf Senden. 4 Minuten statt 45."
     }
   ],
   "techProof": [
     {
       "tag": "AUSFALLSICHERHEIT",
-      "title": "Selbst wenn Ihre Website down ist",
-      "description": "Das System puffert Anfragen bei Ausfällen, wiederholt Verbindungen und alarmiert bei Störungen. Keine Anfrage geht verloren – nicht mal dann, wenn der Empfänger kein Netz hat."
+      "title": "Auch wenn Ihre Website ausfällt",
+      "description": "Das System puffert Anfragen bei Ausfällen und wiederholt Zustellungen automatisch. Keine Kundenanfrage geht verloren – selbst wenn Ihre Website mal down ist."
     },
     {
       "tag": "NACHVOLLZIEHBARKEIT",
       "title": "Lückenlose Dokumentation",
-      "description": "Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann einging, wer sie bearbeitet hat und ob sie beantwortet wurde. Vollständiger Audit-Trail inklusive."
+      "description": "Jeder Schritt wird protokolliert. Sie sehen genau, welche Kundenanfrage wann kam und wer sie bearbeitet hat – vom ersten Kontakt bis zum unterschriebenen Auftrag."
     },
     {
       "tag": "DIGITALE UNABHÄNGIGKEIT",
-      "title": "Open Source. Auf Ihren Servern.",
-      "description": "Das System basiert auf n8n, läuft auf österreichischen Servern und gehört Ihnen. Kein Vendor Lock-in, keine undurchsichtige Cloud. Sie besitzen das System – ich warte es."
+      "title": "Das System gehört Ihnen. Keine monatlichen Kosten.",
+      "description": "Das System basiert auf bewährter Open-Source-Technologie (n8n), läuft auf österreichischen Servern und gehört Ihnen. Sie zahlen einmal – ich warte es, solange Sie wollen."
     }
   ]
 }

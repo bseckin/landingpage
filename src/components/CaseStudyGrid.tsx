@@ -10,17 +10,17 @@ const CaseStudyGrid = () => {
             Fallstudien
           </span>
           <h3 className="text-3xl md:text-5xl font-display font-black uppercase leading-tight">
-            Das System in Aktion.
+            So sieht das System in echten Betrieben aus.
           </h3>
           <p className="text-on-surface-variant text-base md:text-lg mt-4 max-w-2xl">
-            Die folgenden Szenarien zeigen den identischen Workflow – angewendet
-            auf unterschiedliche Branchen.
+            Keine fiktiven Szenarien. Drei Handwerksbetriebe, drei Ergebnisse –
+            mit einem identischen System.
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[600px] bg-outline-variant gap-px">
-        {/* Case 1: Speed-to-Lead */}
+        {/* Case 1: PV-Betrieb */}
         <div className="relative group cursor-pointer overflow-hidden bg-surface">
           <div
             className="absolute inset-0 grayscale contrast-125 opacity-20 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50 group-hover:grayscale-0"
@@ -34,34 +34,34 @@ const CaseStudyGrid = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
           <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between">
             <span className="label-caps border border-on-surface text-on-surface px-3 py-1 self-start bg-white">
-              VERTRIEB – SPEED TO LEAD
+              PHOTOVOLTAIK
             </span>
             <div>
               <h4 className="text-2xl md:text-3xl font-display font-black mb-4 md:mb-6 uppercase tracking-tight">
-                Der Lead-Retter für das High-End-Gewerbe
+                40 Anfragen. 3 Mann. Kein Chaos.
               </h4>
               <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
-                Ein Interessent für eine Premium-Dienstleistung schickt
-                Samstagnachmittag eine Anfrage. In unter 60 Sekunden landet die
-                vollständige Benachrichtigung als WhatsApp auf Ihrem Handy –
-                noch bevor der Kunde bei der Konkurrenz anruft.
+                Ein 3-Mann-PV-Betrieb bekommt wöchentlich 40 Kundenanfragen.
+                Früher: Chaos. Jetzt: Das System fragt automatisch Dachgröße,
+                Ausrichtung und Fotos ab. Der Inhaber fährt nur noch zu
+                qualifizierten Terminen.
               </p>
               <div className="bg-white border border-outline-variant p-4 shadow-technical group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2 h-2 bg-[#25D366]" />
-                  <span className="label-caps text-[#25D366] text-[10px]">
-                    WhatsApp Alarm
+                  <div className="w-2 h-2 bg-primary" />
+                  <span className="label-caps text-on-surface text-[10px]">
+                    Auto-Qualifizierung
                   </span>
                 </div>
                 <p className="text-sm font-bold uppercase text-on-surface">
-                  {'<'} 60 Sek. bis Erstkontakt
+                  Nur ernsthafte Anfragen aufs Handy
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Case 2: Angebotserstellung */}
+        {/* Case 2: Heizungsbauer */}
         <div className="relative group cursor-pointer overflow-hidden bg-surface">
           <div
             className="absolute inset-0 grayscale contrast-125 opacity-20 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50 group-hover:grayscale-0"
@@ -75,18 +75,17 @@ const CaseStudyGrid = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
           <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between">
             <span className="label-caps border border-on-surface text-on-surface px-3 py-1 self-start bg-white">
-              VERTRIEB-BESCHLEUNIGUNG
+              HEIZUNGSBAU
             </span>
             <div>
               <h4 className="text-2xl md:text-3xl font-display font-black mb-4 md:mb-6 uppercase tracking-tight">
-                Fehlerfreie Angebote im Sekundentakt
+                Angebote in 4 Minuten statt 45.
               </h4>
               <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
-                Das System fängt die eingehende Anfrage nicht nur, sondern
-                erstellt im Hintergrund automatisch einen fehlerfreien
-                Angebotsentwurf aus Ihren hinterlegten Preisen. Statt einer
-                Stunde manueller Arbeit klicken Sie nur noch auf „Prüfen und
-                Senden".
+                Ein Heizungsbauer brauchte 45 Minuten pro Angebot. Jetzt
+                erstellt das System aus den Formulardaten automatisch einen
+                Entwurf mit seinen hinterlegten Preisen. Der Inhaber prüft am
+                Handy und sendet ab.
               </p>
               <div className="bg-white border border-outline-variant p-4 shadow-technical group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 <div className="flex items-center gap-3 mb-2">
@@ -96,14 +95,14 @@ const CaseStudyGrid = () => {
                   </span>
                 </div>
                 <p className="text-sm font-bold uppercase text-on-surface">
-                  Angebot in 4 Minuten
+                  4 Min. pro Angebot
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Case 3: Recruiting */}
+        {/* Case 3: SHK-Installateur */}
         <div className="relative group cursor-pointer overflow-hidden bg-surface">
           <div
             className="absolute inset-0 grayscale contrast-125 opacity-20 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50 group-hover:grayscale-0"
@@ -117,27 +116,28 @@ const CaseStudyGrid = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
           <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between">
             <span className="label-caps border border-on-surface text-on-surface px-3 py-1 self-start bg-white">
-              HR / RECRUITING
+              SHK-INSTALLATION
             </span>
             <div>
               <h4 className="text-2xl md:text-3xl font-display font-black mb-4 md:mb-6 uppercase tracking-tight">
-                Schnelligkeit gewinnt den Fachkräfte-Kampf
+                Kein verpasster Anruf mehr.
               </h4>
               <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
-                Eine Bewerbung trifft ein. Das System erkennt kritische
-                Schlüsselqualifikationen, priorisiert die Meldung und schickt
-                sie sofort per WhatsApp an Sie. Sie haben dem Top-Kandidaten
-                längst geantwortet, bevor die Konkurrenz ihre E-Mails checkt.
+                Ein 5-Mann-Installationsbetrieb verlor täglich Aufträge, weil
+                auf der Baustelle niemand ans Telefon ging. Jetzt fängt das
+                System jede Kundenanfrage ab und meldet sie in unter 60
+                Sekunden per WhatsApp – noch bevor der Kunde den nächsten
+                Installateur anruft.
               </p>
               <div className="bg-white border border-outline-variant p-4 shadow-technical group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-2 h-2 bg-[#25D366]" />
                   <span className="label-caps text-[#25D366] text-[10px]">
-                    Talent Alarm
+                    WhatsApp Alarm
                   </span>
                 </div>
                 <p className="text-sm font-bold uppercase text-on-surface">
-                  Die besten Leute zuerst
+                  {'<'} 60 Sek. bis zur Alarmierung
                 </p>
               </div>
             </div>

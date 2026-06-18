@@ -1,13 +1,13 @@
 {
-  "headline": "Sicherheitsgarantie aus der System-Architektur",
-  "description": "Ich habe Systeme gebaut, die für den Staat kritisch waren (ORF Werbetechnologie, Bundesrechenzentrum). Dieselbe kompromisslose Stabilität, Ausfallsicherheit und der harte österreichische Datenschutz (lokales Hosting) kommen jetzt in Ihren Betrieb.\n\nKein Overhead, keine wechselnden Ansprechpartner. Sie arbeiten direkt mit demjenigen, der Ihr System baut.\n\nUnd weil Sie nicht für meine Technologie-Schulungen bezahlen sollen: Das System basiert auf Open Source (n8n). Kein Vendor Lock-in. Sie besitzen es. Ich warte es, solange Sie wollen.",
+  "headline": "Gebaut mit Standards aus kritischen Systemen – gemacht für Ihren Betrieb.",
+  "description": "Ich habe Systeme für ORF Werbetechnologie und das Bundesrechenzentrum gebaut – dort, wo Ausfall keine Option ist. Dieselbe Stabilität, abgestimmt auf Handwerksbetriebe, die keine Zeit für komplizierte Software haben. Kein Ausfall. Keine monatlichen Kosten. Das System gehört Ihnen.",
   "badges": [
-    "SYSTEM-ARCHITEKTUR",
-    "AUSFALLSICHERHEIT",
-    "DATENSCHUTZ"
+    "ORF WERBETECHNOLOGIE",
+    "BRZ REQUIREMENT ENGINEER",
+    "WIRTSCHAFTSINFORMATIK"
   ],
-  "ctaHeadline": "Sind Sie bereit, Ihre erste Leck-Stelle zu finden?",
-  "ctaDescription": "Der kostenlose Systemcheck dauert 30 Minuten. Ich schaue mir Ihre aktuelle Anfrage-Verarbeitung an, identifiziere die kritischsten Lecks und zeige Ihnen live, wie das System auf Ihrem eigenen Smartphone funktioniert. Keine Verpflichtung. Nur ein Erlebnis.",
+  "ctaHeadline": "Sehen Sie, wie das System auf Ihrem Handy aussieht.",
+  "ctaDescription": "Der kostenlose Systemcheck dauert 30 Minuten. Ich schaue mir an, wie Kundenanfragen aktuell bei Ihnen eingehen, finde die größten Verlustquellen und zeige Ihnen live auf Ihrem eigenen Smartphone, wie das System arbeitet. Keine Verpflichtung. Nur ein Erlebnis.",
   "primaryBtn": "Kostenlosen Systemcheck buchen",
   "secondaryBtn": "Oder schreiben Sie mir direkt auf WhatsApp"
 }

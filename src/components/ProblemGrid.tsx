@@ -5,15 +5,15 @@ const ProblemGrid = () => {
         <div className="flex flex-col md:flex-row justify-between items-start mb-16 md:mb-24 gap-8 md:gap-12">
           <div className="max-w-2xl border-l-4 border-error pl-8">
             <h2 className="label-caps text-error mb-4">
-              Die Realität im Tagesgeschäft
+              Das ist Ihr Alltag. Jeden Tag.
             </h2>
             <h3 className="text-3xl md:text-5xl font-display font-black leading-none">
-              Es funktioniert. Aber nur, solange Sie zusehen.
+              Die besten Aufträge kommen dann, wenn Sie nicht rangehen können.
             </h3>
           </div>
           <div className="text-on-surface-variant max-w-xs text-sm md:text-base leading-relaxed font-medium">
-            Ihr Geschäft läuft, aber es hängt zu sehr von Ihrer persönlichen
-            Anwesenheit ab. Wachstum fühlt sich deshalb stressig an.
+            Handwerker verdienen ihr Geld auf der Baustelle – nicht im Büro.
+            Aber genau dort gehen täglich Aufträge verloren.
           </div>
         </div>
 
@@ -24,12 +24,12 @@ const ProblemGrid = () => {
               person_off
             </span>
             <h4 className="text-xl md:text-2xl font-display font-bold mb-4 uppercase">
-              Gefangen im Tagesgeschäft
+              Das Telefon klingelt, wenn Sie unterm Kessel liegen.
             </h4>
             <p className="text-on-surface-variant leading-relaxed">
-              Sie arbeiten im System statt am System. Jede eingehende Anfrage
-              müssen Sie manuell prüfen, weiterleiten und im Kopf behalten. Das
-              kostet Zeit – und kostet Sie am Ende Aufträge.
+              Sie können nicht rangehen. Der Kunde ruft den nächsten
+              Installateur an. Der Auftrag ist weg – ohne dass Sie es je
+              erfahren.
             </p>
           </div>
 
@@ -39,13 +39,12 @@ const ProblemGrid = () => {
               warning
             </span>
             <h4 className="text-xl md:text-2xl font-display font-bold mb-4 uppercase">
-              Eine vergessene Anfrage reicht
+              Abends zwei Stunden Büro für halbfertige Anfragen.
             </h4>
             <p className="text-on-surface-variant leading-relaxed">
-              Eine Anfrage übersehen, eine Rückmeldung vergessen, eine E-Mail
-              im Spam-Ordner. Jeder manuelle Schritt ist eine Fehlerquelle, die
-              Ihren Ruf gefährdet. Sie merken es erst, wenn der Kunde längst
-              weg ist.
+              Nach 10 Stunden Baustelle sitzen Sie vor E-Mails, bei denen die
+              Hälfte der Infos fehlt. Fotos? Fehlanzeige. Adresse? Unklar. Sie
+              schreiben zurück. Der Kunde antwortet nicht mehr.
             </p>
           </div>
 
@@ -55,14 +54,13 @@ const ProblemGrid = () => {
               money_off
             </span>
             <h4 className="text-xl md:text-2xl font-display font-bold mb-4 uppercase">
-              Die unsichtbare Lücke im Cashflow
+              Sie wählen Aufträge aus – aber nicht die richtigen.
             </h4>
             <p className="text-on-surface-variant leading-relaxed">
-              Mehr Marketing-Budget oder neue Mitarbeiter bringen aktuell
-              nichts, weil wertvolle Anfragen schon jetzt im Tageschaos
-              ungelesen liegen bleiben. Jede Anfrage, die nicht in Minuten
-              beantwortet wird, ist ein verlorener Umsatz. Was Sie nicht sehen,
-              können Sie nicht retten.
+              Sie haben keine Zeit für "Was kostet ungefähr eine Heizung?".
+              Aber ohne System landen alle Anfragen gleich in Ihrer Inbox.
+              Das System holt die fehlenden Infos automatisch ein – und Sie
+              entscheiden, welche Kundenanfrage ein Angebot wert ist.
             </p>
           </div>
         </div>

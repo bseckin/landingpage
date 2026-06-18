@@ -3,69 +3,69 @@ export type Language = 'de' | 'en';
 export const translations = {
     de: {
         hero: {
-            badge: "LEAD-RETTER-SYSTEM",
-            headline: <>Wertvolle Kundenanfragen<br /><span className="text-secondary">versickern nicht mehr.</span></>,
-            sub: <>Automatisch erfasst — in Sekunden auf Ihrem Handy.<br className="hidden md:block" /> Für Betriebe, bei denen teure Anfragen im Alltagschaos untergehen.</>,
-            ctaPrimary: "30-Minuten Leck-Analyse buchen",
+            badge: "FÜR SHK-, PV- UND HANDWERKSBETRIEBE",
+            headline: <>Während Sie auf der Baustelle sind,<br /><span className="text-secondary">geht keine Kundenanfrage mehr unter.</span></>,
+            sub: <>Der WhatsApp-Assistent, der Anfragen vollständig erfasst und nur ernsthafte Aufträge auf Ihr Handy bringt.</>,
+            ctaPrimary: "Kostenlosen Systemcheck buchen",
             ctaSecondary: "Fallstudien ansehen"
         },
         problem: {
-            headline: "Es funktioniert. Aber nur, solange Sie zusehen.",
-            description: "Ihr Geschäft läuft, aber es hängt zu sehr von Ihrer persönlichen Anwesenheit ab. Wachstum fühlt sich deshalb stressig an.",
+            headline: "Die besten Aufträge kommen dann, wenn Sie nicht rangehen können.",
+            description: "Handwerker verdienen ihr Geld auf der Baustelle – nicht im Büro. Aber genau dort gehen täglich Aufträge verloren.",
             cards: [
                 {
                     tag: "DER FLASCHENHALS",
-                    title: "Gefangen im Tagesgeschäft",
-                    description: "Sie arbeiten im System statt am System. Wiederkehrende Aufgaben fressen Ihre Zeit und blockieren wichtigere Dinge."
+                    title: "Das Telefon klingelt, wenn Sie unterm Kessel liegen.",
+                    description: "Sie können nicht rangehen. Der Kunde ruft den nächsten Installateur an. Der Auftrag ist weg."
                 },
                 {
-                    tag: "RISIKO",
-                    title: "Die stille Selbstsabotage",
-                    description: "Eine vergessene Anfrage, eine falsche Rechnung. Jeder manuelle Schritt ist eine Fehlerquelle, die Ihren Ruf gefährdet."
+                    tag: "ZEITFRESSER",
+                    title: "Abends zwei Stunden Büro für halbfertige Anfragen.",
+                    description: "Nach 10 Stunden Baustelle sitzen Sie vor E-Mails mit unvollständigen Infos. Sie schreiben zurück – der Kunde antwortet nicht mehr."
                 },
                 {
-                    tag: "WACHSTUMSSCHMERZEN",
-                    title: "Die gläserne Decke",
-                    description: "Mehr Kunden bedeuten aktuell nur eins: Mehr Chaos. Ihr Business wächst, aber Ihr Stresspegel wächst schneller."
+                    tag: "VERLORENE AUFTRÄGE",
+                    title: "Sie wählen Aufträge aus – aber nicht die richtigen.",
+                    description: "Ohne System landen alle Anfragen gleich in Ihrer Inbox. Das System holt fehlende Infos ein – Sie entscheiden."
                 }
             ]
         },
         bridge: {
-            headline: <>Die meisten Unternehmen arbeiten nicht falsch.<br />Sie arbeiten <span className="text-secondary">ohne System.</span></>
+            headline: <>Die meisten Handwerksbetriebe arbeiten nicht falsch.<br />Sie arbeiten <span className="text-secondary">ohne System.</span></>
         },
         services: {
             principle: "Spitz schlägt generisch",
-            headline: "Spezialisiert auf den Lead-Eingang",
-            sub: "Nicht noch eine Allround-Lösung. Ein erprobtes System für das kritischste Nadelöhr: den Moment, in dem aus einer Anfrage ein Kunde wird.",
+            headline: "Spezialisiert auf den Kundenanfragen-Eingang",
+            sub: "Nicht noch eine Allround-Lösung. Ein erprobtes System für das kritischste Nadelöhr: den Moment, in dem aus einer Anfrage ein Auftrag wird.",
             cards: [
                 {
                     tag: "AUSFALLSICHERHEIT",
                     title: "Redundanz, keine Ausreden",
-                    desc: "Selbst wenn eine Website oder ein Dienst kurzzeitig nicht erreichbar ist, geht keine Anfrage verloren. Das System puffert, wiederholt und alarmiert – automatisch."
+                    desc: "Selbst wenn eine Website oder ein Dienst kurzzeitig nicht erreichbar ist, geht keine Kundenanfrage verloren. Das System puffert, wiederholt und alarmiert – automatisch."
                 },
                 {
                     tag: "NACHVOLLZIEHBARKEIT",
                     title: "Lückenlose Dokumentation",
-                    desc: "Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann einging, wer sie bearbeitet hat und ob sie beantwortet wurde."
+                    desc: "Jeder Schritt wird protokolliert. Sie sehen genau, welche Kundenanfrage wann einging und wer sie bearbeitet hat – vom Kontakt bis zum Auftrag."
                 },
                 {
                     tag: "UNABHÄNGIGKEIT",
-                    title: "Ihre Daten, Ihre Hoheit",
-                    desc: "Open Source (n8n) auf Ihren oder österreichischen Servern. Kein Vendor Lock-in. Sie besitzen das System – nicht ich."
+                    title: "Das System gehört Ihnen. Keine monatlichen Kosten.",
+                    desc: "Bewährte Open-Source-Technologie (n8n) auf Ihren oder österreichischen Servern. Das System gehört Ihnen – nicht mir."
                 }
             ]
         },
         process: {
-            headline: "So funktioniert Ihr Lead-Retter",
+            headline: "So funktioniert Ihr System",
             sub: "Vom Anfrage-Eingang zur Benachrichtigung auf Ihrem Handy – in unter 60 Sekunden.",
             steps: [
                 {
-                    title: 'Die kostenlose Leck-Analyse',
-                    desc: '30 Minuten Live-Demo: Ich zeige Ihnen auf Ihrem eigenen Smartphone, wie sekundenschnelle Weiterleitung funktioniert. Keine Verpflichtung, nur ein Erlebnis.',
+                    title: 'Der kostenlose Systemcheck',
+                    desc: '30 Minuten Live-Demo: Ich zeige Ihnen auf Ihrem eigenen Smartphone, wie sekundenschnelle Weiterleitung funktioniert. Keine Verpflichtung.',
                 },
                 {
                     title: 'Der Projekt-Bauplan mit Fixpreis',
-                    desc: 'Nach der Analyse erhalten Sie einen glasklaren, schriftlichen Bauplan. Fixpreis-Garantie ab 2.000 €. Keine bösen Überraschungen.',
+                    desc: 'Nach der Analyse erhalten Sie einen glasklaren, schriftlichen Bauplan. Fixpreis ab 2.000 €. Keine Überraschungen.',
                 },
                 {
                     title: 'Schlüsselfertige Umsetzung',
@@ -77,13 +77,13 @@ export const translations = {
                 }
             ],
             conclusion: {
-                headline: "Ihr Lead-Retter läuft. Auch am Wochenende.",
-                description: "Jede Anfrage wird erfasst, weitergeleitet und dokumentiert – völlig automatisch. Sie müssen nur noch antworten."
+                headline: "Ihr System läuft. Auch wenn Sie Feierabend haben.",
+                description: "Jede Kundenanfrage wird erfasst, weitergeleitet und dokumentiert – völlig automatisch. Sie müssen nur noch antworten."
             }
         },
         about: {
             whoAmI: "SYSTEM-ARCHITEKT",
-            description: "Die Brücke zwischen kritischer Infrastruktur und Ihrem Betrieb. Ich habe Systeme gebaut, die für den Staat kritisch waren (ORF, BRZ). Dieselbe kompromisslose Stabilität, Ausfallsicherheit und der harte österreichische Datenschutz kommen jetzt in Ihren Betrieb.",
+            description: "Ich habe Systeme für ORF und Bundesrechenzentrum gebaut – dort, wo Ausfall keine Option ist. Dieselbe Stabilität, abgestimmt auf Handwerksbetriebe, die keine Zeit für komplizierte Software haben. Kein Ausfall. Keine monatlichen Kosten. Das System gehört Ihnen.",
             badges: {
                 code: { label: "ORF", sub: "Werbetechnologie" },
                 term: { label: "BRZ", sub: "Requirement Engineer" }
@@ -91,9 +91,9 @@ export const translations = {
             status: "STATUS: SYSTEM AKTIV"
         },
         footer: {
-            headline: "Jede Anfrage ist eine Umsatz-Chance.",
-            text: "Sehen Sie in 30 Minuten live auf Ihrem Handy, wie Ihr Lead-Retter funktioniert. Kostenlos. Unverbindlich.",
-            ctaButton: "30-Minuten Leck-Analyse buchen",
+            headline: "Jede Kundenanfrage ist ein Auftrag.",
+            text: "Sehen Sie in 30 Minuten live auf Ihrem Handy, wie das System funktioniert. Kostenlos. Unverbindlich.",
+            ctaButton: "Kostenlosen Systemcheck buchen",
             location: { label: "STANDORT", value: "Wien, AT" },
             timezone: { label: "ZEITZONE", value: "GMT+2" },
             form: {

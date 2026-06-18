@@ -44,7 +44,7 @@ const Process = () => {
             <div className="flex gap-4 items-center">
               <div className="w-3 h-3 bg-primary animate-pulse" />
               <span className="label-caps text-on-surface-variant">
-                System Live // Lead-Rescue Engine v4.2
+                System Live // Anfragen-Rettung v4.2
               </span>
             </div>
             <div className="text-right">
@@ -150,10 +150,10 @@ const Process = () => {
                 </span>
               </div>
               <span className="label-caps text-[9px] md:text-[10px] text-on-surface mt-3 md:mt-4">
-                n8n CORE ENGINE
+                AUTOMATISIERUNG
               </span>
               <span className="text-[7px] uppercase text-on-surface-variant font-black tracking-widest">
-                Active Processing
+                Aktiv
               </span>
             </div>
 
@@ -165,7 +165,7 @@ const Process = () => {
                 <div className="w-6 h-1.5 md:w-8 md:h-2 border border-outline-variant" />
               </div>
               <span className="label-caps text-[8px] md:text-[9px]">
-                Audit Trail
+                Dokumentation
               </span>
             </div>
 
@@ -196,9 +196,8 @@ const Process = () => {
             </h4>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               Egal ob Website-Formular, WhatsApp oder E-Mail – das System
-              erfasst jede Anfrage sofort. Pflichtfelder werden automatisch
-              geprüft. Unvollständige Anfragen werden zurückgewiesen. Keine
-              leeren Leads im System.
+              erfasst jede Kundenanfrage sofort. Fehlende Angaben fragt es
+              automatisch nach. Nur vollständige Anfragen landen bei Ihnen.
             </p>
           </div>
 
@@ -211,9 +210,9 @@ const Process = () => {
               Sekundenschnelle Analyse und Weiterleitung
             </h4>
             <p className="text-sm text-on-surface-variant leading-relaxed">
-              Das System analysiert den Absender, das Anliegen und die
-              Dringlichkeit. Eine fertig aufbereitete Nachricht landet als
-              WhatsApp auf dem Handy des richtigen Ansprechpartners.
+              Das System prüft Absender, Anliegen und Dringlichkeit. Eine
+              fertig aufbereitete Nachricht mit allen Infos landet als
+              WhatsApp auf Ihrem Handy – nicht im E-Mail-Chaos.
             </p>
           </div>
 
@@ -223,14 +222,13 @@ const Process = () => {
               Schritt 3
             </span>
             <h4 className="text-lg font-display font-bold uppercase text-on-surface">
-              Kein Lead verschwindet, das erste Angebot steht
+              Kein Auftrag verschwindet, das Angebot steht in Minuten
             </h4>
             <p className="text-sm text-on-surface-variant leading-relaxed">
-              Der Kunde erhält eine Eingangsbestätigung. Gleichzeitig generiert
-              das System im Hintergrund vollautomatisch den ersten,
-              fehlerfreien Angebotsentwurf aus den Formulardaten (Zeitersparnis
-              von Stunden auf 4 Minuten). Bleibt eine Reaktion aus, alarmiert
-              das System.
+              Der Kunde erhält sofort eine Eingangsbestätigung. Im Hintergrund
+              erstellt das System aus den Formulardaten einen Angebotsentwurf –
+              aus Ihren hinterlegten Preisen. Sie prüfen am Handy und drücken
+              auf Senden. 4 Minuten statt 45.
             </p>
           </div>
         </div>
@@ -241,7 +239,7 @@ const Process = () => {
             Stabilität
           </span>
           <h3 className="text-3xl md:text-4xl font-display font-black uppercase">
-            Enterprise-Stabilität. Keine Ausreden.
+            Gebaut für Dauerbetrieb. Auch wenn Sie Feierabend haben.
           </h3>
         </div>
 
@@ -252,11 +250,12 @@ const Process = () => {
               Safety
             </span>
             <h5 className="text-lg font-bold mb-3 uppercase">
-              Selbst wenn Ihre Website down ist
+              Auch wenn Ihre Website ausfällt
             </h5>
             <p className="text-sm text-on-surface-variant">
-              Das System puffert Anfragen bei Ausfällen, wiederholt Verbindungen
-              und alarmiert bei Störungen. Keine Anfrage geht verloren.
+              Das System puffert Anfragen bei Ausfällen und wiederholt
+              Zustellungen automatisch. Keine Kundenanfrage geht verloren –
+              selbst wenn Ihre Website mal down ist.
             </p>
           </div>
           <div className="bg-surface p-8 md:p-10 technical-card">
@@ -267,9 +266,9 @@ const Process = () => {
               Lückenlose Dokumentation
             </h5>
             <p className="text-sm text-on-surface-variant">
-              Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage
-              wann einging und wer sie bearbeitet hat. Vollständiger
-              Audit-Trail.
+              Jeder Schritt wird protokolliert. Sie sehen genau, welche
+              Kundenanfrage wann kam und wer sie bearbeitet hat – vom ersten
+              Kontakt bis zum unterschriebenen Auftrag.
             </p>
           </div>
           <div className="bg-surface p-8 md:p-10 technical-card">
@@ -277,12 +276,12 @@ const Process = () => {
               Ownership
             </span>
             <h5 className="text-lg font-bold mb-3 uppercase">
-              Open Source. Auf Ihren Servern.
+              Das System gehört Ihnen. Keine monatlichen Kosten.
             </h5>
             <p className="text-sm text-on-surface-variant">
-              Das System basiert auf n8n, läuft auf österreichischen Servern
-              und gehört Ihnen. Kein Vendor Lock-in. Sie besitzen das System –
-              ich warte es.
+              Das System basiert auf bewährter Open-Source-Technologie (n8n),
+              läuft auf österreichischen Servern und gehört Ihnen. Sie zahlen
+              einmal – ich warte es, solange Sie wollen.
             </p>
           </div>
         </div>

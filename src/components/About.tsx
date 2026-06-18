@@ -60,28 +60,27 @@ const About = () => {
           {/* Right Column: About Text + CTA */}
           <div className="space-y-8 md:space-y-10">
             <h3 className="text-3xl md:text-5xl font-display font-black leading-none uppercase">
-              Sicherheitsgarantie aus der System-Architektur
+              Gebaut mit Standards aus kritischen Systemen – gemacht für Ihren
+              Betrieb.
             </h3>
             <p className="text-base md:text-lg text-on-surface-variant font-medium leading-relaxed">
-              Ich habe Systeme gebaut, die für den Staat kritisch waren (ORF
-              Werbetechnologie, Bundesrechenzentrum). Dieselbe kompromisslose
-              Stabilität, Ausfallsicherheit und der harte österreichische
-              Datenschutz (lokales Hosting) kommen jetzt in Ihren Betrieb. Kein
-              Overhead. Sie arbeiten direkt mit demjenigen, der Ihr System
-              baut. Das System basiert auf Open Source (n8n). Kein Vendor
-              Lock-in. Sie besitzen es. Ich warte es, solange Sie wollen.
+              Ich habe Systeme für ORF Werbetechnologie und das
+              Bundesrechenzentrum gebaut – dort, wo Ausfall keine Option ist.
+              Dieselbe Stabilität, abgestimmt auf Handwerksbetriebe, die keine
+              Zeit für komplizierte Software haben. Kein Ausfall. Keine
+              monatlichen Kosten. Das System gehört Ihnen.
             </p>
 
             {/* CTA Card */}
             <div className="border border-outline-variant bg-background p-8 md:p-10 space-y-6">
               <h4 className="text-2xl md:text-3xl font-display font-black uppercase">
-                Sind Sie bereit, Ihre erste Leck-Stelle zu finden?
+                Sehen Sie, wie das System auf Ihrem Handy aussieht.
               </h4>
               <p className="text-on-surface-variant leading-relaxed">
                 Der kostenlose Systemcheck dauert 30 Minuten. Ich schaue mir
-                Ihre aktuelle Anfrage-Verarbeitung an, identifiziere die
-                kritischsten Lecks und zeige Ihnen live, wie das System auf
-                Ihrem eigenen Smartphone funktioniert.
+                an, wie Kundenanfragen aktuell bei Ihnen eingehen, finde die
+                größten Verlustquellen und zeige Ihnen live auf Ihrem eigenen
+                Smartphone, wie das System arbeitet.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -89,7 +88,7 @@ const About = () => {
                     arrow_forward
                   </span>
                   <span className="text-sm text-on-surface font-medium">
-                    Live-Demo auf Ihr Handy
+                    Live-Demo auf Ihrem eigenen Smartphone
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -97,7 +96,7 @@ const About = () => {
                     arrow_forward
                   </span>
                   <span className="text-sm text-on-surface font-medium">
-                    Schwachstellen im Eingang aufdecken
+                    Verlustquellen in Ihrem Anfragen-Eingang aufdecken
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -105,7 +104,7 @@ const About = () => {
                     arrow_forward
                   </span>
                   <span className="text-sm text-on-surface font-medium">
-                    Bauplan für Ihr Unternehmen sehen
+                    Konkreten Bauplan für Ihren Betrieb sehen
                   </span>
                 </li>
               </ul>
@@ -121,8 +120,8 @@ const About = () => {
                   Kostenlosen Systemcheck buchen
                 </button>
                 <p className="text-xs text-on-surface-variant/70 font-medium">
-                  Kein Pitch. Kein Verkaufsdruck. Finden wir keinen Hebel, hat
-                  es Sie nur 30 Minuten Zeit gekostet.
+                  Kein Pitch. Kein Verkaufsdruck. Wenn wir keine Verbesserung
+                  finden, hat es Sie 30 Minuten gekostet – mehr nicht.
                 </p>
               </div>
             </div>
