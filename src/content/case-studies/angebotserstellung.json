@@ -1,18 +1,18 @@
 {
-  "title": "Angebotserstellung eliminiert",
-  "status": "draft",
+  "title": "Angebotserstellung aus dem Lead-Workflow",
+  "status": "demo",
   "kicker": "Dienstleistung Wien",
-  "summary": "80+ Angebote pro Monat. Manuell. 3h/Woche. → 4 Minuten. Automatisch. Fehlerfrei.",
+  "summary": "Eingehende Anfragen lösen nicht nur einen WhatsApp-Alarm aus, sondern generieren im selben Moment einen fehlerfreien Angebotsentwurf aus den Lead-Daten.",
   "image": "",
   "metrics": [
     {
       "value": "-94%",
-      "label": "Zeitaufwand"
+      "label": "Zeit von Anfrage zu Angebot"
     },
     {
       "value": "0",
       "label": "Fehler / Monat"
     }
   ],
-  "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Der Kunde stellte monatlich über 80 Angebote manuell aus. Jedes Angebot kostete im Schnitt 2–3 Minuten, kumuliert rund 3 Stunden pro Woche – fehleranfällig und nicht skalierbar.</p><h2>Lösung</h2><p>Vollautomatischer Angebots-Workflow: Eingehende Anfragen werden klassifiziert, mit Produktdaten befüllt, als PDF generiert und verschickt. Kein manueller Eingriff notwendig.</p><h2>Ergebnis</h2><p>94 % Zeitersparnis. 0 Fehler seit Inbetriebnahme. Der Kunde fokussiert sich auf Vertrieb statt Büroarbeit.</p>"
+  "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Ein Dienstleister in Wien erhält über 80 qualifizierte Anfragen pro Monat. Der Lead-Workflow (Erfassung > Prüfung > WhatsApp-Alarm) funktioniert, aber das manuelle Erstellen der Angebote frisst 3 Stunden pro Woche – und ist fehleranfällig.</p><h2>Lösung</h2><p>Der Lead-Workflow wurde um eine automatisierte Angebotsgenerierung erweitert. Noch während der Vertrieb die WhatsApp-Benachrichtigung erhält, erstellt das System parallel einen ersten Angebotsentwurf: Produktdaten werden aus dem Lead extrahiert, mit der Preisliste abgeglichen und als PDF vorkonfektioniert. Der Vertrieb prüft, passt an und sendet – statt bei Null anzufangen.</p><h2>Ergebnis</h2><p>94 % Zeitersparnis bei der Angebotserstellung. Null Fehler seit Inbetriebnahme. Der Kunde fokussiert sich auf Vertrieb statt Büroarbeit.</p>"
 }

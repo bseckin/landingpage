@@ -5,17 +5,17 @@
         {
             "tag": "DER FLASCHENHALS",
             "title": "Gefangen im Tagesgeschäft",
-            "description": "Sie arbeiten im System statt am System. Wiederkehrende Aufgaben fressen Ihre Zeit und blockieren wichtigere Dinge."
+            "description": "Sie arbeiten im System statt am System. Jede eingehende Anfrage müssen Sie manuell prüfen, weiterleiten und im Kopf behalten. Das kostet Zeit – und kostet Sie am Ende Aufträge."
         },
         {
-            "tag": "RISIKO",
-            "title": "Die stille Selbstsabotage",
-            "description": "Eine vergessene Anfrage, eine falsche Rechnung. Jeder manuelle Schritt ist eine Fehlerquelle, die Ihren Ruf gefährdet."
+            "tag": "DIE STILLE SELBSTSABOTAGE",
+            "title": "Eine vergessene Anfrage reicht",
+            "description": "Eine Anfrage übersehen, eine Rückmeldung vergessen, eine E-Mail im Spam-Ordner. Jeder manuelle Schritt ist eine Fehlerquelle, die Ihren Ruf gefährdet. Sie merken es erst, wenn der Kunde längst weg ist."
         },
         {
-            "tag": "WACHSTUMSSCHMERZEN",
-            "title": "Die gläserne Decke",
-            "description": "Mehr Kunden bedeuten aktuell nur eins: Mehr Chaos. Ihr Business wächst, aber Ihr Stresspegel wächst schneller."
+            "tag": "ENTGANGENE UMSÄTZE",
+            "title": "Die unsichtbare Lücke im Cashflow",
+            "description": "Jede Anfrage, die Sie nicht innerhalb von Minuten beantworten, ist ein Risiko. Der Kunde vergleicht, der Kunde ruft den nächsten an. Was Sie nicht sehen, können Sie nicht retten."
         }
     ]
 }

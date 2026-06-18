@@ -1,0 +1,40 @@
+{
+  "headline": "Eine Anfrage kommt rein. Das passiert in den nächsten 60 Sekunden.",
+  "steps": [
+    {
+      "stepNumber": "1",
+      "tag": "ERFASSUNG",
+      "title": "Automatische Erfassung aller Kanäle",
+      "description": "Egal ob Website-Formular, WhatsApp oder E-Mail – das System erfasst jede Anfrage sofort. Pflichtfelder werden automatisch geprüft. Unvollständige Anfragen werden zurückgewiesen mit der Bitte um Ergänzung. Keine leeren Leads im System."
+    },
+    {
+      "stepNumber": "2",
+      "tag": "QUALIFIZIERUNG & ROUTING",
+      "title": "Sekundenschnelle Analyse und Weiterleitung",
+      "description": "Das System analysiert den Absender, das Anliegen und die Dringlichkeit. Eine fertig aufbereitete Nachricht mit allen relevanten Eckdaten landet als WhatsApp auf dem Handy des richtigen Ansprechpartners. Kein E-Mail-Suchen, kein Kopieren, kein Nachfragen."
+    },
+    {
+      "stepNumber": "3",
+      "tag": "RÜCKVERSICHERUNG & ESKALATION",
+      "title": "Kein Lead verschwindet unbemerkt",
+      "description": "Der Kunde erhält sofort eine Eingangsbestätigung mit Reaktionszeit-Versprechen. Bleibt eine Antwort aus, alarmiert das System automatisch. Nachvollziehbar, protokolliert, DSGVO-konform. Auf Wunsch wird parallel ein erster Angebotsentwurf generiert – basierend auf den eingegangenen Daten."
+    }
+  ],
+  "techProof": [
+    {
+      "tag": "AUSFALLSICHERHEIT",
+      "title": "Selbst wenn Ihre Website down ist",
+      "description": "Das System puffert Anfragen bei Ausfällen, wiederholt Verbindungen und alarmiert bei Störungen. Keine Anfrage geht verloren – nicht mal dann, wenn der Empfänger kein Netz hat."
+    },
+    {
+      "tag": "NACHVOLLZIEHBARKEIT",
+      "title": "Lückenlose Dokumentation",
+      "description": "Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann einging, wer sie bearbeitet hat und ob sie beantwortet wurde. Vollständiger Audit-Trail inklusive."
+    },
+    {
+      "tag": "DIGITALE UNABHÄNGIGKEIT",
+      "title": "Open Source. Auf Ihren Servern.",
+      "description": "Das System basiert auf n8n, läuft auf österreichischen Servern und gehört Ihnen. Kein Vendor Lock-in, keine undurchsichtige Cloud. Sie besitzen das System – ich warte es."
+    }
+  ]
+}

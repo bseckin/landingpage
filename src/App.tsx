@@ -39,13 +39,13 @@ function HomePage() {
             Berkay <span>Seckin</span>
           </a>
           <nav className="nav-links">
+            <a href="#problem">Das Problem</a>
             <a href="#funktion">So funktioniert's</a>
-            <a href="#leistungen">Leistungen</a>
-            <a href="#referenzen">Beispiele</a>
+            <a href="#referenzen">Fallstudien</a>
             <a href="#ueber-mich">Über mich</a>
           </nav>
           <a href="#kontakt" className="btn nav-cta">
-            30 Min. Leck-Analyse
+            Kostenlosen Systemcheck
           </a>
         </div>
       </header>
@@ -58,7 +58,7 @@ function HomePage() {
           </div>
           <div className="site-container hero-content">
             <p className="hero-badge">
-              <span /> Lead-Retter-System
+              <span /> FOKUSSIERT AUF SPEED-TO-LEAD
             </p>
             <h1>
               Wertvolle Kundenanfragen
@@ -72,8 +72,9 @@ function HomePage() {
             </p>
             <div className="hero-actions">
               <a href="#kontakt" className="btn btn-primary">
-                30-Minuten Leck-Analyse buchen
+                Kostenlosen Systemcheck buchen
               </a>
+              <p className="btn-subtext">Erleben Sie das System live auf Ihrem eigenen Smartphone</p>
             </div>
             <div className="hero-tags">
               <span>Festpreis ab 2.000 €</span>
@@ -84,144 +85,90 @@ function HomePage() {
           </div>
         </section>
 
-        {/* ====== SEKTION 2: SO FUNKTIONIERT'S ====== */}
-        <section id="funktion" className="section section-light">
+        {/* ====== SEKTION 2: PROBLEM ====== */}
+        <section id="problem" className="section section-light">
+          <div className="site-container">
+            <p className="section-label reveal">Das Problem</p>
+            <h2 className="section-title reveal">
+              Es funktioniert.<span>Aber nur, solange Sie zusehen.</span>
+            </h2>
+            <p className="section-subtext reveal">
+              Ihr Geschäft läuft, aber es hängt zu sehr von Ihrer persönlichen Anwesenheit ab. Wachstum fühlt sich deshalb stressig an.
+            </p>
+            <div className="problem-grid">
+              <article className="problem-card reveal">
+                <p className="kicker">DER FLASCHENHALS</p>
+                <h3>Gefangen im Tagesgeschäft</h3>
+                <p>Sie arbeiten im System statt am System. Jede eingehende Anfrage müssen Sie manuell prüfen, weiterleiten und im Kopf behalten. Das kostet Zeit – und kostet Sie am Ende Aufträge.</p>
+              </article>
+              <article className="problem-card reveal reveal-d1">
+                <p className="kicker">DIE STILLE SELBSTSABOTAGE</p>
+                <h3>Eine vergessene Anfrage reicht</h3>
+                <p>Eine Anfrage übersehen, eine Rückmeldung vergessen, eine E-Mail im Spam-Ordner. Jeder manuelle Schritt ist eine Fehlerquelle, die Ihren Ruf gefährdet. Sie merken es erst, wenn der Kunde längst weg ist.</p>
+              </article>
+              <article className="problem-card reveal reveal-d2">
+                <p className="kicker">ENTGANGENE UMSÄTZE</p>
+                <h3>Die unsichtbare Lücke im Cashflow</h3>
+                <p>Jede Anfrage, die Sie nicht innerhalb von Minuten beantworten, ist ein Risiko. Der Kunde vergleicht, der Kunde ruft den nächsten an. Was Sie nicht sehen, können Sie nicht retten.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* ====== SEKTION 3: LÖSUNG & PROZESS ====== */}
+        <section id="funktion" className="section section-muted">
           <div className="site-container">
             <p className="section-label reveal">So funktioniert's</p>
             <h2 className="section-title reveal">
-              Vom Formular<span>aufs Handy – in 60 Sekunden.</span>
+              Eine Anfrage kommt rein.<span>Das passiert in den nächsten 60 Sekunden.</span>
             </h2>
-            <div className="demo-grid">
-              <div className="demo-steps">
-                <div className="demo-step reveal reveal-d1">
-                  <p className="kicker">1. Der Interessent füllt aus</p>
-                  <p>Ein schlichtes Formular auf Ihrer Website. Name. Telefon. Kurze Nachricht. Absenden.</p>
-                </div>
-                <div className="demo-step reveal reveal-d2">
-                  <p className="kicker">2. n8n verarbeitet</p>
-                  <p>
-                    Die Anfrage wird durch unsere Open-Source-Engine (n8n) geprüft, 
-                    angereichert und in unter 60 Sekunden als WhatsApp-Nachricht 
-                    auf das Handy der zuständigen Person weitergeleitet.
-                  </p>
-                </div>
-                <div className="demo-step reveal reveal-d3">
-                  <p className="kicker">3. Ausfallsicherheit & Redundanz</p>
-                  <p>
-                    Das System läuft weiter, auch wenn Schnittstellen kurzzeitig haken. 
-                    Fehler werden automatisch abgefangen, wiederholt und protokolliert. 
-                    Jeder Schritt ist lückenlos nachvollziehbar – kein Lead kann unbemerkt ignoriert werden.
-                  </p>
-                </div>
-                <div className="demo-step reveal reveal-d4">
-                  <p className="kicker">4. Live erleben</p>
-                  <p>In der kostenlosen 30-Minuten-Leck-Analyse sehen Sie den Durchlauf live auf Ihrem eigenen Smartphone.</p>
-                </div>
-                <a href="#kontakt" className="btn btn-primary reveal reveal-d4">
-                  30-Minuten Leck-Analyse buchen
-                </a>
+            <div className="solution-steps">
+              <div className="solution-step reveal">
+                <span className="solution-step-number">1</span>
+                <p className="kicker">ERFASSUNG</p>
+                <h3>Automatische Erfassung aller Kanäle</h3>
+                <p>Egal ob Website-Formular, WhatsApp oder E-Mail – das System erfasst jede Anfrage sofort. Pflichtfelder werden automatisch geprüft. Unvollständige Anfragen werden zurückgewiesen mit der Bitte um Ergänzung. Keine leeren Leads im System.</p>
               </div>
-              <div className="demo-visual reveal reveal-d2">
-                <div className="demo-phone">
-                  <div className="demo-phone-screen">
-                    <p className="demo-whatsapp-label">WhatsApp</p>
-                    <div className="demo-message">
-                      <strong>Neue Kundenanfrage</strong>
-                      <span>Max Mustermann · +43 664 123 45 67</span>
-                      <span className="demo-time">gerade eben ✓✓</span>
-                    </div>
-                    <div className="demo-message demo-message-incoming">
-                      <strong>Angebot: Dachsanierung</strong>
-                      <span>„Können Sie nächste Woche einen Kostenvoranschlag machen?“</span>
-                      <span className="demo-time">vor 30 Sek</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="solution-step reveal reveal-d1">
+                <span className="solution-step-number">2</span>
+                <p className="kicker">QUALIFIZIERUNG & ROUTING</p>
+                <h3>Sekundenschnelle Analyse und Weiterleitung</h3>
+                <p>Das System analysiert den Absender, das Anliegen und die Dringlichkeit. Eine fertig aufbereitete Nachricht mit allen relevanten Eckdaten landet als WhatsApp auf dem Handy des richtigen Ansprechpartners. Kein E-Mail-Suchen, kein Kopieren, kein Nachfragen.</p>
               </div>
+              <div className="solution-step reveal reveal-d2">
+                <span className="solution-step-number">3</span>
+                <p className="kicker">RÜCKVERSICHERUNG & ESKALATION</p>
+                <h3>Kein Lead verschwindet unbemerkt</h3>
+                <p>Der Kunde erhält sofort eine Eingangsbestätigung mit Reaktionszeit-Versprechen. Bleibt eine Antwort aus, alarmiert das System automatisch. Nachvollziehbar, protokolliert, DSGVO-konform. Auf Wunsch wird parallel ein erster Angebotsentwurf generiert – basierend auf den eingegangenen Daten.</p>
+              </div>
+            </div>
+          </div>
+          <div className="site-container solution-tech-grid">
+            <div className="solution-tech-card reveal">
+              <p className="kicker">AUSFALLSICHERHEIT</p>
+              <h4>Selbst wenn Ihre Website down ist</h4>
+              <p>Das System puffert Anfragen bei Ausfällen, wiederholt Verbindungen und alarmiert bei Störungen. Keine Anfrage geht verloren – nicht mal dann, wenn der Empfänger kein Netz hat.</p>
+            </div>
+            <div className="solution-tech-card reveal reveal-d1">
+              <p className="kicker">NACHVOLLZIEHBARKEIT</p>
+              <h4>Lückenlose Dokumentation</h4>
+              <p>Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann einging, wer sie bearbeitet hat und ob sie beantwortet wurde. Vollständiger Audit-Trail inklusive.</p>
+            </div>
+            <div className="solution-tech-card reveal reveal-d2">
+              <p className="kicker">DIGITALE UNABHÄNGIGKEIT</p>
+              <h4>Open Source. Auf Ihren Servern.</h4>
+              <p>Das System basiert auf n8n, läuft auf österreichischen Servern und gehört Ihnen. Kein Vendor Lock-in, keine undurchsichtige Cloud. Sie besitzen das System – ich warte es.</p>
             </div>
           </div>
         </section>
 
-        {/* ====== SEKTION 3: METHODIK & ABGRENZUNG ====== */}
-        <section className="section section-muted">
-          <div className="site-container differentiator-wrap">
-            <p className="section-label reveal">Warum nicht einfach eine Allrounder-Agentur?</p>
-            <p className="differentiator-text reveal">
-              Die meisten Automatisierer
-              <br />
-              bauen für jedes Problem ein neues, fragiles Software-Konstrukt.
-            </p>
-            <p className="differentiator-text reveal reveal-d1">
-              Ich habe mich radikal auf das kritischste Nadelöhr in Ihrem Betrieb spezialisiert:{' '}
-              <em>den Moment, in dem aus einer digitalen Anfrage ein echter Kunde werden muss.</em>
-              <br className="hide-sm" />
-              Ein erprobtes System. Angepasst auf Ihre Situation. Nichts anderes.
-            </p>
-            <p className="differentiator-highlight reveal reveal-d2">
-              Spitz schlägt generisch. Im Erstgespräch und beim Ergebnis.
-            </p>
-          </div>
-        </section>
-
-        {/* ====== SEKTION 4: LEISTUNGSPHASEN ====== */}
-        <section id="leistungen" className="section section-dark">
-          <div className="site-container">
-            <p className="section-label reveal">Leistungen</p>
-            <h2 className="section-title reveal dark-title">
-              Drei Schritte.<span>Ein klares System.</span>
-            </h2>
-            <p className="section-subtext reveal">
-              Kein Behörden-IT-Overhead: Sie bekommen einen glasklaren, schriftlichen 
-              Projekt-Bauplan mit Fixpreis-Garantie – bevor wir einen einzigen Schritt umsetzen.
-            </p>
-            <div className="pricing-grid">
-              <article className="pricing-card reveal">
-                <p className="kicker">Schritt 01</p>
-                <h3>Kostenlose Leck-Analyse</h3>
-                <p className="price">0 EUR</p>
-                <p className="price-note">30 Minuten, unverbindlich</p>
-                <ul>
-                  <li>Live-System-Demo auf Ihrem Smartphone</li>
-                  <li>Wir identifizieren, wo genau wertvolle Anfragen versickern</li>
-                  <li>Ehrliche Einschätzung, ob sich eine Umsetzung lohnt</li>
-                  <li>Kein Verkaufsdruck – nur ein Erlebnis</li>
-                </ul>
-              </article>
-              <article className="pricing-card featured reveal reveal-d1">
-                <p className="featured-badge">Kernleistung</p>
-                <p className="kicker">Schritt 02</p>
-                <h3>Schlüsselfertiges Lead-Retter-System</h3>
-                <p className="price">ab 2.000 EUR</p>
-                <p className="price-note">Fixpreis-Garantie nach Analyse</p>
-                <ul>
-                  <li>Glasklarer, schriftlicher Projekt-Bauplan mit Fixpreis</li>
-                  <li>Open-Source-Basis (n8n) – digitale Unabhängigkeit, kein Vendor Lock-in</li>
-                  <li>Enterprise-Stabilität: Ausfallsicherheit & lückenlose Nachvollziehbarkeit</li>
-                  <li>Volle Übergabe – das System gehört zu 100 % Ihnen</li>
-                </ul>
-              </article>
-              <article className="pricing-card reveal reveal-d2">
-                <p className="kicker">Schritt 03</p>
-                <h3>Dauerhafter Systemschutz & Wartung</h3>
-                <p className="price">Optional</p>
-                <p className="price-note">Monatlich, im Gespräch festgelegt</p>
-                <ul>
-                  <li>Monitoring & Redundanz – Ihr System läuft auch nach Meta-/WhatsApp-Updates</li>
-                  <li>Priority-Support bei Störungen</li>
-                  <li>Sicherstellung der reibungslosen Funktion aller Schnittstellen</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* ====== SEKTION 5: ANWENDUNGSSZENARIEN ====== */}
+        {/* ====== SEKTION 4: FALLSTUDIEN ====== */}
         <section id="referenzen" className="section section-light">
           <div className="site-container">
-            <p className="section-label reveal">Anwendungsszenarien</p>
-            <h2 className="section-title reveal">Drei Wege, wie Ihr Lead-Retter arbeitet.</h2>
+            <p className="section-label reveal">Fallstudien</p>
+            <h2 className="section-title reveal">Das System in Aktion.</h2>
             <p className="section-subtext reveal">
-              Das gleiche Kernsystem – drei typische Situationen aus dem echten Betrieb.
+              Die folgenden Szenarien zeigen den identischen Workflow – angewendet auf unterschiedliche Branchen.
             </p>
           </div>
           <div className="site-container usecase-grid">
@@ -262,25 +209,27 @@ function HomePage() {
           </div>
         </section>
 
-        {/* ====== SEKTION 6: ÜBER MICH ====== */}
+        {/* ====== SEKTION 5: ÜBER MICH + CTA ====== */}
         <section id="ueber-mich" className="section about-section">
           <div className="site-container about-grid">
             <div>
               <p className="section-label reveal">Über mich</p>
               <h2 className="section-title reveal">
-                Systeme für die kritische Infrastruktur.<span>Jetzt für Ihren Betrieb.</span>
+                Sicherheitsgarantie<span>aus der System-Architektur.</span>
               </h2>
               <p className="reveal">
-                Bevor ich mich auf das Lead-Retter-System für inhabergeführte Betriebe spezialisiert 
-                habe, war ich Wirtschaftsinformatiker bei ORF Werbetechnologie und Requirement Engineer 
-                beim Bundesrechenzentrum (BRZ). Dort habe ich gelernt, was kompromisslose Stabilität, 
-                Ausfallsicherheit und harter österreichischer Datenschutz wirklich bedeuten.
+                Ich habe Systeme gebaut, die für den Staat kritisch waren (ORF Werbetechnologie, 
+                Bundesrechenzentrum). Dieselbe kompromisslose Stabilität, Ausfallsicherheit und 
+                der harte österreichische Datenschutz (lokales Hosting) kommen jetzt in Ihren Betrieb.
               </p>
               <p className="reveal reveal-d1">
-                Dieselbe architektonische Disziplin – lokal gehostet, Open-Source-basiert, 
-                lückenlos dokumentiert – bringe ich jetzt in Ihren Betrieb. Kein Overhead, 
-                keine wechselnden Ansprechpartner. Sie arbeiten direkt mit demjenigen, 
-                der Ihr System baut, betreut und garantiert.
+                Kein Overhead, keine wechselnden Ansprechpartner. Sie arbeiten direkt mit demjenigen, 
+                der Ihr System baut.
+              </p>
+              <p className="reveal reveal-d1">
+                Und weil Sie nicht für meine Technologie-Schulungen bezahlen sollen: Das System 
+                basiert auf Open Source (n8n). Kein Vendor Lock-in. Sie besitzen es. Ich warte es, 
+                solange Sie wollen.
               </p>
               <div className="credentials reveal reveal-d2">
                 <p>
@@ -328,16 +277,18 @@ function HomePage() {
           </div>
         </section>
 
-        {/* ====== SEKTION 7: CTA & ABSCHLUSS ====== */}
+        {/* ====== SEKTION 6: CTA & ABSCHLUSS ====== */}
         <section id="kontakt" className="section cta-section">
           <div className="site-container cta-content">
             <h2>
-              Sehen Sie selbst, wie Ihr neuer
-              <span>Lead-Retter funktioniert.</span>
+              Sind Sie bereit, Ihre erste
+              <span>Leck-Stelle zu finden?</span>
             </h2>
             <p>
-              30 Minuten. Kostenlos. Sie erleben auf Ihrem eigenen Smartphone, wie 
-              sekundenschnelle Weiterleitung abläuft – bevor Sie auch nur einen Cent investieren.
+              Der kostenlose Systemcheck dauert 30 Minuten. Ich schaue mir Ihre aktuelle 
+              Anfrage-Verarbeitung an, identifiziere die kritischsten Lecks und zeige Ihnen 
+              live, wie das System auf Ihrem eigenen Smartphone funktioniert. Keine 
+              Verpflichtung. Nur ein Erlebnis.
             </p>
             <ul
               style={{

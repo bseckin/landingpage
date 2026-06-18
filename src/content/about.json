@@ -1,9 +1,13 @@
 {
   "headline": "Sicherheitsgarantie aus der System-Architektur",
-  "description": "Jahrelange Erfahrung mit kritischer Infrastruktur – jetzt für Ihren Betrieb.\n\nIch habe Systeme gebaut, die für den Staat kritisch waren (ORF Werbetechnologie, Bundesrechenzentrum). Dieselbe kompromisslose Stabilität, Ausfallsicherheit und der harte österreichische Datenschutz (lokales Hosting) kommen jetzt in Ihren inhabergeführten Betrieb.\n\nKein Overhead, keine wechselnden Ansprechpartner. Sie arbeiten direkt mit demjenigen, der Ihr System baut.",
+  "description": "Ich habe Systeme gebaut, die für den Staat kritisch waren (ORF Werbetechnologie, Bundesrechenzentrum). Dieselbe kompromisslose Stabilität, Ausfallsicherheit und der harte österreichische Datenschutz (lokales Hosting) kommen jetzt in Ihren Betrieb.\n\nKein Overhead, keine wechselnden Ansprechpartner. Sie arbeiten direkt mit demjenigen, der Ihr System baut.\n\nUnd weil Sie nicht für meine Technologie-Schulungen bezahlen sollen: Das System basiert auf Open Source (n8n). Kein Vendor Lock-in. Sie besitzen es. Ich warte es, solange Sie wollen.",
   "badges": [
     "SYSTEM-ARCHITEKTUR",
     "AUSFALLSICHERHEIT",
     "DATENSCHUTZ"
-  ]
+  ],
+  "ctaHeadline": "Sind Sie bereit, Ihre erste Leck-Stelle zu finden?",
+  "ctaDescription": "Der kostenlose Systemcheck dauert 30 Minuten. Ich schaue mir Ihre aktuelle Anfrage-Verarbeitung an, identifiziere die kritischsten Lecks und zeige Ihnen live, wie das System auf Ihrem eigenen Smartphone funktioniert. Keine Verpflichtung. Nur ein Erlebnis.",
+  "primaryBtn": "Kostenlosen Systemcheck buchen",
+  "secondaryBtn": "Oder schreiben Sie mir direkt auf WhatsApp"
 }
