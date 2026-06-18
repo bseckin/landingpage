@@ -320,18 +320,21 @@ function HomePage() {
                   <p className="kicker">Das sieht Ihr Interessent</p>
                   <p>Ein schlichtes Formular. Name. Nummer. Absenden.</p>
                 </div>
-                <div className="demo-step reveal reveal-d2">
+                 <div className="demo-step reveal reveal-d2">
                   <p className="kicker">Das passiert dahinter</p>
                   <p>
-                    Die Anfrage landet in 60&nbsp;Sekunden als WhatsApp bei der richtigen Person — inklusive Log,
-                    Error Handling, Audit-Trail.
+                    Die Anfrage landet vollautomatisch im richtigen System (CRM) und in unter 60&nbsp;Sekunden als WhatsApp-Nachricht auf dem Handy der zuständigen Person.
                   </p>
                 </div>
                 <div className="demo-step reveal reveal-d3">
+                  <p className="kicker">Der doppelte Boden</p>
+                  <p>Das System läuft unsichtbar auf sicheren Servern. Durch integrierte Sicherheitsnetze garantieren wir: Selbst wenn eine Website mal hakt, geht keine einzige Kontaktanfrage mehr verloren.</p>
+                </div>
+                <div className="demo-step reveal reveal-d4">
                   <p className="kicker">Im Erstgespräch</p>
                   <p>Ich zeige Ihnen den Durchlauf live an Ihrem eigenen Beispiel.</p>
                 </div>
-                <a href="#kontakt" className="btn btn-primary reveal reveal-d3">
+                <a href="#kontakt" className="btn btn-primary reveal reveal-d4">
                   Kostenlose Prozess-Diagnose
                 </a>
               </div>
@@ -379,39 +382,37 @@ function HomePage() {
             <div className="pricing-grid">
               <article className="pricing-card reveal">
                 <p className="kicker">Schritt 01</p>
-                <h3>Kostenlose Prozess-Diagnose</h3>
+                <h3>Die Prozess-Diagnose</h3>
                 <p className="price">0 EUR</p>
                 <p className="price-note">30 Minuten, unverbindlich</p>
                 <ul>
-                  <li>Wo geht Zeit/Umsatz verloren</li>
-                  <li>Konkreter Lösungsweg</li>
-                  <li>Ehrliche Einschätzung, kein Pitch</li>
-                  <li>Grobe Investitions-Range</li>
+                  <li>Wir decken auf, wo aktuell Leads und Zeit verloren gehen</li>
+                  <li>Ehrliche Einschätzung und konkreter Lösungsansatz</li>
+                  <li>Ohne Verkaufsdruck</li>
+                  <li>Sie wissen danach exakt, was möglich ist</li>
                 </ul>
               </article>
               <article className="pricing-card featured reveal reveal-d1">
                 <p className="featured-badge">Kernleistung</p>
                 <p className="kicker">Schritt 02</p>
-                <h3>Schlüsselfertige Umsetzung</h3>
-                <p className="price">Investition ab 2.000 EUR</p>
-                <p className="price-note">Fixpreis — exakt nach Diagnose</p>
+                <h3>Installation des »Lead-Retter« Systems</h3>
+                <p className="price">ab 2.000 EUR</p>
+                <p className="price-note">Fixpreis-Garantie — exakt nach Diagnose</p>
                 <ul>
-                  <li>Exakt nach Blueprint</li>
-                  <li>Error Handling und Monitoring</li>
-                  <li>Vollständige Dokumentation</li>
-                  <li>Kein Vendor Lock-in</li>
+                  <li>Unsichtbare Brücke zwischen Ihrer Website und Handy/CRM</li>
+                  <li>Datenschutz-Check und saubere Dokumentation</li>
+                  <li>Volle Übergabe — das System gehört zu 100 % Ihnen</li>
                 </ul>
               </article>
               <article className="pricing-card reveal reveal-d2">
                 <p className="kicker">Schritt 03</p>
-                <h3>Betrieb und SLA</h3>
+                <h3>Betrieb & Anpassung</h3>
                 <p className="price">Optional</p>
                 <p className="price-note">Monatlich, im Gespräch festgelegt</p>
                 <ul>
-                  <li>Aktives Monitoring</li>
-                  <li>API-Update-Management</li>
-                  <li>Priority Response</li>
-                  <li>Monatlicher Statusbericht</li>
+                  <li>Server-Monitoring im Hintergrund</li>
+                  <li>Updates und reibungsloser Betrieb bei Software-Updates</li>
+                  <li>Priority-Support</li>
                 </ul>
               </article>
             </div>
