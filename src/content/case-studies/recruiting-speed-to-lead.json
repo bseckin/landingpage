@@ -1,12 +1,18 @@
 {
   "title": "Kein Kandidat geht verloren",
-  "status": "demo",
+  "status": "draft",
   "kicker": "Recruiting DACH",
   "summary": "Bewerbung am Sonntagabend. Recruiter sieht sie Montag um 10. → In 60 Sekunden auf dem Handy.",
   "image": "",
   "metrics": [
-    { "value": "< 60 Sek.", "label": "bis Erstkontakt" },
-    { "value": "0", "label": "unbeantwortete Bewerbung" }
+    {
+      "value": "< 60 Sek.",
+      "label": "bis Erstkontakt"
+    },
+    {
+      "value": "0",
+      "label": "unbeantwortete Bewerbung"
+    }
   ],
   "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Eine Recruiting-Boutique gewinnt Kandidaten über LinkedIn und ein Bewerbungsformular. Top-Kandidaten melden sich oft abends oder am Wochenende — der zuständige Recruiter sieht die Bewerbung erst Stunden später. In dieser Zeit hat ein schnellerer Mitbewerber bereits angerufen. Jeder verlorene Kandidat ist eine verlorene Vermittlungsprovision.</p><h2>Lösung</h2><p>Eingehende Bewerbungen (Formular, LinkedIn Lead Gen) werden sofort normalisiert und auf Pflichtfelder geprüft. Innerhalb von 60 Sekunden geht eine WhatsApp-Nachricht mit Kandidatenprofil und Lebenslauf-Link an den zuständigen Recruiter; der Kandidat erhält automatisch eine Eingangsbestätigung. Der Datensatz wird im ATS angelegt, nach 48 Stunden erinnert das System an offene Kontaktaufnahmen. Error-Handling und Audit-Log sind durchgängig.</p><h2>Ergebnis</h2><p>Reaktionszeit von mehreren Stunden auf unter eine Minute. Keine Bewerbung bleibt unbeantwortet liegen. Vollständig nachvollziehbarer Audit-Trail — gleiches System wie auf der Startseite, nur auf den Recruiting-Ablauf zugeschnitten.</p>"
 }

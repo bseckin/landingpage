@@ -1,0 +1,12 @@
+{
+  "title": "Der Lead-Retter für Installateure",
+  "status": "demo",
+  "kicker": "Handwerk Wien",
+  "summary": "Wärmepumpen-Anfrage am Wochenende. Der Chef sieht sie erst Montag. → In 60 Sekunden qualifiziert als WhatsApp-Nachricht direkt auf dem Handy des Meisters.",
+  "image": "",
+  "metrics": [
+    { "value": "< 60 Sek.", "label": "bis Erstkontakt" },
+    { "value": "0", "label": "verlorene Aufträge" }
+  ],
+  "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Ein Installationsbetrieb in Wien erhält regelmässig Anfragen für Wärmepumpen und Sanitärprojekte — viele davon am Wochenende oder spätabends über das Website-Formular. Der Chef checkt E-Mails einmal täglich. Bis er reagiert, hat der Interessent oft schon zwei andere Angebote eingeholt. Jede verlorene Wärmepumpen-Anfrage bedeutet im Schnitt 15.000–30.000 € entgangenen Umsatz.</p><h2>Lösung</h2><p>Eingehende Formular-Anfragen werden sofort auf Pflichtfelder (PLZ, Objekttyp, ungefähre m²) geprüft. Innerhalb von 60 Sekunden erhält der Meister eine WhatsApp-Nachricht mit den qualifizierten Eckdaten und einem direkten Rückruf-Link. Der Interessent bekommt automatisch eine Eingangsbestätigung mit voraussichtlicher Reaktionszeit. Nach 24 Stunden ohne Rückruf erfolgt eine Eskalation an den Büro-Disponenten. Kompletter Audit-Trail, DSGVO-konform.</p><h2>Ergebnis</h2><p>Keine Wochenend-Anfrage geht mehr verloren. Der Meister entscheidet innerhalb einer Minute, ob er selbst zurückruft oder delegiert — noch während der Interessent auf der Couch sitzt und Preise vergleicht.</p>"
+}

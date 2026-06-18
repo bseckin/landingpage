@@ -1,0 +1,18 @@
+{
+  "title": "Pipeline-Automatisierung",
+  "status": "demo",
+  "kicker": "B2B-Dienstleister",
+  "summary": "Unstrukturierte Website-Anfragen und manuelles Onboarding. → KI filtert den Lead, bereitet das Angebot vor und legt das Projekt vollautomatisch in ClickUp/Asana an.",
+  "image": "",
+  "metrics": [
+    {
+      "value": "-4h",
+      "label": "manueller Aufwand pro Lead"
+    },
+    {
+      "value": "100%",
+      "label": "strukturierte Daten"
+    }
+  ],
+  "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Eine Digital-Agentur mit 25 Mitarbeitern erhält Website-Anfragen über ein generisches Kontaktformular. Die Anfragen sind unstrukturiert — mal eine halbe Seite Text, mal nur „Bitte Rückruf\". Der Vertriebsleiter sortiert täglich 1–2 Stunden Anfragen vor, priorisiert manuell und legt vielversprechende Leads als Projekte in ClickUp an. Angebotserstellung erfolgt per Copy-Paste aus Google Docs. Im Schnitt vergehen 4 Stunden manueller Aufwand von Eingang bis zum versandbereiten Angebot — pro Lead.</p><h2>Lösung</h2><p>Eingehende Website-Anfragen werden via KI klassifiziert (Projekttyp, Budget-Indikator, Dringlichkeit). Qualifizierte Leads erhalten automatisch ein vorausgefülltes Angebots-Template; der Lead-Datensatz wird als strukturiertes Projekt in ClickUp/Asana/Notion angelegt — inklusive Checklisten-Vorlage je Projekttyp. Der Vertriebsleiter bekommt eine Slack/Teams-Benachrichtigung mit Zusammenfassung und direktem Deep-Link. Unqualifizierte Anfragen (Spam, unpassende Budget-Range) werden aussortiert und erhalten eine freundliche, vorlagengestützte Absage. Audit-Trail für alle Entscheidungen.</p><h2>Ergebnis</h2><p>Von 4 Stunden manuellem Sortier- und Tippaufwand auf null. Der Vertriebsleiter öffnet ClickUp und sieht das bereits angelegte Projekt mit allen Daten — er muss nur noch entscheiden, ob er anruft. Kein Copy-Paste mehr, kein vergessenes Follow-up.</p>"
+}

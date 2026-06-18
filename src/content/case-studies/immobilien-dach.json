@@ -1,0 +1,12 @@
+{
+  "title": "Sofort-Exposé & CRM-Sync",
+  "status": "demo",
+  "kicker": "Immobilien DACH",
+  "summary": "ImmoScout-Anfragen müssen händisch abgetippt und beantwortet werden. → Lead landet vollautomatisch im CRM, das Exposé ist in Sekunden beim Interessenten.",
+  "image": "",
+  "metrics": [
+    { "value": "-100%", "label": "manuelle Tipparbeit" },
+    { "value": "24/7", "label": "Sofort-Antwort" }
+  ],
+  "content": "<p><em>Hinweis: Illustratives Demo-Szenario zur Veranschaulichung des Lösungswegs — kein benanntes, abgerechnetes Kundenprojekt.</em></p><h2>Ausgangssituation</h2><p>Ein Maklerbüro mit 12 Standorten in Deutschland und Österreich empfängt täglich 40–60 ImmoScout-Anfragen. Jede Anfrage wird manuell aus ImmoScout kopiert, ins CRM übertragen, und der Makler tippt eine individuelle Antwort mit Exposé-Anhang. Durchschnittlich 4–6 Minuten pro Lead. An Wochenenden und nach 18 Uhr bleibt der Posteingang unbearbeitet — Interessenten, die abends suchen, erhalten erst am nächsten Vormittag eine Reaktion. Geschätzt 15–20 % dieser Leads sind bis dahin bei einem schnelleren Mitbewerber.</p><h2>Lösung</h2><p>ImmoScout-API-Integration: Jede Kontaktanfrage wird in Echtzeit abgefangen. Der Lead wird automatisch im CRM (Immowelt/OnOffice/Flowfact) mit allen Objekt- und Kontaktdaten angelegt. Innerhalb von Sekunden versendet das System eine personalisierte E-Mail mit dem richtigen Exposé-PDF — inklusive Tracking, ob geöffnet wurde. Parallel geht eine Benachrichtigung an den zuständigen Makler via Teams/Slack. Dubletten werden vor Anlage geprüft. DSGVO-konformer Audit-Trail.</p><h2>Ergebnis</h2><p>Null manuelle Tipparbeit, 24/7-Sofort-Antwort — auch Sonntagnacht. Der Makler steigt direkt ins qualifizierte Telefonat ein, statt Exposés zu verschicken.</p>"
+}

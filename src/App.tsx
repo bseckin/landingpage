@@ -286,7 +286,7 @@ function HomePage() {
           </div>
           <div className="site-container hero-content">
             <p className="hero-badge">
-              <span /> Prozessautomatisierung - Wien
+              <span /> Prozessautomatisierung Wien
             </p>
             <h1>
               Keine Anfrage geht
@@ -294,14 +294,11 @@ function HomePage() {
             </h1>
             <p className="hero-accent">Automatisch erfasst — in Sekunden bei der richtigen Person.</p>
             <p className="hero-subtext">
-              Für Betriebe mit mehr Anfragen als Zeit, sie schnell zu beantworten. Ein konkretes System für ein konkretes Problem — schlüsselfertig.
+              Für Betriebe, bei denen lukrative Leads im Alltagschaos untergehen. Ein schlüsselfertiges System, das Anfragen fängt, bevor die Konkurrenz anruft.
             </p>
             <div className="hero-actions">
               <a href="#kontakt" className="btn btn-primary">
                 Kostenlose Prozess-Diagnose
-              </a>
-              <a href="#demo" className="btn btn-secondary">
-                So funktioniert's
               </a>
             </div>
             <div className="hero-tags">
