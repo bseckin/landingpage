@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Richtung A — Meister-Vertrauen</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F7F4EE;        /* warmes Papier statt kaltem Weiß */
+    --paper-2:#FFFFFF;
+    --ink:#1C1A16;          /* warmes Schwarz */
+    --ink-soft:#5A554C;
+    --line:#E3DDD1;
+    --green:#15604A;        /* Werkstatt-/Vertrauensgrün, doppelt: WhatsApp-Nähe */
+    --green-soft:#E7F0EB;
+    --amber:#C8742B;        /* warmer Akzent für Mikro-Highlights */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .demo-tag{position:fixed;top:0;left:0;z-index:99;background:var(--ink);color:var(--paper);font:600 11px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;padding:7px 12px}
+  /* nav */
+  header{border-bottom:1px solid var(--line);background:rgba(247,244,238,.85);backdrop-filter:blur(8px)}
+  nav{max-width:1240px;margin:0 auto;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+  .logo{font:600 19px/1 'Fraunces';letter-spacing:-.01em}
+  .navlinks{display:flex;gap:36px;align-items:center}
+  .navlinks a{font:500 14px/1 'Inter';color:var(--ink-soft);text-decoration:none}
+  .navbtn{background:var(--green);color:#fff;padding:11px 20px;border-radius:999px;font:600 14px/1 'Inter'}
+  /* hero */
+  .hero{max-width:1240px;margin:0 auto;padding:64px 32px 72px;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:9px;background:var(--green-soft);color:var(--green);font:600 12px/1 'Inter';letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:999px;margin-bottom:26px}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+  h1{font-family:'Fraunces';font-weight:600;font-size:clamp(34px,4.4vw,58px);line-height:1.04;letter-spacing:-.015em;margin-bottom:22px}
+  h1 .hl{color:var(--green);font-style:italic}
+  .sub{font-size:20px;line-height:1.5;color:var(--ink);max-width:30ch;margin-bottom:14px;font-weight:500}
+  .desc{font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:42ch;margin-bottom:30px}
+  .cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:30px}
+  .cta{background:var(--green);color:#fff;border:none;font:600 17px/1 'Inter';padding:18px 28px;border-radius:12px;cursor:pointer;box-shadow:0 8px 24px -8px rgba(21,96,74,.5)}
+  .cta-note{font-size:13px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:500 13px/1 'Inter';color:var(--ink-soft)}
+  .chip svg{width:14px;height:14px;color:var(--green)}
+  /* trust card */
+  .trust{background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:8px;box-shadow:0 24px 60px -30px rgba(28,26,22,.35)}
+  .portrait-wrap{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+  .portrait-wrap img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+  .person{display:flex;align-items:center;gap:14px;padding:18px 16px 10px}
+  .person .who{font:600 16px/1.2 'Fraunces'}
+  .person .role{font:400 13px/1.4 'Inter';color:var(--ink-soft);margin-top:3px}
+  .quote{margin:6px 8px 8px;padding:16px;border:1px dashed var(--line);border-radius:12px;background:var(--paper);font-size:14px;color:var(--ink-soft);line-height:1.5}
+  .quote .ph{display:inline-block;font:600 10px/1 'Inter';letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+  @media(max-width:880px){.hero{grid-template-columns:1fr;gap:40px}.navlinks{display:none}}
+</style>
+</head>
+<body>
+  <div class="demo-tag">Richtung A · Meister-Vertrauen</div>
+  <header>
+    <nav>
+      <div class="logo">Berkay Seckin</div>
+      <div class="navlinks">
+        <a href="#">Prozess</a>
+        <a href="#">Fallstudien</a>
+        <a class="navbtn" href="#">Systemcheck buchen</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div>
+      <span class="badge"><span class="dot"></span>Für SHK-, PV- und Handwerksbetriebe</span>
+      <h1>Während Sie auf der Baustelle sind, <span class="hl">geht keine Kundenanfrage mehr unter.</span></h1>
+      <p class="sub">Der WhatsApp-Assistent, der Anfragen vollständig erfasst und nur ernsthafte Aufträge auf Ihr Handy bringt.</p>
+      <p class="desc">Eingerichtet von einem Menschen, nicht von einer Software-Firma. Sie arbeiten — das System fängt die Aufträge.</p>
+      <div class="cta-row">
+        <button class="cta">Kostenlosen Systemcheck buchen</button>
+        <span class="cta-note">15 Min. Telefon · unverbindlich</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Festpreis ab 2.000 €</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Kein Abo, keine Monatskosten</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Aus Wien, persönlich erreichbar</span>
+      </div>
+    </div>
+
+    <aside class="trust">
+      <div class="portrait-wrap"><img src="assets/portrait.jpg" alt="Berkay Seckin" /></div>
+      <div class="person">
+        <div>
+          <div class="who">Berkay Seckin</div>
+          <div class="role">Prozessautomatisierung, Wien · davor ORF &amp; Bundesrechenzentrum</div>
+        </div>
+      </div>
+      <div class="quote">
+        <span class="ph">Platzhalter · echtes Kundenzitat</span><br>
+        „Hier steht später ein echtes Zitat eines Installateurs aus Österreich — mit Name und Betrieb. Vertrauen entsteht durch echte Gesichter, nicht durch anonyme Fallstudien.”
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

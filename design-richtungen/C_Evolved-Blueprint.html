@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Richtung C — Evolved Blueprint</title>
+<link href="https://fonts.cdnfonts.com/css/cabinet-grotesk" rel="stylesheet" />
+<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC;
+    --surface:#FFFFFF;
+    --ink:#0F172A;
+    --ink-soft:#334155;
+    --line:#E2E8F4;
+    --primary:#00C2CE;     /* Cyan etwas vertieft = besser lesbar, bleibt Marke */
+    --primary-bright:#00F2FE;
+    --amber:#F59E0B;       /* warmer Gegenakzent gegen die Kälte */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Satoshi',sans-serif;background:var(--bg);color:var(--ink-soft);-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.disp{font-family:'Cabinet Grotesk';color:var(--ink)}
+  .demo-tag{position:fixed;top:0;left:0;z-index:99;background:var(--ink);color:#fff;font:700 11px/1 'Satoshi';letter-spacing:.12em;text-transform:uppercase;padding:7px 12px}
+  .bp{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:22px 22px}
+  header{border-bottom:1px solid var(--line);background:rgba(248,250,252,.85);backdrop-filter:blur(8px)}
+  nav{max-width:1280px;margin:0 auto;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+  .logo{font-family:'Cabinet Grotesk';font-weight:900;font-size:19px;text-transform:uppercase;letter-spacing:-.02em;color:var(--ink)}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks a{font:700 11px/1 'Satoshi';letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none}
+  .navbtn{background:var(--ink);color:#fff;padding:11px 18px;font-weight:900}
+  .hero{position:relative;max-width:1280px;margin:0 auto;padding:60px 32px 70px;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:var(--surface);font:700 11px/1 'Satoshi';letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding:9px 14px;margin-bottom:26px}
+  .badge .dot{width:7px;height:7px;background:var(--primary);animation:blink 1.6s infinite}
+  @keyframes blink{50%{opacity:.3}}
+  h1{font-weight:900;font-size:clamp(34px,4.6vw,60px);line-height:.96;letter-spacing:-.02em;margin-bottom:22px}
+  h1 .hl{color:var(--primary);text-shadow:1.5px 1.5px 0 var(--ink)}
+  .sub{font-size:19px;line-height:1.5;color:var(--ink);font-weight:700;font-family:'Cabinet Grotesk';max-width:32ch;margin-bottom:14px}
+  .desc{font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:42ch;margin-bottom:28px}
+  .cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:28px}
+  .cta{background:var(--primary-bright);color:var(--ink);border:none;font-family:'Cabinet Grotesk';font-weight:900;font-size:17px;padding:18px 26px;cursor:pointer;box-shadow:4px 4px 0 0 var(--ink);transition:transform .15s,box-shadow .15s}
+  .cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--ink)}
+  .cta-note{font-size:13px;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:0}
+  .chip{border:1px solid var(--line);background:var(--surface);padding:10px 14px;font:700 10px/1 'Satoshi';letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:-1px 0 0 -1px}
+  /* proof panel */
+  .panel{position:relative;border:1px solid var(--ink);background:var(--surface);box-shadow:6px 6px 0 0 var(--primary)}
+  .panel-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:11px 14px}
+  .panel-top .t{font:700 10px/1 'Satoshi';letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+  .panel-top .live{display:flex;align-items:center;gap:6px;font:700 10px/1 'Satoshi';letter-spacing:.1em;text-transform:uppercase;color:var(--primary)}
+  .panel-top .live .d{width:6px;height:6px;background:var(--primary);animation:blink 1.2s infinite}
+  .chat{padding:16px;display:flex;flex-direction:column;gap:9px}
+  .b{max-width:82%;padding:9px 12px;font-size:13px;line-height:1.4}
+  .b.in{align-self:flex-start;background:#EEF2F7;color:var(--ink);border:1px solid var(--line)}
+  .b.out{align-self:flex-end;background:var(--ink);color:#fff}
+  .result{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding:14px}
+  .result .ic{width:38px;height:38px;background:var(--primary-bright);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:3px 3px 0 0 var(--ink)}
+  .result .h{font:900 14px/1 'Cabinet Grotesk';color:var(--ink)}
+  .result .s{font-size:12px;color:var(--ink-soft);margin-top:3px}
+  /* trust strip */
+  .trust{display:flex;align-items:center;gap:12px;border-top:1px dashed var(--line);padding:14px}
+  .trust img{width:42px;height:42px;object-fit:cover;object-position:50% 20%;border:1px solid var(--ink)}
+  .trust .n{font:900 13px/1.1 'Cabinet Grotesk';color:var(--ink)}
+  .trust .r{font-size:11px;color:var(--ink-soft);margin-top:3px;line-height:1.35}
+  @media(max-width:880px){.hero{grid-template-columns:1fr;gap:40px}.navlinks{display:none}}
+</style>
+</head>
+<body>
+  <div class="demo-tag">Richtung C · Evolved Blueprint</div>
+  <header>
+    <nav>
+      <div class="logo">Berkay Seckin</div>
+      <div class="navlinks">
+        <a href="#">Prozess</a>
+        <a href="#">Fallstudien</a>
+        <a class="navbtn" href="#">Systemcheck</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hero bp">
+    <div>
+      <span class="badge"><span class="dot"></span>Für SHK-, PV- und Handwerksbetriebe</span>
+      <h1>Während Sie auf der Baustelle sind, <span class="hl">geht keine Kundenanfrage mehr unter.</span></h1>
+      <p class="sub">Der WhatsApp-Assistent, der Anfragen erfasst und nur ernsthafte Aufträge auf Ihr Handy bringt.</p>
+      <p class="desc">Schlüsselfertig eingerichtet, Festpreis, kein Abo. Sie arbeiten — das System fängt die Aufträge.</p>
+      <div class="cta-row">
+        <button class="cta">Kostenlosen Systemcheck buchen</button>
+        <span class="cta-note">Erleben Sie es live auf Ihrem Smartphone</span>
+      </div>
+      <div class="chips">
+        <span class="chip">Festpreis ab 2.000 €</span>
+        <span class="chip">Kein Abo</span>
+        <span class="chip">Schlüsselfertig</span>
+        <span class="chip">Aus Wien</span>
+      </div>
+    </div>
+
+    <aside class="panel">
+      <div class="panel-top"><span class="t">WhatsApp · Anfrage-Assistent</span><span class="live"><span class="d"></span>Live</span></div>
+      <div class="chat">
+        <div class="b in">Heizung ausgefallen, können Sie kommen?</div>
+        <div class="b out">Gerne! Welcher Typ &amp; PLZ?</div>
+        <div class="b in">Gastherme, 1100 Wien, Notfall.</div>
+      </div>
+      <div class="result">
+        <div class="ic">✓</div>
+        <div><div class="h">Qualifizierter Auftrag → Ihr Handy</div><div class="s">Gastherme · 1100 Wien · Notfall · vollständig erfasst</div></div>
+      </div>
+      <div class="trust">
+        <img src="assets/portrait.jpg" alt="Berkay Seckin" />
+        <div><div class="n">Eingerichtet von Berkay Seckin</div><div class="r">Prozessautomatisierung, Wien · davor ORF &amp; Bundesrechenzentrum</div></div>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>
