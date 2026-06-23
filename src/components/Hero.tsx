@@ -45,7 +45,7 @@ const Hero = () => {
 
           {/* Description */}
           <p className="text-base text-on-surface-variant leading-relaxed max-w-xl mb-8">
-            Eingerichtet von einem Menschen, nicht von einer Software-Firma.
+            Eingerichtet von einem Menschen, nicht von einem SaaS-Abo.
             Sie arbeiten — das System fängt die Aufträge.
           </p>
 
@@ -62,7 +62,7 @@ const Hero = () => {
               Kostenlosen Systemcheck buchen
             </button>
             <span className="text-sm text-on-surface-variant">
-              15 Min. Telefon · unverbindlich
+              30 Min. Telefon · unverbindlich
             </span>
           </div>
 

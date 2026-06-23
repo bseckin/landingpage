@@ -47,12 +47,12 @@ const PROOF = [
   {
     label: 'Nachvollziehbar',
     title: 'Lückenlose Dokumentation',
-    body: 'Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann kam und wer sie bearbeitet hat – vom ersten Kontakt bis zum unterschriebenen Auftrag.',
+    body: 'Jeder Schritt wird protokolliert. Sie sehen genau, welche Anfrage wann kam und wie sie behandelt wurde – vom ersten Kontakt bis zum unterschriebenen Auftrag.',
   },
   {
     label: 'Ihr Eigentum',
     title: 'Das System gehört Ihnen. Keine monatlichen Kosten.',
-    body: 'Es läuft auf österreichischen Servern und gehört Ihnen. Sie zahlen einmal – ich warte es, solange Sie wollen. Kein Abo, das jeden Monat Geld frisst.',
+    body: 'Es läuft auf österreichischen Servern und gehört Ihnen. Sie zahlen einmal – ich halte es am Laufen, solange Sie wollen. Kein Abo, das jeden Monat Geld frisst.',
   },
 ];
 
@@ -184,10 +184,10 @@ const Process = () => {
               &bdquo;Was ist mit Kunden, die lieber anrufen?&ldquo;
             </p>
             <p className="text-sm text-on-surface-variant leading-relaxed">
-              Das System erfasst Anfragen über Website-Formular, E-Mail und WhatsApp
-              vollautomatisch. Ihre Rufnummer bleibt — der Unterschied ist, dass alle
-              anderen Kanäle jetzt lückenlos laufen. Welche Kanäle Ihre Kunden am
-              häufigsten nutzen, schauen wir im Systemcheck gemeinsam durch.
+              Kunden, die anrufen, erreichen Sie wie bisher direkt. Das System
+              ergänzt alle anderen Kanäle — WhatsApp, Formular, E-Mail — lückenlos.
+              Genau dort gehen heute die meisten Aufträge verloren, ohne dass
+              Sie es merken.
             </p>
           </div>
         </div>

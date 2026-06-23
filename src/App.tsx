@@ -116,8 +116,8 @@ function HomePage() {
               Sagen Sie kurz, worum es geht — ich melde mich persönlich.
             </h3>
             <p className="text-on-surface-variant max-w-xl mx-auto mb-10">
-              Drei Felder, kein Verkaufsdruck. 15 Minuten am Telefon, danach
-              wissen Sie, was sich für Ihren Betrieb lohnt.
+              Kurz, kein Aufwand. 30 Minuten am Telefon — danach wissen Sie,
+              was sich für Ihren Betrieb lohnt.
             </p>
             <DiagnosisForm source="landingpage-main" />
           </div>

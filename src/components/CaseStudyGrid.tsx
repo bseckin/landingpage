@@ -20,8 +20,8 @@ const CASES = [
   {
     num: '03',
     tag: 'SHK-Installation',
-    title: 'Kein verpasster Anruf mehr.',
-    body: 'Ein 5-Mann-Installationsbetrieb verlor täglich Aufträge, weil auf der Baustelle niemand ans Telefon ging. Jetzt fängt das System jede Anfrage ab und meldet sie in unter 60 Sekunden per WhatsApp.',
+    title: 'Keine verpasste Anfrage mehr.',
+    body: 'Ein 5-Mann-Installationsbetrieb verlor Aufträge, weil WhatsApp- und Online-Anfragen stundenlang unbeantwortet blieben. Jetzt erfasst das System jede digitale Anfrage sofort und meldet sie in unter 60 Sekunden per WhatsApp.',
     proofLabel: 'WhatsApp-Alarm',
     proof: '< 60 Sek. bis zur Alarmierung',
     wa: true,

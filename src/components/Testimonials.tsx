@@ -70,7 +70,7 @@ const Testimonials = () => {
         <div className="mb-12">
           <span className="label-caps text-primary mb-4 block">Stimmen aus der Praxis</span>
           <h3 className="text-3xl md:text-5xl font-display font-semibold leading-[1.08] tracking-tight max-w-2xl">
-            Was Betriebe nach dem ersten Monat sagen.
+            Referenzen nach den ersten Projekten.
           </h3>
         </div>
 

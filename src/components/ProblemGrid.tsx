@@ -12,7 +12,7 @@ const PROBLEMS = [
   {
     num: '03',
     title: 'Sie wählen Aufträge aus – aber nicht die richtigen.',
-    body: 'Sie haben keine Zeit für „Was kostet ungefähr eine Heizung?". Ohne System landen alle Anfragen gleich in Ihrer Inbox. Das System holt fehlende Infos automatisch ein – und Sie entscheiden, welche Anfrage ein Angebot wert ist.',
+    body: 'Sie haben keine Zeit für „Was kostet ungefähr eine Heizung?". Ohne System landen alle Anfragen gleichwertig in Ihrer Inbox — die ernsthafte neben der Neugier-Anfrage. Am Ende bearbeiten Sie die falsche.',
   },
 ];
 
@@ -58,10 +58,10 @@ const ProblemGrid = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-xl border border-outline-variant bg-background px-8 py-7">
           <div className="flex-1">
             <p className="text-sm text-on-surface-variant leading-relaxed mb-1">
-              Ein österreichischer SHK-Betrieb verliert im Schnitt
+              Rechnen Sie selbst: Wenn Sie 3 Aufträge pro Monat verpassen —
             </p>
             <p className="font-display font-semibold text-xl md:text-2xl text-on-surface leading-snug">
-              3–5 Aufträge pro Monat — weil niemand rangegangen ist.
+              weil niemand rangegangen ist oder die Anfrage zu spät gesehen wurde:
             </p>
           </div>
           <div className="shrink-0 md:text-right border-t md:border-t-0 md:border-l border-outline-variant pt-5 md:pt-0 md:pl-8 w-full md:w-auto">

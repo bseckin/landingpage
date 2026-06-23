@@ -70,14 +70,14 @@ const About = () => {
             <p className="text-base md:text-lg text-on-surface-variant leading-relaxed">
               Bei ORF Werbetechnologie läuft das Buchungssystem rund um die
               Uhr — eine Stunde Ausfall kostet fünfstellige Werbeeinnahmen.
-              Beim Bundesrechenzentrum laufen kritische Staatssysteme: Kein
-              Spielraum, keine Ausreden.
+              Beim Bundesrechenzentrum laufen kritische Staatssysteme — kein
+              Ausfall akzeptiert.
             </p>
             <p className="text-base md:text-lg text-on-surface-variant leading-relaxed">
               Bei Ihrem Betrieb ist der Einsatz ein anderer, aber das Prinzip
               dasselbe: Eine Stunde ohne Antwort, und der Kunde hat den nächsten
               Installateur angerufen. Ich baue Systeme, die das verhindern —
-              ohne monatliche Kosten, ohne Abhängigkeit von einer Software-Firma.
+              ohne monatliche Kosten, ohne Abo bei externen Plattformen.
             </p>
 
             {/* CTA Card */}
