@@ -8,39 +8,38 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "#00F2FE",
-                background: "#F8FAFC",
+                primary: "#15604A",          // Werkstatt-/Vertrauensgrün
+                "primary-soft": "#E7F0EB",
+                accent: "#C8742B",           // warmer Akzent (ersetzt kaltes Rot)
+                background: "#F7F4EE",       // warmes Papier
                 surface: "#FFFFFF",
-                "outline-variant": "#E2E8F4",
-                "on-surface": "#0F172A",
-                "on-surface-variant": "#334155",
-                error: "#EF4444",
+                "outline-variant": "#E3DDD1",
+                "on-surface": "#1C1A16",     // warmes Schwarz
+                "on-surface-variant": "#5A554C",
+                error: "#C0392B",
             },
             borderRadius: {
                 none: "0",
-                sm: "2px",
-                DEFAULT: "0px",
+                sm: "6px",
+                DEFAULT: "10px",
+                lg: "16px",
+                xl: "20px",
+                full: "999px",
             },
             spacing: {
                 "margin-desktop": "32px",
                 "margin-mobile": "16px",
-                "container-max": "1440px",
+                "container-max": "1240px",
             },
             fontFamily: {
-                display: ['"Cabinet Grotesk"', "sans-serif"],
+                display: ["Fraunces", "Georgia", "serif"],
                 body: ["Satoshi", "sans-serif"],
             },
-            backgroundImage: {
-                "blueprint-grid":
-                    "linear-gradient(#E2E8F4 1px, transparent 1px), linear-gradient(90deg, #E2E8F4 1px, transparent 1px)",
-            },
-            backgroundSize: {
-                "blueprint": "20px 20px",
-            },
             boxShadow: {
-                "cta": "4px 4px 0px 0px #0F172A",
-                "cta-hover": "6px 6px 0px 0px #0F172A",
-                "technical": "4px 4px 0px 0px #00F2FE",
+                "cta": "0 10px 24px -10px rgba(21,96,74,.5)",
+                "cta-hover": "0 16px 32px -12px rgba(21,96,74,.6)",
+                "technical": "0 16px 40px -24px rgba(28,26,22,.35)",
+                "soft": "0 24px 60px -30px rgba(28,26,22,.30)",
             },
         },
     },

@@ -1,16 +1,22 @@
+const BULLETS = [
+  { n: '01', text: 'Live-Demo auf Ihrem eigenen Smartphone' },
+  { n: '02', text: 'Wo genau Aufträge bei Ihnen verloren gehen' },
+  { n: '03', text: 'Bauplan: was sich für Ihren Betrieb konkret lohnt' },
+];
+
 const About = () => {
   return (
     <section
-      className="py-24 md:py-32 bg-surface relative overflow-hidden"
+      className="py-24 md:py-32 bg-background relative overflow-hidden"
       id="cta"
     >
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 md:gap-20 items-center">
           {/* Left Column: Image + Badges */}
-          <div className="space-y-12 relative">
-            <div className="relative border border-outline-variant p-1 bg-background">
+          <div className="space-y-8 relative">
+            <div className="rounded-xl overflow-hidden border border-outline-variant shadow-soft bg-surface">
               <img
-                className="w-full grayscale filter contrast-110 opacity-90"
+                className="w-full"
                 src="/portrait.jpg"
                 alt="Berkay Seckin"
                 onError={(e) => {
@@ -29,88 +35,77 @@ const About = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '6rem',
-                  fontWeight: 800,
-                  color: '#475569',
-                  background: 'linear-gradient(135deg,#e2e8f0,#f1f5f9)',
+                  fontWeight: 700,
+                  color: '#5A554C',
+                  background: 'linear-gradient(135deg,#efe9df,#f7f4ee)',
                 }}
               >
                 BS
               </div>
-              {/* Technical Crosshair Decor */}
-              <div className="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-on-surface" />
-              <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-on-surface" />
             </div>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-4 md:gap-8">
-              <span className="label-caps text-sm md:text-lg font-black text-on-surface">
-                ORF WERBETECHNOLOGIE
-              </span>
-              <span className="text-on-surface-variant opacity-40">|</span>
-              <span className="label-caps text-sm md:text-lg font-black text-on-surface">
-                BRZ REQUIREMENT ENGINEER
-              </span>
-              <span className="text-on-surface-variant opacity-40">|</span>
-              <span className="label-caps text-[10px] md:text-xs text-on-surface">
-                STUDIUM WIRTSCHAFTSINFORMATIK
-              </span>
+            <div className="flex flex-wrap items-center gap-2.5">
+              {[
+                'ORF Werbetechnologie',
+                'BRZ Requirement Engineer',
+                'Studium Wirtschaftsinformatik',
+              ].map((b) => (
+                <span
+                  key={b}
+                  className="rounded-full border border-outline-variant bg-surface px-4 py-2 text-[13px] font-medium text-on-surface-variant"
+                >
+                  {b}
+                </span>
+              ))}
             </div>
           </div>
 
           {/* Right Column: About Text + CTA */}
-          <div className="space-y-8 md:space-y-10">
-            <h3 className="text-3xl md:text-5xl font-display font-black leading-none uppercase">
-              Gebaut mit Standards aus kritischen Systemen – gemacht für Ihren
-              Betrieb.
+          <div className="space-y-8">
+            <h3 className="text-3xl md:text-5xl font-display font-semibold leading-[1.08] tracking-tight">
+              Was ich bei ORF und BRZ gelernt habe — und warum es für Ihren
+              Betrieb genauso gilt.
             </h3>
-            <p className="text-base md:text-lg text-on-surface-variant font-medium leading-relaxed">
-              Ich habe Systeme für ORF Werbetechnologie und das
-              Bundesrechenzentrum gebaut – dort, wo Ausfall keine Option ist.
-              Dieselbe Stabilität, abgestimmt auf Handwerksbetriebe, die keine
-              Zeit für komplizierte Software haben. Kein Ausfall. Keine
-              monatlichen Kosten. Das System gehört Ihnen.
+            <p className="text-base md:text-lg text-on-surface-variant leading-relaxed">
+              Bei ORF Werbetechnologie läuft das Buchungssystem rund um die
+              Uhr — eine Stunde Ausfall kostet fünfstellige Werbeeinnahmen.
+              Beim Bundesrechenzentrum laufen kritische Staatssysteme: Kein
+              Spielraum, keine Ausreden.
+            </p>
+            <p className="text-base md:text-lg text-on-surface-variant leading-relaxed">
+              Bei Ihrem Betrieb ist der Einsatz ein anderer, aber das Prinzip
+              dasselbe: Eine Stunde ohne Antwort, und der Kunde hat den nächsten
+              Installateur angerufen. Ich baue Systeme, die das verhindern —
+              ohne monatliche Kosten, ohne Abhängigkeit von einer Software-Firma.
             </p>
 
             {/* CTA Card */}
-            <div className="border border-outline-variant bg-background p-8 md:p-10 space-y-6">
-              <h4 className="text-2xl md:text-3xl font-display font-black uppercase">
+            <div className="rounded-xl border border-outline-variant bg-surface p-8 md:p-10 space-y-6 shadow-soft">
+              <h4 className="text-2xl md:text-3xl font-display font-semibold leading-snug">
                 Sehen Sie, wie das System auf Ihrem Handy aussieht.
               </h4>
               <p className="text-on-surface-variant leading-relaxed">
-                Der kostenlose Systemcheck dauert 30 Minuten. Ich schaue mir
-                an, wie Kundenanfragen aktuell bei Ihnen eingehen, finde die
-                größten Verlustquellen und zeige Ihnen live auf Ihrem eigenen
-                Smartphone, wie das System arbeitet.
+                Der kostenlose Systemcheck dauert 30 Minuten. Ich schaue mir an,
+                wie Anfragen aktuell bei Ihnen eingehen, finde die größten
+                Verlustquellen und zeige Ihnen live auf Ihrem eigenen Smartphone,
+                wie das System arbeitet.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-primary text-lg mt-0.5">
-                    arrow_forward
-                  </span>
-                  <span className="text-sm text-on-surface font-medium">
-                    Live-Demo auf Ihrem eigenen Smartphone
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-primary text-lg mt-0.5">
-                    arrow_forward
-                  </span>
-                  <span className="text-sm text-on-surface font-medium">
-                    Verlustquellen in Ihrem Anfragen-Eingang aufdecken
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-primary text-lg mt-0.5">
-                    arrow_forward
-                  </span>
-                  <span className="text-sm text-on-surface font-medium">
-                    Konkreten Bauplan für Ihren Betrieb sehen
-                  </span>
-                </li>
-              </ul>
-              <div className="flex flex-col items-start gap-3 pt-2">
+              <div className="space-y-3">
+                {BULLETS.map((b) => (
+                  <div key={b.n} className="flex items-baseline gap-4">
+                    <span className="text-[11px] font-bold tabular-nums text-primary shrink-0 w-5">
+                      {b.n}
+                    </span>
+                    <span className="text-sm text-on-surface font-medium leading-relaxed">
+                      {b.text}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col items-start gap-3 pt-1">
                 <button
-                  className="px-10 md:px-12 py-5 md:py-6 bg-primary text-on-surface font-display font-black text-lg md:text-xl hover:translate-x-1 hover:-translate-y-1 transition-transform shadow-cta w-full md:w-auto text-center"
+                  className="px-8 py-4 rounded-lg bg-primary text-white font-display font-semibold text-lg shadow-cta hover:shadow-cta-hover hover:-translate-y-0.5 transition-all w-full md:w-auto text-center"
                   onClick={() =>
                     document
                       .getElementById('diagnosis-form')
@@ -119,7 +114,7 @@ const About = () => {
                 >
                   Kostenlosen Systemcheck buchen
                 </button>
-                <p className="text-xs text-on-surface-variant/70 font-medium">
+                <p className="text-xs text-on-surface-variant">
                   Kein Pitch. Kein Verkaufsdruck. Wenn wir keine Verbesserung
                   finden, hat es Sie 30 Minuten gekostet – mehr nicht.
                 </p>

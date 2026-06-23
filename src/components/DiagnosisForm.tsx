@@ -24,11 +24,14 @@ export default function DiagnosisForm({ source }: { source?: string }) {
   };
 
   const inputClass =
-    'w-full px-4 py-3 bg-background border border-outline-variant focus:border-on-surface text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-colors font-body text-sm';
+    'w-full px-4 py-3.5 rounded-lg bg-background border border-outline-variant focus:border-primary text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-colors font-body text-sm';
+
+  const selectClass =
+    'w-full px-4 py-3.5 rounded-lg bg-background border border-outline-variant focus:border-primary text-on-surface outline-none transition-colors font-body text-sm appearance-none cursor-pointer';
 
   if (status === 'success') {
     return (
-      <div className="max-w-[440px] mx-auto p-6 border border-primary/40 bg-primary/10 text-on-surface font-bold font-display text-lg">
+      <div className="max-w-[440px] mx-auto p-6 rounded-xl border border-primary/30 bg-primary-soft text-on-surface font-semibold font-display text-lg">
         Angefragt — ich melde mich in Kürze.
       </div>
     );
@@ -40,6 +43,7 @@ export default function DiagnosisForm({ source }: { source?: string }) {
       className="flex flex-col gap-3 max-w-[440px] mx-auto text-left"
     >
       {source && <input type="hidden" name="source" value={source} />}
+
       <input
         className={inputClass}
         type="text"
@@ -48,31 +52,73 @@ export default function DiagnosisForm({ source }: { source?: string }) {
         placeholder="Name"
         aria-label="Name"
       />
+
+      <input
+        className={inputClass}
+        type="tel"
+        name="telefon"
+        required
+        placeholder="Telefonnummer"
+        aria-label="Telefonnummer"
+      />
+
       <input
         className={inputClass}
         type="email"
         name="email"
-        required
-        placeholder="E-Mail"
+        placeholder="E-Mail (optional)"
         aria-label="E-Mail"
       />
-      <input
-        className={inputClass}
-        type="text"
-        name="message"
-        required
-        placeholder="Worum geht's grob?"
-        aria-label="Worum geht's grob?"
-      />
+
+      <div className="grid grid-cols-2 gap-3">
+        <div className="relative">
+          <select
+            className={selectClass}
+            name="anfragen_pro_woche"
+            aria-label="Anfragen pro Woche"
+            defaultValue=""
+          >
+            <option value="" disabled>Anfragen/Woche</option>
+            <option value="bis-5">bis 5</option>
+            <option value="5-15">5 bis 15</option>
+            <option value="15-40">15 bis 40</option>
+            <option value="40+">mehr als 40</option>
+          </select>
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-base">
+            expand_more
+          </span>
+        </div>
+
+        <div className="relative">
+          <select
+            className={selectClass}
+            name="hauptkanal"
+            aria-label="Hauptkanal für Anfragen"
+            defaultValue=""
+          >
+            <option value="" disabled>Anfragen kommen per</option>
+            <option value="telefon">Meist Telefon</option>
+            <option value="whatsapp">Meist WhatsApp</option>
+            <option value="formular">Meist Formular</option>
+            <option value="email">Meist E-Mail</option>
+            <option value="gemischt">Alles gemischt</option>
+          </select>
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-base">
+            expand_more
+          </span>
+        </div>
+      </div>
+
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="px-10 py-5 bg-primary text-on-surface font-display font-black text-lg hover:translate-x-1 hover:-translate-y-1 transition-transform shadow-cta disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+        className="px-8 py-4 rounded-lg bg-primary text-white font-display font-semibold text-lg shadow-cta hover:shadow-cta-hover hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
       >
         {status === 'submitting'
           ? 'Wird gesendet…'
           : 'Kostenlosen Systemcheck buchen'}
       </button>
+
       {status === 'error' && (
         <p className="text-error text-sm font-medium mt-1">
           Senden fehlgeschlagen. Bitte erneut versuchen oder direkt an

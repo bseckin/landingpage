@@ -26,5 +26,9 @@ dist-ssr
 # Claude Code session dir
 .claude/
 
+# Claude Code skill files (local tool install, not project code)
+.agents/
+skills-lock.json
+
 # Internal strategy/concept docs — local only, never deploy
 _docs/

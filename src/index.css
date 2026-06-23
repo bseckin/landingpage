@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --primary: #00F2FE;
-  --background: #F8FAFC;
+  --primary: #15604A;
+  --primary-soft: #E7F0EB;
+  --accent: #C8742B;
+  --background: #F7F4EE;
   --surface: #FFFFFF;
-  --outline-variant: #E2E8F4;
-  --on-surface: #0F172A;
-  --on-surface-variant: #334155;
-  --error: #EF4444;
+  --outline-variant: #E3DDD1;
+  --on-surface: #1C1A16;
+  --on-surface-variant: #5A554C;
+  --error: #C0392B;
 }
 
 * {
@@ -23,15 +25,20 @@ html {
 body {
   margin: 0;
   font-family: 'Satoshi', sans-serif;
-  background-color: #F8FAFC;
+  background-color: #F7F4EE;
   overflow-x: hidden;
-  color: #334155;
+  color: #5A554C;
   text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  color: #0F172A;
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1C1A16;
 }
 
 #root {
@@ -47,37 +54,23 @@ h1, h2, h3, h4, h5, h6, .font-display {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: 0.018;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* ── Grid Decor ─────────────────────────────────────────────── */
-.grid-line-v {
-  width: 1px;
-  background-color: #E2E8F4;
-  height: 100%;
-  position: absolute;
-}
-
-.grid-line-h {
-  height: 1px;
-  background-color: #E2E8F4;
-  width: 100%;
-  position: absolute;
-}
-
-/* ── Technical Card ─────────────────────────────────────────── */
+/* ── Card (warm) ────────────────────────────────────────────── */
 .technical-card {
-  border: 1px solid #E2E8F4;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #E3DDD1;
+  border-radius: 16px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   background-color: #FFFFFF;
 }
 
 .technical-card:hover {
-  border-color: #00F2FE;
-  box-shadow: 4px 4px 0px 0px #00F2FE;
-  transform: translate(-2px, -2px);
+  border-color: #15604A;
+  box-shadow: 0 18px 44px -26px rgba(28, 26, 22, 0.45);
+  transform: translateY(-3px);
   z-index: 10;
 }
 
@@ -108,47 +101,10 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .boot-sequence > *:nth-child(6) { animation-delay: 0.6s; }
 .boot-sequence > *:nth-child(7) { animation-delay: 0.7s; }
 
-/* ── Blueprint Grid ─────────────────────────────────────────── */
-.blueprint-grid {
-  background-image: linear-gradient(#E2E8F4 1px, transparent 1px), linear-gradient(90deg, #E2E8F4 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* ── Data Pulse SVG Animation ───────────────────────────────── */
-.data-pulse {
-  stroke-dasharray: 20, 180;
-  animation: dash 4s linear infinite;
-}
-
-@keyframes dash {
-  from { stroke-dashoffset: 800; }
-  to { stroke-dashoffset: 0; }
-}
-
-/* ── Reaktor Glow ───────────────────────────────────────────── */
-.reaktor-glow {
-  filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.3));
-}
-
-/* ── Scan Line ──────────────────────────────────────────────── */
-.scan-line {
-  height: 1px;
-  background: #00F2FE;
-  width: 100%;
-  position: absolute;
-  animation: scan 2s linear infinite;
-}
-
-@keyframes scan {
-  0% { top: 0; opacity: 0; }
-  50% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
 /* ── Selection ──────────────────────────────────────────────── */
 ::selection {
-  background: #00F2FE;
-  color: #0F172A;
+  background: #15604A;
+  color: #FFFFFF;
 }
 
 /* ── Hero accent line ───────────────────────────────────────── */
@@ -179,7 +135,7 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #0F172A;
+  border-color: #15604A;
 }
 
 /* ── Scrollbar hide utility ─────────────────────────────────── */

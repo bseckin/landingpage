@@ -1,147 +1,99 @@
+const CASES = [
+  {
+    num: '01',
+    tag: 'Photovoltaik',
+    title: '40 Anfragen. 3 Mann. Kein Chaos.',
+    body: 'Ein 3-Mann-PV-Betrieb bekommt wöchentlich 40 Anfragen. Das System fragt automatisch Dachgröße, Ausrichtung und Fotos ab. Der Inhaber fährt nur noch zu qualifizierten Terminen.',
+    proofLabel: 'Auto-Qualifizierung',
+    proof: 'Nur ernsthafte Anfragen aufs Handy',
+    wa: false,
+  },
+  {
+    num: '02',
+    tag: 'Heizungsbau',
+    title: 'Angebote in 4 Minuten statt 45.',
+    body: 'Ein Heizungsbauer brauchte 45 Minuten pro Angebot. Jetzt erstellt das System aus den Formulardaten automatisch einen Entwurf mit seinen hinterlegten Preisen. Der Inhaber prüft am Handy und sendet ab.',
+    proofLabel: 'Auto-Generierung',
+    proof: '4 Min. pro Angebot',
+    wa: false,
+  },
+  {
+    num: '03',
+    tag: 'SHK-Installation',
+    title: 'Kein verpasster Anruf mehr.',
+    body: 'Ein 5-Mann-Installationsbetrieb verlor täglich Aufträge, weil auf der Baustelle niemand ans Telefon ging. Jetzt fängt das System jede Anfrage ab und meldet sie in unter 60 Sekunden per WhatsApp.',
+    proofLabel: 'WhatsApp-Alarm',
+    proof: '< 60 Sek. bis zur Alarmierung',
+    wa: true,
+  },
+];
+
 const CaseStudyGrid = () => {
   return (
-    <section
-      className="border-b border-outline-variant bg-background"
-      id="cases"
-    >
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 md:py-32">
-        <div className="mb-16 md:mb-20">
-          <span className="label-caps text-on-surface-variant mb-4 block">
-            Fallstudien
-          </span>
-          <h3 className="text-3xl md:text-5xl font-display font-black uppercase leading-tight">
-            So sieht das System in echten Betrieben aus.
+    <section className="border-b border-outline-variant bg-surface" id="cases">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-24 md:pt-32 pb-14 md:pb-16">
+        <div className="max-w-2xl">
+          <span className="label-caps text-primary mb-4 block">Szenarien</span>
+          <h3 className="text-3xl md:text-5xl font-display font-semibold leading-[1.08] tracking-tight">
+            Wie das System in der Praxis arbeitet.
           </h3>
-          <p className="text-on-surface-variant text-base md:text-lg mt-4 max-w-2xl">
-            Keine fiktiven Szenarien. Drei Handwerksbetriebe, drei Ergebnisse –
-            mit einem identischen System.
+          <p className="text-on-surface-variant text-base md:text-lg mt-4">
+            Drei Betriebstypen, drei Probleme — dasselbe System, angepasst auf
+            den jeweiligen Arbeitsalltag.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[600px] bg-outline-variant gap-px">
-        {/* Case 1: PV-Betrieb */}
-        <div className="relative group cursor-pointer overflow-hidden bg-surface">
-          <div
-            className="absolute inset-0 grayscale contrast-125 opacity-20 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50 group-hover:grayscale-0"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAESCVDmlhWMk_GHB6BpMIKJTcReiNgpmmMmACEQZmuH2o0zk8IoxD8b72KfilmPJWrGP8vB1ZGK_dtnkhl-AFXc2kbsUVu-o1g61lDWnUL5ycNv_o8UMbwygwBGgTP1ryV2vx5OBGocah_jrKklgVt5pzYgxXp7duWO7G0DkcERnvOSI3-EAL2JUgV6pqYMxPabzY2f-2nvL9QYyk40yiNBbw0OX_qOah5UFKszpJh-WG0C7lqX81fTyfPL76wZIDeArolRyXi3H8')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
-          <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between">
-            <span className="label-caps border border-on-surface text-on-surface px-3 py-1 self-start bg-white">
-              PHOTOVOLTAIK
-            </span>
-            <div>
-              <h4 className="text-2xl md:text-3xl font-display font-black mb-4 md:mb-6 uppercase tracking-tight">
-                40 Anfragen. 3 Mann. Kein Chaos.
-              </h4>
-              <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
-                Ein 3-Mann-PV-Betrieb bekommt wöchentlich 40 Kundenanfragen.
-                Früher: Chaos. Jetzt: Das System fragt automatisch Dachgröße,
-                Ausrichtung und Fotos ab. Der Inhaber fährt nur noch zu
-                qualifizierten Terminen.
-              </p>
-              <div className="bg-white border border-outline-variant p-4 shadow-technical group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2 h-2 bg-primary" />
-                  <span className="label-caps text-on-surface text-[10px]">
-                    Auto-Qualifizierung
-                  </span>
-                </div>
-                <p className="text-sm font-bold uppercase text-on-surface">
-                  Nur ernsthafte Anfragen aufs Handy
-                </p>
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-24 md:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          {CASES.map((c) => (
+            <div
+              key={c.tag}
+              className="relative group technical-card p-8 md:p-10 flex flex-col justify-between overflow-hidden"
+              style={{ minHeight: '380px' }}
+            >
+              {/* Background number */}
+              <div
+                className="absolute -bottom-4 -right-1 font-display font-bold leading-none select-none pointer-events-none"
+                style={{ fontSize: '8rem', color: '#E3DDD1', opacity: 0.5 }}
+                aria-hidden
+              >
+                {c.num}
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Case 2: Heizungsbauer */}
-        <div className="relative group cursor-pointer overflow-hidden bg-surface">
-          <div
-            className="absolute inset-0 grayscale contrast-125 opacity-20 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50 group-hover:grayscale-0"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtIlUHqgnv4rLBG21h9Afe_jBGno5EmaN59R-FtcUgxnaAQkvW1S2k4WzYyT62KrwWZ4lp_dK1MYHq8d5wU-4pwdyPIjQEpPh1h2xl9PuwWuKpduAVekUacWCtKXT_jJ2Sm_a3KkqIgfHfN17VwGXVBcZ6eIsCR_OH5wg_6MmXN_fLdFF1hXbxZYFNgJ6747Y9RqAz_TXoR0Fnpo3TlQokDKgwZ_tuo1VvnlLlHMWwyc3rtaSLds8xxwGM5XD0EL1V5Dm2lcwAPT4')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
-          <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between">
-            <span className="label-caps border border-on-surface text-on-surface px-3 py-1 self-start bg-white">
-              HEIZUNGSBAU
-            </span>
-            <div>
-              <h4 className="text-2xl md:text-3xl font-display font-black mb-4 md:mb-6 uppercase tracking-tight">
-                Angebote in 4 Minuten statt 45.
-              </h4>
-              <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
-                Ein Heizungsbauer brauchte 45 Minuten pro Angebot. Jetzt
-                erstellt das System aus den Formulardaten automatisch einen
-                Entwurf mit seinen hinterlegten Preisen. Der Inhaber prüft am
-                Handy und sendet ab.
-              </p>
-              <div className="bg-white border border-outline-variant p-4 shadow-technical group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2 h-2 bg-primary" />
-                  <span className="label-caps text-on-surface text-[10px]">
-                    Auto-Generierung
-                  </span>
-                </div>
-                <p className="text-sm font-bold uppercase text-on-surface">
-                  4 Min. pro Angebot
+              {/* Content */}
+              <div className="relative">
+                <span className="label-caps inline-block rounded-full border border-outline-variant px-3 py-1.5 text-on-surface-variant mb-6">
+                  {c.tag}
+                </span>
+                <h4 className="text-2xl md:text-3xl font-display font-semibold mb-4 leading-tight tracking-tight text-on-surface">
+                  {c.title}
+                </h4>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
+                  {c.body}
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Case 3: SHK-Installateur */}
-        <div className="relative group cursor-pointer overflow-hidden bg-surface">
-          <div
-            className="absolute inset-0 grayscale contrast-125 opacity-20 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50 group-hover:grayscale-0"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIhXQMQjZvCliAQKzt_nhEY4IVGYGBH0DOixejGhjqSaYWT5a7t0hxIcCwL2fmtKh-teWWqXOxsKgU6kePBjZg8yJZGTg4EiWfIkoLBUyzFMfThm4FP_FxL03d7AG8-EWuLXPEnXQK2apoQrcPoS7N5arI-e4I1B_Cs3aWyTEOW6jxdFMHFv2ZM-6aGdDZF1rUf91YLsnIZC-EQ5vKHaDOukXh4No2HdyuQLAS2P7L1ux7NAsJRZQQF4YP49dyftHwK018UGQa1Xo')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
-          <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between">
-            <span className="label-caps border border-on-surface text-on-surface px-3 py-1 self-start bg-white">
-              SHK-INSTALLATION
-            </span>
-            <div>
-              <h4 className="text-2xl md:text-3xl font-display font-black mb-4 md:mb-6 uppercase tracking-tight">
-                Kein verpasster Anruf mehr.
-              </h4>
-              <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
-                Ein 5-Mann-Installationsbetrieb verlor täglich Aufträge, weil
-                auf der Baustelle niemand ans Telefon ging. Jetzt fängt das
-                System jede Kundenanfrage ab und meldet sie in unter 60
-                Sekunden per WhatsApp – noch bevor der Kunde den nächsten
-                Installateur anruft.
-              </p>
-              <div className="bg-white border border-outline-variant p-4 shadow-technical group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2 h-2 bg-[#25D366]" />
-                  <span className="label-caps text-[#25D366] text-[10px]">
-                    WhatsApp Alarm
+              {/* Proof metric */}
+              <div className="relative mt-8 bg-background rounded-lg px-5 py-4 group-hover:-translate-y-0.5 transition-transform">
+                <div className="flex items-center gap-2 mb-1">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ background: c.wa ? '#25D366' : '#15604A' }}
+                  />
+                  <span
+                    className="label-caps text-[10px]"
+                    style={{ color: c.wa ? '#1f9e52' : '#15604A' }}
+                  >
+                    {c.proofLabel}
                   </span>
                 </div>
-                <p className="text-sm font-bold uppercase text-on-surface">
-                  {'<'} 60 Sek. bis zur Alarmierung
+                <p className="text-sm font-display font-semibold text-on-surface">
+                  {c.proof}
                 </p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

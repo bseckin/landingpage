@@ -14,6 +14,8 @@ import CaseStudyGrid from './components/CaseStudyGrid';
 import About from './components/About';
 import Footer from './components/Footer';
 import DiagnosisForm from './components/DiagnosisForm';
+import VideoSection from './components/VideoSection';
+import Testimonials from './components/Testimonials';
 
 const Admin = lazy(() => import('./routes/Admin'));
 
@@ -48,32 +50,29 @@ function HomePage() {
       <div className="noise-overlay" />
 
       {/* ═══════════════ HEADER ═══════════════ */}
-      <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant">
-        <nav className="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-          <div className="font-display text-xl font-black tracking-tighter uppercase text-on-surface">
+      <header className="fixed top-0 w-full z-50 bg-background/85 backdrop-blur-md border-b border-outline-variant">
+        <nav className="flex justify-between items-center h-16 md:h-[74px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+          <div className="font-display text-xl font-semibold tracking-tight text-on-surface">
             Berkay Seckin
           </div>
-          <div className="hidden md:flex gap-12 items-center">
-            <a className="label-caps text-on-surface border-b border-on-surface py-1" href="#">
-              Home
-            </a>
+          <div className="hidden md:flex gap-9 items-center">
             <a
-              className="label-caps text-on-surface-variant hover:text-on-surface transition-colors"
+              className="text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors"
               href="#process"
             >
               Prozess
             </a>
             <a
-              className="label-caps text-on-surface-variant hover:text-on-surface transition-colors"
+              className="text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors"
               href="#cases"
             >
               Fallstudien
             </a>
             <a
-              className="bg-on-surface text-background px-5 py-2 label-caps font-black hover:bg-on-surface/90 transition-all"
-              href="#cta"
+              className="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:-translate-y-0.5 hover:shadow-cta transition-all"
+              href="#diagnosis-form"
             >
-              Systemcheck
+              Systemcheck buchen
             </a>
           </div>
           <button className="md:hidden text-on-surface" aria-label="Menu">
@@ -92,18 +91,34 @@ function HomePage() {
         {/* Sektion 3: Lösung & Prozess (modular, inkl. Countdown) */}
         <Process />
 
-        {/* Sektion 4: Fallstudien / Proof (modular) */}
+        {/* Sektion 4: About & Credibility — Person zuerst, dann Szenarien */}
+        <About />
+
+        {/* Sektion 5: Fallstudien / Szenarien */}
         <CaseStudyGrid />
 
-        {/* Sektion 5: About & CTA (modular) */}
-        <About />
+        {/* Sektion 6: Testimonials */}
+        <Testimonials />
+
+        {/* Sektion 7: Video — emotionaler Trigger kurz vor CTA */}
+        <VideoSection />
 
         {/* Diagnosis Form Section */}
         <section
-          className="py-20 md:py-28 bg-background border-t border-outline-variant"
+          className="py-20 md:py-28 bg-surface border-t border-outline-variant"
           id="diagnosis-form"
         >
           <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+            <span className="label-caps text-primary mb-4 block">
+              Kostenloser Systemcheck
+            </span>
+            <h3 className="text-3xl md:text-4xl font-display font-semibold leading-tight max-w-2xl mx-auto mb-3">
+              Sagen Sie kurz, worum es geht — ich melde mich persönlich.
+            </h3>
+            <p className="text-on-surface-variant max-w-xl mx-auto mb-10">
+              Drei Felder, kein Verkaufsdruck. 15 Minuten am Telefon, danach
+              wissen Sie, was sich für Ihren Betrieb lohnt.
+            </p>
             <DiagnosisForm source="landingpage-main" />
           </div>
         </section>
