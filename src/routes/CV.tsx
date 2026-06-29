@@ -210,7 +210,7 @@ export default function CV() {
   }, []);
 
   return (
-    <div className="site-shell cv-page">
+    <div className="cv-page">
       <header className="site-nav">
         <div className="site-container nav-inner">
           <a href="/" className="brand">
@@ -232,14 +232,10 @@ export default function CV() {
         <header className="cv-header">
           <div className="site-container cv-header-grid">
             <div>
-              <p className="cv-eyebrow">Lebenslauf · Profil</p>
               <h1 className="cv-name">Berkay Seckin</h1>
               <p className="cv-role">
-                Requirements Engineer und Business Analyst, Wien. Schwerpunkt <b>Prozessautomatisierung</b>.
+                Requirements Engineer · Business Analyst · Wien
               </p>
-              <span className="cv-availability">
-                <span className="dot" /> Verfügbar für neue Mandate, remote oder im DACH-Raum
-              </span>
               <p className="cv-lead">
                 Ich nehme unklare Anforderungen auseinander und schreibe Spezifikationen, mit denen Entwickler
                 arbeiten können. Manches setze ich danach selbst um, schlüsselfertig. Die Erfahrung dazu kommt von
