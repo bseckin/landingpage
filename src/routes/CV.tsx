@@ -68,10 +68,11 @@ const experience: Experience[] = [
     period: 'Aug. 2024 – Juni 2025',
     location: 'Wien',
     bullets: [
-      'Anforderungen erhoben für Projekte der österreichischen Bundesverwaltung, rund um Datenmanagement, Knowledge Discovery und KI.',
-      'Stakeholder koordiniert und spezifiziert, unter den Audit- und Sicherheitsstandards, die im öffentlichen Sektor gelten.',
+      'Requirements Engineering für die österreichische Bundesverwaltung: Datenmanagementportal des Bundeskanzleramts (Digitalisierung und Langzeitarchivierung staatlicher Daten), eine Knowledge-Discovery-Suchlösung und die Plattform zum Informationsfreiheitsgesetz.',
+      'Lasten- und Pflichtenhefte sowie User Stories geschrieben, direkter Kundenkontakt mit dem Bundeskanzleramt.',
+      'Ergänzend die Scrum-Owner-Rolle übernommen und agile Strukturen im öffentlichen Umfeld aufgebaut.',
     ],
-    tags: ['Requirements Engineering', 'Datenmanagement', 'Public Sector', 'KI-Projekte'],
+    tags: ['Requirements Engineering', 'Datenmanagement', 'Public Sector', 'Scrum'],
   },
   {
     role: 'Business Analyst',
@@ -79,10 +80,23 @@ const experience: Experience[] = [
     period: 'Okt. 2019 – Juni 2023',
     location: 'Wien',
     bullets: [
-      'Schnittstelle zwischen ORF, internen Teams und externen Entwicklungspartnern. Es ging um die Streaming-Plattform ORF TVThek.',
-      'Anforderungen erhoben und über mehrere Vendoren hinweg koordiniert, unter anderem für den Timeshift- und den DRM-Token-Validation-Flow.',
+      'Das Requirements Engineering zwischen ORF, internen Fachbereichen und mehreren externen Entwicklungspartnern verantwortet — für VoD, Live-Streaming und Online-Werbung über Web, Mobile und Smart-TV.',
+      'Mehrere Lieferanten gleichzeitig koordiniert, PO-nahe Verantwortung von Konzeption bis Rollout.',
+      'Projekte: Timeshift mit DRM-Lizenzierung und Token-Validierung, 4K-UHD-VoD mit Video-Transcoding über die Bitmovin API, Adserving-API-Integration.',
     ],
-    tags: ['Business Analysis', 'Streaming', 'Multi-Vendor', 'DRM / Token-Flow'],
+    tags: ['Business Analysis', 'Streaming', 'Multi-Vendor', 'DRM / Token-Flow', 'Bitmovin API'],
+  },
+  {
+    role: 'AdTech Specialist',
+    org: 'Big Blue Marble Group',
+    period: 'Aug. 2016 – Aug. 2019',
+    location: 'Wien',
+    bullets: [
+      'Kampagnenmanagement und Ad-Serving auf digitalen ORF-Plattformen betreut.',
+      'Tracking über Web, Mobile und Smart-TV implementiert, Reporting-Diskrepanzen diagnostiziert.',
+      'Die AdTech-Integration für den TVThek-Relaunch 2019 koordiniert.',
+    ],
+    tags: ['AdTech', 'Ad-Serving', 'Tracking', 'Reporting'],
   },
 ];
 
@@ -117,8 +131,9 @@ const projects: Project[] = [
 const skills: { label: string; items: string[] }[] = [
   { label: 'Methodik', items: ['Requirements Engineering', 'Business Analysis', 'UML', 'BPMN', 'Scrum', 'Kanban'] },
   { label: 'Werkzeuge', items: ['Jira', 'Confluence', 'Lucidchart', 'Draw.io', 'Figma', 'Miro'] },
-  { label: 'Technologien', items: ['REST', 'JSON', 'XML', 'SQL (MySQL / PostgreSQL)', 'n8n', 'React'] },
-  { label: 'Domänen', items: ['Streaming-Plattformen', 'Public Sector', 'KMU-Prozessautomatisierung'] },
+  { label: 'Technologien', items: ['REST', 'JSON', 'XML', 'SQL (MySQL / PostgreSQL)', 'n8n', 'React', 'Prompt Engineering'] },
+  { label: 'Domänen', items: ['Streaming-Plattformen', 'AdTech', 'Public Sector', 'KMU-Prozessautomatisierung'] },
+  { label: 'Zertifikate', items: ['IREB Certified Professional for Requirements Engineering (CPRE)', 'KI-Beauftragter (WIFI Wien)'] },
   { label: 'Sprachen', items: ['Deutsch (Muttersprache)', 'Türkisch (fließend)', 'Englisch (verhandlungssicher)'] },
 ];
 

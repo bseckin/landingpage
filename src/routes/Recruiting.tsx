@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'Ist das DSGVO-konform?',
-    a: 'Ja. Verarbeitung auf eigener Server-Instanz, keine US-Cloud-Pflicht, lückenlose Nachvollziehbarkeit jedes Schritts — gebaut nach den Standards, unter denen ich bei ORF und Bundesrechenzentrum gearbeitet habe.',
+    a: 'Ja. Verarbeitung auf eigener Server-Instanz, keine US-Cloud-Pflicht, lückenlose Nachvollziehbarkeit jedes Schritts — gebaut nach den Standards, die ich bei ORF und Bundesrechenzentrum verantwortet habe.',
   },
   {
     q: 'Was, wenn eine Schnittstelle ausfällt?',
