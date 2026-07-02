@@ -204,9 +204,9 @@ export default function Recruiting() {
                     Jede Bewerbung in unter 60 Sek. auf dem Handy des zuständigen Recruiters — Sonntag
                     20 Uhr wie Dienstag 11 Uhr
                   </li>
-                  <li>Läuft auf deinem ATS (Bullhorn/Personio/Zoho) — kein neues Tool, kein Team-Training</li>
-                  <li>Kandidat bekommt sofort eine Bestätigung — Candidate Experience, ohne dass jemand tippt</li>
-                  <li>Kein offener Kontakt versandet — nach 48 h erzwingt das System das Nachfassen</li>
+                  <li>Läuft auf deinem ATS (Bullhorn/Personio/Zoho): kein neues Tool, kein Team-Training nötig</li>
+                  <li>Kandidat bekommt sofort eine Bestätigung, Candidate Experience ohne dass jemand tippt</li>
+                  <li>Nach 48 h ohne Rückmeldung erzwingt das System das Nachfassen. Kein offener Kontakt versandet</li>
                   <li>Fällt eine Schnittstelle aus, wirst du alarmiert — keine still verlorene Bewerbung</li>
                   <li>Du besitzt das System: vollständig dokumentiert, kein Vendor Lock-in</li>
                 </ul>
