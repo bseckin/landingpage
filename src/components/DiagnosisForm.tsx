@@ -2,8 +2,15 @@ import { useState, type FormEvent } from 'react';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-export default function DiagnosisForm({ source }: { source?: string }) {
+export default function DiagnosisForm({
+  source,
+  ctaLabel = 'Kostenlosen Systemcheck buchen',
+}: {
+  source?: string;
+  ctaLabel?: string;
+}) {
   const [status, setStatus] = useState<FormStatus>('idle');
+  const isRecruiting = source === 'recruiting';
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,10 +82,12 @@ export default function DiagnosisForm({ source }: { source?: string }) {
           <select
             className={selectClass}
             name="anfragen_pro_woche"
-            aria-label="Anfragen pro Woche"
+            aria-label={isRecruiting ? 'Bewerbungen pro Woche' : 'Anfragen pro Woche'}
             defaultValue=""
           >
-            <option value="" disabled>Anfragen/Woche</option>
+            <option value="" disabled>
+              {isRecruiting ? 'Bewerbungen/Woche' : 'Anfragen/Woche'}
+            </option>
             <option value="bis-5">bis 5</option>
             <option value="5-15">5 bis 15</option>
             <option value="15-40">15 bis 40</option>
@@ -93,15 +102,29 @@ export default function DiagnosisForm({ source }: { source?: string }) {
           <select
             className={selectClass}
             name="hauptkanal"
-            aria-label="Hauptkanal für Anfragen"
+            aria-label={isRecruiting ? 'Hauptkanal für Bewerbungen' : 'Hauptkanal für Anfragen'}
             defaultValue=""
           >
-            <option value="" disabled>Anfragen kommen per</option>
-            <option value="telefon">Meist Telefon</option>
-            <option value="whatsapp">Meist WhatsApp</option>
-            <option value="formular">Meist Formular</option>
-            <option value="email">Meist E-Mail</option>
-            <option value="gemischt">Alles gemischt</option>
+            <option value="" disabled>
+              {isRecruiting ? 'Bewerbungen kommen per' : 'Anfragen kommen per'}
+            </option>
+            {isRecruiting ? (
+              <>
+                <option value="formular">Meist Formular</option>
+                <option value="linkedin">Meist LinkedIn</option>
+                <option value="email">Meist E-Mail</option>
+                <option value="telefon">Meist Telefon</option>
+                <option value="gemischt">Alles gemischt</option>
+              </>
+            ) : (
+              <>
+                <option value="telefon">Meist Telefon</option>
+                <option value="whatsapp">Meist WhatsApp</option>
+                <option value="formular">Meist Formular</option>
+                <option value="email">Meist E-Mail</option>
+                <option value="gemischt">Alles gemischt</option>
+              </>
+            )}
           </select>
           <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-base">
             expand_more
@@ -114,9 +137,7 @@ export default function DiagnosisForm({ source }: { source?: string }) {
         disabled={status === 'submitting'}
         className="px-8 py-4 rounded-lg bg-primary text-white font-display font-semibold text-lg shadow-cta hover:shadow-cta-hover hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
       >
-        {status === 'submitting'
-          ? 'Wird gesendet…'
-          : 'Kostenlosen Systemcheck buchen'}
+        {status === 'submitting' ? 'Wird gesendet…' : ctaLabel}
       </button>
 
       {status === 'error' && (

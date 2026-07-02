@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'Ist das DSGVO-konform?',
-    a: 'Ja. Verarbeitung auf eigener Server-Instanz, keine US-Cloud-Pflicht, durchgängiger Audit-Trail — gebaut nach den Standards, die ich bei ORF und Bundesrechenzentrum verantwortet habe.',
+    a: 'Ja. Verarbeitung auf eigener Server-Instanz, keine US-Cloud-Pflicht, lückenlose Nachvollziehbarkeit jedes Schritts — gebaut nach den Standards, unter denen ich bei ORF und Bundesrechenzentrum gearbeitet habe.',
   },
   {
     q: 'Was, wenn eine Schnittstelle ausfällt?',
@@ -158,7 +158,7 @@ export default function Recruiting() {
                 <ul>
                   <li>Datensatz ins ATS (Bullhorn/Personio/Zoho)</li>
                   <li>48-h-Reminder bei offenem Kontakt</li>
-                  <li>Error-Handling &amp; Audit-Log</li>
+                  <li>Ausfallsicherheit &amp; lückenlose Nachvollziehbarkeit</li>
                 </ul>
               </article>
             </div>
@@ -311,7 +311,7 @@ export default function Recruiting() {
               <li>→ Ehrliche Einschätzung, kein Pitch</li>
               <li>→ Grobe Investitions-Range</li>
             </ul>
-            <DiagnosisForm source="recruiting" />
+            <DiagnosisForm source="recruiting" ctaLabel="Kostenlose Diagnose anfragen" />
             <p
               style={{
                 maxWidth: '440px',

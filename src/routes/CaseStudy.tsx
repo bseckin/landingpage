@@ -26,7 +26,8 @@ const CaseStudy = () => {
 
                 if (modules[path]) {
                     const mod: any = await modules[path]();
-                    if (mod.default?.status === 'draft' || typeof mod.default?.content !== 'string') {
+                    const status = mod.default?.status;
+                    if ((status !== 'client' && status !== 'demo') || typeof mod.default?.content !== 'string') {
                         throw new Error('Case Study not published');
                     }
                     setData(mod.default);
@@ -75,7 +76,7 @@ const CaseStudy = () => {
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <Link to="/#case-studies" className="inline-flex items-center gap-2 text-sm font-mono text-primary mb-8 hover:text-primary/80 transition-colors">
+                    <Link to="/#cases" className="inline-flex items-center gap-2 text-sm font-mono text-primary mb-8 hover:text-primary/80 transition-colors">
                         <ArrowLeft className="w-4 h-4" /> ZURÜCK ZUR ÜBERSICHT
                     </Link>
 
@@ -110,7 +111,7 @@ const CaseStudy = () => {
 
                         <div className="p-8 bg-white rounded-xl border border-slate-200/60 shadow-card">
                             <h4 className="text-slate-900 font-bold mb-4">Interessiert an ähnlichen Ergebnissen?</h4>
-                            <Link to="/#contact" className="inline-flex items-center justify-center w-full px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all shadow-[0_8px_24px_-6px_rgba(79,70,229,0.35)]">
+                            <Link to="/#diagnosis-form" className="inline-flex items-center justify-center w-full px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all shadow-[0_8px_24px_-6px_rgba(79,70,229,0.35)]">
                                 Termin vereinbaren
                             </Link>
                         </div>

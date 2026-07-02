@@ -12,7 +12,7 @@ const CASES = [
     num: '02',
     tag: 'Heizungsbau',
     title: 'Angebote in 4 Minuten statt 45.',
-    body: 'Ein Heizungsbauer brauchte 45 Minuten pro Angebot. Jetzt erstellt das System aus den Formulardaten automatisch einen Entwurf mit seinen hinterlegten Preisen. Der Inhaber prüft am Handy und sendet ab.',
+    body: 'Ein Heizungsbauer braucht oft 45 Minuten pro Angebot. Mit dem System entsteht automatisch ein Entwurf aus den Formulardaten und den hinterlegten Preisen. Der Inhaber prüft am Handy und sendet ab.',
     proofLabel: 'Auto-Generierung',
     proof: '4 Min. pro Angebot',
     wa: false,
@@ -21,7 +21,7 @@ const CASES = [
     num: '03',
     tag: 'SHK-Installation',
     title: 'Keine verpasste Anfrage mehr.',
-    body: 'Ein 5-Mann-Installationsbetrieb verlor Aufträge, weil WhatsApp- und Online-Anfragen stundenlang unbeantwortet blieben. Jetzt erfasst das System jede digitale Anfrage sofort und meldet sie in unter 60 Sekunden per WhatsApp.',
+    body: 'Ein 5-Mann-Installationsbetrieb verliert sonst Aufträge, weil WhatsApp- und Online-Anfragen stundenlang unbeantwortet bleiben. Mit dem System wird jede digitale Anfrage sofort erfasst und in unter 60 Sekunden per WhatsApp gemeldet.',
     proofLabel: 'WhatsApp-Alarm',
     proof: '< 60 Sek. bis zur Alarmierung',
     wa: true,
@@ -35,11 +35,14 @@ const CaseStudyGrid = () => {
         <div className="max-w-2xl">
           <span className="label-caps text-primary mb-4 block">Szenarien</span>
           <h3 className="text-3xl md:text-5xl font-display font-semibold leading-[1.08] tracking-tight">
-            Wie das System in der Praxis arbeitet.
+            Typische Einsatzszenarien im Handwerksalltag.
           </h3>
           <p className="text-on-surface-variant text-base md:text-lg mt-4">
             Drei Betriebstypen, drei Probleme — dasselbe System, angepasst auf
             den jeweiligen Arbeitsalltag.
+          </p>
+          <p className="label-caps text-on-surface-variant/50 mt-3">
+            Illustrative Szenarien — keine abgerechneten Kundenprojekte.
           </p>
         </div>
       </div>
