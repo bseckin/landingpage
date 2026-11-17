@@ -76,8 +76,7 @@ const About = () => {
             <p className="text-base md:text-lg text-on-surface-variant leading-relaxed">
               Bei Ihrem Betrieb ist der Einsatz ein anderer, aber das Prinzip
               dasselbe: Eine Stunde ohne Antwort, und der Kunde hat den nächsten
-              Installateur angerufen. Ich baue Systeme, die das verhindern —
-              ohne monatliche Kosten, ohne Abo bei externen Plattformen.
+              Betrieb angerufen. Ich baue Systeme, die das verhindern.
             </p>
 
             {/* CTA Card */}

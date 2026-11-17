@@ -14,8 +14,6 @@ import CaseStudyGrid from './components/CaseStudyGrid';
 import About from './components/About';
 import Footer from './components/Footer';
 import DiagnosisForm from './components/DiagnosisForm';
-import VideoSection from './components/VideoSection';
-import Testimonials from './components/Testimonials';
 
 const Admin = lazy(() => import('./routes/Admin'));
 
@@ -96,12 +94,6 @@ function HomePage() {
 
         {/* Sektion 5: Fallstudien / Szenarien */}
         <CaseStudyGrid />
-
-        {/* Sektion 6: Testimonials */}
-        <Testimonials />
-
-        {/* Sektion 7: Video — emotionaler Trigger kurz vor CTA */}
-        <VideoSection />
 
         {/* Diagnosis Form Section */}
         <section

@@ -70,9 +70,6 @@ const ProblemGrid = () => {
               1.500–3.000{' '}
               <span className="text-lg font-body font-normal text-on-surface-variant">€</span>
             </p>
-            <p className="text-xs text-on-surface-variant mt-1.5">
-              Das System: einmalig ab 2.000 € — ohne Abo.
-            </p>
           </div>
         </div>
       </div>

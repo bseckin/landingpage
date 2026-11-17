@@ -51,8 +51,8 @@ const PROOF = [
   },
   {
     label: 'Ihr Eigentum',
-    title: 'Das System gehört Ihnen. Keine monatlichen Kosten.',
-    body: 'Es läuft auf österreichischen Servern und gehört Ihnen. Sie zahlen einmal — bei Bedarf stehe ich für Wartung zur Verfügung. Kein Abo, das jeden Monat Geld frisst.',
+    title: 'Ihre Anfragen gehören Ihnen.',
+    body: 'Der Server steht in Deutschland. Endet die Zusammenarbeit, bekommen Sie alles als Datei, und ich lösche es bei mir.',
   },
 ];
 

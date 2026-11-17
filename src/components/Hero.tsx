@@ -26,7 +26,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary-soft text-primary mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <span className="label-caps">Für SHK-, PV- und Handwerksbetriebe</span>
+            <span className="label-caps">Für Handwerks-, Räumungs- und Übersiedlungsbetriebe</span>
           </div>
 
           {/* Headline */}
@@ -69,8 +69,6 @@ const Hero = () => {
           {/* Chips */}
           <div className="flex flex-wrap gap-2.5">
             {[
-              'Festpreis ab 2.000 €',
-              'Kein Abo, keine Monatskosten',
               'Aus Wien, persönlich erreichbar',
             ].map((chip) => (
               <span
