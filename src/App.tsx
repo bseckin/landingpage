@@ -10,7 +10,6 @@ import CV from './routes/CV';
 import Hero from './components/Hero';
 import ProblemGrid from './components/ProblemGrid';
 import Process from './components/Process';
-import CaseStudyGrid from './components/CaseStudyGrid';
 import About from './components/About';
 import Footer from './components/Footer';
 import DiagnosisForm from './components/DiagnosisForm';
@@ -61,12 +60,6 @@ function HomePage() {
               Prozess
             </a>
             <a
-              className="text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors"
-              href="#cases"
-            >
-              Fallstudien
-            </a>
-            <a
               className="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:-translate-y-0.5 hover:shadow-cta transition-all"
               href="#diagnosis-form"
             >
@@ -89,11 +82,8 @@ function HomePage() {
         {/* Sektion 3: Lösung & Prozess (modular, inkl. Countdown) */}
         <Process />
 
-        {/* Sektion 4: About & Credibility — Person zuerst, dann Szenarien */}
+        {/* Sektion 4: About & Credibility */}
         <About />
-
-        {/* Sektion 5: Fallstudien / Szenarien */}
-        <CaseStudyGrid />
 
         {/* Diagnosis Form Section */}
         <section
