@@ -1,22 +1,3 @@
-import { useEffect, useState } from 'react';
-
-/* ─── 60-Sekunden Countdown Timer ─────────────────────────────── */
-function useCountdown(initialSeconds: number) {
-  const [timeLeft, setTimeLeft] = useState(initialSeconds);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setTimeLeft((prev) => {
-        const next = prev - 1;
-        return next < 0 ? initialSeconds : next;
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, [initialSeconds]);
-
-  return `0:${String(timeLeft).padStart(2, '0')}`;
-}
-
 const STEPS = [
   {
     n: 'Schritt 1',
@@ -57,8 +38,6 @@ const PROOF = [
 ];
 
 const Process = () => {
-  const display = useCountdown(60);
-
   return (
     <section
       className="py-24 md:py-32 bg-background border-b border-outline-variant"
@@ -69,7 +48,7 @@ const Process = () => {
         <div className="text-center mb-14 md:mb-16 max-w-3xl mx-auto">
           <span className="label-caps text-primary mb-4 block">Der Workflow</span>
           <h3 className="text-3xl md:text-5xl font-display font-semibold leading-[1.08] tracking-tight">
-            Eine Anfrage kommt rein. Das passiert in den nächsten 60 Sekunden.
+            Eine Anfrage kommt rein. So wird daraus ein Besichtigungstermin.
           </h3>
         </div>
 
@@ -92,24 +71,20 @@ const Process = () => {
                   online
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-white/90">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                {display}
-              </div>
             </div>
             {/* Chat */}
             <div className="p-4 flex flex-col gap-2.5 bg-[#ECE5DD]">
               <div className="self-start max-w-[82%] bg-white rounded-xl rounded-tl-sm px-3 py-2 text-[13px] text-on-surface shadow-sm">
-                Hallo, unsere Heizung ist ausgefallen. Können Sie kommen?
+                Hallo, wir müssen die Wohnung meiner Mutter räumen. Können Sie sich das ansehen?
               </div>
               <div
                 className="self-end max-w-[82%] rounded-xl rounded-tr-sm px-3 py-2 text-[13px] shadow-sm"
                 style={{ background: '#DCF8C6', color: '#1C1A16' }}
               >
-                Gerne! Damit der Chef gleich alles hat: Welcher Heizungstyp &amp; PLZ?
+                Gerne! Damit der Chef gleich alles hat: Wie viele Zimmer, welcher Stock, PLZ?
               </div>
               <div className="self-start max-w-[82%] bg-white rounded-xl rounded-tl-sm px-3 py-2 text-[13px] text-on-surface shadow-sm">
-                Gastherme Vaillant, 1100 Wien, brennt nicht mehr.
+                3 Zimmer, 4. Stock ohne Lift, 1180 Wien.
               </div>
             </div>
             {/* Result */}
@@ -122,7 +97,7 @@ const Process = () => {
                   Qualifizierter Auftrag → Ihr Handy
                 </div>
                 <div className="text-[12px] text-on-surface-variant mt-0.5">
-                  Gastherme · 1100 Wien · Notfall · vollständig erfasst
+                  Räumung · 3 Zimmer · 1180 Wien · vollständig erfasst
                 </div>
               </div>
             </div>
